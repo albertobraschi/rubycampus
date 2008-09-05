@@ -40,10 +40,6 @@ class Permission < ActiveRecord::Base
   belongs_to :role                
   
 end
-
-
-
-
 # == Schema Information
 # Schema version: 20080902230656
 #

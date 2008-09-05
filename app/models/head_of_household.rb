@@ -40,10 +40,7 @@ class HeadOfHousehold < ActiveRecord::Base
   set_table_name RUBYCAMPUS_HEAD_OF_HOUSEHOLD_TABLE
   has_many :contacts     
     
-end 
-
-
-
+end
 # == Schema Information
 # Schema version: 20080902230656
 #

@@ -48,11 +48,6 @@ class ContactType < ActiveRecord::Base
   [s.name, s.id] 
   end
 end
-
-
-
-
-
 # == Schema Information
 # Schema version: 20080902230656
 #

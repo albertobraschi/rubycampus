@@ -277,13 +277,7 @@ class Contact < ActiveRecord::Base
         self.head_of_household = HeadOfHousehold.find_by_last_name(last_name) unless last_name.blank?
       end
     # end head_of_household_last_name  
-  
 end
-
-
-
-
-
 # == Schema Information
 # Schema version: 20080902230656
 #

@@ -40,10 +40,6 @@ class Role < ActiveRecord::Base
   has_many :users, :through => :permissions    
   
 end
-
-
-
-
 # == Schema Information
 # Schema version: 20080902230656
 #

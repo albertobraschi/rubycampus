@@ -48,11 +48,6 @@ class MessagingProvider < ActiveRecord::Base
   end
 
 end
-
-
-
-
-
 # == Schema Information
 # Schema version: 20080902230656
 #

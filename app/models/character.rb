@@ -45,5 +45,4 @@ class Character
   def initialize(char)
     @char = char
   end
-
 end

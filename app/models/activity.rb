@@ -91,27 +91,6 @@ class Activity < ActiveRecord::Base
     # end contact_name
   # end Virtual Attributes
 end
-
-# == Schema Information
-# Schema version: 20080902230656
-#
-# Table name: rubycampus_activities
-#
-#  id                 :integer(11)     not null, primary key
-#  contact_id  :integer(11)
-#  source_record_id   :integer(11)
-#  activity_type_id   :integer(11)
-#  subject            :string(255)
-#  starts_at :datetime
-#  ends_at      :datetime
-#  duration           :integer(11)
-#  location           :string(255)
-#  details            :text
-#  status_id          :integer(11)
-#  priority_id        :integer(11)
-#  created_at         :datetime
-#  updated_at         :datetime
-#
 # == Schema Information
 # Schema version: 20080902230656
 #

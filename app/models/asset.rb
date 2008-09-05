@@ -46,9 +46,6 @@ class Asset < ActiveRecord::Base
   # 
   # validates_as_attachment   
 end
-
-
-
 # == Schema Information
 # Schema version: 20080902230656
 #

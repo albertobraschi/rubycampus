@@ -42,11 +42,6 @@ class Email < ActiveRecord::Base
   validates_as_rubycampus_email :address, :allow_blank => true
 
 end
-
-
-
-
-
 # == Schema Information
 # Schema version: 20080902230656
 #

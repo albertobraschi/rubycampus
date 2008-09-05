@@ -51,11 +51,6 @@ class Phone < ActiveRecord::Base
     self.mobile_provider = MobileProvider.find_or_create_by_name(name) unless name.blank?  
   end
 end
-
-
-
-
-
 # == Schema Information
 # Schema version: 20080902230656
 #

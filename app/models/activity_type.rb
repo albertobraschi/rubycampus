@@ -43,8 +43,6 @@ class ActivityType < ActiveRecord::Base
     find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "position ASC" )  
   end
 end
-
-
 # == Schema Information
 # Schema version: 20080902230656
 #

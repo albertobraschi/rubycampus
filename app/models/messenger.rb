@@ -50,11 +50,6 @@ class Messenger < ActiveRecord::Base
     self.messaging_provider = MessagingProvider.find_or_create_by_name(name) unless name.blank?  
   end
 end
-
-
-
-
-
 # == Schema Information
 # Schema version: 20080902230656
 #
