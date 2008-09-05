@@ -1,6 +1,10 @@
-h3. THIS SOFTWARE IS CURRENTLY UNDER ACTIVE DEVELOPMENT AND THIS REPOSITORY IS A SNAPSHOT THAT IS NOT INTENDED FOR GENERAL USE. IT IS PURELY INTENDED FOR RUBYCAMPUS DEVELOPERS AND OTHER INTERESTED PARTIES FOLLOWING AND/OR CONTRIBUTING TOWARDS THE PROJECT.  
+bq. THIS SOFTWARE IS CURRENTLY UNDER ACTIVE DEVELOPMENT AND THIS REPOSITORY IS A SNAPSHOT THAT IS NOT INTENDED FOR GENERAL USE. IT IS PURELY INTENDED FOR RUBYCAMPUS DEVELOPERS AND OTHER INTERESTED PARTIES FOLLOWING AND/OR CONTRIBUTING TOWARDS THE PROJECT.  
 
-h1. RubyCampus - Relationship and Fundraising Management for Higher Education       
+bq. このソフトウェアは現在開発中です。 またこのレポジトリは、一般の使用目的ではないスナップショットです。これは本来 RUBYCAMPUS の開発者たちとその他のそのプロジェクトへ貢献している方たちの対象のものです。
+
+!https://rubycampus.org/r/screenshots/001.png!
+
+h2. RubyCampus - Relationship and Fundraising Management for Higher Education       
 
 bq. RubyCampus is designed to store and manage highly sensitive information regarding constituents of educational organizations, governmental and non-governmental agencies. Every effort has been made to help ensure RubyCampus meets and exceeds the standards set by regulatory bodies around the world regarding the storage and retrieval of sensitive information through the use of security and cryptographic mechanisms. 
 
