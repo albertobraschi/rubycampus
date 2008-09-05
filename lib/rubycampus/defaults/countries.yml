@@ -1,0 +1,2243 @@
+#--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
+# +------------------------------------------------------------------------------------+
+# | RubyCampus - Relationship and Fundraising Management for Higher Education          |
+# +------------------------------------------------------------------------------------+
+# | Copyright (C) 2008 Kevin Aleman, RubyCampus LLC Japan - https://rubycampus.org     |
+# +------------------------------------------------------------------------------------+
+# |                                                                                    |
+# | This program is free software; you can redistribute it and/or modify it under the  |
+# | terms of the GNU Affero General Public License version 3 as published by the Free  |
+# | Software Foundation with the addition of the following permission added to Section |
+# | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
+# | COPYRIGHT IS OWNED BY RUBYCAMPUS LLC, RUBYCAMPUS LLC DISCLAIMS THE WARRANTY OF NON |
+# | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
+# |                                                                                    |
+# | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
+# | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
+# | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
+# |                                                                                    |
+# | You should have received a copy of the GNU Affero General Public License along     |
+# | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
+# | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
+# | USA.                                                                               |
+# |                                                                                    |
+# | You can contact RubyCampus, LLC. at email address info@rubycampus.org.             |
+# |                                                                                    |
+# | The interactive user interfaces in modified source and object code versions of     |
+# | this program must display Appropriate Legal Notices, as required under Section 5   |
+# | of the GNU Affero General Public License version 3.                                |
+# |                                                                                    |
+# | In accordance with Section 7(b) of the GNU Affero General Public License version   |
+# | 3, these Appropriate Legal Notices must retain the display of the "Powered by      |
+# | RubyCampus" logo. If the display of the logo is not reasonably feasible for        |
+# | technical reasons, the Appropriate Legal Notices must display the words "Powered   |
+# | by RubyCampus".                                                                    |
+# +------------------------------------------------------------------------------------+
+#++
+<%- num = 5%>
+--- 
+rubycampus_country_001: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1001"
+  idd_prefix: ~
+  iso_code: AF
+  name: Afghanistan
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_002: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1002"
+  idd_prefix: ~
+  iso_code: AL
+  name: Albania
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_003: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1003"
+  idd_prefix: ~
+  iso_code: DZ
+  name: Algeria
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_004: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1004"
+  idd_prefix: ~
+  iso_code: AS
+  name: "American Samoa"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_005: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1005"
+  idd_prefix: ~
+  iso_code: AD
+  name: Andorra
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_006: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1006"
+  idd_prefix: ~
+  iso_code: AO
+  name: Angola
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_007: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1007"
+  idd_prefix: ~
+  iso_code: AI
+  name: Anguilla
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_008: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1008"
+  idd_prefix: ~
+  iso_code: AQ
+  name: Antarctica
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_009: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1009"
+  idd_prefix: ~
+  iso_code: AG
+  name: "Antigua and Barbuda"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_010: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1010"
+  idd_prefix: ~
+  iso_code: AR
+  name: Argentina
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_011: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1011"
+  idd_prefix: ~
+  iso_code: AM
+  name: Armenia
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_012: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1012"
+  idd_prefix: ~
+  iso_code: AW
+  name: Aruba
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_013: 
+  country_code: ~
+  position: "4"
+  id: "1013"
+  idd_prefix: ~
+  iso_code: AU
+  name: Australia
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_014: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1014"
+  idd_prefix: ~
+  iso_code: AT
+  name: Austria
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_015: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1015"
+  idd_prefix: ~
+  iso_code: AZ
+  name: Azerbaijan
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_016: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1016"
+  idd_prefix: ~
+  iso_code: BH
+  name: Bahrain
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_017: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1017"
+  idd_prefix: ~
+  iso_code: BD
+  name: Bangladesh
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_018: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1018"
+  idd_prefix: ~
+  iso_code: BB
+  name: Barbados
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_019: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1019"
+  idd_prefix: ~
+  iso_code: BY
+  name: Belarus
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_020: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1020"
+  idd_prefix: ~
+  iso_code: BE
+  name: Belgium
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_021: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1021"
+  idd_prefix: ~
+  iso_code: BZ
+  name: Belize
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_022: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1022"
+  idd_prefix: ~
+  iso_code: BJ
+  name: Benin
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_023: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1023"
+  idd_prefix: ~
+  iso_code: BM
+  name: Bermuda
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_024: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1024"
+  idd_prefix: ~
+  iso_code: BT
+  name: Bhutan
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_025: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1025"
+  idd_prefix: ~
+  iso_code: BO
+  name: Bolivia
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_026: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1026"
+  idd_prefix: ~
+  iso_code: BA
+  name: "Bosnia and Herzegovina"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_027: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1027"
+  idd_prefix: ~
+  iso_code: BW
+  name: Botswana
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_028: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1028"
+  idd_prefix: ~
+  iso_code: BV
+  name: "Bouvet Island"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_029: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1029"
+  idd_prefix: ~
+  iso_code: BR
+  name: Brazil
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_030: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1030"
+  idd_prefix: ~
+  iso_code: IO
+  name: "British Indian Ocean Territory"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_031: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1031"
+  idd_prefix: ~
+  iso_code: VG
+  name: "Virgin Islands, British"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_032: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1032"
+  idd_prefix: ~
+  iso_code: BN
+  name: "Brunei Darussalam"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_033: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1033"
+  idd_prefix: ~
+  iso_code: BG
+  name: Bulgaria
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_034: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1034"
+  idd_prefix: ~
+  iso_code: BF
+  name: "Burkina Faso"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_035: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1035"
+  idd_prefix: ~
+  iso_code: MM
+  name: Myanmar
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_036: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1036"
+  idd_prefix: ~
+  iso_code: BI
+  name: Burundi
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_037: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1037"
+  idd_prefix: ~
+  iso_code: KH
+  name: Cambodia
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_038: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1038"
+  idd_prefix: ~
+  iso_code: CM
+  name: Cameroon
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_039: 
+  country_code: ~
+  position: "3"
+  id: "1039"
+  idd_prefix: ~
+  iso_code: CA
+  name: Canada
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_040: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1040"
+  idd_prefix: ~
+  iso_code: CV
+  name: "Cape Verde"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_041: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1041"
+  idd_prefix: ~
+  iso_code: KY
+  name: "Cayman Islands"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_042: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1042"
+  idd_prefix: ~
+  iso_code: CF
+  name: "Central African Republic"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_043: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1043"
+  idd_prefix: ~
+  iso_code: TD
+  name: Chad
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_044: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1044"
+  idd_prefix: ~
+  iso_code: CL
+  name: Chile
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_045: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1045"
+  idd_prefix: ~
+  iso_code: CN
+  name: China
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_046: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1046"
+  idd_prefix: ~
+  iso_code: CX
+  name: "Christmas Island"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_047: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1047"
+  idd_prefix: ~
+  iso_code: CC
+  name: "Cocos (Keeling) Islands"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_048: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1048"
+  idd_prefix: ~
+  iso_code: CO
+  name: Colombia
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_049: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1049"
+  idd_prefix: ~
+  iso_code: KM
+  name: Comoros
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_050: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1050"
+  idd_prefix: ~
+  iso_code: CD
+  name: "Congo, The Democratic Republic of the"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_051: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1051"
+  idd_prefix: ~
+  iso_code: CG
+  name: Congo
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_052: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1052"
+  idd_prefix: ~
+  iso_code: CK
+  name: "Cook Islands"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_053: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1053"
+  idd_prefix: ~
+  iso_code: CR
+  name: "Costa Rica"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_054: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1054"
+  idd_prefix: ~
+  iso_code: CI
+  name: "Côte d'Ivoire"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_055: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1055"
+  idd_prefix: ~
+  iso_code: HR
+  name: Croatia
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_056: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1056"
+  idd_prefix: ~
+  iso_code: CU
+  name: Cuba
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_057: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1057"
+  idd_prefix: ~
+  iso_code: CY
+  name: Cyprus
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_058: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1058"
+  idd_prefix: ~
+  iso_code: CZ
+  name: "Czech Republic"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_059: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1059"
+  idd_prefix: ~
+  iso_code: DK
+  name: Denmark
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_060: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1060"
+  idd_prefix: ~
+  iso_code: DJ
+  name: Djibouti
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_061: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1061"
+  idd_prefix: ~
+  iso_code: DM
+  name: Dominica
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_062: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1062"
+  idd_prefix: ~
+  iso_code: DO
+  name: "Dominican Republic"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_063: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1063"
+  idd_prefix: ~
+  iso_code: TL
+  name: Timor-Leste
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_064: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1064"
+  idd_prefix: ~
+  iso_code: EC
+  name: Ecuador
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_065: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1065"
+  idd_prefix: ~
+  iso_code: EG
+  name: Egypt
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_066: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1066"
+  idd_prefix: ~
+  iso_code: SV
+  name: "El Salvador"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_067: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1067"
+  idd_prefix: ~
+  iso_code: GQ
+  name: "Equatorial Guinea"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_068: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1068"
+  idd_prefix: ~
+  iso_code: ER
+  name: Eritrea
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_069: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1069"
+  idd_prefix: ~
+  iso_code: EE
+  name: Estonia
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_070: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1070"
+  idd_prefix: ~
+  iso_code: ET
+  name: Ethiopia
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_071: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1072"
+  idd_prefix: ~
+  iso_code: FK
+  name: "Falkland Islands (Malvinas)"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_072: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1073"
+  idd_prefix: ~
+  iso_code: FO
+  name: "Faroe Islands"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_073: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1074"
+  idd_prefix: ~
+  iso_code: FJ
+  name: Fiji
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_074: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1075"
+  idd_prefix: ~
+  iso_code: FI
+  name: Finland
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_075: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1076"
+  idd_prefix: ~
+  iso_code: FR
+  name: France
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_076: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1077"
+  idd_prefix: ~
+  iso_code: GF
+  name: "French Guiana"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_077: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1078"
+  idd_prefix: ~
+  iso_code: PF
+  name: "French Polynesia"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_078: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1079"
+  idd_prefix: ~
+  iso_code: TF
+  name: "French Southern Territories"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_079: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1080"
+  idd_prefix: ~
+  iso_code: GA
+  name: Gabon
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_080: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1081"
+  idd_prefix: ~
+  iso_code: GE
+  name: Georgia
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_081: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1082"
+  idd_prefix: ~
+  iso_code: DE
+  name: Germany
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_082: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1083"
+  idd_prefix: ~
+  iso_code: GH
+  name: Ghana
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_083: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1084"
+  idd_prefix: ~
+  iso_code: GI
+  name: Gibraltar
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_084: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1085"
+  idd_prefix: ~
+  iso_code: GR
+  name: Greece
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_085: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1086"
+  idd_prefix: ~
+  iso_code: GL
+  name: Greenland
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_086: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1087"
+  idd_prefix: ~
+  iso_code: GD
+  name: Grenada
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_087: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1088"
+  idd_prefix: ~
+  iso_code: GP
+  name: Guadeloupe
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_088: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1089"
+  idd_prefix: ~
+  iso_code: GU
+  name: Guam
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_089: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1090"
+  idd_prefix: ~
+  iso_code: GT
+  name: Guatemala
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_090: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1091"
+  idd_prefix: ~
+  iso_code: GN
+  name: Guinea
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_091: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1092"
+  idd_prefix: ~
+  iso_code: GW
+  name: Guinea-Bissau
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_092: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1093"
+  idd_prefix: ~
+  iso_code: GY
+  name: Guyana
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_093: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1094"
+  idd_prefix: ~
+  iso_code: HT
+  name: Haiti
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_094: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1095"
+  idd_prefix: ~
+  iso_code: HM
+  name: "Heard Island and McDonald Islands"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_095: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1096"
+  idd_prefix: ~
+  iso_code: VA
+  name: "Holy See (Vatican City State)"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_096: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1097"
+  idd_prefix: ~
+  iso_code: HN
+  name: Honduras
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_097: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1098"
+  idd_prefix: ~
+  iso_code: HK
+  name: "Hong Kong"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_098: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1099"
+  idd_prefix: ~
+  iso_code: HU
+  name: Hungary
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_099: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1100"
+  idd_prefix: ~
+  iso_code: IS
+  name: Iceland
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_100: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1101"
+  idd_prefix: ~
+  iso_code: IN
+  name: India
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_101: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1102"
+  idd_prefix: ~
+  iso_code: ID
+  name: Indonesia
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_102: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1103"
+  idd_prefix: ~
+  iso_code: IR
+  name: "Iran, Islamic Republic of"
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_103: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1104"
+  idd_prefix: ~
+  iso_code: IQ
+  name: Iraq
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_104: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1105"
+  idd_prefix: ~
+  iso_code: IE
+  name: Ireland
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_105: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1106"
+  idd_prefix: ~
+  iso_code: IL
+  name: Israel
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_106: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1107"
+  idd_prefix: ~
+  iso_code: IT
+  name: Italy
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_107: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1108"
+  idd_prefix: ~
+  iso_code: JM
+  name: Jamaica
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_108: 
+  country_code: ~
+  position: "5"
+  id: "1109"
+  idd_prefix: ~
+  iso_code: JP
+  name: Japan
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_109: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1110"
+  idd_prefix: ~
+  iso_code: JO
+  name: Jordan
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_110: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1111"
+  idd_prefix: ~
+  iso_code: KZ
+  name: Kazakhstan
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_111: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1112"
+  idd_prefix: ~
+  iso_code: KE
+  name: Kenya
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_112: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1113"
+  idd_prefix: ~
+  iso_code: KI
+  name: Kiribati
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_113: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1114"
+  idd_prefix: ~
+  iso_code: KP
+  name: "Korea, Democratic People's Republic of"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_114: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1115"
+  idd_prefix: ~
+  iso_code: KR
+  name: "Korea, Republic of"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_115: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1116"
+  idd_prefix: ~
+  iso_code: KW
+  name: Kuwait
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_116: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1117"
+  idd_prefix: ~
+  iso_code: KG
+  name: Kyrgyzstan
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_117: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1118"
+  idd_prefix: ~
+  iso_code: LA
+  name: "Lao People's Democratic Republic"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_118: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1119"
+  idd_prefix: ~
+  iso_code: LV
+  name: Latvia
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_119: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1120"
+  idd_prefix: ~
+  iso_code: LB
+  name: Lebanon
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_120: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1121"
+  idd_prefix: ~
+  iso_code: LS
+  name: Lesotho
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_121: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1122"
+  idd_prefix: ~
+  iso_code: LR
+  name: Liberia
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_122: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1123"
+  idd_prefix: ~
+  iso_code: LY
+  name: "Libyan Arab Jamahiriya"
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_123: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1124"
+  idd_prefix: ~
+  iso_code: LI
+  name: Liechtenstein
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_124: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1125"
+  idd_prefix: ~
+  iso_code: LT
+  name: Lithuania
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_125: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1126"
+  idd_prefix: ~
+  iso_code: LU
+  name: Luxembourg
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_126: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1127"
+  idd_prefix: ~
+  iso_code: MO
+  name: Macao
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_127: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1128"
+  idd_prefix: ~
+  iso_code: MK
+  name: "Macedonia, Republic of"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_128: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1129"
+  idd_prefix: ~
+  iso_code: MG
+  name: Madagascar
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_129: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1130"
+  idd_prefix: ~
+  iso_code: MW
+  name: Malawi
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_130: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1131"
+  idd_prefix: ~
+  iso_code: MY
+  name: Malaysia
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_131: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1132"
+  idd_prefix: ~
+  iso_code: MV
+  name: Maldives
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_132: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1133"
+  idd_prefix: ~
+  iso_code: ML
+  name: Mali
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_133: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1134"
+  idd_prefix: ~
+  iso_code: MT
+  name: Malta
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_134: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1135"
+  idd_prefix: ~
+  iso_code: MH
+  name: "Marshall Islands"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_135: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1136"
+  idd_prefix: ~
+  iso_code: MQ
+  name: Martinique
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_136: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1137"
+  idd_prefix: ~
+  iso_code: MR
+  name: Mauritania
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_137: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1138"
+  idd_prefix: ~
+  iso_code: MU
+  name: Mauritius
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_138: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1139"
+  idd_prefix: ~
+  iso_code: YT
+  name: Mayotte
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_139: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1140"
+  idd_prefix: ~
+  iso_code: MX
+  name: Mexico
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_140: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1141"
+  idd_prefix: ~
+  iso_code: FM
+  name: "Micronesia, Federated States of"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_141: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1142"
+  idd_prefix: ~
+  iso_code: MD
+  name: "Moldova, Republic of"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_142: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1143"
+  idd_prefix: ~
+  iso_code: MC
+  name: Monaco
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_143: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1144"
+  idd_prefix: ~
+  iso_code: MN
+  name: Mongolia
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_144: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1145"
+  idd_prefix: ~
+  iso_code: MS
+  name: Montserrat
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_145: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1146"
+  idd_prefix: ~
+  iso_code: MA
+  name: Morocco
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_146: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1147"
+  idd_prefix: ~
+  iso_code: MZ
+  name: Mozambique
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_147: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1148"
+  idd_prefix: ~
+  iso_code: NA
+  name: Namibia
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_148: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1149"
+  idd_prefix: ~
+  iso_code: NR
+  name: Nauru
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_149: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1150"
+  idd_prefix: ~
+  iso_code: NP
+  name: Nepal
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_150: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1151"
+  idd_prefix: ~
+  iso_code: AN
+  name: "Netherlands Antilles"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_151: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1152"
+  idd_prefix: ~
+  iso_code: NL
+  name: Netherlands
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_152: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1153"
+  idd_prefix: ~
+  iso_code: NC
+  name: "New Caledonia"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_153: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1154"
+  idd_prefix: ~
+  iso_code: NZ
+  name: "New Zealand"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_154: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1155"
+  idd_prefix: ~
+  iso_code: NI
+  name: Nicaragua
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_155: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1156"
+  idd_prefix: ~
+  iso_code: NE
+  name: Niger
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_156: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1157"
+  idd_prefix: ~
+  iso_code: NG
+  name: Nigeria
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_157: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1158"
+  idd_prefix: ~
+  iso_code: NU
+  name: Niue
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_158: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1159"
+  idd_prefix: ~
+  iso_code: NF
+  name: "Norfolk Island"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_159: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1160"
+  idd_prefix: ~
+  iso_code: MP
+  name: "Northern Mariana Islands"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_160: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1161"
+  idd_prefix: ~
+  iso_code: "NO"
+  name: Norway
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_161: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1162"
+  idd_prefix: ~
+  iso_code: OM
+  name: Oman
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_162: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1163"
+  idd_prefix: ~
+  iso_code: PK
+  name: Pakistan
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_163: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1164"
+  idd_prefix: ~
+  iso_code: PW
+  name: Palau
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_164: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1165"
+  idd_prefix: ~
+  iso_code: PS
+  name: "Palestinian Territory, Occupied"
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_165: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1166"
+  idd_prefix: ~
+  iso_code: PA
+  name: Panama
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_166: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1167"
+  idd_prefix: ~
+  iso_code: PG
+  name: "Papua New Guinea"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_167: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1168"
+  idd_prefix: ~
+  iso_code: PY
+  name: Paraguay
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_168: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1169"
+  idd_prefix: ~
+  iso_code: PE
+  name: Peru
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_169: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1170"
+  idd_prefix: ~
+  iso_code: PH
+  name: Philippines
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_170: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1171"
+  idd_prefix: ~
+  iso_code: PN
+  name: Pitcairn
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_171: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1172"
+  idd_prefix: ~
+  iso_code: PL
+  name: Poland
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_172: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1173"
+  idd_prefix: ~
+  iso_code: PT
+  name: Portugal
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_173: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1174"
+  idd_prefix: ~
+  iso_code: PR
+  name: "Puerto Rico"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_174: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1175"
+  idd_prefix: ~
+  iso_code: QA
+  name: Qatar
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_175: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1176"
+  idd_prefix: ~
+  iso_code: RO
+  name: Romania
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_176: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1177"
+  idd_prefix: ~
+  iso_code: RU
+  name: "Russian Federation"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_177: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1178"
+  idd_prefix: ~
+  iso_code: RW
+  name: Rwanda
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_178: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1179"
+  idd_prefix: ~
+  iso_code: RE
+  name: Reunion
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_179: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1180"
+  idd_prefix: ~
+  iso_code: SH
+  name: "Saint Helena"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_180: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1181"
+  idd_prefix: ~
+  iso_code: KN
+  name: "Saint Kitts and Nevis"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_181: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1182"
+  idd_prefix: ~
+  iso_code: LC
+  name: "Saint Lucia"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_182: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1183"
+  idd_prefix: ~
+  iso_code: PM
+  name: "Saint Pierre and Miquelon"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_183: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1184"
+  idd_prefix: ~
+  iso_code: VC
+  name: "Saint Vincent and the Grenadines"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_184: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1185"
+  idd_prefix: ~
+  iso_code: WS
+  name: Samoa
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_185: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1186"
+  idd_prefix: ~
+  iso_code: SM
+  name: "San Marino"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_186: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1187"
+  idd_prefix: ~
+  iso_code: SA
+  name: "Saudi Arabia"
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_187: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1188"
+  idd_prefix: ~
+  iso_code: SN
+  name: Senegal
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_188: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1189"
+  idd_prefix: ~
+  iso_code: SC
+  name: Seychelles
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_189: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1190"
+  idd_prefix: ~
+  iso_code: SL
+  name: "Sierra Leone"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_190: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1191"
+  idd_prefix: ~
+  iso_code: SG
+  name: Singapore
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_191: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1192"
+  idd_prefix: ~
+  iso_code: SK
+  name: Slovakia
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_192: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1193"
+  idd_prefix: ~
+  iso_code: SI
+  name: Slovenia
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_193: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1194"
+  idd_prefix: ~
+  iso_code: SB
+  name: "Solomon Islands"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_194: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1195"
+  idd_prefix: ~
+  iso_code: SO
+  name: Somalia
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_195: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1196"
+  idd_prefix: ~
+  iso_code: ZA
+  name: "South Africa"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_196: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1197"
+  idd_prefix: ~
+  iso_code: GS
+  name: "South Georgia and the South Sandwich Islands"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_197: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1198"
+  idd_prefix: ~
+  iso_code: ES
+  name: Spain
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_198: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1199"
+  idd_prefix: ~
+  iso_code: LK
+  name: "Sri Lanka"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_199: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1200"
+  idd_prefix: ~
+  iso_code: SD
+  name: Sudan
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_200: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1201"
+  idd_prefix: ~
+  iso_code: SR
+  name: Suriname
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_201: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1202"
+  idd_prefix: ~
+  iso_code: SJ
+  name: "Svalbard and Jan Mayen"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_202: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1203"
+  idd_prefix: ~
+  iso_code: SZ
+  name: Swaziland
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_203: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1204"
+  idd_prefix: ~
+  iso_code: SE
+  name: Sweden
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_204: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1205"
+  idd_prefix: ~
+  iso_code: CH
+  name: Switzerland
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_205: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1206"
+  idd_prefix: ~
+  iso_code: SY
+  name: "Syrian Arab Republic"
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_206: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1207"
+  idd_prefix: ~
+  iso_code: ST
+  name: "Sao Tome and Principe"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_207: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1208"
+  idd_prefix: ~
+  iso_code: TW
+  name: Taiwan
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_208: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1209"
+  idd_prefix: ~
+  iso_code: TJ
+  name: Tajikistan
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_209: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1210"
+  idd_prefix: ~
+  iso_code: TZ
+  name: "Tanzania, United Republic of"
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_210: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1211"
+  idd_prefix: ~
+  iso_code: TH
+  name: Thailand
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_211: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1212"
+  idd_prefix: ~
+  iso_code: BS
+  name: Bahamas
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_212: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1213"
+  idd_prefix: ~
+  iso_code: GM
+  name: Gambia
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_213: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1214"
+  idd_prefix: ~
+  iso_code: TG
+  name: Togo
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_214: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1215"
+  idd_prefix: ~
+  iso_code: TK
+  name: Tokelau
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_215: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1216"
+  idd_prefix: ~
+  iso_code: TO
+  name: Tonga
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_216: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1217"
+  idd_prefix: ~
+  iso_code: TT
+  name: "Trinidad and Tobago"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_217: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1218"
+  idd_prefix: ~
+  iso_code: TN
+  name: Tunisia
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_218: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1219"
+  idd_prefix: ~
+  iso_code: TR
+  name: Turkey
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_219: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1220"
+  idd_prefix: ~
+  iso_code: TM
+  name: Turkmenistan
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_220: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1221"
+  idd_prefix: ~
+  iso_code: TC
+  name: "Turks and Caicos Islands"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_221: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1222"
+  idd_prefix: ~
+  iso_code: TV
+  name: Tuvalu
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_222: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1223"
+  idd_prefix: ~
+  iso_code: UG
+  name: Uganda
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_223: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1224"
+  idd_prefix: ~
+  iso_code: UA
+  name: Ukraine
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_224: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1225"
+  idd_prefix: ~
+  iso_code: AE
+  name: "United Arab Emirates"
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_225: 
+  country_code: ~
+  position: "2"
+  id: "1226"
+  idd_prefix: ~
+  iso_code: GB
+  name: "United Kingdom"
+  ndd_prefix: ~
+  region_id: "1" 
+rubycampus_country_226: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1227"
+  idd_prefix: ~
+  iso_code: UM
+  name: "United States Minor Outlying Islands"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_227: 
+  country_code: ~
+  position: "1"
+  id: "1228"
+  idd_prefix: ~
+  iso_code: US
+  name: "United States"
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_228: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1229"
+  idd_prefix: ~
+  iso_code: UY
+  name: Uruguay
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_229: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1230"
+  idd_prefix: ~
+  iso_code: UZ
+  name: Uzbekistan
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_230: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1231"
+  idd_prefix: ~
+  iso_code: VU
+  name: Vanuatu
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_231: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1232"
+  idd_prefix: ~
+  iso_code: VE
+  name: Venezuela
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_232: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1233"
+  idd_prefix: ~
+  iso_code: VN
+  name: "Viet Nam"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_233: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1234"
+  idd_prefix: ~
+  iso_code: VI
+  name: "Virgin Islands, U.S."
+  ndd_prefix: ~
+  region_id: "2"
+rubycampus_country_234: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1235"
+  idd_prefix: ~
+  iso_code: WF
+  name: "Wallis and Futuna"
+  ndd_prefix: ~
+  region_id: "4"
+rubycampus_country_235: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1236"
+  idd_prefix: ~
+  iso_code: EH
+  name: "Western Sahara"
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_236: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1237"
+  idd_prefix: ~
+  iso_code: YE
+  name: Yemen
+  ndd_prefix: ~
+  region_id: "3"
+rubycampus_country_237: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1238"
+  idd_prefix: ~
+  iso_code: CS
+  name: "Serbia and Montenegro"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_238: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1239"
+  idd_prefix: ~
+  iso_code: ZM
+  name: Zambia
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_239: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1240"
+  idd_prefix: ~
+  iso_code: ZW
+  name: Zimbabwe
+  ndd_prefix: ~
+  region_id: "5"
+rubycampus_country_240: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1241"
+  idd_prefix: ~
+  iso_code: AX
+  name: "Åland Islands"
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_241: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1242"
+  idd_prefix: ~
+  iso_code: RS
+  name: Serbia
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_242: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1243"
+  idd_prefix: ~
+  iso_code: ME
+  name: Montenegro
+  ndd_prefix: ~
+  region_id: "1"
+rubycampus_country_243: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1244"
+  idd_prefix: ~
+  iso_code: JE
+  name: Jersey
+  ndd_prefix: ~
+  region_id: "99"
+rubycampus_country_244: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1245"
+  idd_prefix: ~
+  iso_code: GG
+  name: Guernsey
+  ndd_prefix: ~
+  region_id: "99"
+rubycampus_country_245: 
+  country_code: ~
+  position: <%= num += 1%>
+  id: "1246"
+  idd_prefix: ~
+  iso_code: IM
+  name: "Isle of Man"
+  ndd_prefix: ~
+  region_id: "99"

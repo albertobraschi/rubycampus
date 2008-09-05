@@ -1,0 +1,30 @@
+%h2= _("Phone")
+%label{:for => "phone_location_type_id", :class => "w10 inputselect"}
+  %span.wrapper
+    %span.title= _("Location")
+    = form.select(:phone_location_type_id, LocationType::NAMES_KEYS, :class => "field")   
+%label{:for => "phone_phone_type", :class => "w10 inputselect"}
+  %span.wrapper
+    %span.title= _("Phone Type")
+    = form.select(:phone_phone_type_id, PhoneType::NAMES_KEYS, :class => "field")   
+%label{:for => "phone_mobile_provider_id", :class => "w15 inputselect"}
+  %span.wrapper
+    %span.title= _("Mobile Provider")
+    = text_field_with_auto_complete :individual_presenter, :phone_mobile_provider_name, { :class => "field" }, { :url => formatted_lookup_mobile_providers_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }       
+%label{:for => "phone_phone", :class => "w25 inputselect"}
+  %span.wrapper
+    %span.title= _("Phone")
+    = form.text_field :phone_phone, :class => "field"  
+%label{:for => "phone_is_primary", :class => "w15 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :phone_is_primary, :class => "select"
+    %span.title= _("Is Primary")
+%label{:for => "phone_is_billing", :class => "w15 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :phone_is_billing, :class => "select"
+    %span.title= _("Is Billing")
+.clear
+
+%hr/ 

@@ -1,0 +1,20 @@
+- title((_("Listing %s") % current_controller_gettext_human_name_pluralized))
+.standard_box
+  = render :partial => "common/actions/for_form_index"
+  %h2= yield(:title)
+  %hr/
+  %table
+    %tr
+      %th= _("Activity Type")
+      %th= _("Subject")
+      %th= _("Contact")
+      %th= _("Starts At")
+      %th= _("End At")
+      %th= _("Status")
+      %th
+    = render :partial => "activity", :collection => @activities  
+  = render :partial => "common/actions/for_form_index"
+  %hr/
+  %span{:style => "text-align:right;"}
+    = will_paginate @activities 
+    = render :partial => "common/search"

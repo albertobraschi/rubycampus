@@ -1,0 +1,11 @@
+%h2= _("All Users")
+= render :partial => "common/search"  # TODO Search accross contact types
+%table
+  %tr
+    %th= _("Username")
+    %th= _("Email")
+    %th= _("Enabled?")
+    %th= _("Roles")
+  = render :partial => 'user', :collection => @users
+= will_paginate @users
+  

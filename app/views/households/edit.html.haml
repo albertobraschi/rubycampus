@@ -1,0 +1,10 @@
+- title((_("Editing %s") % _("Household")))
+= error_messages_for :household_presenter
+.household_box 
+  .hako
+    - form_for @household_presenter, :url => household_url, :html => { :method => :put, :class => "hakozaki" } do |form|
+      = render :partial => "contacts/actions/for_form_edit"
+      %h1= yield(:title) 
+      %hr/
+      = render :partial => "form", :locals => {:form => form}
+      = render :partial => "contacts/actions/for_form_edit"            

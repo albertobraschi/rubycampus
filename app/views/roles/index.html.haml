@@ -1,0 +1,11 @@
+%h2
+  = _("Roles for")
+  = h @user.login.capitalize
+%h3
+  = _("Roles assigned:")
+%ul
+  = render :partial => 'role', :collection => @user.roles
+%h3
+  = _("Roles available:")
+%ul
+  = render :partial => 'role', :collection => (@all_roles - @user.roles)

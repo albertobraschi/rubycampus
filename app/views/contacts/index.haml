@@ -1,0 +1,15 @@
+- title((_("Listing %s") % _("Contacts")))
+-# for character in @characters    
+  =# link_to character.char, :action => "index", :search => "#{character.char}"
+.contact_box
+  = render :partial => "contacts/actions/for_form_index"
+  %h2= yield(:title) 
+  %table
+    %tr
+      %th= _("Name")  
+      %th= _("Stage")
+      %th= _("Last Updated") 
+      %th= render :partial => "common/search"    
+    = render :partial => 'contact', :collection => @contacts
+  %div{:style => "text-align:right;"}
+    = will_paginate @contacts 

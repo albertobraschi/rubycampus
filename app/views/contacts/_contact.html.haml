@@ -1,0 +1,12 @@
+%tr
+  %td[contact]
+    %span{:class => "icons %s" % (contact.contact_type.name.downcase rescue nil) }
+      = h contact.last_name + ", " + contact.first_name rescue nil
+      = h contact.organization_name rescue nil
+      = h contact.household_name rescue nil     
+  %td
+    = h contact.stage.name rescue nil  
+  %td
+    = h (_("%s ago") % distance_of_time_in_words(Time.now, (contact.updated_at))) rescue nil   
+  %td
+    = render :partial => "contacts/actions/for_row_index", :locals => {:contact => contact}

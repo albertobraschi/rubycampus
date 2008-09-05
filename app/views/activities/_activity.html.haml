@@ -1,0 +1,8 @@
+%tr[activity]
+  %td=h activity.activity_type_name
+  %td=h activity.subject
+  %td=h activity.contact_name
+  %td=h activity.starts_at
+  %td=h activity.ends_at
+  %td=h activity.status_name
+  %td= render :partial => "common/actions/for_row_index", :locals => { :local => activity }

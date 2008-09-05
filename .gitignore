@@ -1,0 +1,36 @@
+# +-----------------------------------------------------------+
+# |   .gitignore - specifies intentionally untracked files    |
+# +-----------------------------------------------------------+
+# | RubyCampus - Relationship Management for Higher Education |
+# | Project Website: https://rubycampus.org                   |
+# | kaleman [ A T ] rubycampus [ D O T ] org                  |
+# +-----------------------------------------------------------+
+#
+# WARNING: .gitignore trailing spaces get interpreted and
+#          must be removed to avoid unpredictable results
+#
+# +-----------------------------------------+
+# | Excludes files used by developers for   |
+# | external source control repositories    |
+# | along with miscellaneous OS specific    |
+# | resource files generated or any others. |
+# +-----------------------------------------+
+.DS_Store
+.svn
+# +----------------------------------------------------+
+# | Folder placeholders for locally generated system   |
+# | files are exempted from being tracked but we keep  |
+# | them in the tree as not to raise exceptions by     |
+# | processes that expect them by default.             |
+# +----------------------------------------------------+
+log/[^.]*
+tmp/[^.]*/[^.]*
+# +------------------------------------------------------+
+# | Files with passwords and other sensitive information |
+# | should not be tracked by the repository and we       |
+# | suggest you exclude the following files.             |
+# +------------------------------------------------------+ 
+# config/crypto.yml
+# config/database.yml
+# config/deploy.rb
+# config/email.yml

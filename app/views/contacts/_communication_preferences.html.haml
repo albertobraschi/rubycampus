@@ -1,0 +1,42 @@
+%h2= _("Communication Preferences")
+%label{:for => "contact_do_not_email", :class => "w25 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :contact_do_not_email, :class => "select"
+    %span.title= _("Do Not Email")
+%label{:for => "contact_do_not_phone", :class => "w25 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :contact_do_not_phone, :class => "select"
+    %span.title= _("Do Not Phone")
+%label{:for => "contact_do_not_mail", :class => "w25 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :contact_do_not_mail, :class => "select"
+    %span.title= _("Do Not Mail")
+%label{:for => "contact_do_not_trade", :class => "w25 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :contact_do_not_trade, :class => "select"
+    %span.title= _("Do Not Trade")
+.clear
+ 
+%label{:for => "contact_preferred_communication_method_id", :class => "w25 inputselect"}
+  %span.wrapper
+    %span.title= _("Preferred communication method")
+    = form.select(:contact_preferred_communication_method_id, PreferredCommunicationMethod::NAMES_KEYS, :class => "field")
+    %em= _("Select the preferred method of communicating with this contact.")
+%label{:for => "contact_preferred_email_format_id", :class => "w25 inputselect"}
+  %span.wrapper
+    %span.title= _("Preferred email format")
+    = form.select(:contact_preferred_email_format_id, PreferredEmailFormat::NAMES_KEYS, :class => "field")
+    %em= _("Select the email format preferred by this contact. Select 'Both' to send HTML and Text formats.")
+%label{:for => "contact_is_opt_out", :class => "w25 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :contact_is_opt_out, :class => "select"
+    %span.title= _("Is Opt Out")
+    %em= _("This option indicates if the user has INTENTIONALLY opted out of email. Please set or reset with care.") 
+.clear
+
+%hr/ 

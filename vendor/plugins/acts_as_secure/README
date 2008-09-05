@@ -1,0 +1,149 @@
+== Introduction
+
+ActsAsSecure adds an ability to store ActiveRecord model's fields encrypted in a DB. When a model is marked with acts_as_secure, the :binary type fields are recognized as needed to be stored encrypted. The plugin does before_save/after_save/after_find encryption/decryption thus making it transparent for a code using the secure models.
+
+The plugin supports a master key approach as well as individual records encryption keys. It does not contain any crypto provider but allows to plug in any external one as long as it supports encrypt/decrypt methods.
+
+The fields are converted to a YAML form before encryption. After description they are restored via YAML.load. Since fields are stored encrypted, the find usage is very limited. 
+
+== Usage
+
+=== Master Key Provider Usage
+
+class SecureModel < ActiveRecord::Base
+  acts_as_secure :crypto_provider => MasterKeyProviderClassOrInstance
+end
+
+SecureModel.create()
+SecureModel.find(:first)
+
+=== Individual Keys Provider Usage
+
+class SecureModel < ActiveRecord::Base
+  acts_as_secure
+end
+
+SecureModel.with_crypto_provider(SomeProvider.new(some_param)) { SecureModel.find(:first) }
+SecureModel.with_crypto_provider(SomeProvider.new(some_param)) { SecureModel.create() }
+
+=== Other Options
+
+acts_as_secure :storage_type => :text  -- changes the secure storage type from :binary to the supplied one
+acts_as_secure :except => [:field1, :field2] -- disables the secure behavior for the :binary type fields in a supplied list
+
+== Example
+
+Let's define three models: Fruit (not secure), SecretFruit (uses the master key approach), and UberSecretFruit (uses the individual key approach).
+
+Rot13CryptoProvider represents a master key provider. SaltedRot13CryptoProvider depends on a salt individual for each record.
+
+
+=== Models
+
+class Fruit < ActiveRecord::Base
+  has_one :secret_fruit
+  has_one :uber_secret_fruit 
+end
+
+class CreateFruits < ActiveRecord::Migration
+  def self.up
+    create_table :fruits do |t|
+      t.column :name, :string
+    end
+  end
+end
+
+class Rot13CryptoProvider
+  class << self
+    def encrypt(arg)
+      arg.tr("A-Za-z", "N-ZA-Mn-za-m")
+    end
+    alias_method :decrypt, :encrypt
+  end
+end
+
+class SecretFruit < ActiveRecord::Base
+  acts_as_secure :crypto_provider => Rot13CryptoProvider
+  belongs_to :fruit
+end
+
+class CreateSecretFruits < ActiveRecord::Migration
+  def self.up
+    create_table :secret_fruits do |t|
+      t.column :name, :binary
+      t.column :fruit_id, :integer
+    end
+  end
+end
+
+class SaltedRot13CryptoProvider
+  def initialize(salt)
+    @salt = salt
+  end
+  def encrypt(arg)
+    @salt + arg.tr("A-Za-z", "N-ZA-Mn-za-m")
+  end  
+  def decrypt(arg)
+    arg[@salt.size .. -1].tr("A-Za-z", "N-ZA-Mn-za-m")
+  end  
+end
+
+class UberSecretFruit < ActiveRecord::Base
+  acts_as_secure
+  belongs_to :fruit 
+end
+
+class CreateUberSecretFruits < ActiveRecord::Migration
+  def self.up
+    create_table :uber_secret_fruits do |t|
+      t.column :name, :binary
+      t.column :fruit_id, :integer
+    end
+  end
+end
+
+=== Usage
+
+>> f = Fruit.create(:name => 'passion fruit')
+>> SecretFruit.create(:name => 'maracuya', :fruit => f)
+>> puts f.secret_fruit.name
+maracuya
+>> secret = readline.chomp
+uber_secret
+>> crypto_provider = SaltedRot13CryptoProvider.new(secret)
+>> UberSecretFruit.with_crypto_provider(crypto_provider) { UberSecretFruit.create(:name => 'Passiflora edulis', :fruit => f) }
+>> UberSecretFruit.with_crypto_provider(crypto_provider) { puts f.uber_secret_fruit.name }
+Passiflora edulis
+
+=== DB
+
+> select * from secret_fruits;
++----+---------------+----------+
+| id | name          | fruit_id |
++----+---------------+----------+
+|  1 | --- znenphln  |        1 | 
++----+---------------+----------+
+
+> select * from uber_secret_fruits;
++----+-----------------------------------+----------+
+| id | name                              | fruit_id |
++----+-----------------------------------+----------+
+|  1 | uber_secret--- Cnffvsyben rqhyvf  |        1 | 
++----+-----------------------------------+----------+
+
+
+== Installation
+
+As plugin: 
+script/plugin install svn://rubyforge.org/var/svn/acts-as-secure/trunk/vendor/plugins/acts_as_secure
+
+
+== License
+
+ActsAsSecure released under the MIT license.
+
+
+== Support
+
+The plugin RubyForge page is http://rubyforge.org/projects/acts-as-secure
+

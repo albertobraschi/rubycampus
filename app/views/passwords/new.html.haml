@@ -1,0 +1,13 @@
+- title(_("Forgot Password"),"login") 
+.login
+  .login_header_backdrop
+    = yield(:title)
+  .login_top
+    - form_tag url_for(:action => 'create'), {:class => "form"} do
+      .form_row
+        %label{ :class => "login_label"}= _("Email address used to create your account?")
+        = text_field_tag :email, nil, {:class => "form_text"}
+      .form_row
+        = submit_tag _('Reset Password')
+        = link_to _('Back to Login'), login_path          
+  .login_bottom/

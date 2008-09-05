@@ -1,0 +1,6 @@
+/WARNING/
+This folder contains fixed information used to perform critical functions within RubyCampus.
+Modifying these files in anyway will likely result in your database being incompatible with
+future RubyCampus updates as they become available.  
+
+Modifications to RubyCampus table attributes should only be made within the application itself.

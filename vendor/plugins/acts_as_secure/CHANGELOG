@@ -1,0 +1,14 @@
+rel_0_0_3:
+  date: 2007-06-26
+  notes:
+    - Added support for nested crypto blocks
+
+rel_0_0_2:
+  date: 2007-06-18
+  notes:
+    - Added support for model inheritance
+
+rel_0_0_1:
+  date: 2005-04-26
+  notes:
+    - Initial release

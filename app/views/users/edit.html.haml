@@ -1,0 +1,30 @@
+= error_messages_for :user
+.standard_box
+  .hako 
+    - form_for :user, :url => user_url(@user), :html => { :method => :put, :class => "hakozaki" } do |f|
+      .buttons
+        %button{:type => "submit", :class => "positive"}
+          = _("Save")
+        = link_to _('Change Password'), change_password_path
+        = link_to _('Show Profile'), user_path(@user)
+      %h2= _("Edit Your Account")
+      %hr/      
+      %label{:for => "user_email", :class => "w45 inputselect mandatory"}
+        %span.wrapper
+          %span.title= _("Email Address")
+          = f.text_field :email, :class => "field"
+      %label{:for => "contact_time_zone", :class => "w45 inputselect"}
+        %span.wrapper
+          %span.title= _("Time Zone")
+          = f.time_zone_select :time_zone, TimeZone.us_zones, {:class => "field"}   
+      .clear
+      
+      %label{:for => "first_name", :class => "w45 inputselect mandatory"}
+        %span.wrapper
+          %span.title= _("First Name")
+          = f.text_field :first_name, :class => "field"
+      %label{:for => "last_name", :class => "w45 inputselect mandatory"}
+        %span.wrapper
+          %span.title= _("Last Name")
+          = f.text_field :last_name, :class => "field"   
+      .clear

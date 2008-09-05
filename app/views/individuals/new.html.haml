@@ -1,0 +1,10 @@
+- title((_("Creating %s") % _("Individual")))
+= error_messages_for :individual_presenter 
+.individual_box 
+  .hako
+    - form_for @individual_presenter, :url => individuals_url, :html => { :method => :post, :class => "hakozaki" } do |form|
+      = render :partial => "contacts/actions/for_form_new"  
+      %h1= yield(:title)
+      %hr/
+      = render :partial => "form", :locals => {:form => form}
+      = render :partial => "contacts/actions/for_form_new"

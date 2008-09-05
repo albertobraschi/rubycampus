@@ -1,0 +1,44 @@
+%h2= _("Email Address")
+%label{:for => "email_location_type_id", :class => "w10 inputselect"}
+  %span.wrapper
+    %span.title= _("Location")
+    = form.select(:email_location_type_id, LocationType::NAMES_KEYS, :class => "field") 
+%label{:for => "email_address", :class => "w50 inputselect"}
+  %span.wrapper
+    %span.title
+      = _("Email Address")
+      %span{:class => "example"}= _("kaleman@rubycampus.org")
+    = form.text_field :email_address, :class => "field"
+%label{:for => "email_is_primary", :class => "w15 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :email_is_primary, :class => "select"
+    %span.title= _("Is Primary") 
+%label{:for => "email_is_billing", :class => "w15 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :email_is_billing, :class => "select"
+    %span.title= _("Is Billing")    
+.clear
+
+%label{:for => "email_hold_date", :class => "w30 inputselect"}
+  %span.wrapper
+    %span.title= _("Hold Date")
+    = form.calendar_date_select :email_hold_date, :readonly => true, :class => "field" 
+%label{:for => "email_reset_date", :class => "w30 inputselect"}
+  %span.wrapper
+    %span.title= _("Reset Date")
+    = form.calendar_date_select :email_reset_date, :readonly => true, :class => "field"
+%label{:for => "email_is_on_hold", :class => "w15 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :email_is_on_hold, :class => "select"
+    %span.title= _("Is On Hold")
+%label{:for => "email_is_bulk_mail", :class => "w15 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :email_is_bulk_mail, :class => "select"
+    %span.title= _("Is Bulk Mail")   
+.clear
+
+%hr/

@@ -1,0 +1,27 @@
+.standard_box
+  .hako
+    - form_tag url_for(:action => "update"), :class => "hakozaki" do
+      .buttons
+        %button{:type => "submit", :class => "positive"}
+          = _("Change Password")
+        = link_to _('Back'), edit_user_path(current_user)
+      %h2= _("Change Password")
+      %hr/
+      %label{ :for => "old_password", :class => "w45 inputselect mandatory" }
+        %span.wrapper
+          %span.title= _("Old Password")
+          = password_field_tag 'old_password', @old_password, :class => "field"
+      .clear
+      
+      %label{ :for => "password", :class => "w45 inputselect mandatory" }
+        %span.wrapper
+          %span.title
+            = _("New Password")
+            %span.example= _("Between 4 and 40 characters")
+          = password_field_tag 'password', {}, :class => "field"
+      %label{ :for => "password_confirmation", :class => "w45 inputselect mandatory" }
+        %span.wrapper
+          %span.title= _("Confirm new password")
+          = password_field_tag 'password_confirmation', {}, :class => "field"   
+      .clear                             
+                       

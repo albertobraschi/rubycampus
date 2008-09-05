@@ -1,0 +1,30 @@
+%h2= _("Instant Messengering Account")
+%label{:for => "messenger_location_type_id", :class => "w10 inputselect"}
+  %span.wrapper
+    %span.title= _("Location")
+    = form.select(:messenger_location_type_id, LocationType::NAMES_KEYS, :class => "field") 
+%label{:for => "messaging_provider_id", :class => "w15 inputselect"}
+  %span.wrapper
+    %span.title
+      = _("Provider")
+      %span{:class => "example"}= _("AIM")
+    = text_field_with_auto_complete :individual_presenter, :messenger_messaging_provider_name, { :class => "field" }, { :url => formatted_lookup_messaging_providers_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }      
+%label{:for => "messenger_name", :class => "w35 inputselect"}
+  %span.wrapper
+    %span.title
+      = _("Name")
+      %span{:class => "example"}= _("rubycampusdude")
+    = form.text_field :messenger_name, :class => "field"   
+%label{:for => "messenger_is_primary", :class => "w15 radiocheck"}
+  %span.wrapper
+    %br/
+    = form.check_box :messenger_is_primary, :class => "select"
+    %span.title= _("Is Primary")
+%label{:for => "messenger_is_billing", :class => "w15 radiocheck"}
+  %span.wrapper 
+    %br/
+    = form.check_box :messenger_is_billing, :class => "select"
+    %span.title= _("Is Billing")         
+.clear
+
+%hr/

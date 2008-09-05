@@ -1,0 +1,23 @@
+RubyCampus Language Packs
+-------------------------
+
+This directory contains RubyCampus binary MO language files created
+from RubyCampus PO template files maintained on the official RubyCampus
+translation server at http://translate.rubycampus.org/
+
+The default language for RubyCampus is the English language, under the 
+Unicode scheme (UTF8).
+
+RubyCampus packages both fully and partially translated files to help
+users and organizations quickly deploy their installation.
+
+While we recommend you preserve all files in this directory you may
+safely delete directories for language files you do not intend to use.
+
+For more information, see the RubyCampus Documentation:
+
+https://rubycampus.org/     
+
+To translate RubyCampus into your language use our translation server:
+
+http://translate.rubycampus.org/

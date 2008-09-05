@@ -1,0 +1,6 @@
+%div{:style => "text-align:right;"}
+  - form_tag self.send(controller.controller_name+"_path"), :method => :get do
+    .buttons
+      %button{:type => "submit"}
+        = _("Search")
+      = text_field_tag :search, params[:search] 

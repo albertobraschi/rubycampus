@@ -1,0 +1,19 @@
+- title(RubyCampus.site_title_login,"login")
+.login
+  .login_header_backdrop{:style => "text-align:center;"}
+    = yield(:title)
+  .login_top
+    - form_tag session_path, {:class => "form"} do
+      .form_row
+        %label{ :class => "login_label", :for => "login" }= _("Login")
+        = text_field_tag 'login', nil, {:class => "form_text"}
+      .form_row
+        %label{ :class => "login_label", :for => "password" }= _("Password")
+        = password_field_tag 'password', nil, {:class => "form_text"}
+      .form_row
+        = submit_tag _('Log in')         
+        = check_box_tag 'remember_me'
+        = _("Remember me")
+        = #link_to _("Sign Up"), new_user_path
+        = link_to _('Forgot Password?'), forgot_password_path
+  .login_bottom/

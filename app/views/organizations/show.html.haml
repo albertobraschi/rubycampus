@@ -1,0 +1,10 @@
+- title((_("Viewing %s") % current_controller_human_name))
+- @organization = @organization_presenter
+.organization_box
+  .hako
+    - form_for @organization_presenter, :url => organization_url, :html => { :method => :put, :class => "hakozaki" } do |form|
+      = render :partial => "contacts/actions/for_form_show"
+      %h1= "#{@organization.contact_organization_name}" 
+      %hr/
+      = render :partial => "form", :locals => {:form => form}
+      = render :partial => "contacts/actions/for_form_show"
