@@ -63,14 +63,14 @@ class User < ActiveRecord::Base
 
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else a RubyCampus user can change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation, :time_zone, :last_name, :first_name 
+  attr_accessible :login, :email, :password, :password_confirmation, :time_zone, :name 
   
   # Queries from Controller   
   # Action Index
   def self.search(search, page)
     paginate :page => page, 
-             :conditions => ['last_name like ?', "%#{search}%"],
-             :order => 'last_name'    
+             :conditions => ['name like ?', "%#{search}%"],
+             :order => 'name'    
   end        
 
 class ActivationCodeNotFound < StandardError; end
