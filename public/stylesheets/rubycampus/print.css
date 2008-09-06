@@ -1,7 +1,11 @@
-/* -----------------------------------------------------------------------
+/* ----------------------------------------------------------------------------------
   THIS FILE IS PART OF RUBYCAMPUS - (https:/rubycampus.org) 
-  For LICENSE and COPYRIGHT information please see docs/COPYRIGHTS
------------------------------------------------------------------------ */
+  For LICENSE and COPYRIGHT information please see docs/LICENSE and docs/COPYRIGHTS
+  
+  WARNING: This RubyCampus CSS file is intended for development purposes and should
+           not be considered final or used for any other purpose than general layout
+           and mocking. It is likely to change significantly.
+------------------------------------------------------------------------------------- */
 
 /* print.css */
 body {line-height:1.5;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;color:#000;background:none;font-size:10pt;}
