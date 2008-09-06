@@ -1,0 +1,232 @@
+  <div id="C00000078">
+<div class='banner'>
+  <span class="file-title-prefix">Module</span><br />ApplicationHelper<br/>
+  In:
+<a href="#" onclick="jsHref('files/app/helpers/application_helper_rb.html');">app/helpers/application_helper.rb</a>
+
+</div>
+ <!-- banner header -->
+
+  <div id="bodyContent" >
+      <div id="content">
+
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="index.html?a=M000064&name=body_tag_classes" >body_tag_classes</a></li>
+  <li><a href="index.html?a=M000069&name=current_controller_gettext_human_name" >current_controller_gettext_human_name</a></li>
+  <li><a href="index.html?a=M000070&name=current_controller_gettext_human_name_pluralized" >current_controller_gettext_human_name_pluralized</a></li>
+  <li><a href="index.html?a=M000068&name=current_controller_human_name" >current_controller_human_name</a></li>
+  <li><a href="index.html?a=M000073&name=link_to_destroy" >link_to_destroy</a></li>
+  <li><a href="index.html?a=M000072&name=link_to_edit" >link_to_edit</a></li>
+  <li><a href="index.html?a=M000071&name=link_to_extract" >link_to_extract</a></li>
+  <li><a href="index.html?a=M000066&name=link_to_help" >link_to_help</a></li>
+  <li><a href="index.html?a=M000067&name=link_to_tracker_issues_new" >link_to_tracker_issues_new</a></li>
+  <li><a href="index.html?a=M000065&name=title" >title</a></li>
+  </ul>
+
+
+
+
+
+
+<div class="sectiontitle">Public Instance methods</div>
+<div id="M000064" class="method">
+  <div id="M000064_title" class="title">
+    <b>body_tag_classes</b>()
+  </div>
+  <div class="description">
+  <p>
+Sets &lt;body class=&quot;&quot;&gt; to controllers name for stylesheet
+hooks
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000064_source')" id="l_M000064_source">show source</a> ]</p>
+  <div id="M000064_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 41</span>
+41:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">body_tag_classes</span>
+42:     <span class="ruby-ivar">@body_tag_classes</span> <span class="ruby-operator">||=</span> [ <span class="ruby-constant">RUBYCAMPUS</span>, <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_name</span> ]
+43:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000069" class="method">
+  <div id="M000069_title" class="title">
+    <b>current_controller_gettext_human_name</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000069_source')" id="l_M000069_source">show source</a> ]</p>
+  <div id="M000069_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 68</span>
+68:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_controller_gettext_human_name</span>
+69:     <span class="ruby-identifier">_</span>(<span class="ruby-identifier">current_controller_human_name</span>)  
+70:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000070" class="method">
+  <div id="M000070_title" class="title">
+    <b>current_controller_gettext_human_name_pluralized</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000070_source')" id="l_M000070_source">show source</a> ]</p>
+  <div id="M000070_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 72</span>
+72:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_controller_gettext_human_name_pluralized</span>
+73:     <span class="ruby-identifier">_</span>(<span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_name</span>.<span class="ruby-identifier">titleize</span>)
+74:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000068" class="method">
+  <div id="M000068_title" class="title">
+    <b>current_controller_human_name</b>()
+  </div>
+  <div class="description">
+  <p>
+Get current controllers name
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000068_source')" id="l_M000068_source">show source</a> ]</p>
+  <div id="M000068_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 64</span>
+64:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_controller_human_name</span>
+65:     <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_name</span>.<span class="ruby-identifier">singularize</span>.<span class="ruby-identifier">titleize</span>
+66:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000073" class="method">
+  <div id="M000073_title" class="title">
+    <b>link_to_destroy</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000073_source')" id="l_M000073_source">show source</a> ]</p>
+  <div id="M000073_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 85</span>
+85:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to_destroy</span>
+86:     <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;Destroy&quot;</span>), <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span>((<span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_name</span>.<span class="ruby-identifier">singularize</span><span class="ruby-operator">+</span> <span class="ruby-value str">&quot;_path&quot;</span>)), <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;negative&quot;</span>, <span class="ruby-identifier">:confirm</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;Really destroy %s?&quot;</span>) <span class="ruby-operator">%</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_name</span>.<span class="ruby-identifier">titleize</span>), <span class="ruby-identifier">:method</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:delete</span> )
+87:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000072" class="method">
+  <div id="M000072_title" class="title">
+    <b>link_to_edit</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000072_source')" id="l_M000072_source">show source</a> ]</p>
+  <div id="M000072_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 81</span>
+81:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to_edit</span>
+82:     <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;Edit&quot;</span>), <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span>((<span class="ruby-value str">&quot;edit_&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_name</span>.<span class="ruby-identifier">singularize</span><span class="ruby-operator">+</span> <span class="ruby-value str">&quot;_path&quot;</span>)), <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;positive&quot;</span>)
+83:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000071" class="method">
+  <div id="M000071_title" class="title">
+    <b>link_to_extract</b>()
+  </div>
+  <div class="description">
+  <p>
+Renders links for views
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000071_source')" id="l_M000071_source">show source</a> ]</p>
+  <div id="M000071_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 77</span>
+77:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to_extract</span>
+78:     <span class="ruby-identifier">link_to</span> <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;PDF&quot;</span>), { <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:extract</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>], <span class="ruby-identifier">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:pdf</span> }, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;positive&quot;</span>
+79:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000066" class="method">
+  <div id="M000066_title" class="title">
+    <b>link_to_help</b>()
+  </div>
+  <div class="description">
+  <p>
+Renders link to official RubyCampus Wiki
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000066_source')" id="l_M000066_source">show source</a> ]</p>
+  <div id="M000066_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 54</span>
+54:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to_help</span>
+55:     <span class="ruby-identifier">link_to</span> <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;Help&quot;</span>), <span class="ruby-constant">RUBYCAMPUS_ORG_BASE_URL</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;wiki/#{RUBYCAMPUS}/#{controller.controller_name.downcase}##{controller.action_name.downcase}&quot;</span>, <span class="ruby-identifier">:popup</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+56:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000067" class="method">
+  <div id="M000067_title" class="title">
+    <b>link_to_tracker_issues_new</b>()
+  </div>
+  <div class="description">
+  <p>
+Links to RubyCampus issue tracker and fill basic issue information
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000067_source')" id="l_M000067_source">show source</a> ]</p>
+  <div id="M000067_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 59</span>
+59:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to_tracker_issues_new</span>
+60:     <span class="ruby-identifier">link_to</span> <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;New Issue&quot;</span>), <span class="ruby-constant">RUBYCAMPUS_ORG_BASE_URL</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;projects/#{RUBYCAMPUS}/issues/new&quot;</span>, <span class="ruby-identifier">:popup</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+61:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000065" class="method">
+  <div id="M000065_title" class="title">
+    <b>title</b>(page_title,body_tag_klass=nil)
+  </div>
+  <div class="description">
+  <p>
+Sets title and optionally &lt;body class=&quot;&quot;&gt;
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000065_source')" id="l_M000065_source">show source</a> ]</p>
+  <div id="M000065_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 46</span>
+46:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title</span>(<span class="ruby-identifier">page_title</span>,<span class="ruby-identifier">body_tag_klass</span>=<span class="ruby-keyword kw">nil</span>)
+47:     <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">body_tag_klass</span>.<span class="ruby-identifier">nil?</span>
+48:       <span class="ruby-identifier">body_tag_classes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">body_tag_klass</span>
+49:     <span class="ruby-keyword kw">end</span>
+50:     <span class="ruby-identifier">content_for</span>(<span class="ruby-identifier">:title</span>) { <span class="ruby-identifier">page_title</span> }
+51:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>

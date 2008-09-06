@@ -42,7 +42,7 @@ class ContactsController < ApplicationController
   
   # GET /contact
   # GET /contact.xml
-  def index
+  def index #:nodoc:
     # Fetches letters from characters model
     # TODO Use the starting unicode character to build map
     @characters = Character.all
@@ -56,7 +56,7 @@ class ContactsController < ApplicationController
 
   # GET /contact/1
   # GET /contact/1.xml
-  def show
+  def show #:nodoc:
     @contact = Contact.find(params[:id])
 
     respond_to do |format|
@@ -67,7 +67,7 @@ class ContactsController < ApplicationController
 
   # GET /contact/new
   # GET /contact/new.xml
-  def new
+  def new #:nodoc:
     @contact = Contact.new
 
     respond_to do |format|
@@ -77,13 +77,13 @@ class ContactsController < ApplicationController
   end
 
   # GET /contact/1/edit
-  def edit
+  def edit #:nodoc:
     @contact = Contact.find(params[:id])
   end
 
   # POST /contact
   # POST /contact.xml
-  def create
+  def create #:nodoc:
     @contact = Contact.new(params[:contact])
 
     respond_to do |format|
@@ -100,7 +100,7 @@ class ContactsController < ApplicationController
 
   # PUT /contact/1
   # PUT /contact/1.xml
-  def update
+  def update #:nodoc:
     @contact = Contact.find(params[:id])
 
     respond_to do |format|
@@ -117,7 +117,7 @@ class ContactsController < ApplicationController
 
   # DELETE /contact/1
   # DELETE /contact/1.xml
-  def destroy
+  def destroy #:nodoc:
     @contact = Contact.find(params[:id])
     @contact.destroy
 
@@ -128,7 +128,7 @@ class ContactsController < ApplicationController
   end 
   
   # Used for auto completion for specific views
-  def lookup
+  def lookup #:nodoc:
     @contacts = Contact.find_for_auto_complete_lookup(params[:search])
   end
 end

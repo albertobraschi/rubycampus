@@ -1,0 +1,404 @@
+
+html, body{
+	background-color: #f0f0f0;
+	padding:10px 0px 0px 5px;
+	margin: 0px;
+	font-family: helvetica;
+	/*font-family: "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif; */
+	font-size: 14px;
+}
+
+td, p {
+  font-family: "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
+  background: #FFF;
+  color: #000;
+  margin: 0px;
+  font-size: small;
+}
+
+#floater{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+/*holds the whole searching/drill down stuff */
+#listFrame{
+	float:left;
+	padding: 2px;
+	width: 350px;
+	background-color: #bbf;
+	border: 1px solid #999;
+	
+}
+
+#browserBar{
+	height: 25px;
+	padding:11px 0px 0px 0px;
+	margin:0px;
+	background-color: #d0d0d0;	
+	border-top: 1px solid #999;
+	color: #005;
+}
+
+#browserBar a{
+	text-decoration: none;
+}
+
+.button{
+	text-decoration: none;
+	padding:3px 8px 3px 8px;
+	border: 1px solid #66a;
+	background-color: #ccf;
+	color: #66a;
+}
+
+.buttonInactive{
+	text-decoration: none;
+	padding:3px 8px 3px 8px;
+	border: 1px solid #999;
+	background-color: #ccc;
+	color: #999;
+}
+
+.miniButton{
+	text-decoration: none;
+	padding:3px 2px 3px 2px;
+	border: 1px solid #66a;
+	background-color: #ccf;
+	color: #66a;
+}
+
+.miniButtonInactive{
+	text-decoration: none;
+	padding:3px 2px 3px 2px;
+	border: 1px solid #999;
+	background-color: #ccc;
+	color: #999;
+}
+
+#blowOutListBox{
+	position: absolute;
+	top: 63px;
+	left: 399px;
+	border: 1px solid #999;
+	padding: 0px;
+	margin: 0px;
+	z-index: 1000;
+	background-color: #ccf;
+	color: #66a;
+}
+
+#blowOutListBox ul{
+	list-style-type:none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#blowOutListBox ul li{
+	padding: 3px;
+	margin: 0px;
+	line-height: 1em;
+	
+}
+
+#blowOutListBox ul li a{
+	text-decoration: none;
+	padding: 3px;
+}
+#blowOutListBox ul li a:hover{
+	background-color: #ddf;
+}
+
+/*holds the content for browsing etc... also is the target of method/class/file name clicks */
+#rdocContent{
+	height: 600px;
+	background-color: #fff;
+	border: 1px solid #999;
+	border-left: 0px;
+	padding:5px;
+	overflow: auto;
+}
+
+/*the grouping for methods,files,class,all... i.e. the tabs */
+ul#groupType{
+	list-style-type: none;
+	padding: 0px;
+	padding-left: 5px;
+	margin: 0px;
+}
+
+ul#groupType li{
+	display:inline;
+	padding: 5px 5px 0px 5px;
+	border: 1px solid #999;
+	border-bottom: 0px;
+	cursor: pointer;
+}
+
+ul#groupType li#loadingStatus{
+	margin: 3px;
+	border: 0px;
+	padding: 3px 3px 6px 3px;
+	color: #666;
+}
+
+ul#groupType li.activeLi{
+	background-color: #bbf;
+	padding-bottom: 1px;
+}
+
+#listSearch{
+	height: 25px;
+	padding: 3px;
+}
+
+#listSearch input[type=text]{
+	width: 340px;
+	font-size: 1.2em;
+}
+
+#listScroller{
+	width: 342px;
+	height: 700px;
+	margin: 3px;
+	background-color: #fcfcfc;
+	border: 1px solid #999;
+	overflow: auto;
+}
+
+#listScroller ul{
+	width: 500px;
+	padding:0px;
+	margin:0px;
+	list-style: none;
+}
+
+#listScroller li{
+	padding: 0px;
+	margin: 0px;
+	display: block;
+	line-height: 1em;
+}
+
+#listScroller a{
+    text-decoration: none;
+	padding: 0px 1px 1px 1px;
+	margin: 3px;
+	font-weight: bold;
+}
+
+#listScroller a:hover{
+	background-color: #ccf;
+}
+
+.activeA {
+	background-color: #ffa;
+	border: 1px solid #ccc;
+	padding: 0px 1px 1px 1px; 
+}
+
+#listScroller small{
+	color: #999;
+}
+
+.activeTitle{
+  font-family: monospace;
+  font-size: large;
+  border-bottom: 1px dashed black;
+  margin-bottom: 0.3em;
+  padding-bottom: 0.1em;
+  background-color: #ffc;
+}
+
+.activeMethod{
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+
+.activeMethod .title {
+  font-family: monospace;
+  font-size: large;
+  border-bottom: 1px dashed black;
+  margin-bottom: 0.3em;
+  padding-bottom: 0.1em;
+  background-color: #ffa;
+}
+
+.activeMethod .description, .activeMethod .sourcecode {
+  margin-left: 1em;
+}
+
+.activeMethod .sourcecode p.source-link {
+  text-indent: 0em;
+  margin-top: 0.5em;
+}
+
+.activeMethod .aka {
+  margin-top: 0.3em;
+  margin-left: 1em;
+  font-style: italic;
+  text-indent: 2em;
+}
+
+#content {
+  margin: 0.5em;
+}
+
+#description p {
+  margin-bottom: 0.5em;
+}
+
+.sectiontitle {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  padding-left: 2em;
+  background: #005;
+  color: #FFF;
+  font-weight: bold;
+  border: 1px dotted black;
+}
+
+.attr-rw {
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: center;
+  color: #055;
+}
+
+.attr-name {
+  font-weight: bold;
+}
+
+.attr-desc {
+}
+
+.attr-value {
+  font-family: monospace;
+}
+
+.file-title-prefix {
+  font-size: large;
+}
+
+.file-title {
+  font-size: large;
+  font-weight: bold;
+  background: #005;
+  color: #FFF;
+}
+
+.banner {
+  background: #005;
+  color: #FFF;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+.banner td {
+  background: transparent;
+  color: #FFF;
+}
+
+h1 a, h2 a, .sectiontitle a, .banner a {
+  color: #FF0;
+}
+
+h1 a:hover, h2 a:hover, .sectiontitle a:hover, .banner a:hover {
+  color: #FF7;
+}
+
+.dyn-source {
+  display: none;
+  color: #000;
+  border: 0px;
+  border-left: 1px dotted black;
+  border-top: 1px dotted black;
+  margin: 0em;
+  padding: 0em;
+}
+
+.dyn-source .cmt {
+  color: #00F;
+  font-style: italic;
+}
+
+.dyn-source .kw {
+  color: #070;
+  font-weight: bold;
+}
+
+.method {
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.description pre {
+  padding: 0.5em;
+  border: 1px dotted black;
+  background: #FFE;
+}
+
+.method .title {
+  font-family: monospace;
+  font-size: large;
+  border-bottom: 1px dashed black;
+  margin: 0.3em;
+  padding: 0.2em;
+}
+
+.method .description, .method .sourcecode {
+  margin-left: 1em;
+}
+
+.description p, .sourcecode p {
+  margin-bottom: 0.5em;
+}
+
+.method .sourcecode p.source-link {
+  text-indent: 0em;
+  margin-top: 0.5em;
+}
+
+.method .aka {
+  margin-top: 0.3em;
+  margin-left: 1em;
+  font-style: italic;
+  text-indent: 2em;
+}
+
+h1 {
+  padding: 1em;
+  border: 1px solid black;
+  font-size: x-large;
+  font-weight: bold;
+  color: #FFF;
+  background: #007;
+}
+
+h2 {
+  padding: 0.5em 1em 0.5em 1em;
+  border: 1px solid black;
+  font-size: large;
+  font-weight: bold;
+  color: #FFF;
+  background: #009;
+}
+
+h3, h4, h5, h6 {
+  padding: 0.2em 1em 0.2em 1em;
+  border: 1px dashed black;
+  color: #000;
+  background: #AAF;
+}
+
+.sourcecode > pre {
+  padding: 0px;
+  margin: 0px;
+  border: 1px dotted black;
+  background: #FFE;
+}

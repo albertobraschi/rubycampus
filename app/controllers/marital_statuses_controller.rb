@@ -39,7 +39,7 @@ class MaritalStatusesController < ApplicationController
   
   before_filter :login_required, :except => [ :index ]   
   
-  def lookup
+  def lookup #:nodoc:
     @marital_statuses = MaritalStatus.find_for_auto_complete_lookup(params[:search])   
   end                                                                                
 end

@@ -39,7 +39,7 @@ class CountriesController < ApplicationController
   
   before_filter :login_required, :except => [ :index ]
   
-  def lookup
+  def lookup #:nodoc:
     @countries = Country.find_for_auto_complete_lookup(params[:search])
   end                                                                                 
 end

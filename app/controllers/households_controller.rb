@@ -41,7 +41,7 @@ class HouseholdsController < ApplicationController
   # See Contacts Controller   
   # GET rubycampus.local/households
   # GET rubycampus.local/households.xml
-  def index
+  def index #:nodoc:
     # @households = Contact.search_for_all_and_paginate(params[:search], params[:page], HOUSEHOLD)    
     # 
     # respond_to do |format|
@@ -52,7 +52,7 @@ class HouseholdsController < ApplicationController
 
   # GET rubycampus.local/households/1
   # GET rubycampus.local/households/1.xml
-  def show
+  def show #:nodoc:
     @household_presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
@@ -65,12 +65,12 @@ class HouseholdsController < ApplicationController
     end
   end
 
-  def new
+  def new #:nodoc:
     @household_presenter = HouseholdPresenter.new
   end      
    
   # GET rubycampus.local/households/1/edit
-  def edit
+  def edit #:nodoc:
     @household_presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
@@ -80,7 +80,7 @@ class HouseholdsController < ApplicationController
   
   # POST rubycampus.local/households
   # POST rubycampus.local/households.xml  
-  def create                                    
+  def create #:nodoc:                                    
     @household_presenter = HouseholdPresenter.new(params[:household_presenter])
     @household_presenter.contact_contact_type_id = HOUSEHOLD
 
@@ -98,7 +98,7 @@ class HouseholdsController < ApplicationController
   
   # PUT rubycampus.local/households/1
   # PUT rubycampus.local/households/1.xml
-  def update
+  def update #:nodoc:
     @household_presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
@@ -115,7 +115,7 @@ class HouseholdsController < ApplicationController
 
   # DELETE rubycampus.local/households/1
   # DELETE rubycampus.local/households/1.xml
-  def destroy
+  def destroy #:nodoc:
    #@household_presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]))
     @household_presenter = Contact.find(params[:id])
     @household_presenter.destroy
@@ -128,7 +128,7 @@ class HouseholdsController < ApplicationController
   end
   
   # Generates PDF Extract 
-  def extract
+ def extract #:nodoc:
     @household_presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),

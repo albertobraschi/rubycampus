@@ -58,7 +58,7 @@ class Activity < ActiveRecord::Base
       search(search).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' )
     end          
   # end Queries
-  
+#:stopdoc:  
   # begin Virtual Attributes 
     # begin status
       def status_name
@@ -90,6 +90,7 @@ class Activity < ActiveRecord::Base
       end      
     # end contact_name
   # end Virtual Attributes
+#:startdoc:
 end
 # == Schema Information
 # Schema version: 20080902230656

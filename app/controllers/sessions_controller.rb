@@ -41,14 +41,14 @@ class SessionsController < ApplicationController
   before_filter :not_logged_in_required, :only => [:new, :create]
 
   # render new.rhtml
-  def new
+  def new #:nodoc:
   end
 
-  def create
+  def create #:nodoc:
     password_authentication(params[:login], params[:password])
   end
 
-  def destroy
+  def destroy #:nodoc:
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token
     reset_session

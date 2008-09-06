@@ -41,7 +41,7 @@ class IndividualsController < ApplicationController
   # See Contacts Controller  
   # GET rubycampus.local/individuals
   # GET rubycampus.local/individuals.xml
-  def index
+  def index #:nodoc:
   #   @individuals = Contact.search_for_all_and_paginate(params[:search], params[:page], ContactType::INDIVIDUAL)    
   # 
   #   respond_to do |format|
@@ -52,7 +52,7 @@ class IndividualsController < ApplicationController
 
   # GET rubycampus.local/individuals/1
   # GET rubycampus.local/individuals/1.xml
-  def show
+  def show #:nodoc:
     @individual_presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
@@ -64,12 +64,12 @@ class IndividualsController < ApplicationController
     end
   end
 
-  def new
+  def new #:nodoc:
     @individual_presenter = IndividualPresenter.new
   end      
    
   # GET rubycampus.local/individuals/1/edit
-  def edit
+  def edit #:nodoc:
     @individual_presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
@@ -79,7 +79,7 @@ class IndividualsController < ApplicationController
   
   # POST rubycampus.local/individuals
   # POST rubycampus.local/individuals.xml  
-  def create                                    
+  def create #:nodoc:                                    
     @individual_presenter = IndividualPresenter.new(params[:individual_presenter])
     @individual_presenter.contact_contact_type_id = ContactType::INDIVIDUAL
 
@@ -97,7 +97,7 @@ class IndividualsController < ApplicationController
   
   # PUT rubycampus.local/individuals/1
   # PUT rubycampus.local/individuals/1.xml
-  def update
+  def update #:nodoc:
     @individual_presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
@@ -114,7 +114,7 @@ class IndividualsController < ApplicationController
 
   # DELETE rubycampus.local/individuals/1
   # DELETE rubycampus.local/individuals/1.xml
-  def destroy
+  def destroy #:nodoc:
    #@individual_presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]))
     @individual_presenter = Contact.find(params[:id])
     @individual_presenter.destroy
@@ -127,7 +127,7 @@ class IndividualsController < ApplicationController
   end
   
   # Generates PDF Extract 
-  def extract
+  def extract #:nodoc:
     @individual_presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),

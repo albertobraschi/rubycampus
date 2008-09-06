@@ -39,7 +39,7 @@ class MessagingProvidersController < ApplicationController
   
   before_filter :login_required, :except => [ :index ]  
   
-  def lookup
+  def lookup #:nodoc:
     @messaging_providers = MessagingProvider.find_for_auto_complete_lookup(params[:search])   
   end                                                                                
 end

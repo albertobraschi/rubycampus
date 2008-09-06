@@ -38,12 +38,12 @@
 class RolesController < ApplicationController       
   before_filter :check_super_user_role
 
-  def index
+  def index #:nodoc:
     @user = User.find(params[:user_id])
     @all_roles = Role.find(:all)     
   end
 
-  def update
+  def update #:nodoc:
     @user = User.find(params[:user_id])
     @role = Role.find(params[:id])
     unless @user.has_role?(@role.name)
@@ -52,7 +52,7 @@ class RolesController < ApplicationController
     redirect_to :action => 'index' 
   end
 
-  def destroy
+  def destroy #:nodoc:
     @user = User.find(params[:user_id])
     @role = Role.find(params[:id])
     if @user.has_role?(@role.name)

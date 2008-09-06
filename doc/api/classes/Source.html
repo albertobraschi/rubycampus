@@ -1,0 +1,60 @@
+  <div id="C00000061">
+<div class='banner'>
+  <span class="file-title-prefix">Class</span><br />Source<br/>
+  In:
+<a href="#" onclick="jsHref('files/app/models/source_rb.html');">app/models/source.rb</a>
+
+Parent:&nbsp;
+ActiveRecord::Base
+</div>
+ <!-- banner header -->
+
+  <div id="bodyContent" >
+      <div id="content">
+
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="index.html?a=M000025&name=find_for_auto_complete_lookup" >find_for_auto_complete_lookup</a></li>
+  </ul>
+
+
+
+
+  <div class="sectiontitle">Constants</div>
+  <table border='0' cellpadding='5'>
+  <tr valign='top'>
+    <td class="attr-name">NAMES_KEYS</td>
+    <td>=</td>
+    <td class="attr-value">self.find(:all).map do |s|    [s.name, s.id]</td>
+  </tr>
+  </table>
+
+
+<div class="sectiontitle">Public Class methods</div>
+<div id="M000025" class="method">
+  <div id="M000025_title" class="title">
+    <b>find_for_auto_complete_lookup</b>(search)
+  </div>
+  <div class="description">
+  <p>
+Lists qualifying model attributes for use by auto completion in forms
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000025_source')" id="l_M000025_source">show source</a> ]</p>
+  <div id="M000025_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/source.rb, line 42</span>
+42:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
+43:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;position ASC&quot;</span> )  
+44:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>

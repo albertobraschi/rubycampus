@@ -38,7 +38,7 @@
 class HouseholdPresenter < ActivePresenter::Base   
   include GetText::Rails
   bindtextdomain("rubycampus")
-  
+#:stopdoc:   
   @@custom_error_messages_d = {}
   
   # gettext interface (class method)
@@ -60,7 +60,7 @@ class HouseholdPresenter < ActivePresenter::Base
   def self.human_attribute_name(attr)
     attr.to_s.humanize
   end
-         
+#:startdoc:           
   presents :address,
            :contact,
            :email,

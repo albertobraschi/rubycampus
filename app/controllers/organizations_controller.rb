@@ -41,7 +41,7 @@ class OrganizationsController < ApplicationController
   # See Contacts Controller   
   # GET rubycampus.local/organizations
   # GET rubycampus.local/organizations.xml
-  def index
+  def index #:nodoc:
     # @organizations = Contact.search_for_all_and_paginate(params[:search], params[:page], ORGANIZATION)    
     # 
     # respond_to do |format|
@@ -52,7 +52,7 @@ class OrganizationsController < ApplicationController
 
   # GET rubycampus.local/organizations/1
   # GET rubycampus.local/organizations/1.xml
-  def show
+  def show #:nodoc:
     @organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
@@ -65,12 +65,12 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  def new
+  def new #:nodoc:
     @organization_presenter = OrganizationPresenter.new
   end      
    
-  # GET rubycampus.local/organizations/1/edit
-  def edit
+  # GET rubycampus.local/odef extract #:nodoc:rganizations/1/edit
+  def edit #:nodoc:
     @organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
@@ -80,7 +80,7 @@ class OrganizationsController < ApplicationController
   
   # POST rubycampus.local/organizations
   # POST rubycampus.local/organizations.xml  
-  def create                                    
+  def create #:nodoc:                                    
     @organization_presenter = OrganizationPresenter.new(params[:organization_presenter])
     @organization_presenter.contact_contact_type_id = ORGANIZATION
 
@@ -98,7 +98,7 @@ class OrganizationsController < ApplicationController
   
   # PUT rubycampus.local/organizations/1
   # PUT rubycampus.local/organizations/1.xml
-  def update
+  def update #:nodoc:
     @organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
@@ -115,7 +115,7 @@ class OrganizationsController < ApplicationController
 
   # DELETE rubycampus.local/organizations/1
   # DELETE rubycampus.local/organizations/1.xml
-  def destroy
+  def destroy #:nodoc:
    #@organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]))
     @organization_presenter = Contact.find(params[:id])
     @organization_presenter.destroy
@@ -128,7 +128,7 @@ class OrganizationsController < ApplicationController
   end       
   
   # Generates PDF Extract 
-  def extract
+  def extract #:nodoc:
     @organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),

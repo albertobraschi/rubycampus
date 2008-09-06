@@ -39,7 +39,7 @@ class ActivityTypesController < ApplicationController
   
   before_filter :login_required, :except => [ :index ]   
   
-  def lookup
+  def lookup #:nodoc:
     @activity_types = ActivityType.find_for_auto_complete_lookup(params[:search])
   end                                                                                                   
 end

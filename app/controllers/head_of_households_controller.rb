@@ -39,7 +39,7 @@ class HeadOfHouseholdsController < ApplicationController
   layout 'rubycampus', :except => :index
   before_filter :login_required
   # TODO Make first_name and last_name attributes searchable instead of just last_name
-  def index
+  def index #:nodoc:
     @head_of_households = HeadOfHousehold.find(:all, :conditions => ['last_name LIKE ?', "%#{params[:search]}%"])
   end
 end

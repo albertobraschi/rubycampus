@@ -39,7 +39,7 @@ class EducationLevelsController < ApplicationController
   
   before_filter :login_required, :except => [ :index ]  
   
-  def lookup
+  def lookup #:nodoc:
     @education_levels = EducationLevel.find_for_auto_complete_lookup(params[:search]) 
   end                                                                                 
 end

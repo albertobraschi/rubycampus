@@ -1,0 +1,128 @@
+  <div id="C00000054">
+<div class='banner'>
+  <span class="file-title-prefix">Class</span><br />UserMailer<br/>
+  In:
+<a href="#" onclick="jsHref('files/app/models/user_mailer_rb.html');">app/models/user_mailer.rb</a>
+
+Parent:&nbsp;
+ActionMailer::Base
+</div>
+ <!-- banner header -->
+
+  <div id="bodyContent" >
+      <div id="content">
+
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="index.html?a=M000019&name=activation" >activation</a></li>
+  <li><a href="index.html?a=M000020&name=forgot_password" >forgot_password</a></li>
+  <li><a href="index.html?a=M000021&name=reset_password" >reset_password</a></li>
+  <li><a href="index.html?a=M000022&name=setup_email" >setup_email</a></li>
+  <li><a href="index.html?a=M000018&name=signup_notification" >signup_notification</a></li>
+  </ul>
+
+
+
+
+
+
+<div class="sectiontitle">Public Instance methods</div>
+<div id="M000019" class="method">
+  <div id="M000019_title" class="title">
+    <b>activation</b>(user)
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show source</a> ]</p>
+  <div id="M000019_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user_mailer.rb, line 47</span>
+47:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activation</span>(<span class="ruby-identifier">user</span>)
+48:     <span class="ruby-identifier">setup_email</span>(<span class="ruby-identifier">user</span>)
+49:     <span class="ruby-ivar">@subject</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">_</span>(<span class="ruby-value str">'Your account has been activated!'</span>)
+50:     <span class="ruby-ivar">@body</span>[<span class="ruby-identifier">:url</span>] = <span class="ruby-node">&quot;#{RubyCampus.site_protocal}#{RubyCampus.site_url}/&quot;</span>
+51:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000020" class="method">
+  <div id="M000020_title" class="title">
+    <b>forgot_password</b>(user)
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show source</a> ]</p>
+  <div id="M000020_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user_mailer.rb, line 53</span>
+53:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">forgot_password</span>(<span class="ruby-identifier">user</span>)
+54:     <span class="ruby-identifier">setup_email</span>(<span class="ruby-identifier">user</span>)
+55:     <span class="ruby-ivar">@subject</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">_</span>(<span class="ruby-value str">'You have requested to change your password'</span>)
+56:     <span class="ruby-ivar">@body</span>[<span class="ruby-identifier">:url</span>] = <span class="ruby-node">&quot;#{RubyCampus.site_protocal}#{RubyCampus.site_url}/reset_password/#{user.password_reset_code}&quot;</span>
+57:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000021" class="method">
+  <div id="M000021_title" class="title">
+    <b>reset_password</b>(user)
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show source</a> ]</p>
+  <div id="M000021_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user_mailer.rb, line 59</span>
+59:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reset_password</span>(<span class="ruby-identifier">user</span>)
+60:     <span class="ruby-identifier">setup_email</span>(<span class="ruby-identifier">user</span>)
+61:     <span class="ruby-ivar">@subject</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">_</span>(<span class="ruby-value str">'Your password has been reset.'</span>)
+62:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000018" class="method">
+  <div id="M000018_title" class="title">
+    <b>signup_notification</b>(user)
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show source</a> ]</p>
+  <div id="M000018_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user_mailer.rb, line 40</span>
+40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">signup_notification</span>(<span class="ruby-identifier">user</span>)
+41:     <span class="ruby-identifier">setup_email</span>(<span class="ruby-identifier">user</span>)
+42:     <span class="ruby-ivar">@subject</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">_</span>(<span class="ruby-value str">'Please activate your new account'</span>)
+43:     
+44:     <span class="ruby-ivar">@body</span>[<span class="ruby-identifier">:url</span>] = <span class="ruby-node">&quot;#{RubyCampus.site_protocal}#{RubyCampus.site_url}/activate/#{user.activation_code}&quot;</span>
+45:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="sectiontitle">Protected Instance methods</div>
+<div id="M000022" class="method">
+  <div id="M000022_title" class="title">
+    <b>setup_email</b>(user)
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show source</a> ]</p>
+  <div id="M000022_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user_mailer.rb, line 66</span>
+66:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setup_email</span>(<span class="ruby-identifier">user</span>)
+67:     <span class="ruby-ivar">@recipients</span> = <span class="ruby-node">&quot;#{user.email}&quot;</span>
+68:     <span class="ruby-ivar">@from</span> = <span class="ruby-constant">RubyCampus</span>.<span class="ruby-identifier">site_from_email</span>
+69:     <span class="ruby-ivar">@subject</span> = <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;%s email setup&quot;</span>) <span class="ruby-operator">%</span> <span class="ruby-constant">RubyCampus</span>.<span class="ruby-identifier">site_url</span>
+70:     <span class="ruby-ivar">@sent_on</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+71:     <span class="ruby-ivar">@body</span>[<span class="ruby-identifier">:user</span>] = <span class="ruby-identifier">user</span>         
+72:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>

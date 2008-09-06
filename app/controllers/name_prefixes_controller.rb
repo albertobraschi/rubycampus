@@ -39,7 +39,7 @@ class NamePrefixesController < ApplicationController
   
   before_filter :login_required, :except => [ :index ]
   
-  def lookup
+  def lookup #:nodoc:
     @name_prefixes = NamePrefix.find_for_auto_complete_lookup(params[:search])   
   end                                                                                     
 end

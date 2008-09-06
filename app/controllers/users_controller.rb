@@ -40,21 +40,21 @@ class UsersController < ApplicationController
   before_filter :login_required, :only => [:show, :edit, :update]
   before_filter :check_super_user_role, :only => [:index, :destroy, :enable]
   
-  def index
+  def index #:nodoc:
     @users = User.search(params[:search],params[:page])
   end
 
   # this show action only allows users to view their own profile
-  def show
+  def show #:nodoc:
     @user = current_user
   end
 
   # render new.rhtml
-  def new
+  def new #:nodoc:
     @user = User.new
   end
 
-  def create
+  def create #:nodoc:
     cookies.delete :auth_token
     @user = User.new(params[:user])
     @user.save!
@@ -68,11 +68,11 @@ class UsersController < ApplicationController
     render :action => 'new'
   end
 
-  def edit
+  def edit #:nodoc:
   @user = current_user
   end
 
-  def update
+  def update #:nodoc:
     @user = User.find(current_user)
     if @user.update_attributes(params[:user])
     flash[:notice] = _("User updated")
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy #:nodoc:
     @user = User.find(params[:id])
     if @user.update_attribute(:enabled, false)
     flash[:notice] = _("User disabled")

@@ -40,7 +40,7 @@ class UserAccountsController < ApplicationController
   before_filter :not_logged_in_required, :only => :show
 
   # Activate action
-  def show
+  def show #:nodoc:
     # Uncomment and change paths to have user logged in after activation - not recommended
     #self.current_user = User.find_and_activate!(params[:id])
     User.find_and_activate!(params[:id])
@@ -57,11 +57,11 @@ class UserAccountsController < ApplicationController
     redirect_to login_path      
   end
 
-  def edit
+  def edit #:nodoc:
   end    
 
   # Change password action
-  def update
+  def update #:nodoc:
     return unless request.post?
     if User.authenticate(current_user.login, params[:old_password])
     if ((params[:password] == params[:password_confirmation]) && !params[:password_confirmation].blank?)

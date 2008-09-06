@@ -39,9 +39,9 @@ class Messenger < ActiveRecord::Base
   belongs_to :contact   
   belongs_to :location_type 
   belongs_to :messaging_provider
-  
+
+#:stopdoc:  
   # Virtual Attributes
-  
   def messaging_provider_name
     messaging_provider.name if messaging_provider    
   end                  
@@ -49,6 +49,7 @@ class Messenger < ActiveRecord::Base
   def messaging_provider_name=(name)
     self.messaging_provider = MessagingProvider.find_or_create_by_name(name) unless name.blank?  
   end
+#:startdoc:
 end
 # == Schema Information
 # Schema version: 20080902230656

@@ -40,7 +40,7 @@ class ActivitiesController < ApplicationController
 
   # GET rubycampus.local/activities
   # GET rubycampus.local/activities.xml
-  def index
+  def index #:nodoc:
     # @activities = Activity.find(:all)
     @activities = Activity.search_for_all_and_paginate(params[:search], params[:page])
 
@@ -52,7 +52,7 @@ class ActivitiesController < ApplicationController
 
   # GET rubycampus.local/activities/1
   # GET rubycampus.local/activities/1.xml
-  def show
+  def show #:nodoc:
     @activity = Activity.find(params[:id])
 
     respond_to do |format|
@@ -63,7 +63,7 @@ class ActivitiesController < ApplicationController
 
   # GET rubycampus.local/activities/new
   # GET rubycampus.local/activities/new.xml
-  def new
+  def new #:nodoc:
     @activity = Activity.new
 
     respond_to do |format|
@@ -73,13 +73,13 @@ class ActivitiesController < ApplicationController
   end
 
   # GET rubycampus.local/activities/1/edit
-  def edit
+  def edit #:nodoc:
     @activity = Activity.find(params[:id])
   end
 
   # POST rubycampus.local/activities
   # POST rubycampus.local/activities.xml
-  def create
+  def create #:nodoc:
     @activity = Activity.new(params[:activity])
 
     respond_to do |format|
@@ -100,7 +100,7 @@ class ActivitiesController < ApplicationController
 
   # PUT rubycampus.local/activities/1
   # PUT rubycampus.local/activities/1.xml
-  def update
+  def update #:nodoc:
     @activity = Activity.find(params[:id])
 
     respond_to do |format|
@@ -117,7 +117,7 @@ class ActivitiesController < ApplicationController
 
   # DELETE rubycampus.local/activities/1
   # DELETE rubycampus.local/activities/1.xml
-  def destroy
+  def destroy #:nodoc:
     @activity = Activity.find(params[:id])
     @activity.destroy
 

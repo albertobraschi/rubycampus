@@ -137,6 +137,7 @@ class Contact < ActiveRecord::Base
     end   
   # end Queries
 
+#:stopdoc:
   # Virtual Attributes for auto complete
     # begin stage
       def stage_name
@@ -276,7 +277,8 @@ class Contact < ActiveRecord::Base
       def head_of_household_last_name=(last_name)
         self.head_of_household = HeadOfHousehold.find_by_last_name(last_name) unless last_name.blank?
       end
-    # end head_of_household_last_name  
+    # end head_of_household_last_name
+#:startdoc:  
 end
 # == Schema Information
 # Schema version: 20080902230656

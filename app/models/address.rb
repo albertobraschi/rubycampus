@@ -44,9 +44,9 @@ class Address < ActiveRecord::Base
   
   # Validations
   validates_as_rubycampus_street_address :line_1, :line_2  
-  
-  # Virtual Attributes
-  
+
+#:stopdoc:  
+  # Virtual Attributes  
   def country_name
     country.name if country    
   end                  
@@ -62,7 +62,7 @@ class Address < ActiveRecord::Base
   def region_name=(name)
     self.region = Region.find_by_name(name) unless name.blank?  
   end
-      
+#:startdoc:      
 end
 # == Schema Information
 # Schema version: 20080902230656

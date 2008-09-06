@@ -35,7 +35,7 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class Character
+class Character #:nodoc: all
   attr_reader :char
   
   def self.all

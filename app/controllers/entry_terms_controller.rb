@@ -39,7 +39,7 @@ class EntryTermsController < ApplicationController
   
   before_filter :login_required, :except => [ :index ]  
   
-  def lookup
+  def lookup #:nodoc:
     @entry_terms = EntryTerm.find_for_auto_complete_lookup(params[:search])
   end                                                                                                                           
 end
