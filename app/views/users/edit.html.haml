@@ -19,12 +19,8 @@
           = f.time_zone_select :time_zone, TimeZone.us_zones, {:class => "field"}   
       .clear
       
-      %label{:for => "first_name", :class => "w45 inputselect mandatory"}
+      %label{:for => "name", :class => "w45 inputselect mandatory"}
         %span.wrapper
-          %span.title= _("First Name")
-          = f.text_field :first_name, :class => "field"
-      %label{:for => "last_name", :class => "w45 inputselect mandatory"}
-        %span.wrapper
-          %span.title= _("Last Name")
-          = f.text_field :last_name, :class => "field"   
+          %span.title= _("Display Name")
+          = f.text_field :name, :class => "field" 
       .clear
