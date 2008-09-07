@@ -8,7 +8,13 @@ h2. RubyCampus - Relationship and Fundraising Management for Higher Education
 
 bq. RubyCampus is designed to store and manage highly sensitive information regarding constituents of educational organizations, governmental and non-governmental agencies. Every effort has been made to help ensure RubyCampus meets and exceeds the standards set by regulatory bodies around the world regarding the storage and retrieval of sensitive information through the use of security and cryptographic mechanisms. 
 
-bq. If you downloaded an archive of RubyCampus or obtained it from any other source other than an "official" repository such as "rubycampus.org":https://rubycampus.org or at "github":http://github.com/rubycampus/rubycampus/tree/master ; we strongly recommend that you clone and use only official source for production purposes. This will also ensure your organization is receiving updates directly from the authors and that the source has not been negatively or maliciously compromised.
+bq. If you downloaded an archive of RubyCampus or obtained it from any other source other than an "official" repository such as "rubycampus.org":https://rubycampus.org we strongly recommend that you clone and use only official source for production purposes. This will also ensure your organization is receiving updates directly from the authors and that the source has not been negatively or maliciously compromised.
+
+Trusted Mirrors ( synched with main repository at "rubycampus.org":https://rubycampus.org ):
+
+* GitHub - git://github.com/rubycampus/rubycampus.git    
+* Gitorious - git://gitorious.org/rubycampus/mainline.git 
+* RubyForge - git://rubyforge.org/rubycampus.git
 
 *See the instructions below, and also see the "RubyCampus Wiki":https://rubycampus.org/wiki/rubycampus for more details.*
 
