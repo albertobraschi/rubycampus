@@ -2,15 +2,15 @@ bq. THIS SOFTWARE IS CURRENTLY UNDER ACTIVE DEVELOPMENT AND THIS REPOSITORY IS A
 
 bq. このソフトウェアは現在開発中です。 またこのレポジトリは、一般の使用目的ではないスナップショットです。これは本来 RUBYCAMPUS の開発者たちとその他のそのプロジェクトへ貢献している方たちの対象のものです。
 
-!https://rubycampus.org/r/screenshots/001.png!
+!=https://rubycampus.org/r/screenshots/001.png!
 
-h2. RubyCampus - Relationship and Fundraising Management for Higher Education       
+h2. Relationship and Fundraising Management for Higher Education       
 
-bq. RubyCampus is designed to store and manage highly sensitive information regarding constituents of educational organizations, governmental and non-governmental agencies. Every effort has been made to help ensure RubyCampus meets and exceeds the standards set by regulatory bodies around the world regarding the storage and retrieval of sensitive information through the use of security and cryptographic mechanisms. 
+bq. RubyCampus is designed to store and manage highly sensitive information regarding constituents of educational, governmental and non-governmental organizations. Every effort is made to help ensure RubyCampus meets or exceeds the standards set by various regulatory bodies regarding the storage and management of sensitive information through the use of security mechanisms. 
 
-bq. If you downloaded an archive of RubyCampus or obtained it from any other source other than an "official" repository such as "rubycampus.org":https://rubycampus.org we strongly recommend that you clone and use only official source for production purposes. This will also ensure your organization is receiving updates directly from the authors and that the source has not been negatively or maliciously compromised.
+bq. If you downloaded an archive of RubyCampus or obtained it from any other source other than an "official" repository such as "rubycampus.org":https://rubycampus.org we strongly recommend that you clone and use only official source for production purposes. This will ensure your organization is receiving updates directly from the authors.
 
-Trusted Mirrors ( synched with main repository at "rubycampus.org":https://rubycampus.org ):
+Trusted Mirrors ( synced with main repository at "rubycampus.org":https://rubycampus.org ):
 
 * GitHub - git://github.com/rubycampus/rubycampus.git    
 * Gitorious - git://gitorious.org/rubycampus/mainline.git 
@@ -20,32 +20,30 @@ Trusted Mirrors ( synched with main repository at "rubycampus.org":https://rubyc
 
 h2. Overview
 
-This README file refers to the RubyCampus relationship management and fundraising software designed to
-address the needs of higher educational and non-profit organizations for the purposes of student recruitment, 
-enrollment management and fundraising.
+This README file refers to the RubyCampus relationship management and fundraising software designed to address the needs of higher educational and non-profit organizations for the purposes of student recruitment, enrollment management, alumni development and fundraising.
 
-The purpose of this file is to enumerate the various versions of the RubyCampus along with the appropriate 
-versions of related dependencies needed to successfully deploy.
+The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.
 
 h2. Minimal Requirements
 
-The current version of the RubyCampus can be installed and executed on any Unix based or inspired operating
-system such as Linux, FreeBSD and Apple OS X and other compatible operating systems.
+The current version of the RubyCampus can be installed and executed on any Unix based or inspired operating system such as Linux, FreeBSD and Apple OS X or other compatible operating system.
  
-We recommend the following deployment environment but you may choose any number of alternatives that are
-perfectly suitable.
+We suggest the following environment but you may choose any number of suitable alternatives depending on your organizations specific requirements and resources.
+
+h3. Recommended 
 
 * Linux/BSD OS
 * Apache2
-* MySQL
-* Recommended: 
-** Phusion Passenger (mod_rails)
-** Ruby 1.8.7 Enterprise Edition
-** Gem 1.2.0   - Required
-** Rails 2.1.0 - Required
+* MySQL 5.0
+* Phusion Passenger (mod_rails)
 
-You can also get free support from the RubyCampus open source community.
-See "rubycampus.org":https:/rubycampus.org/
+h3. Required    
+
+* Ruby 1.8.7 (Phusion Passenger's Ruby Enterprise Edition build if running Passenger)
+* Gem 1.2.0
+* Rails 2.1.0
+
+Our "issue tracker":https://rubycampus.org/projects/rubycampus/issues , "forums":https://rubycampus.org/projects/rubycampus/boards , "wiki":https://rubycampus.org/wiki/rubycampus and community resources are freely available at "rubycampus.org":https:/rubycampus.org/
 
 *Copyright (C) 2008 Kevin Aleman, RubyCampus LLC Japan. All rights reserved.*   
 
