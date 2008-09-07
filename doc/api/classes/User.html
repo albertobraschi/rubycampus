@@ -79,11 +79,11 @@ the user or nil.
   <p class="source-link">[ <a href="javascript:toggleSource('M000031_source')" id="l_M000031_source">show source</a> ]</p>
   <div id="M000031_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 109</span>
-109:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">authenticate</span>(<span class="ruby-identifier">login</span>, <span class="ruby-identifier">password</span>)
-110:     <span class="ruby-identifier">u</span> = <span class="ruby-identifier">find</span> <span class="ruby-identifier">:first</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'login = ?'</span>, <span class="ruby-identifier">login</span>] <span class="ruby-comment cmt"># need to get the salt</span>
-111:     <span class="ruby-identifier">u</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">authenticated?</span>(<span class="ruby-identifier">password</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">u</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>   
-112:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 110</span>
+110:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">authenticate</span>(<span class="ruby-identifier">login</span>, <span class="ruby-identifier">password</span>)
+111:     <span class="ruby-identifier">u</span> = <span class="ruby-identifier">find</span> <span class="ruby-identifier">:first</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'login = ?'</span>, <span class="ruby-identifier">login</span>] <span class="ruby-comment cmt"># need to get the salt</span>
+112:     <span class="ruby-identifier">u</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">authenticated?</span>(<span class="ruby-identifier">password</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">u</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>   
+113:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -101,10 +101,10 @@ Encrypts some data with the salt.
   <p class="source-link">[ <a href="javascript:toggleSource('M000032_source')" id="l_M000032_source">show source</a> ]</p>
   <div id="M000032_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 115</span>
-115:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">salt</span>)
-116:     <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-node">&quot;–#{salt}–#{password}–&quot;</span>)
-117:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 116</span>
+116:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">salt</span>)
+117:     <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-node">&quot;–#{salt}–#{password}–&quot;</span>)
+118:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -130,15 +130,15 @@ Raises:
   <p class="source-link">[ <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show source</a> ]</p>
   <div id="M000028_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 89</span>
-89:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_and_activate!</span>(<span class="ruby-identifier">activation_code</span>)
-90:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">activation_code</span>.<span class="ruby-identifier">nil?</span>
-91:     <span class="ruby-identifier">user</span> = <span class="ruby-identifier">find_by_activation_code</span>(<span class="ruby-identifier">activation_code</span>)
-92:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">ActivationCodeNotFound</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user</span>
-93:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">AlreadyActivated</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">active?</span>
-94:     <span class="ruby-identifier">user</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:activate!</span>)
-95:     <span class="ruby-identifier">user</span>     
-96:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 90</span>
+90:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_and_activate!</span>(<span class="ruby-identifier">activation_code</span>)
+91:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">activation_code</span>.<span class="ruby-identifier">nil?</span>
+92:     <span class="ruby-identifier">user</span> = <span class="ruby-identifier">find_by_activation_code</span>(<span class="ruby-identifier">activation_code</span>)
+93:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">ActivationCodeNotFound</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user</span>
+94:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">AlreadyActivated</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">active?</span>
+95:     <span class="ruby-identifier">user</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:activate!</span>)
+96:     <span class="ruby-identifier">user</span>     
+97:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -151,10 +151,10 @@ Raises:
   <p class="source-link">[ <a href="javascript:toggleSource('M000044_source')" id="l_M000044_source">show source</a> ]</p>
   <div id="M000044_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 174</span>
-174:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_forget</span>(<span class="ruby-identifier">email</span>)
-175:     <span class="ruby-identifier">find</span> <span class="ruby-identifier">:first</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'email = ? and activated_at IS NOT NULL'</span>, <span class="ruby-identifier">email</span>]
-176:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 175</span>
+175:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_forget</span>(<span class="ruby-identifier">email</span>)
+176:     <span class="ruby-identifier">find</span> <span class="ruby-identifier">:first</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'email = ? and activated_at IS NOT NULL'</span>, <span class="ruby-identifier">email</span>]
+177:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -172,12 +172,12 @@ Queries from Controller Action Index
   <p class="source-link">[ <a href="javascript:toggleSource('M000027_source')" id="l_M000027_source">show source</a> ]</p>
   <div id="M000027_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 70</span>
-70:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">page</span>)
-71:     <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>, 
-72:              <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name like ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>],
-73:              <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'name'</span>    
-74:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 71</span>
+71:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">page</span>)
+72:     <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>, 
+73:              <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name like ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>],
+74:              <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'name'</span>    
+75:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -191,11 +191,11 @@ Queries from Controller Action Index
   <p class="source-link">[ <a href="javascript:toggleSource('M000029_source')" id="l_M000029_source">show source</a> ]</p>
   <div id="M000029_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 98</span>
- 98:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">active?</span>
- 99:     <span class="ruby-comment cmt"># the presence of an activation date means they have activated</span>
-100:     <span class="ruby-operator">!</span><span class="ruby-identifier">activated_at</span>.<span class="ruby-identifier">nil?</span>     
-101:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 99</span>
+ 99:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">active?</span>
+100:     <span class="ruby-comment cmt"># the presence of an activation date means they have activated</span>
+101:     <span class="ruby-operator">!</span><span class="ruby-identifier">activated_at</span>.<span class="ruby-identifier">nil?</span>     
+102:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -208,10 +208,10 @@ Queries from Controller Action Index
   <p class="source-link">[ <a href="javascript:toggleSource('M000034_source')" id="l_M000034_source">show source</a> ]</p>
   <div id="M000034_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 124</span>
-124:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authenticated?</span>(<span class="ruby-identifier">password</span>)
-125:     <span class="ruby-identifier">crypted_password</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">password</span>)
-126:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 125</span>
+125:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authenticated?</span>(<span class="ruby-identifier">password</span>)
+126:     <span class="ruby-identifier">crypted_password</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">password</span>)
+127:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -229,10 +229,10 @@ Encrypts the password with the user salt
   <p class="source-link">[ <a href="javascript:toggleSource('M000033_source')" id="l_M000033_source">show source</a> ]</p>
   <div id="M000033_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 120</span>
-120:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">password</span>)
-121:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">salt</span>)
-122:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 121</span>
+121:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">password</span>)
+122:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">salt</span>)
+123:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -245,12 +245,12 @@ Encrypts the password with the user salt
   <p class="source-link">[ <a href="javascript:toggleSource('M000039_source')" id="l_M000039_source">show source</a> ]</p>
   <div id="M000039_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 147</span>
-147:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">forget_me</span>
-148:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remember_token_expires_at</span> = <span class="ruby-keyword kw">nil</span>
-149:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remember_token</span>            = <span class="ruby-keyword kw">nil</span>
-150:     <span class="ruby-identifier">save</span>(<span class="ruby-keyword kw">false</span>)  
-151:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 148</span>
+148:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">forget_me</span>
+149:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remember_token_expires_at</span> = <span class="ruby-keyword kw">nil</span>
+150:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remember_token</span>            = <span class="ruby-keyword kw">nil</span>
+151:     <span class="ruby-identifier">save</span>(<span class="ruby-keyword kw">false</span>)  
+152:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -263,11 +263,11 @@ Encrypts the password with the user salt
   <p class="source-link">[ <a href="javascript:toggleSource('M000040_source')" id="l_M000040_source">show source</a> ]</p>
   <div id="M000040_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 153</span>
-153:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">forgot_password</span>
-154:     <span class="ruby-ivar">@forgotten_password</span> = <span class="ruby-keyword kw">true</span>
-155:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">make_password_reset_code</span>
-156:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 154</span>
+154:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">forgot_password</span>
+155:     <span class="ruby-ivar">@forgotten_password</span> = <span class="ruby-keyword kw">true</span>
+156:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">make_password_reset_code</span>
+157:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -280,10 +280,10 @@ Encrypts the password with the user salt
   <p class="source-link">[ <a href="javascript:toggleSource('M000045_source')" id="l_M000045_source">show source</a> ]</p>
   <div id="M000045_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 178</span>
-178:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">has_role?</span>(<span class="ruby-identifier">name</span>)
-179:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">roles</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
-180:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 179</span>
+179:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">has_role?</span>(<span class="ruby-identifier">name</span>)
+180:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">roles</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
+181:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -301,10 +301,10 @@ Returns true if the user has just been activated.
   <p class="source-link">[ <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show source</a> ]</p>
   <div id="M000030_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 104</span>
-104:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pending?</span>
-105:     <span class="ruby-ivar">@activated</span>
-106:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 105</span>
+105:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pending?</span>
+106:     <span class="ruby-ivar">@activated</span>
+107:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -322,10 +322,10 @@ used in user_observer
   <p class="source-link">[ <a href="javascript:toggleSource('M000042_source')" id="l_M000042_source">show source</a> ]</p>
   <div id="M000042_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 166</span>
-166:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">recently_forgot_password?</span>
-167:     <span class="ruby-ivar">@forgotten_password</span>
-168:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 167</span>
+167:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">recently_forgot_password?</span>
+168:     <span class="ruby-ivar">@forgotten_password</span>
+169:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -338,10 +338,10 @@ used in user_observer
   <p class="source-link">[ <a href="javascript:toggleSource('M000043_source')" id="l_M000043_source">show source</a> ]</p>
   <div id="M000043_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 170</span>
-170:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">recently_reset_password?</span>
-171:     <span class="ruby-ivar">@reset_password</span>
-172:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 171</span>
+171:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">recently_reset_password?</span>
+172:     <span class="ruby-ivar">@reset_password</span>
+173:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -360,10 +360,10 @@ browser closes
   <p class="source-link">[ <a href="javascript:toggleSource('M000036_source')" id="l_M000036_source">show source</a> ]</p>
   <div id="M000036_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 133</span>
-133:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remember_me</span>
-134:     <span class="ruby-identifier">remember_me_for</span> <span class="ruby-value">2</span>.<span class="ruby-identifier">weeks</span>
-135:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 134</span>
+134:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remember_me</span>
+135:     <span class="ruby-identifier">remember_me_for</span> <span class="ruby-value">2</span>.<span class="ruby-identifier">weeks</span>
+136:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -376,10 +376,10 @@ browser closes
   <p class="source-link">[ <a href="javascript:toggleSource('M000037_source')" id="l_M000037_source">show source</a> ]</p>
   <div id="M000037_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 137</span>
-137:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remember_me_for</span>(<span class="ruby-identifier">time</span>)
-138:     <span class="ruby-identifier">remember_me_until</span> <span class="ruby-identifier">time</span>.<span class="ruby-identifier">from_now</span>.<span class="ruby-identifier">utc</span>
-139:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 138</span>
+138:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remember_me_for</span>(<span class="ruby-identifier">time</span>)
+139:     <span class="ruby-identifier">remember_me_until</span> <span class="ruby-identifier">time</span>.<span class="ruby-identifier">from_now</span>.<span class="ruby-identifier">utc</span>
+140:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -392,12 +392,12 @@ browser closes
   <p class="source-link">[ <a href="javascript:toggleSource('M000038_source')" id="l_M000038_source">show source</a> ]</p>
   <div id="M000038_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 141</span>
-141:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remember_me_until</span>(<span class="ruby-identifier">time</span>)
-142:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remember_token_expires_at</span> = <span class="ruby-identifier">time</span>
-143:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remember_token</span>            = <span class="ruby-identifier">encrypt</span>(<span class="ruby-node">&quot;#{email}–#{remember_token_expires_at}&quot;</span>)
-144:     <span class="ruby-identifier">save</span>(<span class="ruby-keyword kw">false</span>)    
-145:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 142</span>
+142:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remember_me_until</span>(<span class="ruby-identifier">time</span>)
+143:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remember_token_expires_at</span> = <span class="ruby-identifier">time</span>
+144:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remember_token</span>            = <span class="ruby-identifier">encrypt</span>(<span class="ruby-node">&quot;#{email}–#{remember_token_expires_at}&quot;</span>)
+145:     <span class="ruby-identifier">save</span>(<span class="ruby-keyword kw">false</span>)    
+146:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -410,10 +410,10 @@ browser closes
   <p class="source-link">[ <a href="javascript:toggleSource('M000035_source')" id="l_M000035_source">show source</a> ]</p>
   <div id="M000035_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 128</span>
-128:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remember_token?</span>
-129:     <span class="ruby-identifier">remember_token_expires_at</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">utc</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">remember_token_expires_at</span>
-130:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 129</span>
+129:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remember_token?</span>
+130:     <span class="ruby-identifier">remember_token_expires_at</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">utc</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">remember_token_expires_at</span>
+131:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -426,13 +426,13 @@ browser closes
   <p class="source-link">[ <a href="javascript:toggleSource('M000041_source')" id="l_M000041_source">show source</a> ]</p>
   <div id="M000041_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 158</span>
-158:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reset_password</span>
-159:     <span class="ruby-comment cmt"># First update the password_reset_code before setting the</span>
-160:     <span class="ruby-comment cmt"># reset_password flag to avoid duplicate email notifications.</span>
-161:     <span class="ruby-identifier">update_attribute</span>(<span class="ruby-identifier">:password_reset_code</span>, <span class="ruby-keyword kw">nil</span>)
-162:     <span class="ruby-ivar">@reset_password</span> = <span class="ruby-keyword kw">true</span>   
-163:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 159</span>
+159:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reset_password</span>
+160:     <span class="ruby-comment cmt"># First update the password_reset_code before setting the</span>
+161:     <span class="ruby-comment cmt"># reset_password flag to avoid duplicate email notifications.</span>
+162:     <span class="ruby-identifier">update_attribute</span>(<span class="ruby-identifier">:password_reset_code</span>, <span class="ruby-keyword kw">nil</span>)
+163:     <span class="ruby-ivar">@reset_password</span> = <span class="ruby-keyword kw">true</span>   
+164:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -451,12 +451,12 @@ before filter
   <p class="source-link">[ <a href="javascript:toggleSource('M000046_source')" id="l_M000046_source">show source</a> ]</p>
   <div id="M000046_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 185</span>
-185:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encrypt_password</span>
-186:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">blank?</span>
-187:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">salt</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-node">&quot;–#{Time.now.to_s}–#{login}–&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">new_record?</span>
-188:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">crypted_password</span> = <span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">password</span>)  
-189:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 186</span>
+186:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encrypt_password</span>
+187:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">blank?</span>
+188:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">salt</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-node">&quot;–#{Time.now.to_s}–#{login}–&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">new_record?</span>
+189:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">crypted_password</span> = <span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">password</span>)  
+190:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -469,10 +469,10 @@ before filter
   <p class="source-link">[ <a href="javascript:toggleSource('M000048_source')" id="l_M000048_source">show source</a> ]</p>
   <div id="M000048_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 195</span>
-195:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_activation_code</span>
-196:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">activation_code</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">hexdigest</span>( <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">//</span>).<span class="ruby-identifier">sort_by</span> {<span class="ruby-identifier">rand</span>}.<span class="ruby-identifier">join</span> )
-197:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 196</span>
+196:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_activation_code</span>
+197:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">activation_code</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">hexdigest</span>( <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">//</span>).<span class="ruby-identifier">sort_by</span> {<span class="ruby-identifier">rand</span>}.<span class="ruby-identifier">join</span> )
+198:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -485,10 +485,10 @@ before filter
   <p class="source-link">[ <a href="javascript:toggleSource('M000049_source')" id="l_M000049_source">show source</a> ]</p>
   <div id="M000049_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 199</span>
-199:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_password_reset_code</span>
-200:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">password_reset_code</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">hexdigest</span>( <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">//</span>).<span class="ruby-identifier">sort_by</span> {<span class="ruby-identifier">rand</span>}.<span class="ruby-identifier">join</span> )
-201:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 200</span>
+200:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_password_reset_code</span>
+201:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">password_reset_code</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">hexdigest</span>( <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">//</span>).<span class="ruby-identifier">sort_by</span> {<span class="ruby-identifier">rand</span>}.<span class="ruby-identifier">join</span> )
+202:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -501,10 +501,10 @@ before filter
   <p class="source-link">[ <a href="javascript:toggleSource('M000047_source')" id="l_M000047_source">show source</a> ]</p>
   <div id="M000047_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 191</span>
-191:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">password_required?</span>
-192:     <span class="ruby-identifier">crypted_password</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">password</span>.<span class="ruby-identifier">blank?</span>
-193:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 192</span>
+192:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">password_required?</span>
+193:     <span class="ruby-identifier">crypted_password</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">password</span>.<span class="ruby-identifier">blank?</span>
+194:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
