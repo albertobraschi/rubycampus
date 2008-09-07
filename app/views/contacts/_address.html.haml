@@ -3,12 +3,12 @@
   %span.wrapper
     %span.title= _("Location")
     = form.select(:address_location_type_id, LocationType::NAMES_KEYS, :class => "field")  
-%label{:for => "address_is_primary", :class => "w25 inputselect"}
+%label{:for => "address_is_primary", :class => "w25 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :address_is_primary, :class => "select"
     %span.title= _("Is Primary")
-%label{:for => "address_is_billing", :class => "w25 inputselect"}
+%label{:for => "address_is_billing", :class => "w25 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :address_is_billing, :class => "select"
@@ -19,7 +19,7 @@
   %span.wrapper
     %span.title= _("Country")
     = text_field_with_auto_complete :individual_presenter, :address_country_name, { :class => "field" }, { :url => formatted_lookup_countries_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }     
-    %em= _("Type in the first few letters of the country and then select from the drop-down or press tab if the desired item is selected. After selecting a country, the State / Province field provides a choice of states or provinces in that country.") 
+    %em= _("Type in the first few letters of the country for list.") 
 %label{:for => "address_region_id", :class => "w25 inputselect"}
   %span.wrapper
     %span.title= _("Region")
@@ -29,24 +29,24 @@
   %span.wrapper
     %span.title= _("Locality")
     = form.text_field :address_locality, :class => "field"
-    %em= _("City or Locality")   
-.clear
-
-%label{:for => "address_line_1", :class => "w25 inputselect"}
-  %span.wrapper
-    %span.title= _("Line 1")
-    = form.text_field :address_line_1, :class => "field"
-    %em= _("Street number, street name, apartment/unit/suite - OR P.O. box")    
-%label{:for => "address_line_2", :class => "w25 inputselect"}
-  %span.wrapper
-    %span.title= _("Line 2")
-    = form.text_field :address_line_2, :class => "field" 
-    %em= _("Supplemental address info, e.g. c/o, department name, building name, etc.")
+    %em= _("City or Locality")
 %label{:for => "address_postal_code", :class => "w25 inputselect"}
   %span.wrapper
     %span.title= _("Postal code")
     = form.text_field :address_postal_code, :class => "field"
     %em= _("Zip or Postal Code")   
+.clear
+
+%label{:for => "address_line_1", :class => "w50 inputselect"}
+  %span.wrapper
+    %span.title= _("Line 1")
+    = form.text_field :address_line_1, :class => "field"
+    %em= _("Street number, street name, apartment/unit/suite - OR P.O. box")    
+%label{:for => "address_line_2", :class => "w50 inputselect"}
+  %span.wrapper
+    %span.title= _("Line 2")
+    = form.text_field :address_line_2, :class => "field" 
+    %em= _("Supplemental address information such as c/o, department name, building name, etc.") 
 .clear
 
 %hr/ 
