@@ -23,20 +23,22 @@
  
 %label{:for => "contact_preferred_communication_method_id", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Preferred communication method")
+    %span.title= _("Communication Method")
     = form.select(:contact_preferred_communication_method_id, PreferredCommunicationMethod::NAMES_KEYS, :class => "field")
+    %br/
     %em= _("Select the preferred method of communicating with this contact.")
 %label{:for => "contact_preferred_email_format_id", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Preferred email format")
+    %span.title= _("Email Format")
     = form.select(:contact_preferred_email_format_id, PreferredEmailFormat::NAMES_KEYS, :class => "field")
-    %em= _("Select the email format preferred by this contact. Select 'Both' to send HTML and Text formats.")
+    %br/
+    %em= _("Select 'Both' to send HTML and Text formats.")
 %label{:for => "contact_is_opt_out", :class => "w25 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :contact_is_opt_out, :class => "select"
     %span.title= _("Is Opt Out")
-    %em= _("This option indicates if the user has INTENTIONALLY opted out of email. Please set or reset with care.") 
+    %em= _("Indicates contact has INTENTIONALLY opted out of email.") 
 .clear
 
 %hr/ 
