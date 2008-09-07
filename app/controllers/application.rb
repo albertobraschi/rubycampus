@@ -37,7 +37,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all
-  layout 'rubycampus', :except => [ :extract, :lookup ]
+  layout 'application', :except => [ :extract, :lookup ]
   init_gettext "rubycampus"
   include AuthenticatedSystem
   
