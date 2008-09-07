@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  # render new.rhtml
+  # render new.html.haml
   def new #:nodoc:
     @user = User.new
   end
