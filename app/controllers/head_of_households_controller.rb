@@ -36,7 +36,7 @@
 #++
 
 class HeadOfHouseholdsController < ApplicationController
-  layout 'rubycampus', :except => :index
+  layout 'application', :except => :index
   before_filter :login_required
   # TODO Make first_name and last_name attributes searchable instead of just last_name
   def index #:nodoc:
