@@ -47,7 +47,7 @@ INDIVIDUAL = 1
 ORGANIZATION = 2
 HOUSEHOLD = 3
 
-ROWS_PER_PAGE = 3 # for :per_page => ROWS_PER_PAGE in pagination
+ROWS_PER_PAGE = 15 # for :per_page => ROWS_PER_PAGE in pagination
  
 # Tables and Defaults
 RUBYCAMPUS = "rubycampus"
