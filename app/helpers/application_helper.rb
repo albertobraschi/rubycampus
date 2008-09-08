@@ -50,10 +50,22 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
   
-  # Renders link to official RubyCampus Wiki
+  # Renders formatted links to the official RubyCampus wiki
   def link_to_help
-    prefix = "Working_with"
-    link_to _("Help"), RUBYCAMPUS_ORG_BASE_URL + "wiki/#{RUBYCAMPUS}/#{prefix}_#{controller.controller_name.titleize}##{controller.action_name.titleize}", :popup => true
+    wiki_page = "#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/"
+    case
+      when controller.action_name == "index"   
+        wiki_page << "Managing_#{controller.controller_name.titleize}"
+      when controller.action_name == "show"   
+        wiki_page << "Viewing_An_Existing_#{controller.controller_name.singularize.titleize}"
+      when controller.action_name == "new"   
+        wiki_page << "Creating_A_New_#{controller.controller_name.singularize.titleize}"
+      when controller.action_name == "edit"   
+        wiki_page << "Editing_An_Existing_#{controller.controller_name.singularize.titleize}"
+      else
+        wiki_page << "#{controller.controller_name.titleize}"
+      end
+    link_to _("Help"), "#{wiki_page}", :popup => true
   end
   
   # Links to RubyCampus issue tracker and fill basic issue information
