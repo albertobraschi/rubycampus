@@ -4,12 +4,12 @@
   %h2= yield(:title)
   %table
     %tr
-      %th= _("Activity Type")
-      %th= _("Subject")
-      %th= _("Contact")
-      %th= _("Starts At")
-      %th= _("End At")
-      %th= _("Status")
+      %th.small= _("Activity")
+      %th.small= _("Subject")
+      %th.small= _("Contact")
+      %th.small= _("Starts At")
+      %th.small= _("End At")
+      %th.small= _("Status")
       %th= render :partial => "common/search"
     = render :partial => "activity", :collection => @activities  
   = render :partial => "common/actions/for_form_index"
