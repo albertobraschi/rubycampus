@@ -1399,7 +1399,7 @@ button.positive, .action_buttons a.positive {color:#529214;}
 
 /* rubycampus-pagination */
 .pagination {padding:2px;}
-.pagination ul {margin:0;padding:0;text-align:right;font-size:16px;}
+.pagination ul {margin:0;padding:0;text-align:left;font-size:16px;}
 .pagination li {list-style-type:none;display:inline;padding-bottom:1px;}
 .pagination a, .pagination a:visited {padding:0 5px;border:1px solid #9aafe5;text-decoration:none;color:#2e6ab1;}
 .pagination a:hover, .pagination a:active {border:1px solid #2b66a5;color:#000;background-color:#FFFF80;}
