@@ -1,5 +1,5 @@
-%tr{:class => cycle("even","odd")}
-  %td[contact]
+%tr[contact]{:class => cycle("even","odd")}
+  %td
     %span{:class => "icons %s" % (contact.contact_type.name.downcase rescue nil) }
       = h contact.last_name + ", " + contact.first_name rescue nil
       = h contact.organization_name rescue nil
