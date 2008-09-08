@@ -1397,6 +1397,16 @@ button.positive, .action_buttons a.positive {color:#529214;}
 .action_buttons a.negative:hover, button.negative:hover {background:#fbe3e4;border:2px solid #fbc2c4;color:#d12f19;}
 .action_buttons a.negative:active {background-color:#d12f19;border:2px solid #d12f19;color:#fff;}
 
+/* rubycampus-pagination */
+.pagination {padding:2px;}
+.pagination ul {margin:0;padding:0;text-align:right;font-size:16px;}
+.pagination li {list-style-type:none;display:inline;padding-bottom:1px;}
+.pagination a, .pagination a:visited {padding:0 5px;border:1px solid #9aafe5;text-decoration:none;color:#2e6ab1;}
+.pagination a:hover, .pagination a:active {border:1px solid #2b66a5;color:#000;background-color:#FFFF80;}
+.pagination a.currentpage {background-color:#2e6ab1;color:#FFF !important;border-color:#2b66a5;font-weight:bold;cursor:default;}
+.pagination a.disablelink, .pagination a.disablelink:hover {background-color:white;cursor:default;color:#929292;border-color:#929292;font-weight:normal !important;}
+.pagination a.prevnext {font-weight:bold;}
+
 /* semantic class names */
 .icons.edit {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -235px;}
 .icons.find_organization {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -7453px;}
