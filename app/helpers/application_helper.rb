@@ -50,7 +50,10 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
   
-  # Renders formatted links to the official RubyCampus wiki
+  #
+  # By default, uses the current controller and action to render the url to the
+  # corresponding RubyCampus wiki page.
+  #
   def link_to_help
     wiki_page = "#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/"
     case
