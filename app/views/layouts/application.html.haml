@@ -30,9 +30,9 @@
             = link_to_help
       %hr/
       = render :partial => "layouts/flash_message"
-      .span-4
+      .span-4#sidebar
         = display_sidebar # yield :sidebar
-      .span-20.last{:style => "background-color:#fcfcfc;border-style:solid;"}
+      .span-20.last#content{:style => "background-color:#fcfcfc;border-style:solid;"}
         = yield
-      .span-24{:align => "middle"}
+      .span-24#footer{:align => "middle"}
         = Rubycampus::Info::impressum
