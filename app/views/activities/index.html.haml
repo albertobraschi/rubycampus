@@ -1,4 +1,4 @@
-- title((_("Listing %s") % current_controller_gettext_human_name_pluralized))
+- title((_(current_controller_gettext_human_name_pluralized)))
 .standard_box
   = render :partial => "common/actions/for_form_index"
   %h2= yield(:title)
