@@ -11,5 +11,4 @@
       %th= _("Last Updated") 
       %th= render :partial => "common/search"    
     = render :partial => 'contact', :collection => @contacts
-  %div{:style => "text-align:right;"}
-    = will_paginate @contacts 
+  %div.pagination= will_paginate @contacts 
