@@ -9,6 +9,6 @@
       %th.small= _("Name")  
       %th.small= _("Stage")
       %th.small= _("Last Updated") 
-      %th.small= render :partial => "common/search"    
+      %th= render :partial => "common/search"    
     = render :partial => 'contact', :collection => @contacts
   %div.pagination= will_paginate @contacts
