@@ -52,7 +52,8 @@ module ApplicationHelper
   
   # Renders link to official RubyCampus Wiki
   def link_to_help
-    link_to _("Help"), RUBYCAMPUS_ORG_BASE_URL + "wiki/#{RUBYCAMPUS}/#{controller.controller_name.downcase}##{controller.action_name.downcase}", :popup => true
+    prefix = "Working_with"
+    link_to _("Help"), RUBYCAMPUS_ORG_BASE_URL + "wiki/#{RUBYCAMPUS}/#{prefix}_#{controller.controller_name.titleize}##{controller.action_name.titleize}", :popup => true
   end
   
   # Links to RubyCampus issue tracker and fill basic issue information
