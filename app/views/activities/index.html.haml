@@ -2,7 +2,6 @@
 .standard_box
   = render :partial => "common/actions/for_form_index"
   %h2= yield(:title)
-  %hr/
   %table
     %tr
       %th= _("Activity Type")
@@ -14,7 +13,5 @@
       %th
     = render :partial => "activity", :collection => @activities  
   = render :partial => "common/actions/for_form_index"
-  %hr/
-  %span{:style => "text-align:right;"}
-    = will_paginate @activities 
-    = render :partial => "common/search"
+  %div.pagination= will_paginate @activities 
+  = render :partial => "common/search"
