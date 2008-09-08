@@ -10,8 +10,8 @@
       %th= _("Starts At")
       %th= _("End At")
       %th= _("Status")
-      %th
+      %th= render :partial => "common/search"
     = render :partial => "activity", :collection => @activities  
   = render :partial => "common/actions/for_form_index"
-  %div.pagination= will_paginate @activities 
-  = render :partial => "common/search"
+  %div.pagination= will_paginate @activities
+  
