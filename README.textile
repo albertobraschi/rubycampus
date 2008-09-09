@@ -20,7 +20,7 @@ Trusted Mirrors ( synced with main repository at "rubycampus.org":https://rubyca
 
 h2. Overview
 
-This README file refers to the RubyCampus relationship management and fundraising software designed to address the needs of higher educational and non-profit organizations for the purposes of student recruitment, enrollment management, alumni development and fundraising.
+This *README* file refers to the RubyCampus relationship management and fundraising software designed to address the needs of higher educational and non-profit organizations for the purposes of student recruitment, enrollment management, alumni development and fundraising.
 
 The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.
 
@@ -45,9 +45,11 @@ h3. Required
 
 h2. Quick Install Reference
 
-These instructions are meant for persons familiar with the *Ruby* programming language and the *Rails* framework. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide.
+These instructions are meant for persons familiar with the *Ruby* programming language, *Rails* framework and *Git* distributed revision control. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide.
 
-_You must first complete the required configuration templates at @config/*.yml.template@ and duplicate them into @config/*.yml@ before proceeding_
+* @ git clone git://github.com/rubycampus/rubycampus.git @
+
+_Prior to running @rake@ tasks you must first complete the required configuration templates at @config/*.yml.template@ and duplicate them as @config/*.yml@ before proceeding_
 
 * @ rake db:create @
 * @ rake db:migrate @
@@ -59,4 +61,4 @@ Our "issue tracker":https://rubycampus.org/projects/rubycampus/issues , "forums"
 
 h2. License
 
-See the file doc/LICENSE.
+See the file "doc/LICENSE":https://rubycampus.org/wiki/rubycampus/Licensing
