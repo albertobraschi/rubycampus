@@ -57,7 +57,7 @@ namespace :db do
       # contact.sic_code
       # contact.user_id
       # contact.assigned_to_user_id
-      # contact.lock_version
+      contact.lock_version             = 0
       # contact.date_of_birth
       # contact.government_identification_number
       contact.is_foreign               = [0,1] if contact.contact_type_id == 1
