@@ -68,8 +68,8 @@ class OrganizationsController < ApplicationController
   def new #:nodoc:
     @organization_presenter = OrganizationPresenter.new
   end      
-   
-  # GET rubycampus.local/odef extract #:nodoc:rganizations/1/edit
+  
+  # GET rubycampus.local/organizations/1/edit 
   def edit #:nodoc:
     @organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
