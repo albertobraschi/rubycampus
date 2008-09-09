@@ -52,7 +52,10 @@ ActiveSupport.escape_html_entities_in_json = false
 # conflict prevention. Do not run RubyCampus without a qualified table
 # prefix assigned. Changing this setting may cause unpredictable behavior
 # and incompatibilities with future updates.
-ActiveRecord::Base.table_name_prefix = RUBYCAMPUS_CORE_TABLE_PREFIX     
+ActiveRecord::Base.table_name_prefix = RUBYCAMPUS_CORE_TABLE_PREFIX  
+
+# Toggles Optimistic Locking, generally should be set to true 
+ActiveRecord::Base.lock_optimistically = true   
 
 # Extend with Sidebar
 ActionView::Base.send :include, Rubycampus::Sidebar
