@@ -53,7 +53,7 @@ class HouseholdsController < ApplicationController
   # GET rubycampus.local/households/1
   # GET rubycampus.local/households/1.xml
   def show #:nodoc:
-    @household_presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
@@ -61,17 +61,17 @@ class HouseholdsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.haml
-      format.xml  { render :xml => @household_presenter.contact }
+      format.xml  { render :xml => @presenter.contact }
     end
   end
 
   def new #:nodoc:
-    @household_presenter = HouseholdPresenter.new
+    @presenter = HouseholdPresenter.new
   end      
    
   # GET rubycampus.local/households/1/edit
   def edit #:nodoc:
-    @household_presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
@@ -81,10 +81,10 @@ class HouseholdsController < ApplicationController
   # POST rubycampus.local/households
   # POST rubycampus.local/households.xml  
   def create #:nodoc:                                    
-    @household_presenter = HouseholdPresenter.new(params[:household_presenter])
-    @household_presenter.contact_contact_type_id = HOUSEHOLD
+    @presenter = HouseholdPresenter.new(params[:presenter])
+    @presenter.contact_contact_type_id = HOUSEHOLD
 
-    if @household_presenter.save 
+    if @presenter.save 
       flash[:notice] = _("%s was successfully created.") % _("Household")
       if params[:create_and_new_button]
         redirect_to new_household_url
@@ -99,13 +99,13 @@ class HouseholdsController < ApplicationController
   # PUT rubycampus.local/households/1
   # PUT rubycampus.local/households/1.xml
   def update #:nodoc:
-    @household_presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
                                           :phone => Phone.find(params[:id]))
                                            
-    if @household_presenter.update_attributes(params[:household_presenter]) 
+    if @presenter.update_attributes(params[:presenter]) 
       flash[:notice] = _("%s was successfully updated.") % _("Household")
       redirect_to contacts_url(:contact_type => HOUSEHOLD)
     else
@@ -116,9 +116,9 @@ class HouseholdsController < ApplicationController
   # DELETE rubycampus.local/households/1
   # DELETE rubycampus.local/households/1.xml
   def destroy #:nodoc:
-   #@household_presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]))
-    @household_presenter = Contact.find(params[:id])
-    @household_presenter.destroy
+   #@presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]))
+    @presenter = Contact.find(params[:id])
+    @presenter.destroy
 
     respond_to do |format| 
       flash[:notice] = _("%s was successfully destroyed.") % _("Household")
@@ -129,7 +129,7 @@ class HouseholdsController < ApplicationController
   
   # Generates PDF Extract 
  def extract #:nodoc:
-    @household_presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
