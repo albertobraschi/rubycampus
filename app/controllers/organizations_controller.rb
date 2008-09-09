@@ -53,7 +53,7 @@ class OrganizationsController < ApplicationController
   # GET rubycampus.local/organizations/1
   # GET rubycampus.local/organizations/1.xml
   def show #:nodoc:
-    @organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
@@ -61,17 +61,17 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.haml
-      format.xml  { render :xml => @organization_presenter.contact }
+      format.xml  { render :xml => @presenter.contact }
     end
   end
 
   def new #:nodoc:
-    @organization_presenter = OrganizationPresenter.new
+    @presenter = OrganizationPresenter.new
   end      
   
   # GET rubycampus.local/organizations/1/edit 
   def edit #:nodoc:
-    @organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
@@ -81,10 +81,10 @@ class OrganizationsController < ApplicationController
   # POST rubycampus.local/organizations
   # POST rubycampus.local/organizations.xml  
   def create #:nodoc:                                    
-    @organization_presenter = OrganizationPresenter.new(params[:organization_presenter])
-    @organization_presenter.contact_contact_type_id = ORGANIZATION
+    @presenter = OrganizationPresenter.new(params[:presenter])
+    @presenter.contact_contact_type_id = ORGANIZATION
 
-    if @organization_presenter.save 
+    if @presenter.save 
       flash[:notice] = _("%s was successfully created.") % _("Organization")
       if params[:create_and_new_button]
         redirect_to new_organization_url
@@ -99,13 +99,13 @@ class OrganizationsController < ApplicationController
   # PUT rubycampus.local/organizations/1
   # PUT rubycampus.local/organizations/1.xml
   def update #:nodoc:
-    @organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
                                           :phone => Phone.find(params[:id]))
                                            
-    if @organization_presenter.update_attributes(params[:organization_presenter]) 
+    if @presenter.update_attributes(params[:presenter]) 
       flash[:notice] = _("%s was successfully updated.") % _("Organization")
       redirect_to contacts_url(:contact_type => ORGANIZATION) 
     else
@@ -116,9 +116,9 @@ class OrganizationsController < ApplicationController
   # DELETE rubycampus.local/organizations/1
   # DELETE rubycampus.local/organizations/1.xml
   def destroy #:nodoc:
-   #@organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]))
-    @organization_presenter = Contact.find(params[:id])
-    @organization_presenter.destroy
+   #@presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]))
+    @presenter = Contact.find(params[:id])
+    @presenter.destroy
 
     respond_to do |format| 
       flash[:notice] = _("%s was successfully destroyed.") % _("Organization")
@@ -129,7 +129,7 @@ class OrganizationsController < ApplicationController
   
   # Generates PDF Extract 
   def extract #:nodoc:
-    @organization_presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
