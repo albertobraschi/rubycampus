@@ -53,7 +53,8 @@ _Prior to running @rake@ tasks you must first complete the required configuratio
 
 * @ rake db:create @
 * @ rake db:migrate @
-* @ rake db:populate @ # *Optional:* Used to load simulated constituent information
+* @ rake db:populate @ 
+** *db:populate* is _optional_ and intended to load simulated constituent information for demoing and development purposes. You must install the required gems by using  -> @ sudo gem install populator faker echoe @ in POSIX-compliant environments.
 
 Our "issue tracker":https://rubycampus.org/projects/rubycampus/issues , "forums":https://rubycampus.org/projects/rubycampus/boards , "wiki":https://rubycampus.org/wiki/rubycampus and community resources are freely available at "rubycampus.org":https:/rubycampus.org/
 
