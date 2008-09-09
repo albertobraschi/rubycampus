@@ -78,14 +78,11 @@ module ActiveRecord
         @loaded = false
       end
 
-      def build(attributes = {}, &block)
+      def build(attributes = {})
         if attributes.is_a?(Array)
-          attributes.collect { |attr| build(attr, &block) }
+          attributes.collect { |attr| build(attr) }
         else
-          build_record(attributes) do |record|
-            block.call(record) if block_given?
-            set_belongs_to_association_for(record)
-          end
+          build_record(attributes) { |record| set_belongs_to_association_for(record) }
         end
       end
 
@@ -190,7 +187,7 @@ module ActiveRecord
         if @owner.new_record? || (loaded? && !@reflection.options[:uniq])
           @target.size
         elsif !loaded? && !@reflection.options[:uniq] && @target.is_a?(Array)
-          unsaved_records = @target.select { |r| r.new_record? }
+          unsaved_records = Array(@target.detect { |r| r.new_record? })
           unsaved_records.size + count_records
         else
           count_records
@@ -338,7 +335,7 @@ module ActiveRecord
           callback(:before_add, record)
           yield(record) if block_given?
           @target ||= [] unless loaded?
-          @target << record unless @reflection.options[:uniq] && @target.include?(record)
+          @target << record
           callback(:after_add, record)
           record
         end

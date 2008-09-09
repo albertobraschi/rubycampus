@@ -372,7 +372,7 @@ module ActiveRecord #:nodoc:
     def self.reset_subclasses #:nodoc:
       nonreloadables = []
       subclasses.each do |klass|
-        unless ActiveSupport::Dependencies.autoloaded? klass
+        unless Dependencies.autoloaded? klass
           nonreloadables << klass
           next
         end
@@ -438,10 +438,6 @@ module ActiveRecord #:nodoc:
     # adapters for, e.g., your development and test environments.
     cattr_accessor :schema_format , :instance_writer => false
     @@schema_format = :ruby
-
-    # Specify whether or not to use timestamps for migration numbers
-    cattr_accessor :timestamped_migrations , :instance_writer => false
-    @@timestamped_migrations = true
 
     # Determine whether to store the full constant name including namespace when using STI
     superclass_delegating_accessor :store_full_sti_class
@@ -832,7 +828,7 @@ module ActiveRecord #:nodoc:
       def update_counters(id, counters)
         updates = counters.inject([]) { |list, (counter_name, increment)|
           sign = increment < 0 ? "-" : "+"
-          list << "#{connection.quote_column_name(counter_name)} = COALESCE(#{connection.quote_column_name(counter_name)}, 0) #{sign} #{increment.abs}"
+          list << "#{connection.quote_column_name(counter_name)} = #{connection.quote_column_name(counter_name)} #{sign} #{increment.abs}"
         }.join(", ")
         update_all(updates, "#{connection.quote_column_name(primary_key)} = #{quote_value(id)}")
       end
@@ -1469,7 +1465,7 @@ module ActiveRecord #:nodoc:
 
         def construct_finder_sql(options)
           scope = scope(:find)
-          sql  = "SELECT #{options[:select] || (scope && scope[:select]) || ((options[:joins] || (scope && scope[:joins])) && quoted_table_name + '.*') || '*'} "
+          sql  = "SELECT #{options[:select] || (scope && scope[:select]) || (options[:joins] && quoted_table_name + '.*') || '*'} "
           sql << "FROM #{(scope && scope[:from]) || options[:from] || quoted_table_name} "
 
           add_joins!(sql, options, scope)
@@ -1581,11 +1577,10 @@ module ActiveRecord #:nodoc:
           sql << "WHERE #{merged_conditions} " unless merged_conditions.blank?
         end
 
-        def type_condition(table_alias=nil)
-          quoted_table_alias = self.connection.quote_table_name(table_alias || table_name)
+        def type_condition
           quoted_inheritance_column = connection.quote_column_name(inheritance_column)
-          type_condition = subclasses.inject("#{quoted_table_alias}.#{quoted_inheritance_column} = '#{sti_name}' ") do |condition, subclass|
-            condition << "OR #{quoted_table_alias}.#{quoted_inheritance_column} = '#{subclass.sti_name}' "
+          type_condition = subclasses.inject("#{quoted_table_name}.#{quoted_inheritance_column} = '#{sti_name}' ") do |condition, subclass|
+            condition << "OR #{quoted_table_name}.#{quoted_inheritance_column} = '#{subclass.sti_name}' "
           end
 
           " (#{type_condition}) "
@@ -1722,7 +1717,7 @@ module ActiveRecord #:nodoc:
         def attribute_condition(argument)
           case argument
             when nil   then "IS ?"
-            when Array, ActiveRecord::Associations::AssociationCollection, ActiveRecord::NamedScope::Scope then "IN (?)"
+            when Array, ActiveRecord::Associations::AssociationCollection then "IN (?)"
             when Range then "BETWEEN ? AND ?"
             else            "= ?"
           end
@@ -2058,10 +2053,9 @@ module ActiveRecord #:nodoc:
         end
 
         def replace_named_bind_variables(statement, bind_vars) #:nodoc:
-          statement.gsub(/(:?):([a-zA-Z]\w*)/) do
-            if $1 == ':' # skip postgresql casts
-              $& # return the whole match
-            elsif bind_vars.include?(match = $2.to_sym)
+          statement.gsub(/:([a-zA-Z]\w*)/) do
+            match = $1.to_sym
+            if bind_vars.include?(match)
               quote_bound_value(bind_vars[match])
             else
               raise PreparedStatementInvalid, "missing value for :#{match} in #{statement}"
@@ -2070,18 +2064,13 @@ module ActiveRecord #:nodoc:
         end
 
         def expand_range_bind_variables(bind_vars) #:nodoc:
-          expanded = []
-
-          bind_vars.each do |var|
+          bind_vars.sum do |var|
             if var.is_a?(Range)
-              expanded << var.first
-              expanded << var.last
+              [var.first, var.last]
             else
-              expanded << var
+              [var]
             end
           end
-
-          expanded
         end
 
         def quote_bound_value(value) #:nodoc:
@@ -2583,15 +2572,8 @@ module ActiveRecord #:nodoc:
         quoted = {}
         connection = self.class.connection
         attribute_names.each do |name|
-          if (column = column_for_attribute(name)) && (include_primary_key || !column.primary)
-            value = read_attribute(name)
-
-            # We need explicit to_yaml because quote() does not properly convert Time/Date fields to YAML.
-            if value && self.class.serialized_attributes.has_key?(name) && (value.acts_like?(:date) || value.acts_like?(:time))
-              value = value.to_yaml
-            end
-
-            quoted[name] = connection.quote(value, column)
+          if column = column_for_attribute(name)
+            quoted[name] = connection.quote(read_attribute(name), column) unless !include_primary_key && column.primary
           end
         end
         include_readonly_attributes ? quoted : remove_readonly_attributes(quoted)

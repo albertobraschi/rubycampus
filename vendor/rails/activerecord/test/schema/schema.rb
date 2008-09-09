@@ -66,7 +66,6 @@ ActiveRecord::Schema.define do
   create_table :categories, :force => true do |t|
     t.string :name, :null => false
     t.string :type
-    t.integer :categorizations_count
   end
 
   create_table :categories_posts, :force => true, :id => false do |t|
@@ -406,13 +405,6 @@ ActiveRecord::Schema.define do
 
   create_table :guids, :force => true do |t|
     t.column :key, :string
-  end
-
-  create_table :integer_limits, :force => true do |t|
-    t.integer :"c_int_without_limit"
-    (1..8).each do |i|
-      t.integer :"c_int_#{i}", :limit => i
-    end
   end
 
   except 'SQLite' do

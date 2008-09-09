@@ -257,10 +257,7 @@ module ActiveRecord
 
       def to_sql
         column_sql = "#{base.quote_column_name(name)} #{sql_type}"
-        column_options = {}
-        column_options[:null] = null unless null.nil?
-        column_options[:default] = default unless default.nil?
-        add_column_options!(column_sql, column_options) unless type.to_sym == :primary_key
+        add_column_options!(column_sql, :null => null, :default => default) unless type.to_sym == :primary_key
         column_sql
       end
       alias to_s :to_sql
@@ -307,7 +304,8 @@ module ActiveRecord
       #
       # Available options are (none of these exists by default):
       # * <tt>:limit</tt> -
-      #   Requests a maximum column length. This is number of characters for <tt>:string</tt> and <tt>:text</tt> columns and number of bytes for :binary and :integer columns.
+      #   Requests a maximum column length (<tt>:string</tt>, <tt>:text</tt>,
+      #   <tt>:binary</tt> or <tt>:integer</tt> columns only)
       # * <tt>:default</tt> -
       #   The column's default value. Use nil for NULL.
       # * <tt>:null</tt> -
@@ -444,10 +442,9 @@ module ActiveRecord
 
       # Appends <tt>:datetime</tt> columns <tt>:created_at</tt> and
       # <tt>:updated_at</tt> to the table.
-      def timestamps(*args)
-        options = args.extract_options!
-        column(:created_at, :datetime, options)
-        column(:updated_at, :datetime, options)
+      def timestamps
+        column(:created_at, :datetime)
+        column(:updated_at, :datetime)
       end
 
       def references(*args)

@@ -371,8 +371,8 @@ module TZInfo
     # type as utc. Any timezone information in utc is ignored (it is treated as 
     # a UTC time).
     def utc_to_local(utc)
-      TimeOrDateTime.wrap(utc) {|wrapped|
-        period_for_utc(wrapped).to_local(wrapped)
+      TimeOrDateTime.wrap(utc) {|utc|
+        period_for_utc(utc).to_local(utc)
       }
     end
     
@@ -410,14 +410,14 @@ module TZInfo
     # single period to use to convert the time or return nil or an empty array
     # to cause an AmbiguousTime exception to be raised.
     def local_to_utc(local, dst = nil)
-      TimeOrDateTime.wrap(local) {|wrapped|
+      TimeOrDateTime.wrap(local) {|local|
         if block_given?
-          period = period_for_local(wrapped, dst) {|periods| yield periods }
+          period = period_for_local(local, dst) {|periods| yield periods }
         else
-          period = period_for_local(wrapped, dst)
+          period = period_for_local(local, dst)
         end
         
-        period.to_utc(wrapped)
+        period.to_utc(local)
       }
     end
     

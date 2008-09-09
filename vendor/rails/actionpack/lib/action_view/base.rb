@@ -178,13 +178,10 @@ module ActionView #:nodoc:
     # that alert()s the caught exception (and then re-raises it). 
     @@debug_rjs = false
     cattr_accessor :debug_rjs
-
+    
     @@erb_variable = '_erbout'
     cattr_accessor :erb_variable
-    class << self
-      deprecate :erb_variable= => 'The erb variable will no longer be configurable. Use the concat helper method instead of appending to it directly.'
-    end
-
+    
     attr_internal :request
 
     delegate :request_forgery_protection_token, :template, :params, :session, :cookies, :response, :headers,
@@ -256,7 +253,6 @@ If you are rendering a subtemplate, you must now use controller-like partial syn
       elsif options == :update
         update_page(&block)
       elsif options.is_a?(Hash)
-        use_full_path = options[:use_full_path]
         options = options.reverse_merge(:locals => {}, :use_full_path => true)
 
         if partial_layout = options.delete(:layout)
@@ -270,7 +266,7 @@ If you are rendering a subtemplate, you must now use controller-like partial syn
             end
           end
         elsif options[:file]
-          render_file(options[:file], use_full_path || false, options[:locals])
+          render_file(options[:file], options[:use_full_path], options[:locals])
         elsif options[:partial] && options[:collection]
           render_partial_collection(options[:partial], options[:collection], options[:spacer_template], options[:locals])
         elsif options[:partial]

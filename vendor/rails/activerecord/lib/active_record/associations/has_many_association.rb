@@ -14,16 +14,7 @@ module ActiveRecord
             @finder_sql + " AND (#{sanitize_sql(options[:conditions])})"
           options[:include] ||= @reflection.options[:include]
 
-          value = @reflection.klass.count(column_name, options)
-
-          limit  = @reflection.options[:limit]
-          offset = @reflection.options[:offset]
-
-          if limit || offset
-            [ [value - offset.to_i, 0].max, limit.to_i ].min
-          else
-            value
-          end
+          @reflection.klass.count(column_name, options)
         end
       end
 
@@ -36,11 +27,8 @@ module ActiveRecord
           else
             @reflection.klass.count(:conditions => @counter_sql, :include => @reflection.options[:include])
           end
-
-          # If there's nothing in the database and @target has no new records
-          # we are certain the current target is an empty array. This is a
-          # documented side-effect of the method that may avoid an extra SELECT.
-          @target ||= [] and loaded if count == 0
+          
+          @target = [] and loaded if count == 0
           
           if @reflection.options[:limit]
             count = [ @reflection.options[:limit], count ].min
@@ -112,7 +100,7 @@ module ActiveRecord
           create_scoping = {}
           set_belongs_to_association_for(create_scoping)
           {
-            :find => { :conditions => @finder_sql, :readonly => false, :order => @reflection.options[:order], :limit => @reflection.options[:limit], :include => @reflection.options[:include]},
+            :find => { :conditions => @finder_sql, :readonly => false, :order => @reflection.options[:order], :limit => @reflection.options[:limit] },
             :create => create_scoping
           }
         end

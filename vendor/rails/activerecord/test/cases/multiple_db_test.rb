@@ -51,7 +51,7 @@ class MultipleDbTest < ActiveRecord::TestCase
   def test_course_connection_should_survive_dependency_reload
     assert Course.connection
 
-    ActiveSupport::Dependencies.clear
+    Dependencies.clear
     Object.send(:remove_const, :Course)
     require_dependency 'models/course'
 

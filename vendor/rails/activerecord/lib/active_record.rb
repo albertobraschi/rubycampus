@@ -24,14 +24,16 @@
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
-active_support_path = File.dirname(__FILE__) + "/../../activesupport/lib"
-if File.exist?(active_support_path)
-  $:.unshift active_support_path
-  require 'active_support'
-else
-  require 'rubygems'
-  gem 'activesupport'
-  require 'active_support'
+unless defined? ActiveSupport
+  active_support_path = File.dirname(__FILE__) + "/../../activesupport/lib"
+  if File.exist?(active_support_path)
+    $:.unshift active_support_path
+    require 'active_support'
+  else
+    require 'rubygems'
+    gem 'activesupport'
+    require 'active_support'
+  end
 end
 
 require 'active_record/base'
