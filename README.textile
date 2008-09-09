@@ -43,6 +43,16 @@ h3. Required
 * Gem 1.2.0
 * Rails 2.1.0
 
+h2. Quick Install Reference
+
+These instructions are meant for persons familiar with the *Ruby* programming language and the *Rails* framework. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide.
+
+_You must first complete the required configuration templates at @config/*.yml.template@ and duplicate them into @config/*.yml@ before proceeding_
+
+* @ rake db:create @
+* @ rake db:migrate @
+* @ rake db:populate @ # *Optional:* Used to load simulated constituent information
+
 Our "issue tracker":https://rubycampus.org/projects/rubycampus/issues , "forums":https://rubycampus.org/projects/rubycampus/boards , "wiki":https://rubycampus.org/wiki/rubycampus and community resources are freely available at "rubycampus.org":https:/rubycampus.org/
 
 *Copyright (C) 2008 Kevin Aleman, RubyCampus LLC Japan. All rights reserved.*   
