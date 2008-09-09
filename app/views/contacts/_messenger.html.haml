@@ -8,7 +8,7 @@
     %span.title
       = _("Provider")
       %span{:class => "example"}= _("AIM")
-    = text_field_with_auto_complete :individual_presenter, :messenger_messaging_provider_name, { :class => "field" }, { :url => formatted_lookup_messaging_providers_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }      
+    = text_field_with_auto_complete :presenter, :messenger_messaging_provider_name, { :class => "field" }, { :url => formatted_lookup_messaging_providers_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }      
 %label{:for => "messenger_name", :class => "w35 inputselect"}
   %span.wrapper
     %span.title
