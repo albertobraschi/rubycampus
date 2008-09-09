@@ -29,8 +29,8 @@ tmp/[^.]*/[^.]*
 # | Files with passwords and other sensitive information |
 # | should not be tracked by the repository and we       |
 # | suggest you exclude the following files.             |
-# +------------------------------------------------------+ 
-# config/crypto.yml
-# config/database.yml
-# config/deploy.rb
-# config/email.yml
+# +------------------------------------------------------+
+config/crypto.yml
+config/database.yml
+config/deploy.rb
+config/email.yml
