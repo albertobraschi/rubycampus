@@ -1,8 +1,8 @@
 - title((_("Creating %s") % _("Individual")))
-= error_messages_for :individual_presenter 
+= error_messages_for :presenter 
 .individual_box 
   .hako
-    - form_for @individual_presenter, :url => individuals_url, :html => { :method => :post, :class => "hakozaki" } do |form|
+    - form_for @presenter, :url => individuals_url, :html => { :method => :post, :class => "hakozaki" } do |form|
       = render :partial => "contacts/actions/for_form_new"  
       %h1= yield(:title)
       %hr/
