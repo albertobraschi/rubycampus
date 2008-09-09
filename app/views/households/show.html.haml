@@ -1,8 +1,8 @@
 - title((_("Viewing %s") % current_controller_human_name))
-- @household = @household_presenter
+- @household = @presenter
 .household_box
   .hako
-    - form_for @household_presenter, :url => household_url, :html => { :method => :put, :class => "hakozaki" } do |form|
+    - form_for @presenter, :url => household_url, :html => { :method => :put, :class => "hakozaki" } do |form|
       = render :partial => "contacts/actions/for_form_show"
       %h1= "#{@household.contact_household_name}"
       %hr/
