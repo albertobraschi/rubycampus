@@ -1,8 +1,8 @@
 - title((_("Creating %s") % _("Household")))
-= error_messages_for :household_presenter  
+= error_messages_for :presenter  
 .household_box
   .hako 
-    - form_for @household_presenter, :url => households_url, :html => { :method => :post, :class => "hakozaki" } do |form|
+    - form_for @presenter, :url => households_url, :html => { :method => :post, :class => "hakozaki" } do |form|
       = render :partial => "contacts/actions/for_form_new"
       %h1= yield(:title)     
       %hr/
