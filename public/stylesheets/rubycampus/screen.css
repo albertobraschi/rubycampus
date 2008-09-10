@@ -1407,6 +1407,14 @@ button.positive, .action_buttons a.positive {color:#529214;}
 .pagination a.disablelink, .pagination a.disablelink:hover {background-color:white;cursor:default;color:#929292;border-color:#929292;font-weight:normal !important;}
 .pagination a.prevnext {font-weight:bold;}
 
+/* rubycampus-tabs */
+#standard_tabs {position:relative;float:left;width:100%;padding:0 0 0 1em;margin:0;list-style:none;line-height:1em;}
+#standard_tabs li {float:left;margin:0;padding:0;}
+#standard_tabs a {display:block;color:#444;text-decoration:none;font-weight:bold;background:#ddd;margin:0;padding:0.25em 1em;border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #aaa;}
+#standard_tabs a:hover, #standard_tabs a:active, #standard_tabs a.here:link, #standard_tabs a.here:visited {background:#bbb;}
+#standard_tabs a.here:link, #standard_tabs a.here:visited {position:relative;z-index:102;}
+#standard_tabs ul a:hover, #standard_tabs ul a:active, #standard_tabs ul a.here:link, #standard_tabs ul a.here:visited {color:#444;}
+
 /* semantic class names */
 .icons.edit {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -235px;}
 .icons.find_organization {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -7453px;}
