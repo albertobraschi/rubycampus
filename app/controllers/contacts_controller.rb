@@ -45,8 +45,8 @@ class ContactsController < ApplicationController
   def index #:nodoc:
     # Fetches letters from characters model
     # TODO Use the starting unicode character to build map
-    @characters = Character.all
-    @contacts = Contact.search_for_all_contact_types_and_paginate(params[:search], params[:page]) 
+    # @characters = Character.all
+    @contacts = Contact.search_for_all_and_paginate(params[:search], params[:page], params[:contact_type]) 
 
     respond_to do |format|
       format.html # index.haml
