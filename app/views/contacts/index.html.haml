@@ -4,6 +4,10 @@
 .contact_box
   = render :partial => "contacts/actions/for_form_index"
   %h2= yield(:title) 
+  %ul#standard_tabs
+    %li= link_to _("Individuals"), contacts_path(:contact_type => INDIVIDUAL)
+    %li= link_to _("Households"), contacts_path(:contact_type => HOUSEHOLD)
+    %li= link_to _("Organizations"), contacts_path(:contact_type => ORGANIZATION)
   %table
     %tr
       %th.small= _("Name")  
