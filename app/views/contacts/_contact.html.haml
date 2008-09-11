@@ -1,12 +1,9 @@
 %tr[contact]{:class => cycle("even","odd")}
   %td
     %span{:class => "icons %s" % (contact.contact_type.name.downcase rescue nil) }
-      = h contact.last_name + ", " + contact.first_name rescue nil
+      = "#{h contact.last_name}, #{h contact.first_name}" + "<br/><small>#{h contact.stage.name}</small>" rescue nil
       = h contact.organization_name rescue nil
-      = h contact.household_name rescue nil     
-  %td
-    = h contact.stage.name rescue nil
-  
+      = h contact.household_name rescue nil
   %td.small
     - for address in contact.addresses do
       = h address.line_1
@@ -14,11 +11,11 @@
       = h address.locality
       = h address.region.name
       %br/
-      = h address.country.name        
+      = h address.country.name
   %td
     - for phone in contact.phones do
-      = h phone.phone  
+      = h phone.phone
   %td
-    = h (_("%s ago") % distance_of_time_in_words(Time.now, (contact.updated_at))) rescue nil   
+    = h (_("%s ago") % distance_of_time_in_words(Time.now, (contact.updated_at))) rescue nil
   %td
     = render :partial => "contacts/actions/for_row_index", :locals => {:contact => contact}
