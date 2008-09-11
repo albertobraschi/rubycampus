@@ -5,9 +5,12 @@
   = render :partial => "contacts/actions/for_form_index"
   %h2= yield(:title) 
   %ul#standard_tabs
-    %li= link_to _("Individuals"), contacts_path(:contact_type => INDIVIDUAL)
-    %li= link_to _("Households"), contacts_path(:contact_type => HOUSEHOLD)
-    %li= link_to _("Organizations"), contacts_path(:contact_type => ORGANIZATION)
+    - for contact_type in ContactType.all_active
+      = content_tag(:li,(link_to _(contact_type.name.titleize), contacts_path(:contact_type => contact_type.id )))
+  - if current_contact_type_is(INDIVIDUAL)
+    %ul#standard_tabs
+      - for stage in Stage.all_active
+        = content_tag(:li,(link_to _(stage.name.titleize), contacts_path(:contact_type => INDIVIDUAL, :stage => stage.id)))  
   %table
     %tr
       %th.small= _("Name")  
