@@ -1,12 +1,12 @@
 .search
   <!–[if IE]>
   .search_background_IE
-    <![endif]–>   
+    <![endif]–>
     - form_tag contacts_path, :method => :get do
-      %input.search_field{ :name => "search", :type => "text", :value => params[:search] }/
+      = submit_tag nil, {:name => "search", :type => "text", :value => params[:search], :class => "search_field"}
       .search_background
-        = submit_tag nil, {:name => "contact_type", :type => "hidden", :value => params[:contact_type]} unless !params[:contact_type] 
-        = submit_tag nil, {:name => "stage", :type => "hidden", :value => params[:stage]} unless !params[:stage] 
-      %input.search_button{ :type => "image", :src => "images/rubycampus/search_box_button.png", :value => "Search" }/
+        = submit_tag nil, {:name => "contact_type", :type => "hidden", :value => params[:contact_type]} unless !params[:contact_type]
+        = submit_tag nil, {:name => "stage", :type => "hidden", :value => params[:stage]} unless !params[:stage]
+      = submit_tag nil, {:type => "image", :src => "images/rubycampus/search_box_button.png", :value => "Search", :class => "search_button"}
     <!–[if IE]>
-  <![endif]–>                              
+  <![endif]–>
