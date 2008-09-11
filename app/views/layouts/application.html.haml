@@ -29,6 +29,7 @@
               = link_to _('Administer'), users_path
             = link_to _('Logout'), logout_url
             = link_to_help
+        = render :partial => "layouts/search"
       %hr/
       = render :partial => "layouts/flash_message"
       .span-4#sidebar
