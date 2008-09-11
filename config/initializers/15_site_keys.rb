@@ -21,7 +21,7 @@
 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
 # | USA.                                                                               |
 # |                                                                                    |
-# | You can contact RubyCampus, LLC. at email address info@rubycampus.org.             |
+# | You can contact RubyCampus, LLC. at email address project@rubycampus.org.          |
 # |                                                                                    |
 # | The interactive user interfaces in modified source and object code versions of     |
 # | this program must display Appropriate Legal Notices, as required under Section 5   |
