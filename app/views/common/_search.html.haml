@@ -1,6 +1,11 @@
-%div{:style => "text-align:right;"}
-  - form_tag self.send(controller.controller_name+"_path"), :method => :get do
-    .buttons
-      %button{:type => "submit"}
-        = _("Search")
-      = text_field_tag :search, params[:search] 
+.search
+  <!–[if IE]>
+  .search_background_IE
+    <![endif]–>   
+    - form_tag self.send(controller.controller_name+"_path"), :method => :get do
+      %input.search_field{ :name => "search", :type => "text", :value => params[:search] }/
+      %input.search_background{ :name => "reserved", :type => "hidden", :value => "" }/
+      %input.search_button{ :type => "image", :src => "images/rubycampus/search_box_button.png", :value => "Search" }/
+    <!–[if IE]>
+  <![endif]–>
+                             
