@@ -1,14 +1,14 @@
-bq. THIS SOFTWARE IS CURRENTLY UNDER ACTIVE DEVELOPMENT AND THIS REPOSITORY IS A SNAPSHOT THAT IS NOT INTENDED FOR GENERAL USE. IT IS PURELY INTENDED FOR RUBYCAMPUS DEVELOPERS AND OTHER INTERESTED PARTIES FOLLOWING AND/OR CONTRIBUTING TOWARDS THE PROJECT.  
+bq. THIS REPOSITORY IS A SNAPSHOT THAT IS NOT INTENDED FOR GENERAL USE. IT IS SUITABLE FOR DEVELOPERS AND OTHER INTERESTED PARTIES FOLLOWING AND/OR CONTRIBUTING TOWARDS THE PROJECT.  
 
 bq. このソフトウェアは現在開発中です。 またこのレポジトリは、一般の使用目的ではないスナップショットです。これは本来 RUBYCAMPUS の開発者たちとその他のそのプロジェクトへ貢献している方たちの対象のものです。
 
 !=https://rubycampus.org/r/screenshots/001.png!
 
-h2. Relationship and Fundraising Management for Higher Education       
+h2. Relationship Management & Alumni Development for Higher Education       
 
-bq. RubyCampus is designed to store and manage highly sensitive information regarding constituents of educational, governmental and non-governmental organizations. Every effort is made to help ensure RubyCampus meets or exceeds the standards set by various regulatory bodies regarding the storage and management of sensitive information through the use of security mechanisms. 
+bq. RubyCampus is designed to store and manage highly sensitive information. Every effort is made to help ensure RubyCampus meets or exceeds the standards set by regulatory bodies regarding the storage and management of sensitive information. 
 
-bq. If you downloaded an archive of RubyCampus or obtained it from any other source other than an "official" repository such as "rubycampus.org":https://rubycampus.org we strongly recommend that you clone and use only official source for production purposes. This will ensure your organization is receiving updates directly from the authors.
+bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our "official" repositories we strongly recommend that you clone and use only source from a trusted mirror. This will ensure your organization is receiving updates directly from the authors.
 
 Trusted Mirrors ( synced with main repository at "rubycampus.org":https://rubycampus.org ):
 
@@ -20,15 +20,15 @@ Trusted Mirrors ( synced with main repository at "rubycampus.org":https://rubyca
 
 h2. Overview
 
-This *README* file refers to the RubyCampus relationship management and fundraising software designed to address the needs of higher educational and non-profit organizations for the purposes of student recruitment, enrollment management, alumni development and fundraising.
+RubyCampus is a relationship management system for admissions, strategic enrollment management and alumni development. It is written in Ruby and is easy to install and use on Linux, Windows, Mac OS X, SunOS and BSD. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in increasing enrollment yields while promoting quality and greater campus diversity. It can also be used for student retention and alumni development. It is available in English, Japanese and Simplified Chinese, with more languages on the way. RubyCampus offers a free and fully transparent open source alternative to commercial software.
 
 The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.
 
 h2. Minimal Requirements
 
-The current version of the RubyCampus can be installed and executed on any Unix based or inspired operating system such as Linux, FreeBSD and Apple OS X or other compatible operating system.
+The current version of RubyCampus can be installed and used on Linux, Windows, Mac OS X, SunOS and BSD.
  
-We suggest the following environment but you may choose any number of suitable alternatives depending on your organizations specific requirements and resources.
+We suggest the following environment but you may choose any number of entirely suitable alternatives depending on your organizations specific requirements.
 
 h3. Recommended 
 

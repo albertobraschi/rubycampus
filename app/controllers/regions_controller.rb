@@ -1,8 +1,8 @@
 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
 # +------------------------------------------------------------------------------------+
-# | RubyCampus - Relationship and Fundraising Management for Higher Education          |
+# | RubyCampus - Relationship Management & Alumni Development Software                 |
 # +------------------------------------------------------------------------------------+
-# | Copyright (C) 2008 Kevin Aleman, RubyCampus LLC Japan - https://rubycampus.org     |
+# | Copyright (C) 2008 Kevin Aleman, RubyCampus LLC - https://rubycampus.org           |
 # +------------------------------------------------------------------------------------+
 # |                                                                                    |
 # | This program is free software; you can redistribute it and/or modify it under the  |
