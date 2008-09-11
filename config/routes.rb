@@ -21,7 +21,7 @@
 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
 # | USA.                                                                               |
 # |                                                                                    |
-# | You can contact RubyCampus, LLC. at email address project@rubycampus.org.          |
+# | You can contact RubyCampus, LLC. at email address info@rubycampus.org.             |
 # |                                                                                    |
 # | The interactive user interfaces in modified source and object code versions of     |
 # | this program must display Appropriate Legal Notices, as required under Section 5   |
@@ -45,10 +45,10 @@ ActionController::Routing::Routes.draw do |map|
 
   # begin RubyCampus Constituents
   map.resources :contacts, :collection => { :lookup => :get }
-  map.resources :individuals 
+  map.resources :individuals
   map.resources :organizations
   map.resources :households
-  # end RubyCampus Constituents 
+  # end RubyCampus Constituents
 
   # begin RubyCampus RESTful Code Tables
   map.resources :academic_levels, :collection => { :lookup => :get }
@@ -58,13 +58,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :entry_terms, :collection => { :lookup => :get }
   map.resources :ethnicities, :collection => { :lookup => :get }
   map.resources :genders, :collection => { :lookup => :get }
-  map.resources :head_of_households, :collection => { :lookup => :get } 
+  map.resources :head_of_households, :collection => { :lookup => :get }
   map.resources :marital_statuses, :collection => { :lookup => :get }
   map.resources :messaging_providers, :collection => { :lookup => :get }
-  map.resources :mobile_providers, :collection => { :lookup => :get }   
+  map.resources :mobile_providers, :collection => { :lookup => :get }
   map.resources :name_prefixes, :collection => { :lookup => :get }
   map.resources :name_suffixes, :collection => { :lookup => :get }
-  map.resources :regions, :collection => { :lookup => :get }        
+  map.resources :regions, :collection => { :lookup => :get }
   map.resources :sources, :collection => { :lookup => :get }
   map.resources :stages, :collection => { :lookup => :get }
   map.resources :statuses, :collection => { :lookup => :get }
@@ -85,12 +85,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resource :password
   # end RESTful_authentication routes
-  
+
   # begin RESTful_ACL routes
   map.error '/error', :controller => 'sessions', :action => 'error'
   map.denied '/denied', :controller => 'sessions', :action => 'denied'
-  # end RESTful_ACL routes   
-  
+  # end RESTful_ACL routes
+
   # begin RAILS default routes
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
