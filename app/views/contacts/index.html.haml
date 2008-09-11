@@ -3,7 +3,6 @@
   =# link_to character.char, :action => "index", :search => "#{character.char}"
 .contact_box
   = render :partial => "contacts/actions/for_form_index"
-  %h2= yield(:title) 
   %ul#standard_tabs
     - for contact_type in ContactType.all_active
       = content_tag(:li,(link_to _(contact_type.name.titleize), contacts_path(:contact_type => contact_type.id )))
