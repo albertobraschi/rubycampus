@@ -1,0 +1,10 @@
+.search
+  <!–[if IE]>
+  .search_background_IE
+    <![endif]–>   
+    - form_tag contacts_path, :method => :get do
+      %input.search_field{ :name => "search", :type => "text", :value => params[:search] }/
+      %input.search_background{ :name => "reserved", :type => "hidden", :value => "" }/
+      %input.search_button{ :type => "image", :src => "images/rubycampus/search_box_button.png", :value => "Search" }/
+    <!–[if IE]>
+  <![endif]–>                              
