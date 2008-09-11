@@ -114,14 +114,14 @@ class Contact < ActiveRecord::Base
   # begin Queries
     # Required scope for segmenting contact_types
     def self.with_contact_type(contact_type)
-      with_scope(:find => { :conditions => ["contact_type_id = ?", contact_type] } ) do
+      with_scope(:find => { :conditions => ["contact_type_id LIKE ?", contact_type] } ) do
         yield
       end 
     end
     
     # Fetches scoped contacts with pagination
     def self.search_for_all_and_paginate(search, page, contact_type)
-      contact_type ||= INDIVIDUAL
+      contact_type ||= "%"
       with_contact_type(contact_type) { search(search).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' ) }
     end
   
