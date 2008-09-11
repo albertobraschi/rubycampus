@@ -41,6 +41,11 @@ class Stage < ActiveRecord::Base
   # Lists qualifying model attributes for use by auto completion in forms
   def self.find_for_auto_complete_lookup(search)
     find(:all, :conditions => ['name LIKE ?', "%#{search}%"])  
+  end
+  
+  # Retrieves all active stages
+  def self.all_active
+    find(:all, :conditions => ["is_enabled = ?", true], :order => :position)
   end      
 
   NAMES_KEYS = self.find(:all, :order => :id).map do |s| 
