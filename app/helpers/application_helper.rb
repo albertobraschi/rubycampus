@@ -100,6 +100,11 @@ module ApplicationHelper
   
   def link_to_destroy
     link_to(_("Destroy"), self.send((controller.controller_name.singularize+ "_path")), :class => "negative", :confirm => (_("Really destroy %s?") % controller.controller_name.titleize), :method => :delete )
+  end
+  
+  # Returns true if current contact_type evaluates true 
+  def current_contact_type_is(contact_type)
+    params[:contact_type] == contact_type.to_s
   end 
                 
 end
