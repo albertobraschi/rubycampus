@@ -15,6 +15,6 @@
       %th.small= _("Address")
       %th.small= _("Phone")
       %th.small= _("Last Updated") 
-      %th= render :partial => "common/search"    
+      %th    
     = render :partial => 'contact', :collection => @contacts
   %div.pagination= will_paginate @contacts
