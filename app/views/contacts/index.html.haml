@@ -5,15 +5,14 @@
   = render :partial => "contacts/actions/for_form_index"
   %ul#standard_tabs
     - for contact_type in ContactType.all_active
-      = content_tag(:li,(link_to _(contact_type.name.titleize), contacts_path(:contact_type => contact_type.id )))
+      = content_tag(:li, (link_to _(contact_type.name.titleize), contacts_path(:contact_type => contact_type.id), :style => ("background:#fdffcc;" unless contact_type.id != params[:contact_type].to_i)))
   - if current_contact_type_is(INDIVIDUAL)
     %ul#standard_tabs
       - for stage in Stage.all_active
-        = content_tag(:li,(link_to _(stage.name.titleize), contacts_path(:contact_type => INDIVIDUAL, :stage => stage.id)))  
+        = content_tag(:li, (link_to _(stage.name.titleize), contacts_path(:contact_type => INDIVIDUAL, :stage => stage.id), :style => ("background:#fdffcc;" unless stage.id != params[:stage].to_i)))  
   %table
     %tr
       %th.small= _("Name")  
-      %th.small= _("Stage")
       %th.small= _("Address")
       %th.small= _("Phone")
       %th.small= _("Last Updated") 
