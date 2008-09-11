@@ -46,7 +46,7 @@ class ContactsController < ApplicationController
     # Fetches letters from characters model
     # TODO Use the starting unicode character to build map
     # @characters = Character.all
-    @contacts = Contact.search_for_all_and_paginate(params[:search], params[:page], params[:contact_type]) 
+    @contacts = Contact.search_for_all_and_paginate(params[:search], params[:page], params[:contact_type], params[:stage]) 
 
     respond_to do |format|
       format.html # index.haml
