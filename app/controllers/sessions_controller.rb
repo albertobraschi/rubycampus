@@ -88,7 +88,7 @@ class SessionsController < ApplicationController
     return_to = session[:return_to]
     if return_to.nil?
     # redirect_to user_path(self.current_user)
-    redirect_to contacts_path
+    redirect_to contacts_path(:contact_type => INDIVIDUAL, :stage => INQUIRY)
     else
     redirect_to return_to
     end         
