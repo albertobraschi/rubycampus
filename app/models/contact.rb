@@ -112,22 +112,30 @@ class Contact < ActiveRecord::Base
   # end Searchable
   
   # begin Queries
+    # TODO DRY this up
     # Required scope for segmenting contact_types
-    def self.with_contact_type(contact_type)
+    def self.with_stages(contact_type, stage)
+      contact_type ||= "%"
+      stage ||= "%"
+      with_scope(:find => { :conditions => ["contact_type_id LIKE ? AND stage_id LIKE ?", contact_type, stage] } ) do
+        yield
+      end 
+    end
+    
+    def self.without_stages(contact_type)
+      contact_type ||= "%"
       with_scope(:find => { :conditions => ["contact_type_id LIKE ?", contact_type] } ) do
         yield
       end 
     end
     
     # Fetches scoped contacts with pagination
-    def self.search_for_all_and_paginate(search, page, contact_type)
-      contact_type ||= "%"
-      with_contact_type(contact_type) { search(search).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' ) }
-    end
-  
-    # Fetches all contacts with pagination
-    def self.search_for_all_contact_types_and_paginate(search, page)
-      search(search).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' )
+    def self.search_for_all_and_paginate(search, page, contact_type, stage)
+      if stage  
+        with_stages(contact_type, stage) { search(search).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' ) }
+      else
+        without_stages(contact_type) { search(search).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' ) }
+      end
     end
   
     # Lists qualifying model attributes for use by auto completion in forms
