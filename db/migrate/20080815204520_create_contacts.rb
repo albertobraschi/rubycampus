@@ -39,23 +39,24 @@ class CreateContacts < ActiveRecord::Migration
   def self.up
     create_table :contacts do |t|
       t.integer    :domain_id, :default => 1, :null => false  # TODO Remove default      
-      t.integer    :stage_id
-      t.integer    :entry_term_id
+      t.integer    :academic_level_id
+      t.integer    :citizenship_id
       t.integer    :contact_type_id
-      t.integer    :preferred_communication_method_id
-      t.integer    :preferred_email_format_id
-      t.integer    :source_id
+      t.integer    :country_of_birth_id
+      t.integer    :education_level_id
+      t.integer    :entry_term_id
+      t.integer    :ethnicity_id
+      t.integer    :gender_id
+      t.integer    :greeting_id
+      t.integer    :marital_status_id
       t.integer    :name_prefix_id
       t.integer    :name_suffix_id
-      t.integer    :marital_status_id
-      t.integer    :citizenship_id
       t.integer    :nationality_id
-      t.integer    :ethnicity_id
-      t.integer    :education_level_id
-      t.integer    :academic_level_id
-      t.integer    :gender_id
-      t.integer    :country_of_birth_id
-      t.integer    :greeting_id
+      t.integer    :preferred_communication_method_id
+      t.integer    :preferred_email_format_id
+      t.integer    :program_id        
+      t.integer    :source_id
+      t.integer    :stage_id
       t.boolean    :do_not_email
       t.boolean    :do_not_phone
       t.boolean    :do_not_mail
