@@ -2,7 +2,7 @@
 - @individual = @presenter
 .individual_box
   .hako
-    - form_for @presenter, :url => individual_url, :html => { :multipart => true, :method => :put, :class => "hakozaki" } do |form|
+    - form_for :presenter, :url => individual_path, :html => { :multipart => true, :method => :put, :class => "hakozaki" } do |form|
       = render :partial => "contacts/actions/for_form_show"
       %h1= "#{@individual.contact_last_name}, #{@individual.contact_first_name}"
       %hr/ 
