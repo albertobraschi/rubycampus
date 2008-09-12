@@ -42,7 +42,7 @@ class HouseholdsController < ApplicationController
   # GET rubycampus.local/households
   # GET rubycampus.local/households.xml
   def index #:nodoc:
-    # @households = Contact.search_for_all_and_paginate(params[:search], params[:page], HOUSEHOLD)    
+    # @households = Contact.search_for_all_and_paginate(params[:search], params[:page], ContactType::HOUSEHOLD.id)    
     # 
     # respond_to do |format|
     #   format.html  #index.html.haml
@@ -82,7 +82,7 @@ class HouseholdsController < ApplicationController
   # POST rubycampus.local/households.xml  
   def create #:nodoc:                                    
     @presenter = HouseholdPresenter.new(params[:presenter])
-    @presenter.contact_contact_type_id = HOUSEHOLD
+    @presenter.contact_contact_type_id = ContactType::HOUSEHOLD.id
 
     if @presenter.save 
       flash[:notice] = _("%s was successfully created.") % _("Household")
