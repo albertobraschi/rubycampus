@@ -89,7 +89,7 @@ class HouseholdsController < ApplicationController
       if params[:create_and_new_button]
         redirect_to new_household_url
       else
-        redirect_to contacts_url(:contact_type => HOUSEHOLD)
+        redirect_to contacts_url(:contact_type => ContactType::HOUSEHOLD.id)
       end
     else
       render :action => "new"
@@ -107,7 +107,7 @@ class HouseholdsController < ApplicationController
                                            
     if @presenter.update_attributes(params[:presenter]) 
       flash[:notice] = _("%s was successfully updated.") % _("Household")
-      redirect_to contacts_url(:contact_type => HOUSEHOLD)
+      redirect_to contacts_url(:contact_type => ContactType::HOUSEHOLD.id)
     else
       render :action => "edit"
     end
@@ -122,7 +122,7 @@ class HouseholdsController < ApplicationController
 
     respond_to do |format| 
       flash[:notice] = _("%s was successfully destroyed.") % _("Household")
-      format.html { redirect_to contacts_url(:contact_type => HOUSEHOLD) }
+      format.html { redirect_to contacts_url(:contact_type => ContactType::HOUSEHOLD.id) }
       format.xml  { head :ok }
     end
   end
