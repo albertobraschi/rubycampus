@@ -5,7 +5,8 @@
   = link_to _("New Household"), new_household_path
   %hr/
   = link_to _("Activities"), activities_path, :class => "positive"
-  = link_to _("New Activity"), new_activity_path 
-  %hr/ 
-  = link_to _("Groups"), activities_path, :class => "positive"
-  = link_to _("New Group"), new_activity_path
+  = link_to _("New Activity"), new_activity_path
+%hr/
+.notice.loud
+  %span.icons.information
+    = _("Help us shape the future and let us know what features you'd like to see included.")
