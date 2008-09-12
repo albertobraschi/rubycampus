@@ -42,7 +42,7 @@ class IndividualsController < ApplicationController
   # GET rubycampus.local/individuals
   # GET rubycampus.local/individuals.xml
   def index #:nodoc:
-  #   @individuals = Contact.search_for_all_and_paginate(params[:search], params[:page], ContactType::INDIVIDUAL)    
+  #   @individuals = Contact.search_for_all_and_paginate(params[:search], params[:page], ContactType::INDIVIDUAL.id)    
   # 
   #   respond_to do |format|
   #     format.html  #index.html.haml
