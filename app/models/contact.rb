@@ -58,9 +58,10 @@ class Contact < ActiveRecord::Base
     belongs_to :nationality
     belongs_to :preferred_communication_method
     belongs_to :preferred_email_format
+    belongs_to :program 
     belongs_to :source
     belongs_to :stage
-     
+
     has_many :activities,   :dependent => :destroy
     has_many :addresses,    :dependent => :destroy
     has_many :emails,       :dependent => :destroy
