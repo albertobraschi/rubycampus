@@ -82,14 +82,14 @@ class OrganizationsController < ApplicationController
   # POST rubycampus.local/organizations.xml  
   def create #:nodoc:                                    
     @presenter = OrganizationPresenter.new(params[:presenter])
-    @presenter.contact_contact_type_id = ORGANIZATION
+    @presenter.contact_contact_type_id = ContactType::ORGANIZATION.id
 
     if @presenter.save 
       flash[:notice] = _("%s was successfully created.") % _("Organization")
       if params[:create_and_new_button]
         redirect_to new_organization_url
       else
-        redirect_to contacts_url(:contact_type => ORGANIZATION)
+        redirect_to contacts_url(:contact_type => ContactType::ORGANIZATION.id)
       end
     else
       render :action => "new"
@@ -107,7 +107,7 @@ class OrganizationsController < ApplicationController
                                            
     if @presenter.update_attributes(params[:presenter]) 
       flash[:notice] = _("%s was successfully updated.") % _("Organization")
-      redirect_to contacts_url(:contact_type => ORGANIZATION) 
+      redirect_to contacts_url(:contact_type => ContactType::ORGANIZATION.id) 
     else
       render :action => "edit"
     end
@@ -122,7 +122,7 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format| 
       flash[:notice] = _("%s was successfully destroyed.") % _("Organization")
-      format.html { redirect_to contacts_url(:contact_type => ORGANIZATION) }
+      format.html { redirect_to contacts_url(:contact_type => ContactType::ORGANIZATION.id) }
       format.xml  { head :ok }
     end
   end       
