@@ -1,7 +1,7 @@
 = error_messages_for :user
 .standard_box
   .hako 
-    - form_for :user, :url => user_url(@user), :html => { :method => :put, :class => "hakozaki" } do |f|
+    - form_for :user, :url => user_path(@user), :html => { :method => :put, :class => "hakozaki" } do |f|
       .buttons
         %button{:type => "submit", :class => "positive"}
           = _("Save")
