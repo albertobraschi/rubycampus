@@ -39,7 +39,7 @@ class Nationality < ActiveRecord::Base
       # the status of belonging to a particular nation, whether 
       # by birth or naturalization: the nationality of an immigrant 
 
-  set_table_name RUBYCAMPUS_CORE_COUNTRIES_TABLE
+  self.table_name = RUBYCAMPUS_CORE_COUNTRIES_TABLE
   has_many :contacts                                   
   
   NAMES_KEYS = self.find(:all, :conditions => "is_enabled = true and is_nationality = true", :order => "position ASC, id ASC").map do |s| 
