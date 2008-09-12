@@ -36,6 +36,7 @@
 #++
 
 class Stage < ActiveRecord::Base 
+  caches_constants
   has_many :contacts
   
   # Lists qualifying model attributes for use by auto completion in forms
