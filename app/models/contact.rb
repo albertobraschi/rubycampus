@@ -199,6 +199,16 @@ class Contact < ActiveRecord::Base
       end
     # end academic_level
     
+    # begin program   
+      def program_name
+        program.name if program
+      end
+
+      def program_name=(name)
+        self.program = Program.find_or_create_by_name(name) unless name.blank?
+      end
+    # end program
+    
     # begin name_prefix   
       def name_prefix_name
         name_prefix.name if name_prefix
