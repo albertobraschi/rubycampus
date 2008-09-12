@@ -39,7 +39,7 @@ class Citizenship < ActiveRecord::Base
       # the state of being vested with the rights, 
       # privileges, and duties of a citizen. 
    
-  set_table_name RUBYCAMPUS_CORE_COUNTRIES_TABLE
+  self.table_name = RUBYCAMPUS_CORE_COUNTRIES_TABLE
   has_many :contacts                                   
   
   NAMES_KEYS = self.find(:all, :conditions => "is_enabled = true and is_citizenship = true", :order => "position ASC, id ASC").map do |s| 
