@@ -27,7 +27,7 @@
             = link_to _('Profile'), edit_user_path(current_user)
             - if current_user.has_role?('administrator')
               = link_to _('Administer'), users_path
-            = link_to _('Logout'), logout_url
+            = link_to _('Logout'), logout_path
             = link_to_help
         = render :partial => "layouts/search"
       %hr/
