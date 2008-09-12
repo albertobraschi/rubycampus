@@ -90,8 +90,18 @@ module ApplicationHelper
   end    
   
   # Returns a constant based on the controllers name singularlized
-  def current_controller_constantized
-    (controller.controller_name.upcase.singularize).constantize
+  def current_controller_contact_type
+   eval = controller.controller_name.upcase.singularize
+   case
+     when eval == "INDIVIDUAL"
+       return ContactType::INDIVIDUAL.id
+     when eval == "ORGANIZATION"
+       return ContactType::ORGANIZATION.id
+     when eval == "HOUSEHOLD"
+       return ContactType::HOUSEHOLD.id
+     else
+       return nil
+     end 
   end
   
   # Renders links for views
