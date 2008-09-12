@@ -1,28 +1,22 @@
-bq. THIS REPOSITORY IS A SNAPSHOT THAT IS NOT INTENDED FOR GENERAL USE. IT IS SUITABLE FOR DEVELOPERS AND OTHER INTERESTED PARTIES FOLLOWING AND/OR CONTRIBUTING TOWARDS THE PROJECT.
-
-bq. このソフトウェアは現在開発中です。 またこのレポジトリは、一般の使用目的ではないスナップショットです。これは本来 RUBYCAMPUS の開発者たちとその他のそのプロジェクトへ貢献している方たちの対象のものです。
-
 !=https://rubycampus.org/r/screenshots/001.png!
 
-h2. Relationship Management & Alumni Development for Higher Education
-
-bq. RubyCampus is designed to store and manage highly sensitive information. Every effort is made to help ensure RubyCampus meets or exceeds the standards set by regulatory bodies regarding the storage and management of sensitive information.
-
-bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our "official" repositories we strongly recommend that you clone and use only source from a trusted mirror. This will ensure your organization is receiving updates directly from the authors.
-
-Trusted Mirrors ( synced with main repository at "rubycampus.org":https://rubycampus.org ):
-
-* GitHub - git://github.com/rubycampus/rubycampus.git
-* Gitorious - git://gitorious.org/rubycampus/mainline.git
-* RubyForge - git://rubyforge.org/rubycampus.git
-
-*See the instructions below, and also see the "RubyCampus Wiki":https://rubycampus.org/wiki/rubycampus for more details.*
+h1. Relationship Management & Alumni Development for Higher Education
 
 h2. Overview
 
-RubyCampus is a relationship management system for admissions, strategic enrollment management and alumni development. It is written in Ruby and is easy to install and use on Linux, Windows, Mac OS X, SunOS and BSD. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in increasing enrollment yields while promoting quality and greater campus diversity. It can also be used for student retention and alumni development. It is available in English, Japanese and Simplified Chinese, with more languages on the way. RubyCampus offers a free and fully transparent open source alternative to commercial software.
+"RubyCampus":https://rubycampus.org is a *relationship management system* for *admissions, strategic enrollment management and alumni development*. It is written in Ruby and is easy to install and use on Linux, Windows, Mac OS X, SunOS and BSD. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in increasing enrollment yields while promoting quality and greater campus diversity. It can also be used for student retention and alumni development. It is available in English, Japanese and Simplified Chinese, with more languages on the way. RubyCampus offers a free and fully transparent open source alternative to commercial software.
 
-The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.
+bq. The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.          
+
+bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our "official" repositories we strongly recommend that you clone and use only source from a trusted mirror. This will ensure your organization is receiving updates directly from the authors.
+
+*Trusted Mirrors ( synced with main repository at "rubycampus.org":https://rubycampus.org ):*
+
+* *GitHub* - git://github.com/rubycampus/rubycampus.git
+* *Gitorious* - git://gitorious.org/rubycampus/mainline.git
+* *RubyForge* - git://rubyforge.org/rubycampus.git
+
+*See the instructions below, and also see the "RubyCampus Wiki":https://rubycampus.org/wiki/rubycampus for more details.*
 
 h2. Minimal Requirements
 
@@ -45,7 +39,7 @@ h3. Required
 
 h2. Quick Install Reference
 
-These instructions are meant for persons familiar with the *Ruby* programming language, *Rails* framework and *Git* distributed revision control. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide.
+These instructions are meant for persons familiar with the *Ruby* programming language, *Rails* framework and *Git* distributed revision control. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide and our "forums":https://rubycampus.org/projects/rubycampus/boards.
 
 * @ git clone git://github.com/rubycampus/rubycampus.git @
 
