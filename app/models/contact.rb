@@ -94,15 +94,15 @@ class Contact < ActiveRecord::Base
   
   # begin Validations
     # for Individuals Presenter
-    validates_presence_of :last_name, :if => Proc.new { |contact| contact.contact_type_id == INDIVIDUAL }
-    validates_presence_of :first_name, :if => Proc.new { |contact| contact.contact_type_id == INDIVIDUAL }
-    validates_presence_of :stage_name, :if => Proc.new { |contact| contact.contact_type_id == INDIVIDUAL }
+    validates_presence_of :last_name, :if => Proc.new { |contact| contact.contact_type_id == ContactType::INDIVIDUAL.id }
+    validates_presence_of :first_name, :if => Proc.new { |contact| contact.contact_type_id == ContactType::INDIVIDUAL.id }
+    validates_presence_of :stage_name, :if => Proc.new { |contact| contact.contact_type_id == ContactType::INDIVIDUAL.id }
   
     # for Organizations Presenter
-    validates_presence_of :organization_name, :if => Proc.new { |contact| contact.contact_type_id == ORGANIZATION } 
+    validates_presence_of :organization_name, :if => Proc.new { |contact| contact.contact_type_id == ContactType::ORGANIZATION.id } 
   
     # for Households Presenter
-    validates_presence_of :household_name, :if => Proc.new { |contact| contact.contact_type_id == HOUSEHOLD }
+    validates_presence_of :household_name, :if => Proc.new { |contact| contact.contact_type_id == ContactType::HOUSEHOLD.id }
   
     # for all models  
     validates_as_rubycampus_human_name :first_name, :last_name, :middle_name
