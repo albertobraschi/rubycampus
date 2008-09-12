@@ -5,8 +5,9 @@
       = h contact.organization_name rescue nil
       = h contact.household_name rescue nil
     %br/
-    = content_tag(:span, (h contact.stage.name rescue nil), :class => "icons note") unless params[:stage] != nil || params[:contact_type].to_i != ContactType::INDIVIDUAL.id 
-  = content_tag(:td, (h contact.entry_term.name rescue nil), :style => "vertical-align:top;") unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id      
+    = content_tag(:span, (h contact.stage.name rescue nil), :class => "icons note") unless params[:stage] != nil || params[:contact_type].to_i != ContactType::INDIVIDUAL.id
+  = content_tag(:td, (h contact.entry_term.name rescue nil), :style => "vertical-align:top;") unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id
+  = content_tag(:td, (h contact.program.name rescue nil), :style => "vertical-align:top;") unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id
   %td{:style => "vertical-align:top;"}
     - for address in contact.addresses do
       = h address.line_1
@@ -21,7 +22,7 @@
         %br/
       - for email in contact.emails do
         %span.icons.email= mail_to email.address
-        %br/    
+        %br/
   %td{:style => "vertical-align:top;"}
     = h (_("%s ago") % distance_of_time_in_words(Time.now, (contact.updated_at))) rescue nil
   %td{:style => "vertical-align:top;"}
