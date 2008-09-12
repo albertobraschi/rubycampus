@@ -81,14 +81,14 @@ class IndividualsController < ApplicationController
   # POST rubycampus.local/individuals.xml  
   def create #:nodoc:                                    
     @presenter = IndividualPresenter.new(params[:presenter])
-    @presenter.contact_contact_type_id = ContactType::INDIVIDUAL
+    @presenter.contact_contact_type_id = ContactType::INDIVIDUAL.id
 
     if @presenter.save 
       flash[:notice] = _("%s was successfully created.") % _("Individual")
       if params[:create_and_new_button]
         redirect_to new_individual_url
       else
-        redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL)
+        redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL.id )
       end
     else
       render :action => "new"
@@ -106,7 +106,7 @@ class IndividualsController < ApplicationController
                                            
     if @presenter.update_attributes(params[:presenter]) 
       flash[:notice] = _("%s was successfully updated.") % _("Individual")
-      redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL) 
+      redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL.id ) 
     else
       render :action => "edit"
     end
@@ -121,7 +121,7 @@ class IndividualsController < ApplicationController
 
     respond_to do |format| 
       flash[:notice] = _("%s was successfully destroyed.") % _("Individual")
-      format.html { redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL)  }
+      format.html { redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL.id )  }
       format.xml  { head :ok }
     end
   end
