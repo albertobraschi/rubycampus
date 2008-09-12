@@ -1,10 +1,13 @@
 %tr[contact]{:class => cycle("even","odd")}
-  %td
+  %td{:style => "vertical-align:top;"}
     %span{:class => "icons %s" % (contact.contact_type.name.downcase rescue nil) }
-      = "#{h contact.last_name}, #{h contact.first_name}" + "<br/><small>#{h contact.stage.name}</small>" rescue nil
+      = "#{h contact.last_name}, #{h contact.first_name}" rescue nil
       = h contact.organization_name rescue nil
       = h contact.household_name rescue nil
-  %td.small
+    %br/
+    = content_tag(:span, (h contact.stage.name rescue nil), :class => "icons note") unless params[:stage] != nil || params[:contact_type].to_i != INDIVIDUAL 
+  = content_tag(:td, (h contact.entry_term.name rescue nil), :style => "vertical-align:top;") unless params[:contact_type].to_i != INDIVIDUAL      
+  %td{:style => "vertical-align:top;"}
     - for address in contact.addresses do
       = h address.line_1
       %br/
@@ -12,10 +15,14 @@
       = h address.region.name
       %br/
       = h address.country.name
-  %td
-    - for phone in contact.phones do
-      = h phone.phone
-  %td
+      %br/
+      - for phone in contact.phones do
+        %span.icons.telephone= h phone.phone
+        %br/
+      - for email in contact.emails do
+        %span.icons.email= mail_to email.address
+        %br/    
+  %td{:style => "vertical-align:top;"}
     = h (_("%s ago") % distance_of_time_in_words(Time.now, (contact.updated_at))) rescue nil
-  %td
+  %td{:style => "vertical-align:top;"}
     = render :partial => "contacts/actions/for_row_index", :locals => {:contact => contact}
