@@ -13,8 +13,8 @@
   %table
     %tr
       %th.small= _("Name")  
-      %th.small= _("Address")
-      %th.small= _("Phone")
+      %th.small= _("Entry Term") unless params[:contact_type].to_i != INDIVIDUAL   
+      %th.small= _("Contact")
       %th.small= _("Last Updated") 
       %th    
     = render :partial => 'contact', :collection => @contacts
