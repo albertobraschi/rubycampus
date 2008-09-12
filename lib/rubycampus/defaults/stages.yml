@@ -62,7 +62,7 @@ rubycampus_stages_004:
   is_default: "0"
   is_enabled: "1"
   is_reserved: "1"
-  name: "Confirm"
+  name: "Confirmed"
   position: <%= num += 1%>
 rubycampus_stages_005: 
   id: "500"
@@ -76,5 +76,5 @@ rubycampus_stages_006:
   is_default: "0"
   is_enabled: "1"
   is_reserved: "1"
-  name: "Cancel"
+  name: "Canceled"
   position: <%= num += 1%>
