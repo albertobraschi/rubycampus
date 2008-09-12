@@ -13,7 +13,8 @@
   %table
     %tr
       %th.small= _("Name")  
-      %th.small= _("Entry Term") unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id   
+      %th.small= _("Entry Term") unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id
+      %th.small= _("Program") unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id   
       %th.small= _("Contact")
       %th.small= _("Last Updated") 
       %th    
