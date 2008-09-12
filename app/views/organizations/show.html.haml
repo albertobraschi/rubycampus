@@ -2,7 +2,7 @@
 - @organization = @presenter
 .organization_box
   .hako
-    - form_for @presenter, :url => organization_url, :html => { :method => :put, :class => "hakozaki" } do |form|
+    - form_for :presenter, :url => organization_path, :html => { :method => :put, :class => "hakozaki" } do |form|
       = render :partial => "contacts/actions/for_form_show"
       %h1= "#{@organization.contact_organization_name}" 
       %hr/
