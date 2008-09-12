@@ -96,6 +96,7 @@ class Contact < ActiveRecord::Base
     # for Individuals Presenter
     validates_presence_of :last_name, :if => Proc.new { |contact| contact.contact_type_id == INDIVIDUAL }
     validates_presence_of :first_name, :if => Proc.new { |contact| contact.contact_type_id == INDIVIDUAL }
+    validates_presence_of :stage_name, :if => Proc.new { |contact| contact.contact_type_id == INDIVIDUAL }
   
     # for Organizations Presenter
     validates_presence_of :organization_name, :if => Proc.new { |contact| contact.contact_type_id == ORGANIZATION } 
