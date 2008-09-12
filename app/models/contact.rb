@@ -240,7 +240,7 @@ class Contact < ActiveRecord::Base
     
     # begin ethnicity
       def ethnicity_name
-        gender.name if gender
+        ethnicity.name if ethnicity
       end
 
       def ethnicity_name=(name)
