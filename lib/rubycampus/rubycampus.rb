@@ -36,7 +36,7 @@
 #++
 
 class RubyCampus < ActiveRecord::Base
-  set_table_name RUBYCAMPUS_CORE_TABLE_PREFIX + "settings"
+  self.table_name = RUBYCAMPUS_CORE_TABLE_PREFIX + "settings"
   class SettingNotFound < RuntimeError; end
                  
   cattr_accessor :defaults
