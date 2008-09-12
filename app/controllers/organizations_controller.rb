@@ -42,7 +42,7 @@ class OrganizationsController < ApplicationController
   # GET rubycampus.local/organizations
   # GET rubycampus.local/organizations.xml
   def index #:nodoc:
-    # @organizations = Contact.search_for_all_and_paginate(params[:search], params[:page], ORGANIZATION)    
+    # @organizations = Contact.search_for_all_and_paginate(params[:search], params[:page], ContactType::ORGANIZATION.id)    
     # 
     # respond_to do |format|
     #   format.html  #index.html.haml
