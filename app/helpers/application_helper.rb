@@ -87,6 +87,11 @@ module ApplicationHelper
    
   def current_controller_gettext_human_name_pluralized
     _(controller.controller_name.titleize)
+  end    
+  
+  # Returns a constant based on the controllers name singularlized
+  def current_controller_constantized
+    (controller.controller_name.upcase.singularize).constantize
   end
   
   # Renders links for views
