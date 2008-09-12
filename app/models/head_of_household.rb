@@ -37,7 +37,7 @@
 
 class HeadOfHousehold < ActiveRecord::Base
  
-  set_table_name RUBYCAMPUS_HEAD_OF_HOUSEHOLD_TABLE
+  self.table_name = RUBYCAMPUS_HEAD_OF_HOUSEHOLD_TABLE
   has_many :contacts     
     
 end
