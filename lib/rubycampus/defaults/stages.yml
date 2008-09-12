@@ -51,41 +51,27 @@ rubycampus_stages_002:
   name: "Inquiry"
   position: <%= num += 1%>
 rubycampus_stages_003: 
-  id: "250"
-  is_default: "0"
-  is_enabled: "1"
-  is_reserved: "1"
-  name: "Pre-Applicant"
-  position: <%= num += 1%>
-rubycampus_stages_004: 
   id: "300"
   is_default: "0"
   is_enabled: "1"
   is_reserved: "1"
   name: "Applicant"
   position: <%= num += 1%>
-rubycampus_stages_005: 
-  id: "350"
-  is_default: "0"
-  is_enabled: "1"
-  is_reserved: "1"
-  name: "Pending Applicant"
-  position: <%= num += 1%>
-rubycampus_stages_006: 
+rubycampus_stages_004: 
   id: "400"
   is_default: "0"
   is_enabled: "1"
   is_reserved: "1"
   name: "Confirm"
   position: <%= num += 1%>
-rubycampus_stages_007: 
+rubycampus_stages_005: 
   id: "500"
   is_default: "0"
   is_enabled: "1"
   is_reserved: "1"
   name: "Enrolled"
   position: <%= num += 1%>
-rubycampus_stages_008: 
+rubycampus_stages_006: 
   id: "999"
   is_default: "0"
   is_enabled: "1"
