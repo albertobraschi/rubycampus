@@ -39,7 +39,7 @@ class CountryOfBirth < ActiveRecord::Base
       # Birth alone in most countries does not earn 
       # citizenship or nationality rights
       
-  set_table_name RUBYCAMPUS_CORE_COUNTRIES_TABLE 
+  self.table_name = RUBYCAMPUS_CORE_COUNTRIES_TABLE 
   has_many :contacts                                   
   
   NAMES_KEYS = self.find(:all, :conditions => "is_enabled = true and is_country_of_birth = true", :order => "position ASC, id ASC").map do |s| 
