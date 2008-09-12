@@ -64,10 +64,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :mobile_providers, :collection => { :lookup => :get }
   map.resources :name_prefixes, :collection => { :lookup => :get }
   map.resources :name_suffixes, :collection => { :lookup => :get }
+  map.resources :programs, :collection => { :lookup => :get }
   map.resources :regions, :collection => { :lookup => :get }
   map.resources :sources, :collection => { :lookup => :get }
   map.resources :stages, :collection => { :lookup => :get }
-  map.resources :statuses, :collection => { :lookup => :get }
+  map.resources :statuses, :collection => { :lookup => :get } 
   # end RubyCampus RESTful Code Tables
 
   # begin RESTful_authentication routes
