@@ -69,6 +69,7 @@ namespace :db do
     phone_types                         = PhoneType.find(:all).map { |val| val.id }
     preferred_communication_methods     = PreferredCommunicationMethod.find(:all).map { |val| val.id }
     preferred_email_formats             = PreferredEmailFormat.find(:all).map { |val| val.id }
+    programs                            = Program.find(:all).map { |val| val.id }   
     sources                             = Source.find(:all).map { |val| val.id }
     stages                              = Stage.find(:all).map { |val| val.id }
     # Not in models
@@ -76,23 +77,24 @@ namespace :db do
 
     Contact.populate 200 do |contact|
       contact.domain_id                 = 1
+      contact.academic_level_id         = academic_levels if contact.contact_type_id == 1
+      contact.citizenship_id            = citizenships if contact.contact_type_id == 1
       contact.contact_type_id           = contact_types
-      contact.stage_id                  = stages if contact.contact_type_id == 1
+      contact.country_of_birth_id       = country_of_births if contact.contact_type_id == 1
+      contact.education_level_id        = education_levels if contact.contact_type_id == 1
       contact.entry_term_id             = entry_terms if contact.contact_type_id == 1
-      contact.preferred_communication_method_id = preferred_communication_methods
-      contact.preferred_email_format_id = preferred_email_formats
-      contact.source_id                 = sources
+      contact.ethnicity_id              = ethnicities if contact.contact_type_id == 1
+      contact.gender_id                 = genders if contact.contact_type_id == 1
+      contact.greeting_id               = greetings if contact.contact_type_id == 1
+      contact.marital_status_id         = marital_statuses if contact.contact_type_id == 1
       contact.name_prefix_id            = name_prefixes if contact.contact_type_id == 1
       contact.name_suffix_id            = name_suffixes if contact.contact_type_id == 1
-      contact.marital_status_id         = marital_statuses if contact.contact_type_id == 1
-      contact.citizenship_id            = citizenships if contact.contact_type_id == 1
       contact.nationality_id            = nationalities if contact.contact_type_id == 1
-      contact.ethnicity_id              = ethnicities if contact.contact_type_id == 1
-      contact.education_level_id        = education_levels if contact.contact_type_id == 1
-      contact.academic_level_id         = academic_levels if contact.contact_type_id == 1
-      contact.gender_id                 = genders if contact.contact_type_id == 1
-      contact.country_of_birth_id       = country_of_births if contact.contact_type_id == 1
-      contact.greeting_id               = greetings if contact.contact_type_id == 1
+      contact.preferred_communication_method_id = preferred_communication_methods
+      contact.preferred_email_format_id = preferred_email_formats
+      contact.program_id                = programs if contact.contact_type_id == 1  
+      contact.source_id                 = sources
+      contact.stage_id                  = stages if contact.contact_type_id == 1
       contact.do_not_email              = [true,false]
       contact.do_not_phone              = [true,false]
       contact.do_not_mail               = [true,false]
