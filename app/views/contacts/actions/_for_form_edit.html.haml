@@ -1,4 +1,4 @@
 .buttons
-  = link_to _("Cancel"), contacts_url(:contact_type => current_controller_constantized), :class => "negative"
+  = link_to _("Cancel"), contacts_path(:contact_type => current_controller_constantized), :class => "negative"
   %button{:type => "submit", :class => "positive"}
     = _("Update")
