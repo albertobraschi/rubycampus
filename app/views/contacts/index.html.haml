@@ -6,14 +6,14 @@
   %ul#standard_tabs
     - for contact_type in ContactType.all_active
       = content_tag(:li, (link_to _(contact_type.name.titleize), contacts_path(:contact_type => contact_type.id), :style => ("background:#fdffcc;" unless contact_type.id != params[:contact_type].to_i)))
-  - if current_contact_type_is(INDIVIDUAL)
+  - if current_contact_type_is(ContactType::INDIVIDUAL.id)
     %ul#standard_tabs
       - for stage in Stage.all_active
-        = content_tag(:li, (link_to _(stage.name.titleize), contacts_path(:contact_type => INDIVIDUAL, :stage => stage.id), :style => ("background:#fdffcc;" unless stage.id != params[:stage].to_i)))  
+        = content_tag(:li, (link_to _(stage.name.titleize), contacts_path(:contact_type => ContactType::INDIVIDUAL.id, :stage => stage.id), :style => ("background:#fdffcc;" unless stage.id != params[:stage].to_i)))  
   %table
     %tr
       %th.small= _("Name")  
-      %th.small= _("Entry Term") unless params[:contact_type].to_i != INDIVIDUAL   
+      %th.small= _("Entry Term") unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id   
       %th.small= _("Contact")
       %th.small= _("Last Updated") 
       %th    
