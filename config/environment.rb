@@ -42,44 +42,43 @@ RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  
+
   # RubyCampus is packaged with all required gems and you should be able
   # to run the software with the gems provided.
   #
   # To install gems that RubyCampus depends on independantly:
   # Example: sudo rake gems:install
-                                         # Gem version indicated are the minimum 
+                                         # Gem version indicated are the minimum
                                          # requirment and recommended for greatest
                                          # compatibility and stability.
-  config.gem 'gettext',                  :version => '~> 1.92.0', 
-                                         :lib => 'gettext/rails'                                
-  config.gem 'haml',                     :version => '~> 2.0.2', 
-                                         :lib => 'haml'  
-  config.gem 'mislav-will_paginate',     :version => '~> 2.3.2', 
-                                         :lib => 'will_paginate', 
+  config.gem 'gettext',                  :version => '~> 1.92.0',
+                                         :lib => 'gettext/rails'
+  config.gem 'haml',                     :version => '~> 2.0.2',
+                                         :lib => 'haml'
+  config.gem 'mislav-will_paginate',     :version => '~> 2.3.2',
+                                         :lib => 'will_paginate',
                                          :source => 'http://gems.github.com'
   config.gem 'graticule',                :version => '~> 0.2.6',
-                                         :source => 'http://gems.github.com'                                         
+                                         :source => 'http://gems.github.com'
   config.gem 'active_presenter'
   config.gem 'ezcrypto',                 :version => '~> 0.7'
-  config.gem 'prawn',                    :version => '~> 0.1.2',
-                                         :source => 'http://gems.github.com'  
+  config.gem 'prawn',                    :version => '~> 0.2.0',
+                                         :source => 'http://gems.github.com'
+# config.gem 'fatjam-acts_as_revisable', :version => '~> 0.9.7',
+#                                        :lib => 'acts_as_revisable',
+#                                        :source => 'http://gems.github.com'
 
-  # config.gem 'fatjam-acts_as_revisable', :version => '~> 0.9.7',
-  #                                        :lib => 'acts_as_revisable', 
-  #                                        :source => 'http://gems.github.com'                                          
-  
   # RubyCampus presenters
   config.load_paths += %W( #{RAILS_ROOT}/app/presenters )
 
   # Make Time.zone default to the specified zone, and make Active Record store time values
   # in the database in UTC, and return them converted to the specified local zone.
-  # Run "rake -D time" for a list of tasks for finding time zone names. Uncomment to use default local time.                  
+  # Run "rake -D time" for a list of tasks for finding time zone names. Uncomment to use default local time.
   config.time_zone = 'Tokyo' # Japan Standard Time
 
   # Your secret key for verifying cookie session data integrity.
   # If you change this key, all old sessions will become invalid!
-  # Make sure the secret is at least 30 characters and all random, 
+  # Make sure the secret is at least 30 characters and all random,
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
     :session_key => '_rubycampus_session',
@@ -91,7 +90,7 @@ Rails::Initializer.run do |config|
 
   # RubyCampus observers
   # config.active_record.observers = :cacher, :garbage_collector
-  
+
   # RESTful Authentication with stateful
   config.active_record.observers = :user_observer
 end
