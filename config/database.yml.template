@@ -64,3 +64,14 @@ production:
   username: rubycampus
   password: 
   socket: /tmp/mysql.sock
+
+# Experimental
+# Designed to fetch users from a remote course management system
+# database and import them into RubyCampus as Individuals
+# Currently compatible only with the Moodle e-learning platform
+course_management_system:  
+  adapter: mysql
+  encoding: utf8
+  database: moodle
+  username: 
+  password:    
