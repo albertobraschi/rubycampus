@@ -44,7 +44,7 @@ development:
   database: rubycampus_development
   username: rubycampus
   password:
-  socket: /tmp/mysql.sock
+# socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -55,7 +55,7 @@ test:
   database: rubycampus_test
   username: rubycampus
   password:
-  socket: /tmp/mysql.sock
+# socket: /tmp/mysql.sock
 
 production:
   adapter: mysql
@@ -63,15 +63,16 @@ production:
   database: rubycampus_production
   username: rubycampus
   password: 
-  socket: /tmp/mysql.sock
+# socket: /tmp/mysql.sock
 
-# Experimental
+# Experimental * OPTIONAL *
 # Designed to fetch users from a remote course management system
 # database and import them into RubyCampus as Individuals
 # Currently compatible only with the Moodle e-learning platform
 course_management_system:  
   adapter: mysql
   encoding: utf8
-  database: moodle
+  database: 
   username: 
-  password:    
+  password:
+# socket: /tmp/mysql.sock    
