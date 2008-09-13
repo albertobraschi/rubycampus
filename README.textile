@@ -6,15 +6,18 @@ h2. Overview
 
 "RubyCampus":https://rubycampus.org is a *relationship management system* for *admissions, strategic enrollment management and alumni development*. It is written in Ruby and is easy to install and use on Linux, Windows, Mac OS X, SunOS and BSD. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in increasing enrollment yields while promoting quality and greater campus diversity. It can also be used for student retention and alumni development. It is available in English, Japanese and Simplified Chinese, with more languages on the way. RubyCampus offers a free and fully transparent open source alternative to commercial software.
 
+_A working demo of RubyCampus that is automatically generated from our development snapshots can be accessed at "demo.rubycampus.org":https://demo.rubycampus.org. The login information is displayed in the page footer._
+
 bq. The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.          
 
 bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our "official" repositories we strongly recommend that you clone and use only source from a trusted mirror. This will ensure your organization is receiving updates directly from the authors.
 
-*Trusted Mirrors ( synced with main repository at "rubycampus.org":https://rubycampus.org ):*
+h2. Official Repositories
 
-* *GitHub* - git://github.com/rubycampus/rubycampus.git
-* *Gitorious* - git://gitorious.org/rubycampus/mainline.git
-* *RubyForge* - git://rubyforge.org/rubycampus.git
+|_.Host     |_.Git Repository                             |_.Recommended Use         |
+| RubyForge | git://rubyforge.org/rubycampus.git          | Production Only          |
+| GitHub    | git://github.com/rubycampus/rubycampus.git  | Developers or Production |
+| Gitorious | git://gitorious.org/rubycampus/mainline.git | Production Mirror        |
 
 *See the instructions below, and also see the "RubyCampus Wiki":https://rubycampus.org/wiki/rubycampus for more details.*
 
@@ -33,7 +36,7 @@ h3. Recommended
 
 h3. Required
 
-* Ruby 1.8.7 (Phusion Passenger's Ruby Enterprise Edition build if running Passenger)
+* Ruby 1.8.6 (Phusion Passenger's Ruby Enterprise Edition build if running Passenger)
 * Gem 1.2.0
 * Rails 2.1.0
 
@@ -41,7 +44,7 @@ h2. Quick Install Reference
 
 These instructions are meant for persons familiar with the *Ruby* programming language, *Rails* framework and *Git* distributed revision control. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide and our "forums":https://rubycampus.org/projects/rubycampus/boards.
 
-* @ git clone git://github.com/rubycampus/rubycampus.git @
+* @ git clone git://rubyforge.org/rubycampus.git  @
 
 _Prior to running @rake@ tasks you must first complete the required configuration templates at @config/*.yml.template@ and duplicate them as @config/*.yml@ before proceeding_
 
