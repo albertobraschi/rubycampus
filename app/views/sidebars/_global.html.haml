@@ -3,10 +3,11 @@
   = link_to _("New Individual"), new_individual_path
   = link_to _("New Organization"), new_organization_path 
   = link_to _("New Household"), new_household_path
-  %hr/
-  = link_to _("Activities"), activities_path, :class => "positive"
-  = link_to _("New Activity"), new_activity_path
 %hr/
-.notice.loud
-  %span.icons.information
-    = _("Help us shape the future and let us know what features you'd like to see included.")
+- if !RubyCampus.demo
+  .actions
+    = link_to _("Activities"), activities_path, :class => "positive"
+    = link_to _("New Activity"), new_activity_path      
+- else
+  = content_tag(:div,_("Additional actions are intentionally removed from the demo passed this point unless considered stable."), :class => "notice")
+  = content_tag(:div,_("Help us shape the future and let us know what features you'd like to see included."), :class => "notice")
