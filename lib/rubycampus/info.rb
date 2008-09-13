@@ -43,9 +43,11 @@ module Rubycampus
       def version; Rubycampus::Build::version[:string] end
       def impressum
         val = "© 2008 <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}\">RubyCampus LLC</a> All Rights Reserved.<br>Powered by #{RUBYCAMPUS_EDITION}<br><a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/download\">Download</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}projects/#{RUBYCAMPUS}/issues\">Issue Tracker</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}\">Documentation</a>"
-        val << "<br/><blockquote>Constituent records for this demo though realistic are<br/>fictitious and <a target=\"_blank\" href=\"#{RUBYCAMPUS_ORG_BASE_URL}repositories/entry/#{RUBYCAMPUS}/lib/tasks/populate.rake\">randomly generated</a> every few hours.</blockquote>" if RubyCampus.demo
         if RubyCampus.demo
           val << <<-EOF
+            <br/><blockquote>Constituent records for this demo though realistic are<br/>
+            fictitious and <a target="_blank" href="#{RUBYCAMPUS_ORG_BASE_URL}repositories/entry/#{RUBYCAMPUS}/lib/tasks/populate.rake">randomly generated</a>. 
+            <br/>Login: <strong>admin</strong> Password: <strong>password</strong></blockquote>
             <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
