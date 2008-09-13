@@ -14,10 +14,9 @@ bq. If you downloaded an archive of RubyCampus or obtained it from any *other* s
 
 h2. Official Repositories
 
-|_.Host |_.Git Repository|_.Recommended Use|
-|RubyForge|git://rubyforge.org/rubycampus.git|Production Only|
-|GitHub|git://github.com/rubycampus/rubycampus.git|Developers or Production|
-|Gitorious|git://gitorious.org/rubycampus/mainline.git|Production Mirror|
+* *RubyForge* -- @git://rubyforge.org/rubycampus.git@
+* *GitHub* -- @git://github.com/rubycampus/rubycampus.git@
+* *Gitorious* -- @git://gitorious.org/rubycampus/mainline.git@
 
 *See the instructions below, and also see the "RubyCampus Wiki":https://rubycampus.org/wiki/rubycampus for more details.*
 
