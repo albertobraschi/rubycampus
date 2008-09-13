@@ -35,10 +35,10 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-# Generates simulated constituent information for development and demoing
-
-# Required gems for this task:
-# -> sudo gem install populator faker echoe
+# This task generates simulated constituent information 
+# sutable for development and demoing purposes.
+#
+# Requires additional gems -> sudo gem install populator faker echoe
 
 namespace :db do
   desc "Erase and fill database"
@@ -77,24 +77,24 @@ namespace :db do
 
     Contact.populate 200 do |contact|
       contact.domain_id                 = 1
-      contact.academic_level_id         = academic_levels if contact.contact_type_id == 1
-      contact.citizenship_id            = citizenships if contact.contact_type_id == 1
+      contact.academic_level_id         = academic_levels if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.citizenship_id            = citizenships if contact.contact_type_id == ContactType::INDIVIDUAL.id
       contact.contact_type_id           = contact_types
-      contact.country_of_birth_id       = country_of_births if contact.contact_type_id == 1
-      contact.education_level_id        = education_levels if contact.contact_type_id == 1
-      contact.entry_term_id             = entry_terms if contact.contact_type_id == 1
-      contact.ethnicity_id              = ethnicities if contact.contact_type_id == 1
-      contact.gender_id                 = genders if contact.contact_type_id == 1
-      contact.greeting_id               = greetings if contact.contact_type_id == 1
-      contact.marital_status_id         = marital_statuses if contact.contact_type_id == 1
-      contact.name_prefix_id            = name_prefixes if contact.contact_type_id == 1
-      contact.name_suffix_id            = name_suffixes if contact.contact_type_id == 1
-      contact.nationality_id            = nationalities if contact.contact_type_id == 1
+      contact.country_of_birth_id       = country_of_births if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.education_level_id        = education_levels if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.entry_term_id             = entry_terms if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.ethnicity_id              = ethnicities if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.gender_id                 = genders if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.greeting_id               = greetings if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.marital_status_id         = marital_statuses if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.name_prefix_id            = name_prefixes if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.name_suffix_id            = name_suffixes if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.nationality_id            = nationalities if contact.contact_type_id == ContactType::INDIVIDUAL.id
       contact.preferred_communication_method_id = preferred_communication_methods
       contact.preferred_email_format_id = preferred_email_formats
-      contact.program_id                = programs if contact.contact_type_id == 1  
+      contact.program_id                = programs if contact.contact_type_id == ContactType::INDIVIDUAL.id  
       contact.source_id                 = sources
-      contact.stage_id                  = stages if contact.contact_type_id == 1
+      contact.stage_id                  = stages if contact.contact_type_id == ContactType::INDIVIDUAL.id
       contact.do_not_email              = [true,false]
       contact.do_not_phone              = [true,false]
       contact.do_not_mail               = [true,false]
@@ -104,28 +104,28 @@ namespace :db do
       # contact.external_identifier
       contact.homepage_url              = "http://fake.#{Faker::Internet.domain_name}"
       # contact.image_url
-      contact.last_name                 = Faker::Name.last_name if contact.contact_type_id == 1
-      contact.first_name                = Faker::Name.first_name if contact.contact_type_id == 1
-      contact.organization_name         = Faker::Company.name if contact.contact_type_id == 2
-      contact.household_name            = "#{Faker::Name.last_name} Family" if contact.contact_type_id == 3
-      contact.nick_name                 = "#{contact.first_name}ster" if contact.contact_type_id == 1
-      contact.legal_name                = "#{contact.organization_name.upcase}" if contact.contact_type_id == 2
+      contact.last_name                 = Faker::Name.last_name if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.first_name                = Faker::Name.first_name if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.organization_name         = Faker::Company.name if contact.contact_type_id == ContactType::ORGANIZATION.id
+      contact.household_name            = "#{Faker::Name.last_name} Family" if contact.contact_type_id == ContactType::HOUSEHOLD.id
+      contact.nick_name                 = "#{contact.first_name}ster" if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.legal_name                = "#{contact.organization_name.upcase}" if contact.contact_type_id == ContactType::ORGANIZATION.id
       # contact.middle_name
       # contact.phonetic_last_name
       # contact.phonetic_first_name
       # contact.phonetic_middle_name
-      contact.job_title                = job_titles if contact.contact_type_id == 1
+      contact.job_title                = job_titles if contact.contact_type_id == ContactType::INDIVIDUAL.id
       # contact.mail_to_household_id
       # contact.head_of_household_id
       # contact.sic_code
       # contact.user_id
       # contact.assigned_to_user_id
       contact.lock_version             = 0
-      contact.date_of_birth            = (45.years.ago..16.years.ago) if contact.contact_type_id == 1
+      contact.date_of_birth            = (45.years.ago..16.years.ago) if contact.contact_type_id == ContactType::INDIVIDUAL.id
       contact.government_identification_number = "123-45-6789"
-      contact.is_foreign               = [true,false] if contact.contact_type_id == 1
-      contact.deceased_date            = (2.years.ago..2.months.ago) if contact.contact_type_id == 1 && contact.id == 190..200
-      contact.is_deceased              = true if contact.deceased_date && contact.contact_type_id == 1
+      contact.is_foreign               = [true,false] if contact.contact_type_id == ContactType::INDIVIDUAL.id
+      contact.deceased_date            = (2.years.ago..2.months.ago) if contact.contact_type_id == ContactType::INDIVIDUAL.id && contact.id == 190..200
+      contact.is_deceased              = true if contact.deceased_date && contact.contact_type_id == ContactType::INDIVIDUAL.id
       contact.created_at               = 1.years.ago..Time.now
       contact.updated_at               = contact.created_at
       # contact.last_modified_by_user_id
