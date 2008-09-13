@@ -45,6 +45,13 @@ RubyCampus.defaults[:site_from_email] = 'admin@rubycampus.local'
 RubyCampus.defaults[:site_title_default] = 'Relationship Management and Fundraising'
 RubyCampus.defaults[:site_title_login] = 'Welcome to RubyCampus'
 
+# Used for syncing course management system users with RubyCampus
+# This feature currently is designed to work with Moodle
+# Database connection settings defined inside of config/database.yml
+RubyCampus.defaults[:cms_enabled] = false
+RubyCampus.defaults[:cms_table_prefix] = 'mdl_'
+RubyCampus.defaults[:cms_user_table] = 'user'
+
 # Encrypts sensitive contact attributes stored within the database to meet and
 # exceed information storage and retrieval requirments mandated by various agencies
 # using U.S. Department of Homeland Security and National Security Agency approved
