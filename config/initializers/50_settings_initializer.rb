@@ -50,7 +50,7 @@ RubyCampus.defaults[:site_title_login] = 'Welcome to RubyCampus'
 # Database connection settings defined inside of config/database.yml
 RubyCampus.defaults[:cms_enabled] = false
 RubyCampus.defaults[:cms_table_prefix] = 'mdl_'
-RubyCampus.defaults[:cms_user_table] = 'user'
+RubyCampus.defaults[:cms_contact_table] = 'user'
 
 # Encrypts sensitive contact attributes stored within the database to meet and
 # exceed information storage and retrieval requirments mandated by various agencies
