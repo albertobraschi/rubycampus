@@ -48,23 +48,25 @@ Rails::Initializer.run do |config|
   #
   # To install gems that RubyCampus depends on independantly:
   # Example: sudo rake gems:install
-                                         # Gem version indicated are the minimum
-                                         # requirment and recommended for greatest
-                                         # compatibility and stability.
-  config.gem 'gettext',                  :version => '~> 1.92.0',
+                                         # Gem versions indicated are the
+                                         # recommended version for each gem
+                                         # and should not be substituted with
+                                         # any other version in production
+                                         # environments.
+  config.gem 'gettext',                  :version => '1.92.0',
                                          :lib => 'gettext/rails'
-  config.gem 'haml',                     :version => '~> 2.0.2',
+  config.gem 'haml',                     :version => '2.0.3',
                                          :lib => 'haml'
-  config.gem 'mislav-will_paginate',     :version => '~> 2.3.2',
+  config.gem 'mislav-will_paginate',     :version => '2.3.3',
                                          :lib => 'will_paginate',
                                          :source => 'http://gems.github.com'
-  config.gem 'graticule',                :version => '~> 0.2.6',
+  config.gem 'graticule',                :version => '0.2.6',
                                          :source => 'http://gems.github.com'
   config.gem 'active_presenter'
-  config.gem 'ezcrypto',                 :version => '~> 0.7'
-  config.gem 'prawn',                    :version => '~> 0.2.0',
+  config.gem 'ezcrypto',                 :version => '0.7'
+  config.gem 'prawn',                    :version => '0.2.0',
                                          :source => 'http://gems.github.com'
-# config.gem 'fatjam-acts_as_revisable', :version => '~> 0.9.7',
+# config.gem 'fatjam-acts_as_revisable', :version => '0.9.7',
 #                                        :lib => 'acts_as_revisable',
 #                                        :source => 'http://gems.github.com'
 
