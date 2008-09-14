@@ -34,102 +34,19 @@
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
 #++
-require 'ar_extensions/adapters/mysql'
-require 'ar_extensions/import/mysql'
-class ContactsController < ApplicationController
 
-  before_filter :login_required
-  # before_filter :has_permission?
-
-  # GET /contact
-  # GET /contact.xml
-  def index #:nodoc:
-    # Fetches letters from characters model
-    # TODO Use the starting unicode character to build map
-    # @characters = Character.all
-    @contacts = Contact.search_for_all_and_paginate(params[:search], params[:page], params[:contact_type], params[:stage])
-
-    respond_to do |format|
-      format.html # index.haml
-      # format.xml  { render :xml => @contacts }
+# Experimental
+namespace :db do
+  
+  # TODO Map entire user record
+  desc "Populate with Moodle Contacts"
+  task(:populate_moodle_users => :environment) do
+    fields = [:moodle_user_id,:first_name, :last_name, :nick_name, :is_opt_out]
+    data = []
+    for cms_contact in CmsContact.find(:all, :conditions => [ "confirmed = ?", 1 ])
+      data << [ cms_contact.id, cms_contact.firstname, cms_contact.lastname, cms_contact.username, cms_contact.emailstop ]
     end
+    Contact.import fields, data
   end
 
-  # GET /contact/1
-  # GET /contact/1.xml
-  def show #:nodoc:
-    @contact = Contact.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.haml
-      # format.xml  { render :xml => @contact }
-    end
-  end
-
-  # GET /contact/new
-  # GET /contact/new.xml
-  def new #:nodoc:
-    @contact = Contact.new
-
-    respond_to do |format|
-      format.html # new.haml
-      # format.xml  { render :xml => @contact }
-    end
-  end
-
-  # GET /contact/1/edit
-  def edit #:nodoc:
-    @contact = Contact.find(params[:id])
-  end
-
-  # POST /contact
-  # POST /contact.xml
-  def create #:nodoc:
-    @contact = Contact.new(params[:contact])
-
-    respond_to do |format|
-      if @contact.save
-        flash[:notice] = 'Contact was successfully created.'
-        format.html { redirect_to(contact_path(@contact)) }
-        # format.xml  { render :xml => @contact, :status => :created, :location => @contact }
-      else
-        format.html { render :action => "new" }
-        # format.xml  { render :xml => @contact.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /contact/1
-  # PUT /contact/1.xml
-  def update #:nodoc:
-    @contact = Contact.find(params[:id])
-
-    respond_to do |format|
-      if @contact.update_attributes(params[:contact])
-        flash[:notice] = 'Contact was successfully updated.'
-        format.html { redirect_to(contact_path(@contact)) }
-        # format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        # format.xml  { render :xml => @contact.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /contact/1
-  # DELETE /contact/1.xml
-  def destroy #:nodoc:
-    @contact = Contact.find(params[:id])
-    @contact.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(contacts_url) }
-      # format.xml  { head :ok }
-    end
-  end
-
-  # Used for auto completion for specific views
-  def lookup #:nodoc:
-    @contacts = Contact.find_for_auto_complete_lookup(params[:search])
-  end
 end
