@@ -36,6 +36,10 @@
 #++
 
 class HeadOfHousehold < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+
  
   self.table_name = RUBYCAMPUS_HEAD_OF_HOUSEHOLD_TABLE
   has_many :contacts     

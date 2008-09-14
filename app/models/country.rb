@@ -35,7 +35,11 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class Country < ActiveRecord::Base     
+class Country < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+     
   has_many :addresses
   has_many :regions
   

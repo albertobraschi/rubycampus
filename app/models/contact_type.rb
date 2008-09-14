@@ -35,7 +35,11 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class ContactType < ActiveRecord::Base  
+class ContactType < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+  
   caches_constants 
   has_many :contacts
   

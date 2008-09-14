@@ -35,7 +35,11 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class AcademicLevel < ActiveRecord::Base   
+class AcademicLevel < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+   
   has_many :contacts
   
   # Lists qualifying model attributes for use by auto completion in forms

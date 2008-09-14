@@ -36,6 +36,10 @@
 #++
 
 class CountryOfBirth < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+
       # Birth alone in most countries does not earn 
       # citizenship or nationality rights
       

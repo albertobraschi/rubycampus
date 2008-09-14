@@ -35,7 +35,11 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class PhoneType < ActiveRecord::Base 
+class PhoneType < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+ 
   has_many :phones 
   
   NAMES_KEYS = self.find(:all).map do |s| 

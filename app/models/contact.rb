@@ -36,7 +36,11 @@
 #++
 require 'ar-extensions/adapters/mysql'
 require 'ar-extensions/import/mysql'
-class Contact < ActiveRecord::Base 
+class Contact < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+ 
   # Encrypts sensitive information INSIDE database
   if RubyCampus.encrypt_sensitive_attributes
     acts_as_secure :crypto_provider => MasterCryptoProvider

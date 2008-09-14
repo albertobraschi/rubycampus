@@ -35,7 +35,11 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class Citizenship < ActiveRecord::Base 
+class Citizenship < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+ 
       # the state of being vested with the rights, 
       # privileges, and duties of a citizen. 
    

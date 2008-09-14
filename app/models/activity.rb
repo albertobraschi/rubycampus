@@ -36,6 +36,10 @@
 #++
 
 class Activity < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+
   # begin Associations
     belongs_to :activity_type 
     belongs_to :contact

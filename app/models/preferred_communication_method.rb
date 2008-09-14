@@ -36,6 +36,10 @@
 #++
 
 class PreferredCommunicationMethod < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+
   has_many :contacts                                   
   
   NAMES_KEYS = self.find(:all, :order => :position).map do |s| 

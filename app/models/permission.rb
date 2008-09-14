@@ -35,7 +35,11 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class Permission < ActiveRecord::Base      
+class Permission < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+      
   belongs_to :user
   belongs_to :role                
   

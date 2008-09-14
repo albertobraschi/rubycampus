@@ -36,6 +36,10 @@
 #++
 
 class Asset < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+
   belongs_to :contact
   #     
   # has_attachment :content_type => :image, 

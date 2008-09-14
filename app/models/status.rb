@@ -36,6 +36,10 @@
 #++
 
 class Status < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+
   has_many :activities
   
   # Lists qualifying model attributes for use by auto completion in forms
