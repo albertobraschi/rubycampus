@@ -9,7 +9,8 @@
   - if current_contact_type_is(ContactType::INDIVIDUAL.id)
     %ul#standard_tabs
       - for stage in Stage.all_active
-        = content_tag(:li, (link_to _(stage.name.titleize), contacts_path(:contact_type => ContactType::INDIVIDUAL.id, :stage => stage.id), :style => ("background:#fdffcc;" unless stage.id != params[:stage].to_i)))  
+        = content_tag(:li, (link_to _(stage.name.titleize), contacts_path(:contact_type => ContactType::INDIVIDUAL.id, :stage => stage.id), :style => ("background:#fdffcc;" unless stage.id != params[:stage].to_i)))
+  %hr/
   %table
     %tr
       %th.small= _("Name")
