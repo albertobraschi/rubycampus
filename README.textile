@@ -8,11 +8,15 @@ h2. Overview
 
 _A working demo of RubyCampus that is automatically generated from our development snapshots can be accessed at "demo.rubycampus.org":https://demo.rubycampus.org. The login information is displayed in the page footer._
 
-bq. The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.          
+bq. The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.
 
-bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our "official" repositories we strongly recommend that you clone and use only source from a trusted mirror. This will ensure your organization is receiving updates directly from the authors.
+bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our official repository at *git://rubycampus.org/rubycampus.git* or a trusted mirror we strongly recommend that you clone and use only source from these sources. This will ensure your organization is receiving updates directly from the authors.
 
-h2. Official Repositories
+h2. Official Repository
+
+* *RubyCampus* -- @git://rubycampus.org/rubycampus.git@
+
+h3. Trusted Mirrors
 
 * *RubyForge* -- @git://rubyforge.org/rubycampus.git@
 * *GitHub* -- @git://github.com/rubycampus/rubycampus.git@
@@ -50,13 +54,13 @@ _Prior to running @rake@ tasks you must first complete the required configuratio
 * @ rake db:create @
 * @ rake db:migrate @
 
-h2. Populating Contacts (optional)   
+h2. Populating Contacts (optional)
 
 h3. Moodle e-Learning Platform Contacts
 
 RubyCampus can automatically import existing users from your *Moodle e-Learning platform* by running a specific task designed for that purpose. In order to connect to your Moodle database please ensure you entered the correct credentials into the *config/database.yml* file under the area labeled *course_management_system* . Then you can run the populate Moodle users task by running:
 
-* @ rake db:populate_moodle_users @ 
+* @ rake db:populate_moodle_users @
 
 h3. Generating Realistic Test Constituent Data
 
