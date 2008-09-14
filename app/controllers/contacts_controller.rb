@@ -34,8 +34,7 @@
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
 #++
-require 'ar_extensions/adapters/mysql'
-require 'ar_extensions/import/mysql'
+
 class ContactsController < ApplicationController
 
   before_filter :login_required
