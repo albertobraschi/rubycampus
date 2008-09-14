@@ -35,6 +35,7 @@
   %span.wrapper 
     %span.title
       = _("Source")
+      %span{:class => "example"}= _("primary")
     = text_field_with_auto_complete :presenter, :contact_source_name, { :class => "field" }, { :url => formatted_lookup_sources_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_nick_name", :class => "w25 inputselect"}
   %span.wrapper 
@@ -44,7 +45,7 @@
 %label{:for => "contact_job_title", :class => "w25 inputselect"}
   %span.wrapper 
     %span.title
-      = _("Job title")
+      = _("Job Title")
     = form.text_field :contact_job_title, :class => "field"
     = # TODO add current_employer lookup via AJAX employer
 %label{:for => "contact_external_identifier", :class => "w25 inputselect"}
@@ -57,7 +58,8 @@
 %label{:for => "contact_homepage_path", :class => "w50 inputselect"}
   %span.wrapper 
     %span.title
-      = _("Homepage url")
+      = _("Homepage")
+      %span{:class => "example"}= "https://rubycampus.org"
     = form.text_field :contact_homepage_url, :class => "field"  
 %label{:for => "contact_greeting_id", :class => "w50 inputselect"}
   %span.wrapper 
