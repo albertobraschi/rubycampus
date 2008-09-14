@@ -35,7 +35,6 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-# Experimental
 namespace :db do
   
   # TODO Map entire user record
