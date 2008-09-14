@@ -49,6 +49,7 @@ class CreateContacts < ActiveRecord::Migration
       t.integer    :gender_id
       t.integer    :greeting_id
       t.integer    :marital_status_id
+      t.integer    :moodle_user_id
       t.integer    :name_prefix_id
       t.integer    :name_suffix_id
       t.integer    :nationality_id
