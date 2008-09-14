@@ -34,8 +34,8 @@
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
 #++
-require 'ar_extensions/adapters/mysql'
-require 'ar_extensions/import/mysql'
+require 'ar-extensions/adapters/mysql'
+require 'ar-extensions/import/mysql'
 class Contact < ActiveRecord::Base 
   # Encrypts sensitive information INSIDE database
   if RubyCampus.encrypt_sensitive_attributes
