@@ -42,12 +42,7 @@ class HouseholdsController < ApplicationController
   # GET rubycampus.local/households
   # GET rubycampus.local/households.xml
   def index #:nodoc:
-    # @households = Contact.search_for_all_and_paginate(params[:search], params[:page], ContactType::HOUSEHOLD.id)    
-    # 
-    # respond_to do |format|
-    #   format.html  #index.html.haml
-    #   format.xml  # { render :xml => @households.contact }  
-    # end
+    redirect_to contacts_url(:contact_type => ContactType::HOUSEHOLD.id)
   end
 
   # GET rubycampus.local/households/1
