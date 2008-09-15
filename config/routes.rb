@@ -38,7 +38,11 @@
 ActionController::Routing::Routes.draw do |map|
   map.home '', :controller => "users", :action => "show"
   map.root :controller => "sessions", :action => "destroy"
-
+  
+  # begin RubyCampus Administration
+  map.resources :announcements
+  # end RubyCampus Administration
+  
   # begin RubyCampus Processors
   map.resources :activities
   # end RubyCampus Processors
@@ -93,6 +97,7 @@ ActionController::Routing::Routes.draw do |map|
   # end RESTful_ACL routes
 
   # begin RAILS default routes
+  map.connect ':controller/:action.:format'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   # end RAILS default routes
