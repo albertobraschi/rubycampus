@@ -53,7 +53,7 @@ Rails::Initializer.run do |config|
                                          # and should not be substituted with
                                          # any other version in production
                                          # environments.
-  config.gem 'gettext',                  :version => '1.92.0',
+  config.gem 'gettext',                  :version => '1.93.0',
                                          :lib => 'gettext/rails'
   config.gem 'haml',                     :version => '2.0.3',
                                          :lib => 'haml'
