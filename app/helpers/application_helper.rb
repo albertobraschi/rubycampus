@@ -121,5 +121,9 @@ module ApplicationHelper
   def current_contact_type_is(contact_type)
     params[:contact_type] == contact_type.to_s
   end 
-                
+  
+  def current_announcements
+    @current_announcements ||= Announcement.current_announcements(session[:announcement_hide_time])
+  end
+         
 end
