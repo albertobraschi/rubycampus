@@ -1,0 +1,9 @@
+- title((_("Viewing %s") % current_controller_human_name))
+.standard_box
+  .hako
+    - form_for(@announcement, :html => { :class => "hakozaki" }) do |form|
+      = render :partial => "common/actions/for_form_show"
+      %h1= yield(:title)
+      %hr/
+      = render :partial => "form", :locals => {:form => form}
+      = render :partial => "common/actions/for_form_show"

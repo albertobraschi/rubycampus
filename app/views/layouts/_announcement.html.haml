@@ -3,4 +3,5 @@
     - for announcement in current_announcements
       = h announcement.message
       %br/
-      = link_to_remote _("Hide this message"), :url => "/javascripts/hide_announcement.js"   
+      = link_to_remote _("Hide this message"), :url => "/javascripts/hide_announcement.js"
+      %br/   

@@ -1,0 +1,20 @@
+%h1 Listing announcements
+
+%table
+  %tr
+    %th Message
+    %th Starts at
+    %th Ends at
+    %th
+
+    - for announcement in @announcements
+      %tr
+        %td=h announcement.message
+        %td=h announcement.starts_at
+        %td=h announcement.ends_at
+        %td
+          = link_to 'Show', announcement_path(announcement)
+          = link_to 'Edit', edit_announcement_path(announcement)
+          = link_to 'Destroy', announcement_path(announcement), :confirm => 'Are you sure?', :method => :delete, :confirm => "Are you sure?", :method => :delete
+    
+= link_to 'New announcement', new_announcement_path          
