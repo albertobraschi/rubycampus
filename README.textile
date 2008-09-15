@@ -47,7 +47,7 @@ h2. Quick Install Reference
 
 These instructions are meant for persons familiar with the *Ruby* programming language, *Rails* framework and *Git* distributed revision control. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide and our "forums":https://rubycampus.org/projects/rubycampus/boards.
 
-* @ git clone git://rubyforge.org/rubycampus.git  @
+* @ git clone git://rubycampus.org/rubycampus.git  @
 
 _Prior to running @rake@ tasks you must first complete the required configuration templates at @config/*.yml.template@ and duplicate them as @config/*.yml@ before proceeding_
 
