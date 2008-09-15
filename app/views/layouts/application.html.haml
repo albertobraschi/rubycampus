@@ -16,6 +16,7 @@
     = javascript_include_tag :defaults #, 'jquery/jquery.min', 'jquery/jquery.dimensions', 'jquery/jquery.templating', 'jquery/jquery.ui.autocomplete.ext', 'jquery/jquery.ui.autocomplete', :cache => 'jquery'
     = calendar_date_select_includes RubyCampus.domain_gui_calender_theme
   %body{ :class => body_tag_classes.join(' ') }
+    = render :partial => "layouts/announcement"
     %div{:class => "container%s" % (' showgrid' if SHOWGRID == true)}
       .span-11{:style => "text-align:left;"}
         = link_to image_tag("rubycampus/logo.png"), home_path # %h3= RubyCampus.site_name
@@ -37,4 +38,4 @@
       .span-20.last#content{:style => "background-color:#fcfcfc;border-style:solid;"}
         = yield
       .span-24#footer{:align => "middle"}
-        = Rubycampus::Info::impressum
+        = Rubycampus::Info::impressum   
