@@ -108,7 +108,6 @@ end
 #  priority_id      :integer(11)
 #  starts_at        :datetime
 #  ends_at          :datetime
-#  duration         :integer(11)
 #  subject          :string(255)
 #  details          :text
 #  source_record_id :integer(11)
