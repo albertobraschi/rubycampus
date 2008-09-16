@@ -50,9 +50,4 @@
     %span.title
       = _("Ends At") 
     = form.calendar_date_select :ends_at, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
-%label{:for => "activity_duration", :class => "w25 inputselect"}
-  %span.wrapper
-    %span.title
-      = _("Duration") 
-    = form.text_field :duration, :class => "field"
 .clear
