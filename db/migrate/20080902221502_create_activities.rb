@@ -43,8 +43,7 @@ class CreateActivities < ActiveRecord::Migration
       t.integer    :status_id
       t.integer    :priority_id
       t.datetime   :starts_at
-      t.datetime   :ends_at
-      t.integer    :duration      
+      t.datetime   :ends_at      
       t.string     :subject
       t.text       :details
       t.integer    :source_record_id
