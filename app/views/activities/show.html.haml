@@ -3,7 +3,7 @@
   .hako
     - form_for @activity, :url => activity_path, :html => { :method => :put, :class => "hakozaki" } do |form|
       = render :partial => "common/actions/for_form_show"
-      %h1=h @activity.subject
+      %h1= form_title
       %hr/ 
       = render :partial => "form", :locals => {:form => form}
       = render :partial => "common/actions/for_form_show"
