@@ -46,7 +46,6 @@ class CreateActivities < ActiveRecord::Migration
       t.datetime   :ends_at      
       t.string     :subject
       t.text       :details
-      t.integer    :source_record_id
       t.string     :location
       t.timestamps
     end
