@@ -7,7 +7,10 @@
 .actions
   = link_to _("Activities"), activities_path, :class => "positive"
   = link_to _("New Activity"), new_activity_path
-%hr/
+%hr/                                              
+.actions
+  = link_to _("Academic Levels"), academic_levels_path, :class => "positive"
+%hr/   
 - if !RubyCampus.demo
   - nil      
 - else
