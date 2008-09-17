@@ -2,50 +2,45 @@
   %span.wrapper
     %span.title
       = _("Activity Type")
-      = text_field_with_auto_complete :activity, :activity_type_name, { :class => "field" }, { :url => formatted_lookup_activity_types_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" } 
-%label{:for => "activity_status_id", :class => "w25 inputselect mandatory"}
-  %span.wrapper
-    %span.title
-      = _("Status")
-    = text_field_with_auto_complete :activity, :status_name, { :class => "field" }, { :url => formatted_lookup_statuses_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }        
+      = text_field_with_auto_complete :activity, :activity_type_name, { :class => "field" }, { :url => formatted_lookup_activity_types_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "activity_contact_id", :class => "w25 inputselect mandatory"}
   %span.wrapper
     %span.title
       = _("Contact")
-    = text_field_with_auto_complete :activity, :contact_name, { :class => "field" }, { :url => formatted_lookup_contacts_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" } 
-%label{:for => "activity_source_record_id", :class => "w25 inputselect"}
+    = text_field_with_auto_complete :activity, :contact_name, { :class => "field" }, { :url => formatted_lookup_contacts_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
+%label{:for => "activity_status_id", :class => "w25 inputselect mandatory"}
   %span.wrapper
     %span.title
-      = _("Source Record") 
-    = form.text_field :source_record_id, :class => "field"
-.clear
-
-%label{:for => "activity_subject", :class => "w75 inputselect mandatory"}
-  %span.wrapper
-    %span.title
-      = _("Subject") 
-    = form.text_field :subject, :class => "field"
+      = _("Status")
+    = text_field_with_auto_complete :activity, :status_name, { :class => "field" }, { :url => formatted_lookup_statuses_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "activity_location", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Location") 
-    = form.text_field :location, :class => "field"   
-.clear 
+      = _("Location")
+    = form.text_field :location, :class => "field"
+.clear
+
+%label{:for => "activity_subject", :class => "w100 inputselect mandatory"}
+  %span.wrapper
+    %span.title
+      = _("Subject")
+    = form.text_field :subject, :class => "field"
+.clear
 %label{:for => "activity_details", :class => "w100 inputselect"}
   %span.wrapper
     %span.title
-      = _("Details") 
-    = form.text_area :details, :class => "field" 
-.clear        
-        
+      = _("Details")
+    = form.text_area :details, :class => "field"
+.clear
+
 %label{:for => "activity_starts_at", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Starts At") 
+      = _("Starts At")
     = form.calendar_date_select :starts_at, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
 %label{:for => "activity_ends_at", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Ends At") 
+      = _("Ends At")
     = form.calendar_date_select :ends_at, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
 .clear
