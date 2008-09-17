@@ -110,7 +110,6 @@ end
 #  ends_at          :datetime
 #  subject          :string(255)
 #  details          :text
-#  source_record_id :integer(11)
 #  location         :string(255)
 #  created_at       :datetime
 #  updated_at       :datetime
