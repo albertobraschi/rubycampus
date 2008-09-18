@@ -35,8 +35,15 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-module ActionView
-  class Base
-    delegate :file_exists?, :to => :finder unless respond_to?(:file_exists?)
-  end
+# module ActionView
+#   class Base
+#     delegate :file_exists?, :to => :finder unless respond_to?(:file_exists?)
+#   end
+# end  
+
+if defined? GettextLocalize
+  GettextLocalize::app_name = 'rubycampus'
+  GettextLocalize::app_version = '1.0.0'
+  GettextLocalize::default_locale = 'en_US'
+  GettextLocalize::default_methods = [:param, :session, :header]
 end
