@@ -6,7 +6,8 @@ require 'jcode'
 
 # require gettext for ruby
 begin
-  gem 'gettext', '>= 1.9'
+  #gem 'gettext', '>= 1.9'
+  require 'gettext'
   require 'gettext/rails'
   require 'gettext/utils'
 rescue
