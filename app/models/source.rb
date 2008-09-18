@@ -35,35 +35,31 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class Source < ActiveRecord::Base
+class Source < ActiveRecord::Base 
   # Excludes model from being included in PO template
   require 'gettext/rails'
   untranslate_all
-  
+   
   has_many :contacts
+  
+  # begin Validations
+    validates_presence_of :name
+  # ends Validations
+  
+  # Searchable attributes
+  searchable_by :name
+  
+  # Fetches all sources with pagination
+  def self.search_for_all_and_paginate(locate, page)
+    search(locate).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' )
+  end         
   
   # Lists qualifying model attributes for use by auto completion in forms
   def self.find_for_auto_complete_lookup(search)
     find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "position ASC" )  
-  end                                   
-  
+  end
+
   NAMES_KEYS = self.find(:all).map do |s| 
   [s.name, s.id] 
-  end 
-    
+  end
 end
-# == Schema Information
-# Schema version: 20080902230656
-#
-# Table name: rubycampus_sources
-#
-#  id          :integer(11)     not null, primary key
-#  name        :string(255)
-#  position    :integer(11)
-#  is_default  :boolean(1)
-#  is_reserved :boolean(1)
-#  is_enabled  :boolean(1)      default(TRUE)
-#  created_at  :datetime
-#  updated_at  :datetime
-#
-
