@@ -36,6 +36,10 @@
 #++
 
 class Announcement < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+  
   validates_presence_of :message, :start_at, :end_at
   
   def self.current_announcements(hide_time)
