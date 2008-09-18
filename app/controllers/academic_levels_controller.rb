@@ -36,10 +36,101 @@
 #++
 
 class AcademicLevelsController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  before_filter :login_required, :except => [ :index ]
+  # GET rubycampus.local/academic_levels
+  # GET rubycampus.local/academic_levels.xml
+  def index #:nodoc:
+    # @academic_levels = AcademicLevel.find(:all)
+    @academic_levels = AcademicLevel.search_for_all_and_paginate(params[:locate], params[:page])
+
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @academic_levels }
+    end
+  end
+
+  # GET rubycampus.local/academic_levels/1
+  # GET rubycampus.local/academic_levels/1.xml
+  def show #:nodoc:
+    @academic_level = AcademicLevel.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @academic_level }
+    end
+  end
+
+  # GET rubycampus.local/academic_levels/new
+  # GET rubycampus.local/academic_levels/new.xml
+  def new #:nodoc:
+    @academic_level = AcademicLevel.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @academic_level }
+    end
+  end
+
+  # GET rubycampus.local/academic_levels/1/edit
+  def edit #:nodoc:
+    @academic_level = AcademicLevel.find(params[:id])
+  end
+
+  # POST rubycampus.local/academic_levels
+  # POST rubycampus.local/academic_levels.xml
+  def create #:nodoc:
+    @academic_level = AcademicLevel.new(params[:academic_level])
+
+    respond_to do |format|
+      if @academic_level.save
+        flash[:notice] = _("%s was successfully created.") % _("AcademicLevel")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_academic_level_url }
+        else
+          format.html { redirect_to academic_levels_url }
+          # format.xml  { render :xml => @academic_level, :status => :created, :location => @academic_level }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @academic_level.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/academic_levels/1
+  # PUT rubycampus.local/academic_levels/1.xml
+  def update #:nodoc:
+    @academic_level = AcademicLevel.find(params[:id])
+
+    respond_to do |format|
+      if @academic_level.update_attributes(params[:academic_level])
+        flash[:notice] = _("%s was successfully updated.") % _("AcademicLevel") 
+        format.html { redirect_to academic_levels_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @academic_level.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/academic_levels/1
+  # DELETE rubycampus.local/academic_levels/1.xml
+  def destroy #:nodoc:
+    @academic_level = AcademicLevel.find(params[:id])
+    @academic_level.destroy
+
+    respond_to do |format|
+      format.html { redirect_to academic_levels_url }
+      # format.xml  { head :ok }
+    end
+  end
   
   def lookup #:nodoc:
     @academic_levels = AcademicLevel.find_for_auto_complete_lookup(params[:search])                            
-  end                                                                                                                            
+  end
+
 end
