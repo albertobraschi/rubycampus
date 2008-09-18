@@ -62,15 +62,15 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :entry_terms, :collection => { :lookup => :get }
   map.resources :ethnicities, :collection => { :lookup => :get }
   map.resources :genders, :collection => { :lookup => :get }
-  map.resources :greetings
+  map.resources :greetings, :collection => { :lookup => :get }
   map.resources :head_of_households, :collection => { :lookup => :get }
-  map.resources :location_types
+  map.resources :location_types, :collection => { :lookup => :get }
   map.resources :marital_statuses, :collection => { :lookup => :get }
   map.resources :messaging_providers, :collection => { :lookup => :get }
   map.resources :mobile_providers, :collection => { :lookup => :get }
   map.resources :name_prefixes, :collection => { :lookup => :get }
   map.resources :name_suffixes, :collection => { :lookup => :get }
-  map.resources :phone_types   
+  map.resources :phone_types, :collection => { :lookup => :get }   
   map.resources :programs, :collection => { :lookup => :get }
   map.resources :regions, :collection => { :lookup => :get }
   map.resources :sources, :collection => { :lookup => :get }
