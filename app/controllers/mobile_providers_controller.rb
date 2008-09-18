@@ -85,7 +85,7 @@ class MobileProvidersController < ApplicationController
 
     respond_to do |format|
       if @mobile_provider.save
-        flash[:notice] = _("%s was successfully created.") % _("MobileProvider")
+        flash[:notice] = _("%s was successfully created.") % _("Mobile Provider")
         if params[:create_and_new_button]
           format.html { redirect_to new_mobile_provider_url }
         else
