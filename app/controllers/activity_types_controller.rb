@@ -85,7 +85,7 @@ class ActivityTypesController < ApplicationController
 
     respond_to do |format|
       if @activity_type.save
-        flash[:notice] = _("%s was successfully created.") % _("ActivityType")
+        flash[:notice] = _("%s was successfully created.") % _("Activity Type")
         if params[:create_and_new_button]
           format.html { redirect_to new_activity_type_url }
         else
