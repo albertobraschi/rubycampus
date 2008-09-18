@@ -85,7 +85,7 @@ class NameSuffixesController < ApplicationController
 
     respond_to do |format|
       if @name_suffix.save
-        flash[:notice] = _("%s was successfully created.") % _("NameSuffix")
+        flash[:notice] = _("%s was successfully created.") % _("Name Suffix")
         if params[:create_and_new_button]
           format.html { redirect_to new_name_suffix_url }
         else
