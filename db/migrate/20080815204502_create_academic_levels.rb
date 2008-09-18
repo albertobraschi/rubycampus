@@ -1,8 +1,8 @@
 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
 # +------------------------------------------------------------------------------------+
-# | RubyCampus - Relationship Management & Alumni Development Software                 |
+# | RubyCampus - Relationship and Fundraising Management for Higher Education          |
 # +------------------------------------------------------------------------------------+
-# | Copyright (C) 2008 Kevin Aleman, RubyCampus LLC - https://rubycampus.org           |
+# | Copyright (C) 2008 Kevin Aleman, RubyCampus LLC Japan - https://rubycampus.org     |
 # +------------------------------------------------------------------------------------+
 # |                                                                                    |
 # | This program is free software; you can redistribute it and/or modify it under the  |
@@ -40,7 +40,7 @@ class CreateAcademicLevels < ActiveRecord::Migration
     create_table :academic_levels do |t|
       t.string :name
       t.integer :position
-      t.boolean :is_default, :default => false      
+      t.boolean :is_default, :default => false
       t.boolean :is_enabled, :default => true
       t.timestamps
     end
