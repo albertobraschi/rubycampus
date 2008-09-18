@@ -1,0 +1,13 @@
+- title((_(current_controller_gettext_human_name_pluralized)))
+.standard_box
+  = render :partial => "common/actions/for_form_index"
+  %h2= yield(:title)
+  %table
+    %tr
+      %th.small= _("Name")
+      %th.small= _("Is default")
+      %th.small= _("Is enabled")
+      %th
+    = render :partial => "gender", :collection => @genders  
+  = render :partial => "common/actions/for_form_index"
+  %div.pagination= will_paginate @genders
