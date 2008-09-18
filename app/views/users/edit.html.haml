@@ -23,7 +23,7 @@
         %span.wrapper
           %span.title= _("Display Name")
           = f.text_field :name, :class => "field"
-      %label{:for => "name", :class => "w50 inputselect"}
+      %label{:for => "language", :class => "w50 inputselect"}
         %span.wrapper
           %span.title= _("Display Language")          
           = f.select :language, language_options_for_select, :class => "field"
