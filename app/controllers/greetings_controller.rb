@@ -36,7 +36,6 @@
 #++
 
 class GreetingsController < ApplicationController
-  before_filter :not_logged_in_required, :only => [ :lookup ]
   before_filter :login_required, :except => [ :lookup ]
   before_filter :check_super_user_role, :except => [ :lookup ]
   
