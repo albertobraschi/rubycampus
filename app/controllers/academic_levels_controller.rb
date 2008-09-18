@@ -85,7 +85,7 @@ class AcademicLevelsController < ApplicationController
 
     respond_to do |format|
       if @academic_level.save
-        flash[:notice] = _("%s was successfully created.") % _("AcademicLevel")
+        flash[:notice] = _("%s was successfully created.") % _("Academic Level")
         if params[:create_and_new_button]
           format.html { redirect_to new_academic_level_url }
         else
@@ -106,7 +106,7 @@ class AcademicLevelsController < ApplicationController
 
     respond_to do |format|
       if @academic_level.update_attributes(params[:academic_level])
-        flash[:notice] = _("%s was successfully updated.") % _("AcademicLevel") 
+        flash[:notice] = _("%s was successfully updated.") % _("Academic Level") 
         format.html { redirect_to academic_levels_url }
         # format.xml  { head :ok }
       else
