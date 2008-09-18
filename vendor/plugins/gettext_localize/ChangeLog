@@ -1,0 +1,56 @@
+Version 0.4.6 17/09/2008
+----
+
+		- Fixes date_select datetime_select for Rails 2.1.1 (thanks to Thilo)
+
+Version 0.4.5 17/06/2008
+----
+
+		- Updated for Rails 2.1 (thanks to Pascal Laplante)
+		- Fixed tests
+
+Version 0.4.4 30/05/2008
+----
+		- Added rpdf extension to the list of extensions files be parsed
+		- Fixed small typo in spanish translation (thanks to Arnau Sanchez and Guillem de Castro)
+		- Fixed memory leak (Jordi Beltran)
+		- Fixed small bug in the plugin localization system
+
+Version 0.4.3 14/12/2007
+----
+		- Small fix for Rails 2.0
+
+Version 0.4.2 13/12/2007
+----
+		- Updated gem requirements
+
+Version 0.4.1 04/12/2007
+----
+		- Included german translation (thanks to Stephan Seyboth)
+
+Version 0.4 28/11/2007
+----
+		- Included french translation (thanks to Michel Loiseleur)
+		- Relaxed gettext gem requirements to include 1.10
+		- Fixed bug to make it work with ruby 1.8.6 (thanks to Luis E. Guardiola)
+
+Version 0.3 03/05/2007
+----
+		- Fixed some date and time form helpers bugs (Ramon Salvadó)
+		- No longer works with 1.1.6
+
+Version 0.2 06/02/2007
+----
+        - added support for rails 1.2 and ruby-gettext 1.9
+          and still works without changes in rails 1.1.6 and ruby-gettext 1.8
+          (selects the best alternative)
+        - added a function that returns a hash of supported locales
+          GettextLocalize.supported_locales can be used as select options
+          if you want to select a locale
+        - added GettextLocalize.set_locale_if(locale) to set a locale
+          from within a controller action only if it exists
+        - fixed bug in date_select changing order of the selects (Pau Colomer)
+
+Version 0.1 10/01/2007
+----
+        - first public version

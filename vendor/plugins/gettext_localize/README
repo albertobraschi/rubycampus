@@ -1,0 +1,162 @@
+= Gettext Localize
+
+Authors:: Ramon Salvadó <rsalvado@gnuine.com>, Miquel Ibero, Pau Colomer
+
+RubyForge_Project_Page[http://rubyforge.org/projects/gettextlocalize]
+
+Any questions/comments can be addressed to Ramon Salvadó <rsalvado@gnuine.com>
+
+This plugin is intended to help you localize your rails app using Gettext, it doesn't try to cover localization of models.
+It works with Rails 2.0 and 2.1
+and has been tested with the following languages: catalan, spanish, english, french, deutsch.
+
+== Installation
+
+Needs to have the gettext gem installed:
+
+<code>sudo gem install gettext</code>
+
+To install the plugin:
+
+<code>script/plugin install svn://rubyforge.org/var/svn/gettextlocalize/trunk/gettext_localize</code>
+
+== Features
+
+- works with rails 2.0,2.1 and loads the correct ruby-gettext
+- loads ruby-gettext with meaningful defaults, that can be overwritten at different levels
+- simplifies translation with rake tasks
+- set the locale in the controllers by query param, session, cookie or browser header
+- translates dates and date helpers
+- translates currencies and other text helpers
+- translation entirely done with gettext, no per language ruby code
+
+== Configuration
+
+1. install gettext: gem install gettext
+2. localize your app texts adding the gettext function <tt>_("translate this")</tt>
+3. generate the application pot files: <tt>rake gettext:updatepo</tt> creates <tt>a po/app.pot</tt>
+4. translate the messages creating a directory for every language: <tt>po/lang1/app.po</tt>
+5. generate the mo files : <tt>rake gettext:makemo</tt>
+6. define the default language (by default takes your <TT>$LANG</TT> environment variable) in your <tt>environment.rb</tt>
+
+== Needed things
+
+* ruby gettext: gem install gettext
+
+== Priorities
+
+locale:
+1. locale set in controller with <tt>set_locale(lang)</tt>
+2. locale set in environment with <tt>GettextLocalize::default_locale = lang</tt>
+3. locale set in environment variable <TT>$LANG</TT>
+4. locale set in this plugin <tt>init.rb</tt> with <tt>GettextLocalize::fallback_locale = lang</tt>
+
+country:
+1. country set in controller with set_country(country)
+2. country part of locale
+3. country set in environment with GettextLocalize::default_country = country
+4. country set in this plugins init.rb with GettextLocalize::fallback_country = country
+
+textdomain:
+1. textdomain set in plugin using <tt>plugin_bindtextdomain(textdomain)</tt>, uses loadpath <tt>RAILS_ROOT/vendor/plugins/$plugin/locale</tt>
+2. textdomain set in controller with <tt>init_gettext(textdomain)</tt>, uses loadpath <tt>RAILS_ROOT/locale</tt>
+3. textdomain set in <tt>environment.rb</tt> with <tt>GettextLocalize::default_textdomain = textdomain</tt>
+4. app_name set in <tt>environment.rb</tt> with <tt>GettextLocalize::app_name = app</tt>
+5. name of the directory the rails app is in
+
+
+== Before filters in controller
+
+Possible locale find methods are:
+
+[+param+] looks for a GET or POST parameter named by default 'lang' or with the name specified
+[+cookie+] looks for a cookie named by default 'lang'
+[+session+] looks for a session variable named by default 'lang'
+[+header+] looks for a HTTP user header named by default HTTP_ACCEPT_LANGUAGES, sent by the web browser
+
+Don't put set_locale(lang) directly in the controller, because it will
+set the locale in all the aplication, use always before_filter.
+
+
+=== Sample Configuration in environment.rb
+
+ if defined? GettextLocalize
+   GettextLocalize::app_name = 'app'
+   GettextLocalize::app_version = '1.2.0'
+   GettextLocalize::default_locale = 'ca_ES'
+   GettextLocalize::default_methods = [:param, :session, :header]
+ end
+
+=== Samples of controller filters
+
+Tries to read the session from a param named 'locale', then from a session var named 'locale'
+and the from the header, then falls back to fallback_locale.
+
+ before_filter(:except=>"feed"){|c| c.set_locale_by [:param, :session, :header], 'locale' }
+
+Sets the locale fixed but only in the controller.
+
+ before_filter{|c| c.set_default_locale 'ca_ES' }
+
+Sets the country fixed in the controller.
+
+ before_filter{|c| c.set_default_country 'es' }
+
+Sets the locale by cookie and if not by session.
+
+ before_filter :set_locale_by_session
+ before_filter :set_locale_by_cookie
+
+== Times and Dates
+
+The classes Time, Date and DateTime are overwritten to localize <tt>to_s</tt> and <tt>strftime</tt>
+
+=== strftime
+
+The formats are localized using gettext, so to add a locale you only need to translate
+po/gettext_localize.pot the standard way
+
+The following formats are overwritten:
+[<tt>%A</tt>] full day of the week
+[<tt>%a</tt>] abbreviated day of the week
+[<tt>%B</tt>] full name of the month
+[<tt>%b</tt>] abbreviated name of the month
+
+The following formats are added:
+[<tt>%V</tt>] day of the month and monthname, like '11 of September'
+[<tt>%v</tt>] day of the month with zeros and monthname, like '04 of July'
+
+The <tt>%V</tt> format is added because there are languages that vary the structure depending
+of the monthname, for example in Catalan you say "5 de Desembre" and "11 d'Abril".
+
+=== to_s
+
+Rails adds standart to_s formats. You can say Time.now.to_s(:db) or 1.week.ago.to_s(:short).
+These formats are also translated using gettext. We suppose :db and :rfc822 are not
+translatable since they are used for data saving.
+
+ActiveRecord is overwritten to save Dates using <tt>strftime("%Y-%m-%d")</tt> and not <tt>to_s</tt> wich can
+be localized and would crash.
+
+== Helpers
+
+The countries.yml YAML file defines per country currency and date order options.
+
+To set the year-month-day order depending on the locale:
+- <tt>DateHelper::date_select</tt>
+- <tt>DateHelper::select_date</tt>
+- <tt>DateHelper::datetime_select</tt>
+- <tt>DateHelper::select_datetime</tt>
+- <tt>InstanceTag::to_datetime_select_tag</tt>
+
+To set the currency depending on the country:
+- <tt>NumberHelper::number_to_currency</tt>
+
+To set the connector depending on the locale:
+- <tt>Array::to_sentence</tt>
+
+== Acknowledgments:
+
+- Jester for Localization simplified plugin from which we borrowed some code/concepts.
+- Masao Mutoh for ruby-gettext.
+
