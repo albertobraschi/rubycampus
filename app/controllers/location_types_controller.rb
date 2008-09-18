@@ -85,7 +85,7 @@ class LocationTypesController < ApplicationController
 
     respond_to do |format|
       if @location_type.save
-        flash[:notice] = _("%s was successfully created.") % _("LocationType")
+        flash[:notice] = _("%s was successfully created.") % _("Location Type")
         if params[:create_and_new_button]
           format.html { redirect_to new_location_type_url }
         else
