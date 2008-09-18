@@ -1,0 +1,10 @@
+- title((_("Creating %s") % current_controller_gettext_human_name))
+= error_messages_for :academic_level 
+.standard_box
+  .hako
+    - form_for @academic_level, :url => academic_levels_path, :html => { :method => :post, :class => "hakozaki" } do |form|
+      = render :partial => "common/actions/for_form_new"  
+      %h1= yield(:title)
+      %hr/
+      = render :partial => "form", :locals => {:form => form}
+      = render :partial => "common/actions/for_form_new"   
