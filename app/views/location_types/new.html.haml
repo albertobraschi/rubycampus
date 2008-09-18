@@ -1,0 +1,10 @@
+- title((_("Creating %s") % current_controller_gettext_human_name))
+= error_messages_for :location_type 
+.standard_box
+  .hako
+    - form_for @location_type, :url => location_types_path, :html => { :method => :post, :class => "hakozaki" } do |form|
+      = render :partial => "common/actions/for_form_new"  
+      %h1= yield(:title)
+      %hr/
+      = render :partial => "form", :locals => {:form => form}
+      = render :partial => "common/actions/for_form_new"   
