@@ -36,10 +36,101 @@
 #++
 
 class EntryTermsController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  before_filter :login_required, :except => [ :index ]  
+  # GET rubycampus.local/entry_terms
+  # GET rubycampus.local/entry_terms.xml
+  def index #:nodoc:
+    # @entry_terms = EntryTerm.find(:all)
+    @entry_terms = EntryTerm.search_for_all_and_paginate(params[:locate], params[:page])
+
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @entry_terms }
+    end
+  end
+
+  # GET rubycampus.local/entry_terms/1
+  # GET rubycampus.local/entry_terms/1.xml
+  def show #:nodoc:
+    @entry_term = EntryTerm.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @entry_term }
+    end
+  end
+
+  # GET rubycampus.local/entry_terms/new
+  # GET rubycampus.local/entry_terms/new.xml
+  def new #:nodoc:
+    @entry_term = EntryTerm.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @entry_term }
+    end
+  end
+
+  # GET rubycampus.local/entry_terms/1/edit
+  def edit #:nodoc:
+    @entry_term = EntryTerm.find(params[:id])
+  end
+
+  # POST rubycampus.local/entry_terms
+  # POST rubycampus.local/entry_terms.xml
+  def create #:nodoc:
+    @entry_term = EntryTerm.new(params[:entry_term])
+
+    respond_to do |format|
+      if @entry_term.save
+        flash[:notice] = _("%s was successfully created.") % _("EntryTerm")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_entry_term_url }
+        else
+          format.html { redirect_to entry_terms_url }
+          # format.xml  { render :xml => @entry_term, :status => :created, :location => @entry_term }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @entry_term.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/entry_terms/1
+  # PUT rubycampus.local/entry_terms/1.xml
+  def update #:nodoc:
+    @entry_term = EntryTerm.find(params[:id])
+
+    respond_to do |format|
+      if @entry_term.update_attributes(params[:entry_term])
+        flash[:notice] = _("%s was successfully updated.") % _("EntryTerm") 
+        format.html { redirect_to entry_terms_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @entry_term.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/entry_terms/1
+  # DELETE rubycampus.local/entry_terms/1.xml
+  def destroy #:nodoc:
+    @entry_term = EntryTerm.find(params[:id])
+    @entry_term.destroy
+
+    respond_to do |format|
+      format.html { redirect_to entry_terms_url }
+      # format.xml  { head :ok }
+    end
+  end
   
   def lookup #:nodoc:
-    @entry_terms = EntryTerm.find_for_auto_complete_lookup(params[:search])
-  end                                                                                                                           
+    @entry_terms = EntryTerm.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end
