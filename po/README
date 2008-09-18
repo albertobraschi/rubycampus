@@ -1,0 +1,18 @@
+RubyCampus Language Packs
+-------------------------
+
+This directory contains the standard packaged RubyCampus language files,
+for making the RubyCampus interface appear in different languages.
+
+The default language for RubyCampus is the English language, under the 
+Unicode scheme (UTF8).
+
+RubyCampus packages both fully and partially translated files to help
+users and organizations quickly deploy their installation.
+
+For more information, see the RubyCampus Documentation:
+
+https://rubycampus.org/ 
+
+To assist in translating RubyCampus into your language please visit our
+official project translation server at http://translate.rubycampus.org
