@@ -85,7 +85,7 @@ class NamePrefixesController < ApplicationController
 
     respond_to do |format|
       if @name_prefix.save
-        flash[:notice] = _("%s was successfully created.") % _("NamePrefix")
+        flash[:notice] = _("%s was successfully created.") % _("Name Prefix")
         if params[:create_and_new_button]
           format.html { redirect_to new_name_prefix_url }
         else
