@@ -36,10 +36,101 @@
 #++
 
 class MobileProvidersController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  before_filter :login_required, :except => [ :index ]
+  # GET rubycampus.local/mobile_providers
+  # GET rubycampus.local/mobile_providers.xml
+  def index #:nodoc:
+    # @mobile_providers = MobileProvider.find(:all)
+    @mobile_providers = MobileProvider.search_for_all_and_paginate(params[:locate], params[:page])
+
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @mobile_providers }
+    end
+  end
+
+  # GET rubycampus.local/mobile_providers/1
+  # GET rubycampus.local/mobile_providers/1.xml
+  def show #:nodoc:
+    @mobile_provider = MobileProvider.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @mobile_provider }
+    end
+  end
+
+  # GET rubycampus.local/mobile_providers/new
+  # GET rubycampus.local/mobile_providers/new.xml
+  def new #:nodoc:
+    @mobile_provider = MobileProvider.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @mobile_provider }
+    end
+  end
+
+  # GET rubycampus.local/mobile_providers/1/edit
+  def edit #:nodoc:
+    @mobile_provider = MobileProvider.find(params[:id])
+  end
+
+  # POST rubycampus.local/mobile_providers
+  # POST rubycampus.local/mobile_providers.xml
+  def create #:nodoc:
+    @mobile_provider = MobileProvider.new(params[:mobile_provider])
+
+    respond_to do |format|
+      if @mobile_provider.save
+        flash[:notice] = _("%s was successfully created.") % _("MobileProvider")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_mobile_provider_url }
+        else
+          format.html { redirect_to mobile_providers_url }
+          # format.xml  { render :xml => @mobile_provider, :status => :created, :location => @mobile_provider }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @mobile_provider.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/mobile_providers/1
+  # PUT rubycampus.local/mobile_providers/1.xml
+  def update #:nodoc:
+    @mobile_provider = MobileProvider.find(params[:id])
+
+    respond_to do |format|
+      if @mobile_provider.update_attributes(params[:mobile_provider])
+        flash[:notice] = _("%s was successfully updated.") % _("MobileProvider") 
+        format.html { redirect_to mobile_providers_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @mobile_provider.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/mobile_providers/1
+  # DELETE rubycampus.local/mobile_providers/1.xml
+  def destroy #:nodoc:
+    @mobile_provider = MobileProvider.find(params[:id])
+    @mobile_provider.destroy
+
+    respond_to do |format|
+      format.html { redirect_to mobile_providers_url }
+      # format.xml  { head :ok }
+    end
+  end
   
   def lookup #:nodoc:
-    @mobile_providers = MobileProvider.find_for_auto_complete_lookup(params[:search])   
-  end                                                                                
+    @mobile_providers = MobileProvider.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end
