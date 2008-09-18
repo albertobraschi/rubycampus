@@ -36,10 +36,101 @@
 #++
 
 class StatusesController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  before_filter :login_required, :except => [ :index ]   
+  # GET rubycampus.local/statuses
+  # GET rubycampus.local/statuses.xml
+  def index #:nodoc:
+    # @statuses = Status.find(:all)
+    @statuses = Status.search_for_all_and_paginate(params[:locate], params[:page])
+
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @statuses }
+    end
+  end
+
+  # GET rubycampus.local/statuses/1
+  # GET rubycampus.local/statuses/1.xml
+  def show #:nodoc:
+    @status = Status.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @status }
+    end
+  end
+
+  # GET rubycampus.local/statuses/new
+  # GET rubycampus.local/statuses/new.xml
+  def new #:nodoc:
+    @status = Status.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @status }
+    end
+  end
+
+  # GET rubycampus.local/statuses/1/edit
+  def edit #:nodoc:
+    @status = Status.find(params[:id])
+  end
+
+  # POST rubycampus.local/statuses
+  # POST rubycampus.local/statuses.xml
+  def create #:nodoc:
+    @status = Status.new(params[:status])
+
+    respond_to do |format|
+      if @status.save
+        flash[:notice] = _("%s was successfully created.") % _("Status")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_status_url }
+        else
+          format.html { redirect_to statuses_url }
+          # format.xml  { render :xml => @status, :status => :created, :location => @status }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @status.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/statuses/1
+  # PUT rubycampus.local/statuses/1.xml
+  def update #:nodoc:
+    @status = Status.find(params[:id])
+
+    respond_to do |format|
+      if @status.update_attributes(params[:status])
+        flash[:notice] = _("%s was successfully updated.") % _("Status") 
+        format.html { redirect_to statuses_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @status.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/statuses/1
+  # DELETE rubycampus.local/statuses/1.xml
+  def destroy #:nodoc:
+    @status = Status.find(params[:id])
+    @status.destroy
+
+    respond_to do |format|
+      format.html { redirect_to statuses_url }
+      # format.xml  { head :ok }
+    end
+  end
   
   def lookup #:nodoc:
-    @statuses = Status.find_for_auto_complete_lookup(params[:search])
-  end                                                                                                   
+    @statuses = Status.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end
