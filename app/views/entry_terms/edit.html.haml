@@ -1,0 +1,10 @@
+- title((_("Editing %s") % current_controller_gettext_human_name))
+= error_messages_for :entry_term  
+.standard_box
+  .hako
+    - form_for @entry_term, :url => entry_term_path, :html => { :method => :put, :class => "hakozaki" } do |form|     
+      = render :partial => "common/actions/for_form_edit"
+      %h1= yield(:title)
+      %hr/
+      = render :partial => "form", :locals => {:form => form}
+      = render :partial => "common/actions/for_form_edit"
