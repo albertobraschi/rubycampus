@@ -35,21 +35,21 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-module ApplicationHelper                                    
-    
+module ApplicationHelper
+
   # Sets <body class=""> to controllers name for stylesheet hooks
   def body_tag_classes
     @body_tag_classes ||= [ RUBYCAMPUS, controller.controller_name ]
-  end   
-  
-  # Sets title and optionally <body class=""> 
+  end
+
+  # Sets title and optionally <body class="">
   def title(page_title,body_tag_klass=nil)
     if !body_tag_klass.nil?
       body_tag_classes << body_tag_klass
     end
     content_for(:title) { page_title }
   end
-  
+
   #
   # By default, uses the current controller and action to render the url to the
   # corresponding RubyCampus wiki page.
@@ -57,38 +57,38 @@ module ApplicationHelper
   def link_to_help
     wiki_page = "#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/"
     case
-      when controller.action_name == "index"   
+      when controller.action_name == "index"
         wiki_page << "Managing_#{controller.controller_name.titleize}"
-      when controller.action_name == "show"   
+      when controller.action_name == "show"
         wiki_page << "Viewing_An_Existing_#{controller.controller_name.singularize.titleize}"
-      when controller.action_name == "new"   
+      when controller.action_name == "new"
         wiki_page << "Creating_A_New_#{controller.controller_name.singularize.titleize}"
-      when controller.action_name == "edit"   
+      when controller.action_name == "edit"
         wiki_page << "Editing_An_Existing_#{controller.controller_name.singularize.titleize}"
       else
         wiki_page << "#{controller.controller_name.titleize}"
       end
     link_to _("Help"), "#{wiki_page}", :popup => true
   end
-  
+
   # Links to RubyCampus issue tracker and fill basic issue information
   def link_to_tracker_issues_new
     link_to _("New Issue"), RUBYCAMPUS_ORG_BASE_URL + "projects/#{RUBYCAMPUS}/issues/new", :popup => true
   end
-  
+
   # Get current controllers name
   def current_controller_human_name
     controller.controller_name.singularize.titleize
-  end 
-  
-  def current_controller_gettext_human_name
-    _(current_controller_human_name)  
   end
-   
+
+  def current_controller_gettext_human_name
+    _(current_controller_human_name)
+  end
+
   def current_controller_gettext_human_name_pluralized
     _(controller.controller_name.titleize)
-  end    
-  
+  end
+
   # Returns a constant based on the controllers name singularlized
   def current_controller_contact_type
    eval = controller.controller_name.upcase.singularize
@@ -101,29 +101,43 @@ module ApplicationHelper
        return ContactType::HOUSEHOLD.id
      else
        return nil
-     end 
+     end
   end
-  
+
   # Renders links for views
   def link_to_extract
     link_to _("PDF"), { :action => :extract, :id => params[:id], :format => :pdf }, :class => "positive"
   end
-  
+
   def link_to_edit
     link_to(_("Edit"), self.send(("edit_"+controller.controller_name.singularize+ "_path")), :class => "positive")
-  end 
-  
+  end
+
   def link_to_destroy
     link_to(_("Destroy"), self.send((controller.controller_name.singularize+ "_path")), :class => "negative", :confirm => (_("Really destroy %s?") % controller.controller_name.titleize), :method => :delete )
   end
-  
-  # Returns true if current contact_type evaluates true 
+
+  # Returns true if current contact_type evaluates true
   def current_contact_type_is(contact_type)
     params[:contact_type] == contact_type.to_s
-  end 
-  
+  end
+
   def current_announcements
     @current_announcements ||= Announcement.current_announcements(session[:announcement_hide_time])
   end
-         
+
+  # List available languages
+  def language_options_for_select(blank=true)
+    language_select = []
+    locale_name = Hash["en","English",
+                       "ja","日本語",
+                       "zh_CN","中文"]
+    # Only list when locale/[iso639-1]/LC_MESSAGES/rubycampus.mo available
+    available_locales.each do |v|
+      n = locale_name[v] || _('Unknown Language')
+      language_select << [ n , v ]
+    end
+    language_select     
+  end
+
 end
