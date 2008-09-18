@@ -1,0 +1,16 @@
+%label{:for => "greeting_name", :class => "w25 inputselect"}
+  %span.wrapper
+    %span.title
+      = _("Name") 
+    = form.text_field :name, :class => "field"
+%label{:for => "greeting_is_default", :class => "w25 inputselect"}
+  %span.wrapper
+    %span.title
+      = _("Is default") 
+    = form.check_box :is_default, :class => "field"
+%label{:for => "greeting_is_enabled", :class => "w25 inputselect"}
+  %span.wrapper
+    %span.title
+      = _("Is enabled") 
+    = form.check_box :is_enabled, :class => "field"
+.clear
