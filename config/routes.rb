@@ -64,17 +64,18 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :genders, :collection => { :lookup => :get }
   map.resources :greetings
   map.resources :head_of_households, :collection => { :lookup => :get }
+  map.resources :location_types
   map.resources :marital_statuses, :collection => { :lookup => :get }
   map.resources :messaging_providers, :collection => { :lookup => :get }
   map.resources :mobile_providers, :collection => { :lookup => :get }
   map.resources :name_prefixes, :collection => { :lookup => :get }
   map.resources :name_suffixes, :collection => { :lookup => :get }
+  map.resources :phone_types   
   map.resources :programs, :collection => { :lookup => :get }
   map.resources :regions, :collection => { :lookup => :get }
   map.resources :sources, :collection => { :lookup => :get }
   map.resources :stages, :collection => { :lookup => :get }
   map.resources :statuses, :collection => { :lookup => :get }
-
   # end RubyCampus RESTful Code Tables
 
   # begin RESTful_authentication routes
