@@ -42,7 +42,7 @@ module Rubycampus
       def keywords; 'rubycampus,relationship management,alumni development,fundraising,higher education' end
       def version; Rubycampus::Build::version[:string] end
       def impressum
-        val = "© 2008 <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}\">RubyCampus LLC</a> All Rights Reserved.<br>Powered by #{RUBYCAMPUS_EDITION}<br><a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/download\">Download</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}projects/#{RUBYCAMPUS}/issues\">Issue Tracker</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}\">Wiki</a>"
+        val = "© 2008 <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}\">RubyCampus LLC</a> All Rights Reserved.<br>Powered by #{RUBYCAMPUS_EDITION} #{Rubycampus::Build::version[:string]}<br><a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/download\">Download</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}projects/#{RUBYCAMPUS}/issues\">Issue Tracker</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}\">Wiki</a>"
         if RubyCampus.demo
           val << <<-EOF
             <br/><blockquote>Constituent records for this demo though realistic are<br/>
