@@ -1,0 +1,259 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gettext_localize 1.0.0\n"
+"POT-Creation-Date: 2008-03-14 16:12+0100\n"
+"PO-Revision-Date: 2007-01-02 09:15+0100\n"
+"Last-Translator: Miguel Ibero <mibero@gnuine.com>\n"
+"Language-Team: Gnuine <info@gnuine.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=( n != 1 );\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:6
+msgid "Sun"
+msgstr "Dom"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:6
+msgid "Mon"
+msgstr "Lun"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:6
+msgid "Tue"
+msgstr "Mar"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:6
+msgid "Wed"
+msgstr "Mie"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:6
+msgid "Thu"
+msgstr "Jue"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:6
+msgid "Fri"
+msgstr "Vie"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:6
+msgid "Sat"
+msgstr "Sab"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:12
+msgid "Sunday"
+msgstr "Domingo"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:12
+msgid "Monday"
+msgstr "Lunes"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:12
+msgid "Tuesday"
+msgstr "Martes"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:12
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:12
+msgid "Thursday"
+msgstr "Jueves"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:12
+msgid "Friday"
+msgstr "Viernes"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:12
+msgid "Saturday"
+msgstr "Sábado"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:18
+msgid "Jan"
+msgstr "Ene"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:18
+msgid "Feb"
+msgstr "Feb"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:18
+msgid "Mar"
+msgstr "Mar"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:18
+msgid "Apr"
+msgstr "Abr"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:18
+msgid "Abbr|May"
+msgstr "May"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:18
+msgid "Jun"
+msgstr "Jun"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:19
+msgid "Jul"
+msgstr "Jul"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:19
+msgid "Aug"
+msgstr "Ago"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:19
+msgid "Sep"
+msgstr "Sep"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:19
+msgid "Oct"
+msgstr "Oct"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:19
+msgid "Nov"
+msgstr "Nov"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:19
+msgid "Dec"
+msgstr "Dic"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:25
+msgid "January"
+msgstr "Enero"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:25
+msgid "February"
+msgstr "Febrero"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:25
+msgid "March"
+msgstr "Marzo"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:25
+msgid "April"
+msgstr "Abril"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:25
+msgid "May"
+msgstr "Mayo"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:25
+msgid "June"
+msgstr "Junio"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:26
+msgid "July"
+msgstr "Julio"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:26
+msgid "August"
+msgstr "Agosto"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:26
+msgid "September"
+msgstr "Septiembre"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:26
+msgid "October"
+msgstr "Octubre"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:26
+msgid "November"
+msgstr "Noviembre"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:26
+msgid "December"
+msgstr "Diciembre"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:35
+msgid "%s of January"
+msgstr "%s de Enero"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:35
+msgid "%s of February"
+msgstr "%s de Febrero"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:35
+msgid "%s of March"
+msgstr "%s de Marzo"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:35
+msgid "%s of April"
+msgstr "%s de Abril"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:35
+msgid "%s of May"
+msgstr "%s de Mayo"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:35
+msgid "%s of June"
+msgstr "%s de Junio"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:36
+msgid "%s of July"
+msgstr "%s de Julio"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:36
+msgid "%s of August"
+msgstr "%s de Agosto"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:36
+msgid "%s of September"
+msgstr "%s de Septiembre"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:36
+msgid "%s of October"
+msgstr "%s de Octubre"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:36
+msgid "%s of November"
+msgstr "%s de Noviembre"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:36
+msgid "%s of December"
+msgstr "%s de Diciembre"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:40
+msgid "and"
+msgstr "y"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:119
+msgid "date|default|%Y-%m-%d"
+msgstr "%d-%m-%Y"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:120
+msgid "date|short|%e %b"
+msgstr "%e %b"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:121
+msgid "date|long|%B %e, %Y"
+msgstr "%V, %Y"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:139
+msgid "time|default|%a %b %d %H:%M:%S %Z %Y"
+msgstr "%a %b %d %H:%M:%S %Z %Y"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:140
+msgid "time|short|%d %b %H:%M"
+msgstr "%d %b %H:%M"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:141
+msgid "time|long|%B %d, %Y %H:%M"
+msgstr "%v, %Y %H:%M"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:158
+msgid "datetime|default|%a %b %d %H:%M:%S %Y"
+msgstr "%a %b %d %H:%M:%S %Y"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:159
+msgid "datetime|short|%e %b"
+msgstr "%e %b"
+
+#: /home/rsalvado/devel/projects/xal/intranet/vendor/plugins/gettext_localize/lib/gettext_localize_extend.rb:160
+msgid "datetime|long|%B %e, %Y"
+msgstr "%V, %Y"
