@@ -36,10 +36,101 @@
 #++
 
 class MessagingProvidersController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  before_filter :login_required, :except => [ :index ]  
+  # GET rubycampus.local/messaging_providers
+  # GET rubycampus.local/messaging_providers.xml
+  def index #:nodoc:
+    # @messaging_providers = MessagingProvider.find(:all)
+    @messaging_providers = MessagingProvider.search_for_all_and_paginate(params[:locate], params[:page])
+
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @messaging_providers }
+    end
+  end
+
+  # GET rubycampus.local/messaging_providers/1
+  # GET rubycampus.local/messaging_providers/1.xml
+  def show #:nodoc:
+    @messaging_provider = MessagingProvider.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @messaging_provider }
+    end
+  end
+
+  # GET rubycampus.local/messaging_providers/new
+  # GET rubycampus.local/messaging_providers/new.xml
+  def new #:nodoc:
+    @messaging_provider = MessagingProvider.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @messaging_provider }
+    end
+  end
+
+  # GET rubycampus.local/messaging_providers/1/edit
+  def edit #:nodoc:
+    @messaging_provider = MessagingProvider.find(params[:id])
+  end
+
+  # POST rubycampus.local/messaging_providers
+  # POST rubycampus.local/messaging_providers.xml
+  def create #:nodoc:
+    @messaging_provider = MessagingProvider.new(params[:messaging_provider])
+
+    respond_to do |format|
+      if @messaging_provider.save
+        flash[:notice] = _("%s was successfully created.") % _("MessagingProvider")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_messaging_provider_url }
+        else
+          format.html { redirect_to messaging_providers_url }
+          # format.xml  { render :xml => @messaging_provider, :status => :created, :location => @messaging_provider }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @messaging_provider.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/messaging_providers/1
+  # PUT rubycampus.local/messaging_providers/1.xml
+  def update #:nodoc:
+    @messaging_provider = MessagingProvider.find(params[:id])
+
+    respond_to do |format|
+      if @messaging_provider.update_attributes(params[:messaging_provider])
+        flash[:notice] = _("%s was successfully updated.") % _("MessagingProvider") 
+        format.html { redirect_to messaging_providers_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @messaging_provider.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/messaging_providers/1
+  # DELETE rubycampus.local/messaging_providers/1.xml
+  def destroy #:nodoc:
+    @messaging_provider = MessagingProvider.find(params[:id])
+    @messaging_provider.destroy
+
+    respond_to do |format|
+      format.html { redirect_to messaging_providers_url }
+      # format.xml  { head :ok }
+    end
+  end
   
   def lookup #:nodoc:
-    @messaging_providers = MessagingProvider.find_for_auto_complete_lookup(params[:search])   
-  end                                                                                
+    @messaging_providers = MessagingProvider.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end
