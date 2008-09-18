@@ -36,10 +36,101 @@
 #++
 
 class MaritalStatusesController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  before_filter :login_required, :except => [ :index ]   
+  # GET rubycampus.local/marital_statuses
+  # GET rubycampus.local/marital_statuses.xml
+  def index #:nodoc:
+    # @marital_statuses = MaritalStatus.find(:all)
+    @marital_statuses = MaritalStatus.search_for_all_and_paginate(params[:locate], params[:page])
+
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @marital_statuses }
+    end
+  end
+
+  # GET rubycampus.local/marital_statuses/1
+  # GET rubycampus.local/marital_statuses/1.xml
+  def show #:nodoc:
+    @marital_status = MaritalStatus.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @marital_status }
+    end
+  end
+
+  # GET rubycampus.local/marital_statuses/new
+  # GET rubycampus.local/marital_statuses/new.xml
+  def new #:nodoc:
+    @marital_status = MaritalStatus.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @marital_status }
+    end
+  end
+
+  # GET rubycampus.local/marital_statuses/1/edit
+  def edit #:nodoc:
+    @marital_status = MaritalStatus.find(params[:id])
+  end
+
+  # POST rubycampus.local/marital_statuses
+  # POST rubycampus.local/marital_statuses.xml
+  def create #:nodoc:
+    @marital_status = MaritalStatus.new(params[:marital_status])
+
+    respond_to do |format|
+      if @marital_status.save
+        flash[:notice] = _("%s was successfully created.") % _("MaritalStatus")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_marital_status_url }
+        else
+          format.html { redirect_to marital_statuses_url }
+          # format.xml  { render :xml => @marital_status, :status => :created, :location => @marital_status }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @marital_status.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/marital_statuses/1
+  # PUT rubycampus.local/marital_statuses/1.xml
+  def update #:nodoc:
+    @marital_status = MaritalStatus.find(params[:id])
+
+    respond_to do |format|
+      if @marital_status.update_attributes(params[:marital_status])
+        flash[:notice] = _("%s was successfully updated.") % _("MaritalStatus") 
+        format.html { redirect_to marital_statuses_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @marital_status.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/marital_statuses/1
+  # DELETE rubycampus.local/marital_statuses/1.xml
+  def destroy #:nodoc:
+    @marital_status = MaritalStatus.find(params[:id])
+    @marital_status.destroy
+
+    respond_to do |format|
+      format.html { redirect_to marital_statuses_url }
+      # format.xml  { head :ok }
+    end
+  end
   
   def lookup #:nodoc:
-    @marital_statuses = MaritalStatus.find_for_auto_complete_lookup(params[:search])   
-  end                                                                                
+    @marital_statuses = MaritalStatus.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end
