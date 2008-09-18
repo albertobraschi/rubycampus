@@ -37,12 +37,12 @@
 
 module Rubycampus
   module Build
-    class << self  
-        
+    class << self
+
       def version
         return @@version if defined?(@@version)
 
-        numbers = File.read("#{RAILS_ROOT}/doc/VERSION").strip.split('.').map { |n| n.to_i }
+        numbers = File.read("#{RAILS_ROOT}/lib/rubycampus/VERSION").strip.split('.').map { |n| n.to_i }
         @@version = {
           :major => numbers[0],
           :minor => numbers[1],
@@ -50,8 +50,8 @@ module Rubycampus
         }
         @@version[:string] = [:major, :minor, :teeny].map { |comp| @@version[comp] }.compact.join('.')
 
-        if File.exists?("#{RAILS_ROOT}/doc/REVISION")
-          rev = File.read("#{RAILS_ROOT}/doc/REVISION").strip
+        if File.exists?("#{RAILS_ROOT}/lib/rubycampus/REVISION")
+          rev = File.read("#{RAILS_ROOT}/lib/rubycampus/REVISION").strip
           rev = nil if rev !~ /[a-f0-9]+/
         end
 
@@ -66,10 +66,10 @@ module Rubycampus
           @@version[:rev] = rev
           @@version[:string] << " (" << rev[0...7] << ")"
         end
-  
+
         @@version
       end
-      
-    end      
-  end                 
+
+    end
+  end
 end
