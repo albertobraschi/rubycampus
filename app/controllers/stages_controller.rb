@@ -23,7 +23,7 @@
 # |                                                                                    |
 # | You can contact RubyCampus, LLC. at email address project@rubycampus.org.          |
 # |                                                                                    |
-# | The interactive user interfaces in modified stage and object code versions of     |
+# | The interactive user interfaces in modified source and object code versions of     |
 # | this program must display Appropriate Legal Notices, as required under Section 5   |
 # | of the GNU Affero General Public License version 3.                                |
 # |                                                                                    |
@@ -35,11 +35,102 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class StagesController < ApplicationController 
+class StagesController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  before_filter :login_required, :except => [ :index ]  
+  # GET rubycampus.local/stages
+  # GET rubycampus.local/stages.xml
+  def index #:nodoc:
+    # @stages = Stage.find(:all)
+    @stages = Stage.search_for_all_and_paginate(params[:locate], params[:page])
+
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @stages }
+    end
+  end
+
+  # GET rubycampus.local/stages/1
+  # GET rubycampus.local/stages/1.xml
+  def show #:nodoc:
+    @stage = Stage.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @stage }
+    end
+  end
+
+  # GET rubycampus.local/stages/new
+  # GET rubycampus.local/stages/new.xml
+  def new #:nodoc:
+    @stage = Stage.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @stage }
+    end
+  end
+
+  # GET rubycampus.local/stages/1/edit
+  def edit #:nodoc:
+    @stage = Stage.find(params[:id])
+  end
+
+  # POST rubycampus.local/stages
+  # POST rubycampus.local/stages.xml
+  def create #:nodoc:
+    @stage = Stage.new(params[:stage])
+
+    respond_to do |format|
+      if @stage.save
+        flash[:notice] = _("%s was successfully created.") % _("Stage")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_stage_url }
+        else
+          format.html { redirect_to stages_url }
+          # format.xml  { render :xml => @stage, :status => :created, :location => @stage }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @stage.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/stages/1
+  # PUT rubycampus.local/stages/1.xml
+  def update #:nodoc:
+    @stage = Stage.find(params[:id])
+
+    respond_to do |format|
+      if @stage.update_attributes(params[:stage])
+        flash[:notice] = _("%s was successfully updated.") % _("Stage") 
+        format.html { redirect_to stages_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @stage.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/stages/1
+  # DELETE rubycampus.local/stages/1.xml
+  def destroy #:nodoc:
+    @stage = Stage.find(params[:id])
+    @stage.destroy
+
+    respond_to do |format|
+      format.html { redirect_to stages_url }
+      # format.xml  { head :ok }
+    end
+  end
   
   def lookup #:nodoc:
-    @stages = Stage.find_for_auto_complete_lookup(params[:search])  
-  end                                                                                                
+    @stages = Stage.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end
