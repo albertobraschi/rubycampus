@@ -36,10 +36,101 @@
 #++
 
 class NameSuffixesController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  before_filter :login_required, :except => [ :index ] 
+  # GET rubycampus.local/name_suffixes
+  # GET rubycampus.local/name_suffixes.xml
+  def index #:nodoc:
+    # @name_suffixes = NameSuffix.find(:all)
+    @name_suffixes = NameSuffix.search_for_all_and_paginate(params[:locate], params[:page])
+
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @name_suffixes }
+    end
+  end
+
+  # GET rubycampus.local/name_suffixes/1
+  # GET rubycampus.local/name_suffixes/1.xml
+  def show #:nodoc:
+    @name_suffix = NameSuffix.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @name_suffix }
+    end
+  end
+
+  # GET rubycampus.local/name_suffixes/new
+  # GET rubycampus.local/name_suffixes/new.xml
+  def new #:nodoc:
+    @name_suffix = NameSuffix.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @name_suffix }
+    end
+  end
+
+  # GET rubycampus.local/name_suffixes/1/edit
+  def edit #:nodoc:
+    @name_suffix = NameSuffix.find(params[:id])
+  end
+
+  # POST rubycampus.local/name_suffixes
+  # POST rubycampus.local/name_suffixes.xml
+  def create #:nodoc:
+    @name_suffix = NameSuffix.new(params[:name_suffix])
+
+    respond_to do |format|
+      if @name_suffix.save
+        flash[:notice] = _("%s was successfully created.") % _("NameSuffix")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_name_suffix_url }
+        else
+          format.html { redirect_to name_suffixes_url }
+          # format.xml  { render :xml => @name_suffix, :status => :created, :location => @name_suffix }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @name_suffix.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/name_suffixes/1
+  # PUT rubycampus.local/name_suffixes/1.xml
+  def update #:nodoc:
+    @name_suffix = NameSuffix.find(params[:id])
+
+    respond_to do |format|
+      if @name_suffix.update_attributes(params[:name_suffix])
+        flash[:notice] = _("%s was successfully updated.") % _("NameSuffix") 
+        format.html { redirect_to name_suffixes_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @name_suffix.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/name_suffixes/1
+  # DELETE rubycampus.local/name_suffixes/1.xml
+  def destroy #:nodoc:
+    @name_suffix = NameSuffix.find(params[:id])
+    @name_suffix.destroy
+
+    respond_to do |format|
+      format.html { redirect_to name_suffixes_url }
+      # format.xml  { head :ok }
+    end
+  end
   
   def lookup #:nodoc:
-    @name_suffixes = NameSuffix.find_for_auto_complete_lookup(params[:search]) 
-  end                                                                                        
+    @name_suffixes = NameSuffix.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end
