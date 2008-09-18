@@ -85,7 +85,7 @@ class MaritalStatusesController < ApplicationController
 
     respond_to do |format|
       if @marital_status.save
-        flash[:notice] = _("%s was successfully created.") % _("MaritalStatus")
+        flash[:notice] = _("%s was successfully created.") % _("Marital Status")
         if params[:create_and_new_button]
           format.html { redirect_to new_marital_status_url }
         else
