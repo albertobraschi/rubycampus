@@ -38,11 +38,11 @@
 ActionController::Routing::Routes.draw do |map|
   map.home '', :controller => "users", :action => "show"
   map.root :controller => "sessions", :action => "destroy"
-  
+
   # begin RubyCampus Administration
   map.resources :announcements
   # end RubyCampus Administration
-  
+
   # begin RubyCampus Processors
   map.resources :activities
   # end RubyCampus Processors
@@ -62,6 +62,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :entry_terms, :collection => { :lookup => :get }
   map.resources :ethnicities, :collection => { :lookup => :get }
   map.resources :genders, :collection => { :lookup => :get }
+  map.resources :greetings
   map.resources :head_of_households, :collection => { :lookup => :get }
   map.resources :marital_statuses, :collection => { :lookup => :get }
   map.resources :messaging_providers, :collection => { :lookup => :get }
@@ -72,7 +73,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :regions, :collection => { :lookup => :get }
   map.resources :sources, :collection => { :lookup => :get }
   map.resources :stages, :collection => { :lookup => :get }
-  map.resources :statuses, :collection => { :lookup => :get } 
+  map.resources :statuses, :collection => { :lookup => :get }
+
   # end RubyCampus RESTful Code Tables
 
   # begin RESTful_authentication routes
