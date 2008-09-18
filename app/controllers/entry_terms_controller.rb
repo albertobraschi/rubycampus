@@ -85,7 +85,7 @@ class EntryTermsController < ApplicationController
 
     respond_to do |format|
       if @entry_term.save
-        flash[:notice] = _("%s was successfully created.") % _("EntryTerm")
+        flash[:notice] = _("%s was successfully created.") % _("Entry Term")
         if params[:create_and_new_button]
           format.html { redirect_to new_entry_term_url }
         else
