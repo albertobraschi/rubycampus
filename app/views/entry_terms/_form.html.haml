@@ -1,0 +1,39 @@
+%label{:for => "entry_term_name", :class => "w25 inputselect mandatory"}
+  %span.wrapper
+    %span.title
+      = _("Name") 
+    = form.text_field :name, :class => "field"
+%label{:for => "entry_term_code", :class => "w25 inputselect"}
+  %span.wrapper
+    %span.title
+      = _("Code") 
+    = form.text_field :code, :class => "field"
+%label{:for => "entry_term_start_date", :class => "w25 inputselect mandatory"}
+  %span.wrapper
+    %span.title
+      = _("Start date") 
+    = form.calendar_date_select :start_date, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
+%label{:for => "entry_term_end_date", :class => "w25 inputselect mandatory"}
+  %span.wrapper
+    %span.title
+      = _("End date") 
+    = form.calendar_date_select :end_date, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
+%label{:for => "entry_term_description", :class => "w50 inputselect"}
+  %span.wrapper
+    %span.title
+      = _("Description") 
+    = form.text_area :description, :class => "field"
+%label{:for => "entry_term_is_default", :class => "w25 inputselect"}
+  %span.wrapper
+    %span.title
+      = _("Is default") 
+    = form.check_box :is_default, :class => "field"
+%label{:for => "entry_term_is_enabled", :class => "w25 inputselect"}
+  %span.wrapper
+    %span.title
+      = _("Is enabled") 
+    = form.check_box :is_enabled, :class => "field"
+.clear                               
+
+
+    
