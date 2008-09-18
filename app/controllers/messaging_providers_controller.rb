@@ -85,7 +85,7 @@ class MessagingProvidersController < ApplicationController
 
     respond_to do |format|
       if @messaging_provider.save
-        flash[:notice] = _("%s was successfully created.") % _("MessagingProvider")
+        flash[:notice] = _("%s was successfully created.") % _("Messaging Provider")
         if params[:create_and_new_button]
           format.html { redirect_to new_messaging_provider_url }
         else
