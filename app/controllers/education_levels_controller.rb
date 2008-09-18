@@ -36,10 +36,101 @@
 #++
 
 class EducationLevelsController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  before_filter :login_required, :except => [ :index ]  
+  # GET rubycampus.local/education_levels
+  # GET rubycampus.local/education_levels.xml
+  def index #:nodoc:
+    # @education_levels = EducationLevel.find(:all)
+    @education_levels = EducationLevel.search_for_all_and_paginate(params[:locate], params[:page])
+
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @education_levels }
+    end
+  end
+
+  # GET rubycampus.local/education_levels/1
+  # GET rubycampus.local/education_levels/1.xml
+  def show #:nodoc:
+    @education_level = EducationLevel.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @education_level }
+    end
+  end
+
+  # GET rubycampus.local/education_levels/new
+  # GET rubycampus.local/education_levels/new.xml
+  def new #:nodoc:
+    @education_level = EducationLevel.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @education_level }
+    end
+  end
+
+  # GET rubycampus.local/education_levels/1/edit
+  def edit #:nodoc:
+    @education_level = EducationLevel.find(params[:id])
+  end
+
+  # POST rubycampus.local/education_levels
+  # POST rubycampus.local/education_levels.xml
+  def create #:nodoc:
+    @education_level = EducationLevel.new(params[:education_level])
+
+    respond_to do |format|
+      if @education_level.save
+        flash[:notice] = _("%s was successfully created.") % _("EducationLevel")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_education_level_url }
+        else
+          format.html { redirect_to education_levels_url }
+          # format.xml  { render :xml => @education_level, :status => :created, :location => @education_level }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @education_level.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/education_levels/1
+  # PUT rubycampus.local/education_levels/1.xml
+  def update #:nodoc:
+    @education_level = EducationLevel.find(params[:id])
+
+    respond_to do |format|
+      if @education_level.update_attributes(params[:education_level])
+        flash[:notice] = _("%s was successfully updated.") % _("EducationLevel") 
+        format.html { redirect_to education_levels_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @education_level.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/education_levels/1
+  # DELETE rubycampus.local/education_levels/1.xml
+  def destroy #:nodoc:
+    @education_level = EducationLevel.find(params[:id])
+    @education_level.destroy
+
+    respond_to do |format|
+      format.html { redirect_to education_levels_url }
+      # format.xml  { head :ok }
+    end
+  end
   
   def lookup #:nodoc:
-    @education_levels = EducationLevel.find_for_auto_complete_lookup(params[:search]) 
-  end                                                                                 
+    @education_levels = EducationLevel.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end
