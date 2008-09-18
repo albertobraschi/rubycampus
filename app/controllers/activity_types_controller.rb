@@ -36,10 +36,101 @@
 #++
 
 class ActivityTypesController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  before_filter :login_required, :except => [ :index ]   
+  # GET rubycampus.local/activity_types
+  # GET rubycampus.local/activity_types.xml
+  def index #:nodoc:
+    # @activity_types = ActivityType.find(:all)
+    @activity_types = ActivityType.search_for_all_and_paginate(params[:locate], params[:page])
+
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @activity_types }
+    end
+  end
+
+  # GET rubycampus.local/activity_types/1
+  # GET rubycampus.local/activity_types/1.xml
+  def show #:nodoc:
+    @activity_type = ActivityType.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @activity_type }
+    end
+  end
+
+  # GET rubycampus.local/activity_types/new
+  # GET rubycampus.local/activity_types/new.xml
+  def new #:nodoc:
+    @activity_type = ActivityType.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @activity_type }
+    end
+  end
+
+  # GET rubycampus.local/activity_types/1/edit
+  def edit #:nodoc:
+    @activity_type = ActivityType.find(params[:id])
+  end
+
+  # POST rubycampus.local/activity_types
+  # POST rubycampus.local/activity_types.xml
+  def create #:nodoc:
+    @activity_type = ActivityType.new(params[:activity_type])
+
+    respond_to do |format|
+      if @activity_type.save
+        flash[:notice] = _("%s was successfully created.") % _("ActivityType")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_activity_type_url }
+        else
+          format.html { redirect_to activity_types_url }
+          # format.xml  { render :xml => @activity_type, :status => :created, :location => @activity_type }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @activity_type.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/activity_types/1
+  # PUT rubycampus.local/activity_types/1.xml
+  def update #:nodoc:
+    @activity_type = ActivityType.find(params[:id])
+
+    respond_to do |format|
+      if @activity_type.update_attributes(params[:activity_type])
+        flash[:notice] = _("%s was successfully updated.") % _("ActivityType") 
+        format.html { redirect_to activity_types_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @activity_type.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/activity_types/1
+  # DELETE rubycampus.local/activity_types/1.xml
+  def destroy #:nodoc:
+    @activity_type = ActivityType.find(params[:id])
+    @activity_type.destroy
+
+    respond_to do |format|
+      format.html { redirect_to activity_types_url }
+      # format.xml  { head :ok }
+    end
+  end
   
   def lookup #:nodoc:
-    @activity_types = ActivityType.find_for_auto_complete_lookup(params[:search])
-  end                                                                                                   
+    @activity_types = ActivityType.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end
