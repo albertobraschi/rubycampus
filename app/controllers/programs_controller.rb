@@ -36,10 +36,101 @@
 #++
 
 class ProgramsController < ApplicationController
+  before_filter :not_logged_in_required, :only => [ :lookup ]
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
+  
+  # GET rubycampus.local/programs
+  # GET rubycampus.local/programs.xml
+  def index #:nodoc:
+    # @programs = Program.find(:all)
+    @programs = Program.search_for_all_and_paginate(params[:locate], params[:page])
 
-  before_filter :login_required, :except => [ :index ]
-
-  def lookup #:nodoc:
-    @programs = Program.find_for_auto_complete_lookup(params[:search])
+    respond_to do |format|
+      format.html # index.html.haml
+      # format.xml  { render :xml => @programs }
+    end
   end
+
+  # GET rubycampus.local/programs/1
+  # GET rubycampus.local/programs/1.xml
+  def show #:nodoc:
+    @program = Program.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.haml
+      # format.xml  { render :xml => @program }
+    end
+  end
+
+  # GET rubycampus.local/programs/new
+  # GET rubycampus.local/programs/new.xml
+  def new #:nodoc:
+    @program = Program.new
+
+    respond_to do |format|
+      format.html # new.html.haml
+      # format.xml  { render :xml => @program }
+    end
+  end
+
+  # GET rubycampus.local/programs/1/edit
+  def edit #:nodoc:
+    @program = Program.find(params[:id])
+  end
+
+  # POST rubycampus.local/programs
+  # POST rubycampus.local/programs.xml
+  def create #:nodoc:
+    @program = Program.new(params[:program])
+
+    respond_to do |format|
+      if @program.save
+        flash[:notice] = _("%s was successfully created.") % _("Program")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_program_url }
+        else
+          format.html { redirect_to programs_url }
+          # format.xml  { render :xml => @program, :status => :created, :location => @program }
+        end
+      else
+        format.html { render :action => "new" }
+        # format.xml  { render :xml => @program.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT rubycampus.local/programs/1
+  # PUT rubycampus.local/programs/1.xml
+  def update #:nodoc:
+    @program = Program.find(params[:id])
+
+    respond_to do |format|
+      if @program.update_attributes(params[:program])
+        flash[:notice] = _("%s was successfully updated.") % _("Program") 
+        format.html { redirect_to programs_url }
+        # format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        # format.xml  { render :xml => @program.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE rubycampus.local/programs/1
+  # DELETE rubycampus.local/programs/1.xml
+  def destroy #:nodoc:
+    @program = Program.find(params[:id])
+    @program.destroy
+
+    respond_to do |format|
+      format.html { redirect_to programs_url }
+      # format.xml  { head :ok }
+    end
+  end
+  
+  def lookup #:nodoc:
+    @programs = Program.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end
