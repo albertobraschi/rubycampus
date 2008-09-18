@@ -85,7 +85,7 @@ class EducationLevelsController < ApplicationController
 
     respond_to do |format|
       if @education_level.save
-        flash[:notice] = _("%s was successfully created.") % _("EducationLevel")
+        flash[:notice] = _("%s was successfully created.") % _("Education Level")
         if params[:create_and_new_button]
           format.html { redirect_to new_education_level_url }
         else
