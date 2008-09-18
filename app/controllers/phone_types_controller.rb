@@ -85,7 +85,7 @@ class PhoneTypesController < ApplicationController
 
     respond_to do |format|
       if @phone_type.save
-        flash[:notice] = _("%s was successfully created.") % _("PhoneType")
+        flash[:notice] = _("%s was successfully created.") % _("Phone Type")
         if params[:create_and_new_button]
           format.html { redirect_to new_phone_type_url }
         else
