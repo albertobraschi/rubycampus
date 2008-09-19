@@ -40,7 +40,7 @@ class Announcement < ActiveRecord::Base
   require 'gettext/rails'
   untranslate_all
   
-  validates_presence_of :message, :start_at, :end_at
+  validates_presence_of :message
   
   def self.current_announcements(hide_time)
     with_scope :find => { :conditions => "starts_at <= now() AND ends_at >= now()" } do
