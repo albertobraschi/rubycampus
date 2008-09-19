@@ -34,7 +34,7 @@
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
 #++
-                               
+
 
 module Rubycampus
   module Build
@@ -56,12 +56,12 @@ module Rubycampus
           rev = nil if rev !~ /[a-f0-9]+/
         end
 
-        # if rev.nil? && File.exists?("#{RAILS_ROOT}/.git/HEAD")
-        #   rev = File.read("#{RAILS_ROOT}/.git/HEAD").strip
-        #   if rev =~ /^ref: (.*)$/
-        #     rev = File.read("#{RAILS_ROOT}/.git/#{$1}").strip
-        #   end
-        # end     
+        if rev.nil? && File.exists?("#{RAILS_ROOT}/.git/HEAD")
+          rev = File.read("#{RAILS_ROOT}/.git/HEAD").strip
+          if rev =~ /^ref: (.*)$/
+            rev = File.read("#{RAILS_ROOT}/.git/#{$1}").strip
+          end
+        end
 
         if rev
           @@version[:rev] = rev
