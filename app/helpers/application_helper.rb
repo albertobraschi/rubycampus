@@ -128,13 +128,11 @@ module ApplicationHelper
 
   # List available languages
   def language_options_for_select(blank=true)
+    require 'yaml'
     language_select = []
-    locale_name = Hash["en","English",
-                       "ja","日本語",
-                       "zh_CN","中文"]
-    # Only list when locale/[iso639-1]/LC_MESSAGES/rubycampus.mo available
+    languages = YAML::load_file("#{RAILS_ROOT}/lib/rubycampus/system/languages.yml")
     available_locales.each do |v|
-      n = locale_name[v] || _('Unknown Language')
+      n = languages[v] || _('Unknown Language')
       language_select << [ n , v ]
     end
     language_select     
