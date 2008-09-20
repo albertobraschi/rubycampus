@@ -35,31 +35,39 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class MaritalStatus < ActiveRecord::Base 
+class MaritalStatus < ActiveRecord::Base
   # Excludes model from being included in PO template
   require 'gettext/rails'
   untranslate_all
-   
+
+  # Language constants for use by Ruby-GetText
+  N_('Married')
+  N_('Single')
+  N_('Widow or Widower')
+  N_('Divorced')
+  N_('Never Married')
+  N_('Domestic Partner')
+
   has_many :contacts
-  
+
   # begin Validations
     validates_presence_of :name
   # ends Validations
-  
+
   # Searchable attributes
   searchable_by :name
-  
+
   # Fetches all marital_statuses with pagination
   def self.search_for_all_and_paginate(locate, page)
     search(locate).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' )
-  end         
-  
-  # Lists qualifying model attributes for use by auto completion in forms
-  def self.find_for_auto_complete_lookup(search)
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "position ASC" )  
   end
 
-  NAMES_KEYS = self.find(:all).map do |s| 
-  [s.name, s.id] 
+  # Lists qualifying model attributes for use by auto completion in forms
+  def self.find_for_auto_complete_lookup(search)
+    find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "position ASC" )
+  end
+
+  NAMES_KEYS = self.find(:all).map do |s|
+  [s.name, s.id]
   end
 end
