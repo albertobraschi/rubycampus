@@ -34,38 +34,46 @@
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
 #++
-     
-class Stage < ActiveRecord::Base 
+
+class Stage < ActiveRecord::Base
   # Excludes model from being included in PO template
   require 'gettext/rails'
   untranslate_all
-  
-  caches_constants 
+
+  # Language constants for use by Ruby-GetText
+  N_('Prospect')
+  N_('Inquiry')
+  N_('Applicant')
+  N_('Confirmed')
+  N_('Enrolled')
+  N_('Canceled')
+
+  caches_constants
   has_many :contacts
-  
+
   # begin Validations
     validates_presence_of :name
   # ends Validations
-  
+
   # Searchable attributes
   searchable_by :name
-  
+
   # Fetches all stages with pagination
   def self.search_for_all_and_paginate(locate, page)
     search(locate).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' )
-  end         
-  
+  end
+
   # Lists qualifying model attributes for use by auto completion in forms
   def self.find_for_auto_complete_lookup(search)
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "position ASC" )  
-  end   
-  
+    find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "position ASC" )
+  end
+
   # Retrieves all active stages
   def self.all_active
     find(:all, :conditions => ["is_enabled = ?", true], :order => :position)
   end
 
-  NAMES_KEYS = self.find(:all).map do |s| 
-  [s.name, s.id] 
+  NAMES_KEYS = self.find(:all).map do |s|
+  [s.name, s.id]
   end
 end
