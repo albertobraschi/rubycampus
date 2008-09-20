@@ -1,14 +1,14 @@
-- if current_user.is_admin
-  .action_buttons
-    = link_to 'New announcement', new_announcement_path
+- title((_("Listing %s") % current_controller_human_name))
+.action_buttons
+  = link_to 'New announcement', new_announcement_path   
 
-%h1 Listing announcements
+%h1= yield(:title)
 
 %table
   %tr
-    %th Message
-    %th Starts at
-    %th Ends at
+    %th= _("Message")
+    %th= _("Starts at")
+    %th= _("Ends at")
     %th
 
     - for announcement in @announcements
@@ -17,9 +17,5 @@
         %td=h announcement.starts_at
         %td=h announcement.ends_at
         %td
-          - if current_user.is_admin
-            = link_to 'Show', announcement_path(announcement)
-            = link_to 'Edit', edit_announcement_path(announcement)
-            = link_to 'Destroy', announcement_path(announcement), :confirm => 'Are you sure?', :method => :delete, :confirm => "Are you sure?", :method => :delete
-    
+          = render :partial => "common/actions/for_row_index", :locals => { :local => announcement }
 %div.pagination= will_paginate @announcements     
