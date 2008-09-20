@@ -35,31 +35,38 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class Status < ActiveRecord::Base 
+class Status < ActiveRecord::Base
   # Excludes model from being included in PO template
   require 'gettext/rails'
   untranslate_all
-   
+
+  # Language constants for use by Ruby-GetText
+  N_('Scheduled')
+  N_('Completed')
+  N_('Cancelled')
+  N_('Left Message')
+  N_('Unreachable')
+
   has_many :contacts
-  
+
   # begin Validations
     validates_presence_of :name
   # ends Validations
-  
+
   # Searchable attributes
   searchable_by :name
-  
+
   # Fetches all statuses with pagination
   def self.search_for_all_and_paginate(locate, page)
     search(locate).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' )
-  end         
-  
-  # Lists qualifying model attributes for use by auto completion in forms
-  def self.find_for_auto_complete_lookup(search)
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "position ASC" )  
   end
 
-  NAMES_KEYS = self.find(:all).map do |s| 
-  [s.name, s.id] 
+  # Lists qualifying model attributes for use by auto completion in forms
+  def self.find_for_auto_complete_lookup(search)
+    find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "position ASC" )
+  end
+
+  NAMES_KEYS = self.find(:all).map do |s|
+  [s.name, s.id]
   end
 end
