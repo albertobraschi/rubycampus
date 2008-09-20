@@ -39,11 +39,16 @@ class PreferredEmailFormat < ActiveRecord::Base
   # Excludes model from being included in PO template
   require 'gettext/rails'
   untranslate_all
-   
-  has_many :contacts                                   
-  
-  NAMES_KEYS = self.find(:all).map do |s| 
-  [s.name, s.id] 
+
+  # Language constants for use by Ruby-GetText
+  N_('Both')
+  N_('HTML')
+  N_('Text')
+
+  has_many :contacts
+
+  NAMES_KEYS = self.find(:all).map do |s|
+  [s.name, s.id]
   end
 end
 # == Schema Information
