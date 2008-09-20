@@ -5,9 +5,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: RubyCampus 0.1.0 (a82f705)\n"
+"Project-Id-Version: RubyCampus 0.1.0 (533b021)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-20 13:52+0900\n"
+"POT-Creation-Date: 2008-09-20 21:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,7 +134,7 @@ msgstr ""
 
 #: app/controllers/households_controller.rb:83
 #: app/controllers/households_controller.rb:104
-#: app/controllers/households_controller.rb:119
+#: app/controllers/households_controller.rb:119 app/models/contact_type.rb:46
 #: app/views/households/edit.html.haml:1 app/views/households/new.html.haml:1
 msgid "Household"
 msgstr ""
@@ -147,7 +147,7 @@ msgstr ""
 
 #: app/controllers/individuals_controller.rb:82
 #: app/controllers/individuals_controller.rb:103
-#: app/controllers/individuals_controller.rb:118
+#: app/controllers/individuals_controller.rb:118 app/models/contact_type.rb:44
 #: app/views/individuals/edit.html.haml:1
 #: app/views/individuals/new.html.haml:1
 msgid "Individual"
@@ -206,7 +206,7 @@ msgstr ""
 #: app/controllers/organizations_controller.rb:83
 #: app/controllers/organizations_controller.rb:104
 #: app/controllers/organizations_controller.rb:119
-#: app/views/organizations/edit.html.haml:1
+#: app/models/contact_type.rb:45 app/views/organizations/edit.html.haml:1
 #: app/views/organizations/new.html.haml:1
 msgid "Organization"
 msgstr ""
@@ -438,6 +438,189 @@ msgstr ""
 msgid "not signed in"
 msgstr ""
 
+#: app/models/activity_type.rb:44
+msgid "Phone Call"
+msgstr ""
+
+#: app/models/activity_type.rb:45
+msgid "Interview"
+msgstr ""
+
+#: app/models/activity_type.rb:46
+msgid "Meeting"
+msgstr ""
+
+#: app/models/gender.rb:44
+msgid "Male"
+msgstr ""
+
+#: app/models/gender.rb:45
+msgid "Female"
+msgstr ""
+
+#: app/models/location_type.rb:44
+msgid "Home"
+msgstr ""
+
+#: app/models/location_type.rb:45
+msgid "Work"
+msgstr ""
+
+#: app/models/location_type.rb:46
+msgid "Main"
+msgstr ""
+
+#: app/models/location_type.rb:47
+msgid "Other"
+msgstr ""
+
+#: app/models/location_type.rb:48
+msgid "Billing"
+msgstr ""
+
+#: app/models/marital_status.rb:44
+msgid "Married"
+msgstr ""
+
+#: app/models/marital_status.rb:45
+msgid "Single"
+msgstr ""
+
+#: app/models/marital_status.rb:46
+msgid "Widow or Widower"
+msgstr ""
+
+#: app/models/marital_status.rb:47
+msgid "Divorced"
+msgstr ""
+
+#: app/models/marital_status.rb:48
+msgid "Never Married"
+msgstr ""
+
+#: app/models/marital_status.rb:49
+msgid "Domestic Partner"
+msgstr ""
+
+#: app/models/name_prefix.rb:44 app/views/individuals/_contact.html.haml:11
+msgid "Mr"
+msgstr ""
+
+#: app/models/name_prefix.rb:45
+msgid "Ms"
+msgstr ""
+
+#: app/models/name_prefix.rb:46
+msgid "Mrs"
+msgstr ""
+
+#: app/models/name_prefix.rb:47
+msgid "Dr"
+msgstr ""
+
+#: app/models/name_suffix.rb:44 app/views/individuals/_contact.html.haml:32
+msgid "Jr"
+msgstr ""
+
+#: app/models/name_suffix.rb:45
+msgid "Sr"
+msgstr ""
+
+#: app/models/name_suffix.rb:46
+msgid "II"
+msgstr ""
+
+#: app/models/name_suffix.rb:47
+msgid "III"
+msgstr ""
+
+#: app/models/phone_type.rb:44 app/models/preferred_communication_method.rb:45
+#: app/views/contacts/_phone.html.haml:1
+#: app/views/contacts/_phone.html.haml:16
+msgid "Phone"
+msgstr ""
+
+#: app/models/phone_type.rb:45
+msgid "Mobile"
+msgstr ""
+
+#: app/models/phone_type.rb:46 app/models/preferred_communication_method.rb:48
+msgid "Fax"
+msgstr ""
+
+#: app/models/phone_type.rb:47
+msgid "Pager"
+msgstr ""
+
+#: app/models/preferred_communication_method.rb:44
+#: app/views/users/index.html.haml:6
+msgid "Email"
+msgstr ""
+
+#: app/models/preferred_communication_method.rb:46
+msgid "Postal Mail"
+msgstr ""
+
+#: app/models/preferred_communication_method.rb:47
+msgid "SMS"
+msgstr ""
+
+#: app/models/preferred_email_format.rb:44
+msgid "Both"
+msgstr ""
+
+#: app/models/preferred_email_format.rb:45
+msgid "HTML"
+msgstr ""
+
+#: app/models/preferred_email_format.rb:46
+msgid "Text"
+msgstr ""
+
+#: app/models/stage.rb:44
+msgid "Prospect"
+msgstr ""
+
+#: app/models/stage.rb:45
+msgid "Inquiry"
+msgstr ""
+
+#: app/models/stage.rb:46
+msgid "Applicant"
+msgstr ""
+
+#: app/models/stage.rb:47
+msgid "Confirmed"
+msgstr ""
+
+#: app/models/stage.rb:48
+msgid "Enrolled"
+msgstr ""
+
+#: app/models/stage.rb:49
+msgid "Canceled"
+msgstr ""
+
+#: app/models/status.rb:44
+msgid "Scheduled"
+msgstr ""
+
+#: app/models/status.rb:45
+msgid "Completed"
+msgstr ""
+
+#: app/models/status.rb:46
+msgid "Cancelled"
+msgstr ""
+
+#: app/models/status.rb:47
+msgid "Left Message"
+msgstr ""
+
+#: app/models/status.rb:48
+msgid "Unreachable"
+msgstr ""
+
 #: app/models/user_mailer.rb:42
 msgid "Please activate your new account"
 msgstr ""
@@ -562,7 +745,7 @@ msgstr ""
 #: app/views/academic_levels/edit.html.haml:1
 #: app/views/activities/edit.html.haml:1
 #: app/views/activity_types/edit.html.haml:1
-#: app/views/announcements/edit.haml:1
+#: app/views/announcements/edit.html.haml:1
 #: app/views/education_levels/edit.html.haml:1
 #: app/views/entry_terms/edit.html.haml:1
 #: app/views/ethnicities/edit.html.haml:1 app/views/genders/edit.html.haml:1
@@ -647,7 +830,8 @@ msgstr ""
 msgid "End At"
 msgstr ""
 
-#: app/views/activities/show.html.haml:1 app/views/announcements/show.haml:1
+#: app/views/activities/show.html.haml:1
+#: app/views/announcements/show.html.haml:1
 #: app/views/households/show.html.haml:1
 #: app/views/individuals/show.html.haml:1
 #: app/views/organizations/show.html.haml:1
@@ -655,10 +839,19 @@ msgid "Viewing %s"
 msgstr ""
 
 #: app/views/announcements/_form.html.haml:3
+#: app/views/announcements/index.html.haml:9
 msgid "Message"
 msgstr ""
 
-#: app/views/announcements/new.haml:1
+#: app/views/announcements/index.html.haml:10
+msgid "Starts at"
+msgstr ""
+
+#: app/views/announcements/index.html.haml:11
+msgid "Ends at"
+msgstr ""
+
+#: app/views/announcements/new.html.haml:1
 #: app/views/common/actions/_for_form_index.html.haml:2
 msgid "New %s"
 msgstr ""
@@ -843,11 +1036,6 @@ msgstr ""
 msgid "Messenger Name"
 msgstr ""
 
-#: app/views/contacts/_phone.html.haml:1
-#: app/views/contacts/_phone.html.haml:16
-msgid "Phone"
-msgstr ""
-
 #: app/views/contacts/actions/_for_form_index.html.haml:2
 #: app/views/sidebars/_global.html.haml:5
 msgid "New Household"
@@ -954,10 +1142,6 @@ msgstr ""
 msgid "Prefix"
 msgstr ""
 
-#: app/views/individuals/_contact.html.haml:11
-msgid "Mr"
-msgstr ""
-
 #: app/views/individuals/_contact.html.haml:16
 msgid "Last Name"
 msgstr ""
@@ -972,10 +1156,6 @@ msgstr ""
 
 #: app/views/individuals/_contact.html.haml:31
 msgid "Suffix"
-msgstr ""
-
-#: app/views/individuals/_contact.html.haml:32
-msgid "Jr"
 msgstr ""
 
 #: app/views/individuals/_contact.html.haml:40
@@ -1349,10 +1529,6 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: app/views/users/index.html.haml:6
-msgid "Email"
-msgstr ""
-
 #: app/views/users/index.html.haml:7
 msgid "Enabled?"
 msgstr ""
@@ -1373,15 +1549,19 @@ msgstr ""
 msgid "Update Profile"
 msgstr ""
 
-#: app/views/users/show.html.haml:8
-msgid "Joined on: %s"
+#: app/views/users/show.html.haml:6
+msgid "Announcements"
 msgstr ""
 
 #: app/views/users/show.html.haml:9
-msgid "Time Zone: %s"
+msgid "Joined on: %s"
 msgstr ""
 
 #: app/views/users/show.html.haml:10
+msgid "Time Zone: %s"
+msgstr ""
+
+#: app/views/users/show.html.haml:11
 msgid "Language: %s"
 msgstr ""
 
