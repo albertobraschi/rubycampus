@@ -60,51 +60,15 @@ class CreatePermissions < ActiveRecord::Migration
     role = Role.find_by_name('administrator')
     user = User.find_by_login('admin')
 
-    permission = Permission.new 
+    permission = Permission.new
     permission.role_id = role
-    permission.user_id = user   
-    permission.save(false)      
-
-    user2 = User.new
-    user2.login = "supervisor"
-    user2.email = "supervisor@rubycampus.local"
-    user2.name = "Supervisor"
-    user2.password = "password"
-    user2.password_confirmation = "password"
-    user2.is_admin = false
-    user2.save(false)
-    user2.send(:activate!)
-
-    role2 = Role.find_by_name('supervisor')
-    user2 = User.find_by_login('supervisor')
-
-    permission2 = Permission.new 
-    permission2.role_id = role2
-    permission2.user_id = user2 
-    permission2.save(false)      
-
-    user3 = User.new
-    user3.login = "staff"
-    user3.email = "staff@rubycampus.local"
-    user3.name = "Staff"
-    user3.password = "password"
-    user3.password_confirmation = "password"
-    user3.is_admin = false
-    user3.save(false)
-    user3.send(:activate!)
-
-    role3 = Role.find_by_name('staff')
-    user3 = User.find_by_login('staff')
-
-    permission3 = Permission.new 
-    permission3.role_id = role3
-    permission3.user_id = user3
-    permission3.save(false)      
+    permission.user_id = user
+    permission.save(false)
   end
 
   def self.down
     drop_table :permissions
     Role.find_by_name('administrator').destroy
-    User.find_by_login('admin').destroy   
-  end   
+    User.find_by_login('admin').destroy
+  end
 end
