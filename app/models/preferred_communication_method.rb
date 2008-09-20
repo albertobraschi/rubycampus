@@ -40,10 +40,17 @@ class PreferredCommunicationMethod < ActiveRecord::Base
   require 'gettext/rails'
   untranslate_all
 
-  has_many :contacts                                   
-  
-  NAMES_KEYS = self.find(:all, :order => :position).map do |s| 
-  [s.name, s.id] 
+  # Language constants for use by Ruby-GetText
+  N_('Email')
+  N_('Phone')
+  N_('Postal Mail')
+  N_('SMS')
+  N_('Fax')
+
+  has_many :contacts
+
+  NAMES_KEYS = self.find(:all, :order => :position).map do |s|
+  [s.name, s.id]
   end
 end
 # == Schema Information
