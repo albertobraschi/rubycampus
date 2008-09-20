@@ -1,3 +1,9 @@
+------------------------------------------------------------------------------
+-WARNING: DO NOT MANUALLY MODIFY THE CONTENTS OF THIS DIRECTORY. IT IS MANAGED
+-         EXCLUSIVELY THROUGH THE USE OF THE RUBYCAMPUS TRANSLATION SERVER
+-         AT http://translate.rubycampus.org/projects/rubycampus/
+------------------------------------------------------------------------------
+
 RubyCampus Language Packs
 -------------------------
 
@@ -10,9 +16,6 @@ Unicode scheme (UTF8).
 
 RubyCampus packages both fully and partially translated files to help
 users and organizations quickly deploy their installation.
-
-While we recommend you preserve all files in this directory you may
-safely delete directories for language files you do not intend to use.
 
 For more information, see the RubyCampus Documentation:
 
