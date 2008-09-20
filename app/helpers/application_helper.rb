@@ -56,14 +56,14 @@ module ApplicationHelper
   #
   def link_to_help
     wiki_page = "#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/"
-    case
-      when controller.action_name == "index"
+    case controller.action_name.to_s
+      when "index"
         wiki_page << "Managing_#{controller.controller_name.titleize}"
-      when controller.action_name == "show"
+      when "show"
         wiki_page << "Viewing_An_Existing_#{controller.controller_name.singularize.titleize}"
-      when controller.action_name == "new"
+      when "new"
         wiki_page << "Creating_A_New_#{controller.controller_name.singularize.titleize}"
-      when controller.action_name == "edit"
+      when "edit"
         wiki_page << "Editing_An_Existing_#{controller.controller_name.singularize.titleize}"
       else
         wiki_page << "#{controller.controller_name.titleize}"
