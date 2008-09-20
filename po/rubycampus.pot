@@ -6,8 +6,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: RubyCampus 0.1.0 (e72e435)\n"
-"POT-Creation-Date: 2008-09-19 08:22+0900\n"
+"Project-Id-Version: RubyCampus 0.1.0 (a82f705)\n"
+"POT-Creation-Date: 2008-09-20 13:52+0900\n"
 "PO-Revision-Date: 2008-09-19 07:17+0900\n"
 "Last-Translator: KEVIN ALEMAN <KALEMAN@RUBYCAMPUS.ORG>\n"
 "Language-Team: Project <project@rubycampus.org>\n"
@@ -438,23 +438,23 @@ msgstr ""
 msgid "not signed in"
 msgstr ""
 
-#: app/models/user_mailer.rb:45
+#: app/models/user_mailer.rb:42
 msgid "Please activate your new account"
 msgstr ""
 
-#: app/models/user_mailer.rb:52
+#: app/models/user_mailer.rb:49
 msgid "Your account has been activated!"
 msgstr ""
 
-#: app/models/user_mailer.rb:58
+#: app/models/user_mailer.rb:55
 msgid "You have requested to change your password"
 msgstr ""
 
-#: app/models/user_mailer.rb:64
+#: app/models/user_mailer.rb:61
 msgid "Your password has been reset."
 msgstr ""
 
-#: app/models/user_mailer.rb:72
+#: app/models/user_mailer.rb:69
 msgid "%s email setup"
 msgstr ""
 
