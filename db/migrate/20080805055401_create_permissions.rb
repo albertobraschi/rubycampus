@@ -53,6 +53,7 @@ class CreatePermissions < ActiveRecord::Migration
     user.name = "Administrator"
     user.password = "password"
     user.password_confirmation = "password"
+    user.is_admin = true
     user.save(false)
     user.send(:activate!)
 
