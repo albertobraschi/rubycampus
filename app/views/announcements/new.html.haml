@@ -1,0 +1,10 @@
+- title((_("New %s") % current_controller_human_name))
+= error_messages_for :announcement 
+.standard_box
+  .hako
+    - form_for(@announcement, :html => { :class => "hakozaki" }) do |form|
+      = render :partial => "common/actions/for_form_new"
+      %h1= yield(:title)
+      %hr/
+      = render :partial => "form", :locals => {:form => form}
+      = render :partial => "common/actions/for_form_new"
