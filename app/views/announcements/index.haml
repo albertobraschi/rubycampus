@@ -1,3 +1,6 @@
+.action_buttons
+  = link_to 'New announcement', new_announcement_path
+
 %h1 Listing announcements
 
 %table
@@ -17,4 +20,4 @@
           = link_to 'Edit', edit_announcement_path(announcement)
           = link_to 'Destroy', announcement_path(announcement), :confirm => 'Are you sure?', :method => :delete, :confirm => "Are you sure?", :method => :delete
     
-= link_to 'New announcement', new_announcement_path          
+%div.pagination= will_paginate @announcements     

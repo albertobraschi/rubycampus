@@ -42,7 +42,7 @@ class AnnouncementsController < ApplicationController
   # GET /announcement
   # GET /announcement.xml
   def index
-    @announcements = Announcement.find(:all)
+    @announcements = Announcement.find_all_and_paginate(params[:page])
 
     respond_to do |format|
       format.html # index.haml

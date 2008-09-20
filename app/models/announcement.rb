@@ -42,6 +42,10 @@ class Announcement < ActiveRecord::Base
   
   validates_presence_of :message
   
+  def self.find_all_and_paginate(page)
+    paginate :per_page => ROWS_PER_PAGE, :page => page
+  end
+  
   def self.current_announcements(hide_time)
     with_scope :find => { :conditions => "starts_at <= now() AND ends_at >= now()" } do
       if hide_time.nil?
