@@ -1,5 +1,6 @@
-.action_buttons
-  = link_to 'New announcement', new_announcement_path
+- if current_user.is_admin
+  .action_buttons
+    = link_to 'New announcement', new_announcement_path
 
 %h1 Listing announcements
 
@@ -16,8 +17,9 @@
         %td=h announcement.starts_at
         %td=h announcement.ends_at
         %td
-          = link_to 'Show', announcement_path(announcement)
-          = link_to 'Edit', edit_announcement_path(announcement)
-          = link_to 'Destroy', announcement_path(announcement), :confirm => 'Are you sure?', :method => :delete, :confirm => "Are you sure?", :method => :delete
+          - if current_user.is_admin
+            = link_to 'Show', announcement_path(announcement)
+            = link_to 'Edit', edit_announcement_path(announcement)
+            = link_to 'Destroy', announcement_path(announcement), :confirm => 'Are you sure?', :method => :delete, :confirm => "Are you sure?", :method => :delete
     
 %div.pagination= will_paginate @announcements     
