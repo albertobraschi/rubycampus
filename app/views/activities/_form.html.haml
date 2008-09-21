@@ -6,8 +6,7 @@
 - unless controller.action_name == "edit"     
   %label{:for => "activity_contact_id", :class => "w25 inputselect mandatory"}
     %span.wrapper
-      %span.title
-        = _("Contact")
+      = label_with_lookup :controller => :contact 
       = text_field_with_auto_complete :activity, :contact_name, { :class => "field" }, { :url => formatted_lookup_contacts_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "activity_status_id", :class => "w25 inputselect mandatory"}
   %span.wrapper
