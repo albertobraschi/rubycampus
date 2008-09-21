@@ -15,7 +15,7 @@
 
 %label{:for => "contact_source_id", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Source")
+    = label_with_lookup :controller => :source 
     = text_field_with_auto_complete :presenter, :contact_source_name, { :class => "field" }, { :url => formatted_lookup_sources_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_legal_identifier", :class => "w25 inputselect"}
   %span.wrapper
