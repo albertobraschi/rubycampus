@@ -1,7 +1,7 @@
 %h2= _("Demographic Information")
 %label{:for => "contact_gender_id", :class => "w25 inputselect"}
   %span.wrapper
-    = label_with_lookup :gender
+    = label_with_lookup :controller => :gender
     = text_field_with_auto_complete :presenter, :contact_gender_name, { :class => "field" }, { :url => formatted_lookup_genders_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_date_of_birth", :class => "w25 inputselect"}
   %span.wrapper
@@ -9,11 +9,11 @@
     = form.calendar_date_select :contact_date_of_birth, :popup => :force , :valid_date_check => "date < (new Date()).stripTime()", :class => "field"    
 %label{:for => "contact_marital_status_id", :class => "w25 inputselect"}
   %span.wrapper
-    = label_with_lookup :marital_status
+    = label_with_lookup :controller => :marital_status
     = text_field_with_auto_complete :presenter, :contact_marital_status_name, { :class => "field" }, { :url => formatted_lookup_marital_statuses_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_ethnicity_id", :class => "w25 inputselect"}
   %span.wrapper
-    = label_with_lookup :ethnicity
+    = label_with_lookup :controller => :ethnicity
     = text_field_with_auto_complete :presenter, :contact_ethnicity_name, { :class => "field" }, { :url => formatted_lookup_ethnicities_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" } 
 .clear
 

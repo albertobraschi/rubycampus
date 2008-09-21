@@ -137,12 +137,14 @@ module ApplicationHelper
     end
     language_select
   end
-
-  # Renders label with link to controller index with same name if authorized with optional example comment
-  # -> label_with_lookup :stage
-  # -> label_with_lookup :entry_term, _("Fall 2009")
-  def label_with_lookup(controller_name,example='')
-    content_tag(:span, (current_user.is_admin ? (link_to _(controller_name.to_s.titleize), self.send(controller_name.to_s.underscore.pluralize+"_path")) : _(controller_name.to_s.titleize)) + (content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) , :class => "title")
+  
+  # Renders label with link to controller index with same name if authorized with optional example and label
+  # -> label_with_lookup :controller => :name_prefix, :example => _("Fall 2009"), :label => _("Prefix")
+  def label_with_lookup(opts={})
+    controller = opts[:controller]
+    example = opts[:example] || ''
+    label = opts[:label] || opts[:controller]
+    content_tag(:span, (current_user.is_admin ? (link_to _(label.to_s.titleize), self.send(controller.to_s.underscore.pluralize+"_path")) : _(label.to_s.titleize)) + (content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) , :class => "title")
   end
 
 end
