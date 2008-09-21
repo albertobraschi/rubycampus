@@ -67,3 +67,18 @@ class Gender < ActiveRecord::Base
   [s.name, s.id]
   end
 end
+# == Schema Information
+# Schema version: 20080915003954
+#
+# Table name: rubycampus_genders
+#
+#  id          :integer(11)     not null, primary key
+#  name        :string(255)
+#  position    :integer(11)
+#  is_default  :boolean(1)
+#  is_reserved :boolean(1)
+#  is_enabled  :boolean(1)      default(TRUE)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

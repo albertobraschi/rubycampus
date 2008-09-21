@@ -307,29 +307,31 @@ class Contact < ActiveRecord::Base
 #:startdoc:  
 end
 # == Schema Information
-# Schema version: 20080902230656
+# Schema version: 20080915003954
 #
 # Table name: rubycampus_contacts
 #
 #  id                                :integer(11)     not null, primary key
 #  domain_id                         :integer(11)     default(1), not null
-#  stage_id                          :integer(11)
-#  entry_term_id                     :integer(11)
+#  academic_level_id                 :integer(11)
+#  citizenship_id                    :integer(11)
 #  contact_type_id                   :integer(11)
-#  preferred_communication_method_id :integer(11)
-#  preferred_email_format_id         :integer(11)
-#  source_id                         :integer(11)
+#  country_of_birth_id               :integer(11)
+#  education_level_id                :integer(11)
+#  entry_term_id                     :integer(11)
+#  ethnicity_id                      :integer(11)
+#  gender_id                         :integer(11)
+#  greeting_id                       :integer(11)
+#  marital_status_id                 :integer(11)
+#  moodle_user_id                    :integer(11)
 #  name_prefix_id                    :integer(11)
 #  name_suffix_id                    :integer(11)
-#  marital_status_id                 :integer(11)
-#  citizenship_id                    :integer(11)
 #  nationality_id                    :integer(11)
-#  ethnicity_id                      :integer(11)
-#  education_level_id                :integer(11)
-#  academic_level_id                 :integer(11)
-#  gender_id                         :integer(11)
-#  country_of_birth_id               :integer(11)
-#  greeting_id                       :integer(11)
+#  preferred_communication_method_id :integer(11)
+#  preferred_email_format_id         :integer(11)
+#  program_id                        :integer(11)
+#  source_id                         :integer(11)
+#  stage_id                          :integer(11)
 #  do_not_email                      :boolean(1)
 #  do_not_phone                      :boolean(1)
 #  do_not_mail                       :boolean(1)

@@ -214,15 +214,13 @@ end
 
 end
 # == Schema Information
-# Schema version: 20080902230656
+# Schema version: 20080915003954
 #
 # Table name: rubycampus_users
 #
 #  id                        :integer(11)     not null, primary key
 #  login                     :string(40)
-#  first_name                :string(100)     default("")
-#  last_name                 :string(100)     default("")
-#  string                    :string(100)     default("")
+#  name                      :string(100)     default("")
 #  email                     :string(100)
 #  crypted_password          :string(40)
 #  salt                      :string(40)
@@ -239,5 +237,6 @@ end
 #  deleted_at                :datetime
 #  is_admin                  :boolean(1)
 #  time_zone                 :string(255)
+#  language                  :string(5)       default("en"), not null
 #
 
