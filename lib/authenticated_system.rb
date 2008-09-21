@@ -59,7 +59,7 @@ end
 
 # added
 def check_role(role)
-unless logged_in? && @current_user.has_role?(role)
+unless logged_in? && @current_user.has_role?(role) || @current_user.is_admin
 if logged_in?
 permission_denied
 else
