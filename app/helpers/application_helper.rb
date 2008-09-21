@@ -137,8 +137,17 @@ module ApplicationHelper
     end
     language_select
   end
-  
-  # Renders label with link to controller index with same name if authorized with optional example and label
+   
+  # Renders hakozaki css class label requiring only the controller name
+  #
+  # Checks if user is authorized to edit lookup tables and optionally
+  # uses :example and :label.
+  #
+  # :label - overrides the default labeling scheme which uses the controllers name
+  # :example renders a muted notation inline with the label
+  #
+  # Example:
+  #
   # -> label_with_lookup :controller => :name_prefix, :example => _("Fall 2009"), :label => _("Prefix")
   def label_with_lookup(opts={})
     controller = opts[:controller]
