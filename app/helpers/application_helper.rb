@@ -135,7 +135,14 @@ module ApplicationHelper
       n = languages[v] || _('Unknown Language')
       language_select << [ n , v ]
     end
-    language_select     
+    language_select
+  end
+
+  # Renders label with link to controller index with same name if authorized with optional example comment
+  # -> label_with_lookup :stage
+  # -> label_with_lookup :entry_term, _("Fall 2009")
+  def label_with_lookup(controller_name,example='')
+    content_tag(:span, (current_user.is_admin ? (link_to _(controller_name.to_s.titleize), self.send(controller_name.to_s.underscore.pluralize+"_path")) : _(controller_name.to_s.titleize)) + (content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) , :class => "title")
   end
 
 end
