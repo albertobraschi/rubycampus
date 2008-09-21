@@ -5,7 +5,7 @@
     = form.select(:phone_location_type_id, LocationType::NAMES_KEYS, :class => "field")   
 %label{:for => "phone_phone_type", :class => "w10 inputselect"}
   %span.wrapper
-    %span.title= _("Phone Type")
+    = label_with_lookup :controller => :phone_type
     = form.select(:phone_phone_type_id, PhoneType::NAMES_KEYS, :class => "field")   
 %label{:for => "phone_mobile_provider_id", :class => "w15 inputselect"}
   %span.wrapper
