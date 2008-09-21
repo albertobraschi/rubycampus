@@ -1,0 +1,229 @@
+  <div id="C00000021">
+<div class='banner'>
+  <span class="file-title-prefix">Class</span><br />AnnouncementsController<br/>
+  In:
+<a href="#" onclick="jsHref('files/app/controllers/announcements_controller_rb.html');">app/controllers/announcements_controller.rb</a>
+
+Parent:&nbsp;
+        <a href="#" onclick="jsHref('classes/ApplicationController.html');">
+ApplicationController
+         </a>
+</div>
+ <!-- banner header -->
+
+  <div id="bodyContent" >
+      <div id="content">
+
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="index.html?a=M000022&name=create" >create</a></li>
+  <li><a href="index.html?a=M000024&name=destroy" >destroy</a></li>
+  <li><a href="index.html?a=M000021&name=edit" >edit</a></li>
+  <li><a href="index.html?a=M000018&name=index" >index</a></li>
+  <li><a href="index.html?a=M000020&name=new" >new</a></li>
+  <li><a href="index.html?a=M000019&name=show" >show</a></li>
+  <li><a href="index.html?a=M000023&name=update" >update</a></li>
+  </ul>
+
+
+
+
+
+
+<div class="sectiontitle">Public Instance methods</div>
+<div id="M000022" class="method">
+  <div id="M000022_title" class="title">
+    <b>create</b>()
+  </div>
+  <div class="description">
+  <p>
+POST /announcement POST /announcement.xml
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show source</a> ]</p>
+  <div id="M000022_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/announcements_controller.rb, line 83</span>
+83:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+84:     <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:announcement</span>])
+85: 
+86:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+87:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@announcement</span>.<span class="ruby-identifier">save</span>
+88:         <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>] = <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;Announcement was successfully created.&quot;</span>)
+89:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">announcement_path</span>(<span class="ruby-ivar">@announcement</span>)) }
+90:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-identifier">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@announcement</span>, <span class="ruby-identifier">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:created</span>, <span class="ruby-identifier">:location</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@announcement</span> }
+91:       <span class="ruby-keyword kw">else</span>
+92:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;new&quot;</span> }
+93:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-identifier">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@announcement</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:unprocessable_entity</span> }
+94:       <span class="ruby-keyword kw">end</span>
+95:     <span class="ruby-keyword kw">end</span>
+96:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000024" class="method">
+  <div id="M000024_title" class="title">
+    <b>destroy</b>()
+  </div>
+  <div class="description">
+  <p>
+DELETE /announcement/1 DELETE /announcement/1.xml
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000024_source')" id="l_M000024_source">show source</a> ]</p>
+  <div id="M000024_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/announcements_controller.rb, line 117</span>
+117:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
+118:     <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+119:     <span class="ruby-ivar">@announcement</span>.<span class="ruby-identifier">destroy</span>
+120: 
+121:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+122:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">announcements_url</span>) }
+123:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-identifier">:ok</span> }
+124:     <span class="ruby-keyword kw">end</span>
+125:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000021" class="method">
+  <div id="M000021_title" class="title">
+    <b>edit</b>()
+  </div>
+  <div class="description">
+  <p>
+GET /announcement/1/edit
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show source</a> ]</p>
+  <div id="M000021_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/announcements_controller.rb, line 77</span>
+77:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
+78:     <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+79:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000018" class="method">
+  <div id="M000018_title" class="title">
+    <b>index</b>()
+  </div>
+  <div class="description">
+  <p>
+GET /announcement GET /announcement.xml
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show source</a> ]</p>
+  <div id="M000018_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/announcements_controller.rb, line 45</span>
+45:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+46:     <span class="ruby-ivar">@announcements</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">find_all_and_paginate</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:page</span>])
+47: 
+48:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+49:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># index.haml</span>
+50:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-identifier">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@announcements</span> }
+51:     <span class="ruby-keyword kw">end</span>
+52:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000020" class="method">
+  <div id="M000020_title" class="title">
+    <b>new</b>()
+  </div>
+  <div class="description">
+  <p>
+GET /announcement/new GET /announcement/new.xml
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show source</a> ]</p>
+  <div id="M000020_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/announcements_controller.rb, line 67</span>
+67:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
+68:     <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">new</span>
+69: 
+70:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+71:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># new.haml</span>
+72:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-identifier">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@announcement</span> }
+73:     <span class="ruby-keyword kw">end</span>
+74:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000019" class="method">
+  <div id="M000019_title" class="title">
+    <b>show</b>()
+  </div>
+  <div class="description">
+  <p>
+GET /announcement/1 GET /announcement/1.xml
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show source</a> ]</p>
+  <div id="M000019_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/announcements_controller.rb, line 56</span>
+56:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
+57:     <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+58: 
+59:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+60:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># show.haml</span>
+61:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-identifier">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@announcement</span> }
+62:     <span class="ruby-keyword kw">end</span>
+63:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000023" class="method">
+  <div id="M000023_title" class="title">
+    <b>update</b>()
+  </div>
+  <div class="description">
+  <p>
+PUT /announcement/1 PUT /announcement/1.xml
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show source</a> ]</p>
+  <div id="M000023_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/announcements_controller.rb, line 100</span>
+100:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
+101:     <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+102: 
+103:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+104:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@announcement</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:announcement</span>])
+105:         <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>] = <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;Announcement was successfully updated.&quot;</span>)
+106:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">announcement_path</span>(<span class="ruby-ivar">@announcement</span>)) }
+107:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-identifier">:ok</span> }
+108:       <span class="ruby-keyword kw">else</span>
+109:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;edit&quot;</span> }
+110:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-identifier">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@announcement</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:unprocessable_entity</span> }
+111:       <span class="ruby-keyword kw">end</span>
+112:     <span class="ruby-keyword kw">end</span>
+113:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>

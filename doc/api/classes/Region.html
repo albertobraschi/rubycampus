@@ -1,4 +1,4 @@
-  <div id="C00000052">
+  <div id="C00000053">
 <div class='banner'>
   <span class="file-title-prefix">Class</span><br />Region<br/>
   In:
@@ -17,7 +17,7 @@ ActiveRecord::Base
 
   <div class="sectiontitle">Methods</div>
   <ul>
-  <li><a href="index.html?a=M000016&name=find_for_auto_complete_lookup" >find_for_auto_complete_lookup</a></li>
+  <li><a href="index.html?a=M000040&name=find_for_auto_complete_lookup" >find_for_auto_complete_lookup</a></li>
   </ul>
 
 
@@ -34,8 +34,8 @@ ActiveRecord::Base
 
 
 <div class="sectiontitle">Public Class methods</div>
-<div id="M000016" class="method">
-  <div id="M000016_title" class="title">
+<div id="M000040" class="method">
+  <div id="M000040_title" class="title">
     <b>find_for_auto_complete_lookup</b>(search)
   </div>
   <div class="description">
@@ -44,13 +44,13 @@ Lists qualifying model attributes for use by auto completion in forms
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show source</a> ]</p>
-  <div id="M000016_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000040_source')" id="l_M000040_source">show source</a> ]</p>
+  <div id="M000040_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/region.rb, line 43</span>
-43:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
-44:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;position ASC&quot;</span> )  
-45:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/region.rb, line 47</span>
+47:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
+48:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;position ASC&quot;</span> )  
+49:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
