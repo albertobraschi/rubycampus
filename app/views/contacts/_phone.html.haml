@@ -1,7 +1,7 @@
 %h2= _("Phone")
 %label{:for => "phone_location_type_id", :class => "w10 inputselect"}
   %span.wrapper
-    %span.title= _("Location")
+    = label_with_lookup :controller => :location_type, :label => _("Location")
     = form.select(:phone_location_type_id, LocationType::NAMES_KEYS, :class => "field")   
 %label{:for => "phone_phone_type", :class => "w10 inputselect"}
   %span.wrapper

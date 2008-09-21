@@ -1,7 +1,7 @@
 %h2= _("Email Address")
 %label{:for => "email_location_type_id", :class => "w10 inputselect"}
   %span.wrapper
-    %span.title= _("Location")
+    = label_with_lookup :controller => :location_type, :label => _("Location")
     = form.select(:email_location_type_id, LocationType::NAMES_KEYS, :class => "field") 
 %label{:for => "email_address", :class => "w50 inputselect"}
   %span.wrapper

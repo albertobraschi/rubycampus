@@ -1,7 +1,7 @@
 %h2= _("Mailing Address")
 %label{:for => "address_location_type_id", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Location")
+    = label_with_lookup :controller => :location_type, :label => _("Location") 
     = form.select(:address_location_type_id, LocationType::NAMES_KEYS, :class => "field")  
 %label{:for => "address_is_primary", :class => "w25 radiocheck"}
   %span.wrapper
