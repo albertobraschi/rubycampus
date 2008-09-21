@@ -1,7 +1,7 @@
 %h2= _("Demographic Information")
 %label{:for => "contact_gender_id", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Gender")
+    = label_with_lookup :gender
     = text_field_with_auto_complete :presenter, :contact_gender_name, { :class => "field" }, { :url => formatted_lookup_genders_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_date_of_birth", :class => "w25 inputselect"}
   %span.wrapper
