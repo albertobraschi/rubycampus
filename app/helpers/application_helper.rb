@@ -155,5 +155,10 @@ module ApplicationHelper
     label = opts[:label] || opts[:controller]
     content_tag(:span, (current_user.is_admin ? (link_to _(label.to_s.titleize), self.send(controller.to_s.underscore.pluralize+"_path")) : _(label.to_s.titleize)) + (content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) , :class => "title")
   end
+  
+  # Returns true if current_user is_admin and/or has_role of administrator
+  def current_user_is_super_user_role
+    current_user.is_admin || current_user.has_role?('administrator')
+  end
 
 end
