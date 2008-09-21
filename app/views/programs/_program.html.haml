@@ -2,6 +2,6 @@
   %td=h program.name
   %td=h program.external_identifier
   %td=h program.description
-  %td=h program.is_default
-  %td=h program.is_enabled
+  %td=h program.is_default ? _('Yes') : _('No')
+  %td=h program.is_enabled ? _('Yes') : _('No')
   %td= render :partial => "common/actions/for_row_index_no_show", :locals => { :local => program }
