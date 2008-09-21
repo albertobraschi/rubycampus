@@ -144,7 +144,7 @@ module ApplicationHelper
   # uses :example and :label.
   #
   # :label - overrides the default labeling scheme which uses the controllers name
-  # :example renders a muted notation inline with the label
+  # :example - renders a muted notation inline with the label
   #
   # Example:
   #
