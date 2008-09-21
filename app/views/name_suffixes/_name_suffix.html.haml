@@ -1,5 +1,5 @@
 %tr[name_suffix]{:class => cycle("even","odd")}
   %td=h name_suffix.name
-  %td=h name_suffix.is_default
-  %td=h name_suffix.is_enabled
+  %td=h name_suffix.is_default ? _('Yes') : _('No')
+  %td=h name_suffix.is_enabled ? _('Yes') : _('No')
   %td= render :partial => "common/actions/for_row_index_no_show", :locals => { :local => name_suffix }
