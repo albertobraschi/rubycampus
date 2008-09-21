@@ -1,5 +1,5 @@
 %tr[phone_type]{:class => cycle("even","odd")}
   %td=h phone_type.name
-  %td=h phone_type.is_default
-  %td=h phone_type.is_enabled
+  %td=h phone_type.is_default ? _('Yes') : _('No')
+  %td=h phone_type.is_enabled ? _('Yes') : _('No')
   %td= render :partial => "common/actions/for_row_index_no_show", :locals => { :local => phone_type }
