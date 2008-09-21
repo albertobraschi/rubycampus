@@ -6,8 +6,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: RubyCampus 0.1.0 (533b021)\n"
-"POT-Creation-Date: 2008-09-20 21:28+0900\n"
+"Project-Id-Version: RubyCampus 0.1.0 (479b2b8)\n"
+"POT-Creation-Date: 2008-09-22 04:00+0900\n"
 "PO-Revision-Date: 2008-09-19 07:17+0900\n"
 "Last-Translator: KEVIN ALEMAN <KALEMAN@RUBYCAMPUS.ORG>\n"
 "Language-Team: Project <project@rubycampus.org>\n"
@@ -43,7 +43,6 @@ msgstr ""
 
 #: app/controllers/academic_levels_controller.rb:88
 #: app/controllers/academic_levels_controller.rb:109
-#: app/views/individuals/_enrollment.html.haml:18
 msgid "Academic Level"
 msgstr ""
 
@@ -79,7 +78,6 @@ msgid "Activity"
 msgstr ""
 
 #: app/controllers/activity_types_controller.rb:88
-#: app/views/activities/_form.html.haml:4
 msgid "Activity Type"
 msgstr ""
 
@@ -87,16 +85,15 @@ msgstr ""
 msgid "ActivityType"
 msgstr ""
 
-#: app/controllers/announcements_controller.rb:87
+#: app/controllers/announcements_controller.rb:88
 msgid "Announcement was successfully created."
 msgstr ""
 
-#: app/controllers/announcements_controller.rb:104
+#: app/controllers/announcements_controller.rb:105
 msgid "Announcement was successfully updated."
 msgstr ""
 
 #: app/controllers/education_levels_controller.rb:88
-#: app/views/individuals/_enrollment.html.haml:22
 msgid "Education Level"
 msgstr ""
 
@@ -106,7 +103,6 @@ msgstr ""
 
 #: app/controllers/entry_terms_controller.rb:88
 #: app/views/contacts/index.html.haml:17
-#: app/views/individuals/_enrollment.html.haml:8
 msgid "Entry Term"
 msgstr ""
 
@@ -116,19 +112,16 @@ msgstr ""
 
 #: app/controllers/ethnicities_controller.rb:88
 #: app/controllers/ethnicities_controller.rb:109
-#: app/views/individuals/_demographic.html.haml:16
 msgid "Ethnicity"
 msgstr ""
 
 #: app/controllers/genders_controller.rb:88
 #: app/controllers/genders_controller.rb:109
-#: app/views/individuals/_demographic.html.haml:4
 msgid "Gender"
 msgstr ""
 
 #: app/controllers/greetings_controller.rb:88
 #: app/controllers/greetings_controller.rb:109
-#: app/views/individuals/_contact.html.haml:69
 msgid "Greeting"
 msgstr ""
 
@@ -162,7 +155,6 @@ msgid "LocationType"
 msgstr ""
 
 #: app/controllers/marital_statuses_controller.rb:88
-#: app/views/individuals/_demographic.html.haml:12
 msgid "Marital Status"
 msgstr ""
 
@@ -179,7 +171,6 @@ msgid "MessagingProvider"
 msgstr ""
 
 #: app/controllers/mobile_providers_controller.rb:88
-#: app/views/contacts/_phone.html.haml:12
 msgid "Mobile Provider"
 msgstr ""
 
@@ -251,7 +242,6 @@ msgid "Invalid Reset Code entered"
 msgstr ""
 
 #: app/controllers/phone_types_controller.rb:88
-#: app/views/contacts/_phone.html.haml:8
 msgid "Phone Type"
 msgstr ""
 
@@ -262,7 +252,6 @@ msgstr ""
 #: app/controllers/programs_controller.rb:88
 #: app/controllers/programs_controller.rb:109
 #: app/views/contacts/index.html.haml:18
-#: app/views/individuals/_enrollment.html.haml:13
 msgid "Program"
 msgstr ""
 
@@ -289,21 +278,16 @@ msgstr ""
 
 #: app/controllers/sources_controller.rb:88
 #: app/controllers/sources_controller.rb:109
-#: app/views/households/_contact.html.haml:12
-#: app/views/individuals/_contact.html.haml:39
-#: app/views/organizations/_contact.html.haml:18
 msgid "Source"
 msgstr ""
 
 #: app/controllers/stages_controller.rb:88
 #: app/controllers/stages_controller.rb:109
-#: app/views/individuals/_enrollment.html.haml:4
 msgid "Stage"
 msgstr ""
 
 #: app/controllers/statuses_controller.rb:88
 #: app/controllers/statuses_controller.rb:109
-#: app/views/activities/_form.html.haml:15
 #: app/views/activities/index.html.haml:12
 msgid "Status"
 msgstr ""
@@ -412,7 +396,7 @@ msgstr ""
 msgid "Really destroy %s?"
 msgstr ""
 
-#: app/helpers/application_helper.rb:137
+#: app/helpers/application_helper.rb:135
 msgid "Unknown Language"
 msgstr ""
 
@@ -502,7 +486,7 @@ msgstr ""
 msgid "Domestic Partner"
 msgstr ""
 
-#: app/models/name_prefix.rb:44 app/views/individuals/_contact.html.haml:11
+#: app/models/name_prefix.rb:44
 msgid "Mr"
 msgstr ""
 
@@ -518,7 +502,7 @@ msgstr ""
 msgid "Dr"
 msgstr ""
 
-#: app/models/name_suffix.rb:44 app/views/individuals/_contact.html.haml:32
+#: app/models/name_suffix.rb:44 app/views/individuals/_contact.html.haml:28
 msgid "Jr"
 msgstr ""
 
@@ -553,7 +537,7 @@ msgid "Pager"
 msgstr ""
 
 #: app/models/preferred_communication_method.rb:44
-#: app/views/users/index.html.haml:6
+#: app/views/users/index.html.haml:5
 msgid "Email"
 msgstr ""
 
@@ -639,6 +623,78 @@ msgstr ""
 
 #: app/models/user_mailer.rb:69
 msgid "%s email setup"
+msgstr ""
+
+#: app/views/academic_levels/_academic_level.html.haml:3
+#: app/views/academic_levels/_academic_level.html.haml:4
+#: app/views/activity_types/_activity_type.html.haml:3
+#: app/views/activity_types/_activity_type.html.haml:4
+#: app/views/education_levels/_education_level.html.haml:3
+#: app/views/education_levels/_education_level.html.haml:4
+#: app/views/entry_terms/_entry_term.html.haml:6
+#: app/views/entry_terms/_entry_term.html.haml:7
+#: app/views/ethnicities/_ethnicity.html.haml:3
+#: app/views/ethnicities/_ethnicity.html.haml:4
+#: app/views/genders/_gender.html.haml:3 app/views/genders/_gender.html.haml:4
+#: app/views/greetings/_greeting.html.haml:3
+#: app/views/greetings/_greeting.html.haml:4
+#: app/views/location_types/_location_type.html.haml:5
+#: app/views/location_types/_location_type.html.haml:6
+#: app/views/marital_statuses/_marital_status.html.haml:3
+#: app/views/marital_statuses/_marital_status.html.haml:4
+#: app/views/messaging_providers/_messaging_provider.html.haml:3
+#: app/views/messaging_providers/_messaging_provider.html.haml:4
+#: app/views/mobile_providers/_mobile_provider.html.haml:3
+#: app/views/mobile_providers/_mobile_provider.html.haml:4
+#: app/views/name_prefixes/_name_prefix.html.haml:3
+#: app/views/name_prefixes/_name_prefix.html.haml:4
+#: app/views/name_suffixes/_name_suffix.html.haml:3
+#: app/views/name_suffixes/_name_suffix.html.haml:4
+#: app/views/phone_types/_phone_type.html.haml:3
+#: app/views/phone_types/_phone_type.html.haml:4
+#: app/views/programs/_program.html.haml:5
+#: app/views/programs/_program.html.haml:6
+#: app/views/sources/_source.html.haml:3 app/views/sources/_source.html.haml:4
+#: app/views/stages/_stage.html.haml:3 app/views/stages/_stage.html.haml:4
+#: app/views/statuses/_status.html.haml:3
+#: app/views/statuses/_status.html.haml:4 app/views/users/_user.html.haml:5
+msgid "Yes"
+msgstr ""
+
+#: app/views/academic_levels/_academic_level.html.haml:3
+#: app/views/academic_levels/_academic_level.html.haml:4
+#: app/views/activity_types/_activity_type.html.haml:3
+#: app/views/activity_types/_activity_type.html.haml:4
+#: app/views/education_levels/_education_level.html.haml:3
+#: app/views/education_levels/_education_level.html.haml:4
+#: app/views/entry_terms/_entry_term.html.haml:6
+#: app/views/entry_terms/_entry_term.html.haml:7
+#: app/views/ethnicities/_ethnicity.html.haml:3
+#: app/views/ethnicities/_ethnicity.html.haml:4
+#: app/views/genders/_gender.html.haml:3 app/views/genders/_gender.html.haml:4
+#: app/views/greetings/_greeting.html.haml:3
+#: app/views/greetings/_greeting.html.haml:4
+#: app/views/location_types/_location_type.html.haml:5
+#: app/views/location_types/_location_type.html.haml:6
+#: app/views/marital_statuses/_marital_status.html.haml:3
+#: app/views/marital_statuses/_marital_status.html.haml:4
+#: app/views/messaging_providers/_messaging_provider.html.haml:3
+#: app/views/messaging_providers/_messaging_provider.html.haml:4
+#: app/views/mobile_providers/_mobile_provider.html.haml:3
+#: app/views/mobile_providers/_mobile_provider.html.haml:4
+#: app/views/name_prefixes/_name_prefix.html.haml:3
+#: app/views/name_prefixes/_name_prefix.html.haml:4
+#: app/views/name_suffixes/_name_suffix.html.haml:3
+#: app/views/name_suffixes/_name_suffix.html.haml:4
+#: app/views/phone_types/_phone_type.html.haml:3
+#: app/views/phone_types/_phone_type.html.haml:4
+#: app/views/programs/_program.html.haml:5
+#: app/views/programs/_program.html.haml:6
+#: app/views/sources/_source.html.haml:3 app/views/sources/_source.html.haml:4
+#: app/views/stages/_stage.html.haml:3 app/views/stages/_stage.html.haml:4
+#: app/views/statuses/_status.html.haml:3
+#: app/views/statuses/_status.html.haml:4 app/views/users/_user.html.haml:5
+msgid "No"
 msgstr ""
 
 #: app/views/academic_levels/_form.html.haml:4
@@ -784,13 +840,7 @@ msgstr ""
 msgid "Creating %s"
 msgstr ""
 
-#: app/views/activities/_form.html.haml:10
-#: app/views/activities/index.html.haml:9
-#: app/views/contacts/index.html.haml:19
-msgid "Contact"
-msgstr ""
-
-#: app/views/activities/_form.html.haml:20
+#: app/views/activities/_form.html.haml:18
 #: app/views/contacts/_address.html.haml:4
 #: app/views/contacts/_email.html.haml:4
 #: app/views/contacts/_messenger.html.haml:4
@@ -798,22 +848,22 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: app/views/activities/_form.html.haml:27
+#: app/views/activities/_form.html.haml:25
 #: app/views/activities/index.html.haml:8
 msgid "Subject"
 msgstr ""
 
-#: app/views/activities/_form.html.haml:33
+#: app/views/activities/_form.html.haml:31
 msgid "Details"
 msgstr ""
 
-#: app/views/activities/_form.html.haml:40
+#: app/views/activities/_form.html.haml:38
 #: app/views/activities/index.html.haml:10
 #: app/views/announcements/_form.html.haml:7
 msgid "Starts At"
 msgstr ""
 
-#: app/views/activities/_form.html.haml:45
+#: app/views/activities/_form.html.haml:43
 #: app/views/announcements/_form.html.haml:11
 msgid "Ends At"
 msgstr ""
@@ -824,6 +874,11 @@ msgstr ""
 
 #: app/views/activities/_temp.html.haml:9
 msgid "Duration"
+msgstr ""
+
+#: app/views/activities/index.html.haml:9
+#: app/views/contacts/index.html.haml:19
+msgid "Contact"
 msgstr ""
 
 #: app/views/activities/index.html.haml:11
@@ -889,14 +944,14 @@ msgstr ""
 
 #: app/views/contacts/_address.html.haml:10
 #: app/views/contacts/_email.html.haml:16
-#: app/views/contacts/_messenger.html.haml:22
+#: app/views/contacts/_messenger.html.haml:21
 #: app/views/contacts/_phone.html.haml:22
 msgid "Is Primary"
 msgstr ""
 
 #: app/views/contacts/_address.html.haml:15
 #: app/views/contacts/_email.html.haml:21
-#: app/views/contacts/_messenger.html.haml:27
+#: app/views/contacts/_messenger.html.haml:26
 #: app/views/contacts/_phone.html.haml:27
 msgid "Is Billing"
 msgstr ""
@@ -1032,7 +1087,11 @@ msgstr ""
 msgid "Provider"
 msgstr ""
 
-#: app/views/contacts/_messenger.html.haml:15
+#: app/views/contacts/_messenger.html.haml:9
+msgid "AIM"
+msgstr ""
+
+#: app/views/contacts/_messenger.html.haml:14
 msgid "Messenger Name"
 msgstr ""
 
@@ -1087,13 +1146,13 @@ msgid "Household Name"
 msgstr ""
 
 #: app/views/households/_contact.html.haml:8
-#: app/views/individuals/_contact.html.haml:45
+#: app/views/individuals/_contact.html.haml:39
 #: app/views/organizations/_contact.html.haml:12
 msgid "Nick Name"
 msgstr ""
 
 #: app/views/households/_contact.html.haml:16
-#: app/views/individuals/_contact.html.haml:56
+#: app/views/individuals/_contact.html.haml:50
 #: app/views/organizations/_contact.html.haml:30
 msgid "External Identifier"
 msgstr ""
@@ -1138,35 +1197,35 @@ msgstr ""
 msgid "Name and Greeting"
 msgstr ""
 
-#: app/views/individuals/_contact.html.haml:10
+#: app/views/individuals/_contact.html.haml:9
 msgid "Prefix"
 msgstr ""
 
-#: app/views/individuals/_contact.html.haml:16
+#: app/views/individuals/_contact.html.haml:14
 msgid "Last Name"
 msgstr ""
 
-#: app/views/individuals/_contact.html.haml:21
+#: app/views/individuals/_contact.html.haml:19
 msgid "First Name"
 msgstr ""
 
-#: app/views/individuals/_contact.html.haml:26
+#: app/views/individuals/_contact.html.haml:24
 msgid "Middle Name"
 msgstr ""
 
-#: app/views/individuals/_contact.html.haml:31
+#: app/views/individuals/_contact.html.haml:28
 msgid "Suffix"
 msgstr ""
 
-#: app/views/individuals/_contact.html.haml:40
-msgid "primary"
+#: app/views/individuals/_contact.html.haml:34
+msgid "Primary"
 msgstr ""
 
-#: app/views/individuals/_contact.html.haml:50
+#: app/views/individuals/_contact.html.haml:44
 msgid "Job Title"
 msgstr ""
 
-#: app/views/individuals/_contact.html.haml:63
+#: app/views/individuals/_contact.html.haml:57
 msgid "Homepage"
 msgstr ""
 
@@ -1218,7 +1277,7 @@ msgstr ""
 msgid "Enrollment Information"
 msgstr ""
 
-#: app/views/individuals/_enrollment.html.haml:14
+#: app/views/individuals/_enrollment.html.haml:12
 msgid "course of study"
 msgstr ""
 
@@ -1230,19 +1289,19 @@ msgstr ""
 msgid "Hide this message"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:26
+#: app/views/layouts/application.html.haml:25
 msgid "Welcome %{current_user}"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:28
+#: app/views/layouts/application.html.haml:27
 msgid "Profile"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:30
+#: app/views/layouts/application.html.haml:28
 msgid "Administer"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:31
+#: app/views/layouts/application.html.haml:29
 msgid "Logout"
 msgstr ""
 
@@ -1359,78 +1418,6 @@ msgstr ""
 msgid "New Activity"
 msgstr ""
 
-#: app/views/sidebars/_global.html.haml:12
-msgid "Academic Levels"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:13
-msgid "Activity Types"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:14
-msgid "Education Levels"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:15
-msgid "Entry Terms"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:16
-msgid "Ethnicities"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:17
-msgid "Genders"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:18
-msgid "Greetings"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:19
-msgid "Location Types"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:20
-msgid "Marital Statuses"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:21
-msgid "Messaging Providers"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:22
-msgid "Mobile Providers"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:23
-msgid "Name Prefixes"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:24
-msgid "Name Suffixes"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:25
-msgid "Phone Types"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:26
-msgid "Programs"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:27
-msgid "Sources"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:28
-msgid "Stages"
-msgstr ""
-
-#: app/views/sidebars/_global.html.haml:29
-msgid "Statuses"
-msgstr ""
-
 #: app/views/user_accounts/edit.html.haml:6
 #: app/views/user_accounts/edit.html.haml:8 app/views/users/edit.html.haml:8
 #: app/views/users/show.html.haml:4
@@ -1477,14 +1464,6 @@ msgstr ""
 msgid "Visit this url to activate your account:"
 msgstr ""
 
-#: app/views/users/_user.html.haml:5
-msgid "Yes"
-msgstr ""
-
-#: app/views/users/_user.html.haml:5
-msgid "No"
-msgstr ""
-
 #: app/views/users/_user.html.haml:8
 msgid "disable"
 msgstr ""
@@ -1525,15 +1504,15 @@ msgstr ""
 msgid "All Users"
 msgstr ""
 
-#: app/views/users/index.html.haml:5
+#: app/views/users/index.html.haml:4
 msgid "Username"
 msgstr ""
 
-#: app/views/users/index.html.haml:7
+#: app/views/users/index.html.haml:6
 msgid "Enabled?"
 msgstr ""
 
-#: app/views/users/index.html.haml:8
+#: app/views/users/index.html.haml:7
 msgid "Roles"
 msgstr ""
 
