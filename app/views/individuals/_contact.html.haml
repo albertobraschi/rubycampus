@@ -59,8 +59,7 @@
     = form.text_field :contact_homepage_url, :class => "field"  
 %label{:for => "contact_greeting_id", :class => "w50 inputselect"}
   %span.wrapper 
-    %span.title
-      = _("Greeting")
+    = label_with_lookup :controller => :greeting 
     = form.select(:contact_greeting_id, Greeting::NAMES_KEYS, :class => "field")  
 .clear
 
