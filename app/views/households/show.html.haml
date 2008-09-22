@@ -2,9 +2,10 @@
 - @household = @presenter
 .household_box
   .hako
-    - form_for :presenter, :url => household_path, :html => { :method => :put, :class => "hakozaki" } do |form|
+    - form_for :presenter, :url => household_path, :html => { :method => :put, :class => "hakozaki", :id => @form_id } do |form|
       = render :partial => "contacts/actions/for_form_show"
       %h1= "#{@household.contact_household_name}"
       %hr/
       = render :partial => "form", :locals => {:form => form}
       = render :partial => "contacts/actions/for_form_show"            
+      = form.show_readonly :options => { :disable => "true" } 
