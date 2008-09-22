@@ -43,6 +43,10 @@ class MessageTemplate < ActiveRecord::Base
   
   # begin Validations
     validates_presence_of :name
+    validates_presence_of :subject
+    validates_presence_of :textile
+    
+    validates_uniqueness_of :name
   # ends Validations
   
   # Searchable attributes
