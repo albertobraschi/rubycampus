@@ -7,10 +7,12 @@
 .actions
   = link_to _("Activities"), activities_path, :class => "positive"
   = link_to _("New Activity"), new_activity_path
+%hr/
+.actions
+  = link_to _("Message Templates"), message_templates_path, :class => "positive"
 %hr/   
 - if !RubyCampus.demo
-  .actions
-    = link_to _("Message Templates"), message_templates_path, :class => "positive"      
+  - nil      
 - else
   = content_tag(:div,"Additional actions are intentionally removed from the demo passed this point unless considered stable.", :class => "notice")
   = content_tag(:div,"Help us shape the future and let us know what features you'd like to see included.", :class => "notice")
