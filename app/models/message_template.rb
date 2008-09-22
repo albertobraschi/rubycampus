@@ -55,7 +55,7 @@ class MessageTemplate < ActiveRecord::Base
   
   # Lists qualifying model attributes for use by auto completion in forms
   def self.find_for_auto_complete_lookup(search)
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "position ASC" )  
+    find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "name ASC" )  
   end
 
 end
