@@ -53,6 +53,7 @@ class IndividualsController < ApplicationController
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
                                           :phone => Phone.find(params[:id]))
+    @form_id = "edit_individual_"+params[:id]
     respond_to do |format|
       format.html # show.html.haml
       format.xml  { render :xml => @presenter.contact } 
