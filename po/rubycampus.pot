@@ -6,8 +6,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: RubyCampus 0.1.0 (479b2b8)\n"
-"POT-Creation-Date: 2008-09-22 04:00+0900\n"
+"Project-Id-Version: RubyCampus 0.1.0 (facd6c0)\n"
+"POT-Creation-Date: 2008-09-22 16:23+0900\n"
 "PO-Revision-Date: 2008-09-19 07:17+0900\n"
 "Last-Translator: KEVIN ALEMAN <KALEMAN@RUBYCAMPUS.ORG>\n"
 "Language-Team: Project <project@rubycampus.org>\n"
