@@ -87,12 +87,13 @@ class CreateContacts < ActiveRecord::Migration
       t.integer    :lock_version,                     :default => 0
       t.date       :date_of_birth
       t.binary     :government_identification_number
+      t.string     :time_zone                                                 # TODO Add time zone to view
+      t.string     :language, :limit => 5,  :default => 'en', :null => false  # TODO Add language to view
       t.boolean    :is_foreign
       t.boolean    :is_deceased
       t.datetime   :created_at
       t.datetime   :updated_at
       t.integer    :last_modified_by_user_id
-      
       t.integer    :asset_id      
     end
   end
