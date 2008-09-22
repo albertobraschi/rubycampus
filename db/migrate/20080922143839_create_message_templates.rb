@@ -41,7 +41,6 @@ class CreateMessageTemplates < ActiveRecord::Migration
       t.integer    :domain_id, :default => 1, :null => false  # TODO Remove default
       t.string     :name
       t.string     :subject
-      t.text       :text
       t.text       :html
       t.text       :textile
       t.boolean    :is_enabled, :default => true
