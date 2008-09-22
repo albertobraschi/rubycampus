@@ -35,6 +35,7 @@
 # +------------------------------------------------------------------------------------+
 #++
 
+# Binds Ruby-GetText
 if defined? GettextLocalize
   GettextLocalize::app_name = RUBYCAMPUS_EDITION
   GettextLocalize::app_version = Rubycampus::Build::version[:string]
