@@ -6,8 +6,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: RubyCampus 0.1.0 (479b2b8)\n"
-"POT-Creation-Date: 2008-09-22 04:00+0900\n"
+"Project-Id-Version: RubyCampus 0.1.0 (82e1dac)\n"
+"POT-Creation-Date: 2008-09-23 02:51+0900\n"
 "PO-Revision-Date: 2008-09-19 07:17+0900\n"
 "Last-Translator: KEVIN ALEMAN <KALEMAN@RUBYCAMPUS.ORG>\n"
 "Language-Team: Project <project@rubycampus.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 #: app/controllers/academic_levels_controller.rb:88
 #: app/controllers/activities_controller.rb:87
 #: app/controllers/activity_types_controller.rb:88
+#: app/controllers/announcements_controller.rb:87
 #: app/controllers/education_levels_controller.rb:88
 #: app/controllers/entry_terms_controller.rb:88
 #: app/controllers/ethnicities_controller.rb:88
@@ -28,6 +29,7 @@ msgstr ""
 #: app/controllers/individuals_controller.rb:82
 #: app/controllers/location_types_controller.rb:88
 #: app/controllers/marital_statuses_controller.rb:88
+#: app/controllers/message_templates_controller.rb:88
 #: app/controllers/messaging_providers_controller.rb:88
 #: app/controllers/mobile_providers_controller.rb:88
 #: app/controllers/name_prefixes_controller.rb:88
@@ -49,6 +51,7 @@ msgstr ""
 #: app/controllers/academic_levels_controller.rb:109
 #: app/controllers/activities_controller.rb:108
 #: app/controllers/activity_types_controller.rb:109
+#: app/controllers/announcements_controller.rb:104
 #: app/controllers/education_levels_controller.rb:109
 #: app/controllers/entry_terms_controller.rb:109
 #: app/controllers/ethnicities_controller.rb:109
@@ -58,6 +61,7 @@ msgstr ""
 #: app/controllers/individuals_controller.rb:103
 #: app/controllers/location_types_controller.rb:109
 #: app/controllers/marital_statuses_controller.rb:109
+#: app/controllers/message_templates_controller.rb:109
 #: app/controllers/messaging_providers_controller.rb:109
 #: app/controllers/mobile_providers_controller.rb:109
 #: app/controllers/name_prefixes_controller.rb:109
@@ -85,12 +89,9 @@ msgstr ""
 msgid "ActivityType"
 msgstr ""
 
-#: app/controllers/announcements_controller.rb:88
-msgid "Announcement was successfully created."
-msgstr ""
-
-#: app/controllers/announcements_controller.rb:105
-msgid "Announcement was successfully updated."
+#: app/controllers/announcements_controller.rb:87
+#: app/controllers/announcements_controller.rb:104
+msgid "Announcement"
 msgstr ""
 
 #: app/controllers/education_levels_controller.rb:88
@@ -160,6 +161,11 @@ msgstr ""
 
 #: app/controllers/marital_statuses_controller.rb:109
 msgid "MaritalStatus"
+msgstr ""
+
+#: app/controllers/message_templates_controller.rb:88
+#: app/controllers/message_templates_controller.rb:109
+msgid "Message Template"
 msgstr ""
 
 #: app/controllers/messaging_providers_controller.rb:88
@@ -373,8 +379,8 @@ msgstr ""
 
 #: app/helpers/application_helper.rb:113 app/helpers/contacts_helper.rb:49
 #: app/views/common/actions/_for_form_show.html.haml:4
-#: app/views/common/actions/_for_row_index.html.haml:4
-#: app/views/common/actions/_for_row_index_no_show.html.haml:3
+#: app/views/common/actions/_for_row_index.html.haml:3
+#: app/views/common/actions/_for_row_index_no_show.html.haml:2
 #: app/views/households/_household.html.haml:11
 #: app/views/individuals/_individual.html.haml:11
 #: app/views/organizations/_organization.html.haml:11
@@ -383,8 +389,8 @@ msgstr ""
 
 #: app/helpers/application_helper.rb:117 app/helpers/contacts_helper.rb:45
 #: app/views/common/actions/_for_form_show.html.haml:3
-#: app/views/common/actions/_for_row_index.html.haml:3
-#: app/views/common/actions/_for_row_index_no_show.html.haml:2
+#: app/views/common/actions/_for_row_index.html.haml:4
+#: app/views/common/actions/_for_row_index_no_show.html.haml:3
 #: app/views/households/_household.html.haml:13
 #: app/views/individuals/_individual.html.haml:13
 #: app/views/organizations/_organization.html.haml:13
@@ -409,8 +415,8 @@ msgid "Show"
 msgstr ""
 
 #: app/helpers/contacts_helper.rb:45
-#: app/views/common/actions/_for_row_index.html.haml:3
-#: app/views/common/actions/_for_row_index_no_show.html.haml:2
+#: app/views/common/actions/_for_row_index.html.haml:4
+#: app/views/common/actions/_for_row_index_no_show.html.haml:3
 msgid "Really destroy %s record?"
 msgstr ""
 
@@ -554,6 +560,7 @@ msgid "Both"
 msgstr ""
 
 #: app/models/preferred_email_format.rb:45
+#: app/views/message_templates/_form.html.haml:34
 msgid "HTML"
 msgstr ""
 
@@ -642,6 +649,7 @@ msgstr ""
 #: app/views/location_types/_location_type.html.haml:6
 #: app/views/marital_statuses/_marital_status.html.haml:3
 #: app/views/marital_statuses/_marital_status.html.haml:4
+#: app/views/message_templates/_message_template.html.haml:4
 #: app/views/messaging_providers/_messaging_provider.html.haml:3
 #: app/views/messaging_providers/_messaging_provider.html.haml:4
 #: app/views/mobile_providers/_mobile_provider.html.haml:3
@@ -678,6 +686,7 @@ msgstr ""
 #: app/views/location_types/_location_type.html.haml:6
 #: app/views/marital_statuses/_marital_status.html.haml:3
 #: app/views/marital_statuses/_marital_status.html.haml:4
+#: app/views/message_templates/_message_template.html.haml:4
 #: app/views/messaging_providers/_messaging_provider.html.haml:3
 #: app/views/messaging_providers/_messaging_provider.html.haml:4
 #: app/views/mobile_providers/_mobile_provider.html.haml:3
@@ -714,6 +723,8 @@ msgstr ""
 #: app/views/location_types/index.html.haml:7
 #: app/views/marital_statuses/_form.html.haml:4
 #: app/views/marital_statuses/index.html.haml:7
+#: app/views/message_templates/_form.html.haml:5
+#: app/views/message_templates/index.html.haml:8
 #: app/views/messaging_providers/_form.html.haml:4
 #: app/views/messaging_providers/index.html.haml:7
 #: app/views/mobile_providers/_form.html.haml:4
@@ -809,6 +820,7 @@ msgstr ""
 #: app/views/individuals/edit.html.haml:1
 #: app/views/location_types/edit.html.haml:1
 #: app/views/marital_statuses/edit.html.haml:1
+#: app/views/message_templates/edit.html.haml:1
 #: app/views/messaging_providers/edit.html.haml:1
 #: app/views/mobile_providers/edit.html.haml:1
 #: app/views/name_prefixes/edit.html.haml:1
@@ -829,6 +841,7 @@ msgstr ""
 #: app/views/households/new.html.haml:1 app/views/individuals/new.html.haml:1
 #: app/views/location_types/new.html.haml:1
 #: app/views/marital_statuses/new.html.haml:1
+#: app/views/message_templates/new.html.haml:1
 #: app/views/messaging_providers/new.html.haml:1
 #: app/views/mobile_providers/new.html.haml:1
 #: app/views/name_prefixes/new.html.haml:1
@@ -850,6 +863,8 @@ msgstr ""
 
 #: app/views/activities/_form.html.haml:25
 #: app/views/activities/index.html.haml:8
+#: app/views/message_templates/_form.html.haml:18
+#: app/views/message_templates/index.html.haml:9
 msgid "Subject"
 msgstr ""
 
@@ -889,6 +904,7 @@ msgstr ""
 #: app/views/announcements/show.html.haml:1
 #: app/views/households/show.html.haml:1
 #: app/views/individuals/show.html.haml:1
+#: app/views/message_templates/show.html.haml:1
 #: app/views/organizations/show.html.haml:1
 msgid "Viewing %s"
 msgstr ""
@@ -904,6 +920,11 @@ msgstr ""
 
 #: app/views/announcements/index.html.haml:11
 msgid "Ends at"
+msgstr ""
+
+#: app/views/announcements/index.html.haml:21
+#: app/views/message_templates/index.html.haml:15
+msgid "No entries found"
 msgstr ""
 
 #: app/views/announcements/new.html.haml:1
@@ -1310,6 +1331,43 @@ msgstr ""
 msgid "Vcard name"
 msgstr ""
 
+#: app/views/message_templates/_form.html.haml:6
+msgid "Used in message template selection lists"
+msgstr ""
+
+#: app/views/message_templates/_form.html.haml:12
+#: app/views/message_templates/index.html.haml:10
+msgid "Is active"
+msgstr ""
+
+#: app/views/message_templates/_form.html.haml:19
+msgid "Token aware subject for email message"
+msgstr ""
+
+#: app/views/message_templates/_form.html.haml:26
+msgid "Textile"
+msgstr ""
+
+#: app/views/message_templates/_form.html.haml:27
+msgid ""
+"Token aware, plain text or textile supported. Generates HTML and Text "
+"message when using textile"
+msgstr ""
+
+#: app/views/message_templates/_form.html.haml:35
+msgid ""
+"Token aware, supports HTML formatted version of this message, don't complete "
+"this if you use textile"
+msgstr ""
+
+#: app/views/message_templates/_form.html.haml:41
+msgid "Merge Tokens"
+msgstr ""
+
+#: app/views/message_templates/index.html.haml:11
+msgid "Updated at"
+msgstr ""
+
 #: app/views/organizations/_contact.html.haml:4
 msgid "Organization Name"
 msgstr ""
@@ -1416,6 +1474,10 @@ msgstr ""
 
 #: app/views/sidebars/_global.html.haml:9
 msgid "New Activity"
+msgstr ""
+
+#: app/views/sidebars/_global.html.haml:12
+msgid "Message Templates"
 msgstr ""
 
 #: app/views/user_accounts/edit.html.haml:6

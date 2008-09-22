@@ -35,91 +35,101 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class AnnouncementsController < ApplicationController 
-  before_filter :login_required
-  before_filter :check_super_user_role
+class MessageTemplatesController < ApplicationController
+  before_filter :login_required, :except => [ :lookup ]
+  before_filter :check_super_user_role, :except => [ :lookup ]
   
-  # GET /announcement
-  # GET /announcement.xml
-  def index
-    @announcements = Announcement.find_all_and_paginate(params[:page])
+  # GET rubycampus.local/message_templates
+  # GET rubycampus.local/message_templates.xml
+  def index #:nodoc:
+    # @message_templates = MessageTemplate.find(:all)
+    @message_templates = MessageTemplate.search_for_all_and_paginate(params[:locate], params[:page])
 
     respond_to do |format|
-      format.html # index.haml
-      format.xml  { render :xml => @announcements }
+      format.html # index.html.haml
+      # format.xml  { render :xml => @message_templates }
     end
   end
 
-  # GET /announcement/1
-  # GET /announcement/1.xml
-  def show
-    @announcement = Announcement.find(params[:id])
+  # GET rubycampus.local/message_templates/1
+  # GET rubycampus.local/message_templates/1.xml
+  def show #:nodoc:
+    @message_template = MessageTemplate.find(params[:id])
 
     respond_to do |format|
-      format.html # show.haml
-      format.xml  { render :xml => @announcement }
+      format.html # show.html.haml
+      # format.xml  { render :xml => @message_template }
     end
   end
 
-  # GET /announcement/new
-  # GET /announcement/new.xml
-  def new
-    @announcement = Announcement.new
+  # GET rubycampus.local/message_templates/new
+  # GET rubycampus.local/message_templates/new.xml
+  def new #:nodoc:
+    @message_template = MessageTemplate.new
 
     respond_to do |format|
-      format.html # new.haml
-      format.xml  { render :xml => @announcement }
+      format.html # new.html.haml
+      # format.xml  { render :xml => @message_template }
     end
   end
 
-  # GET /announcement/1/edit
-  def edit
-    @announcement = Announcement.find(params[:id])
+  # GET rubycampus.local/message_templates/1/edit
+  def edit #:nodoc:
+    @message_template = MessageTemplate.find(params[:id])
   end
 
-  # POST /announcement
-  # POST /announcement.xml
-  def create
-    @announcement = Announcement.new(params[:announcement])
+  # POST rubycampus.local/message_templates
+  # POST rubycampus.local/message_templates.xml
+  def create #:nodoc:
+    @message_template = MessageTemplate.new(params[:message_template])
 
     respond_to do |format|
-      if @announcement.save
-        flash[:notice] = _("%s was successfully created.") % _("Announcement")
-        format.html { redirect_to announcements_path }
-        format.xml  { render :xml => @announcement, :status => :created, :location => @announcement }
+      if @message_template.save
+        flash[:notice] = _("%s was successfully created.") % _("Message Template")
+        if params[:create_and_new_button]
+          format.html { redirect_to new_message_template_url }
+        else
+          format.html { redirect_to message_templates_url }
+          # format.xml  { render :xml => @message_template, :status => :created, :location => @message_template }
+        end
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @announcement.errors, :status => :unprocessable_entity }
+        # format.xml  { render :xml => @message_template.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /announcement/1
-  # PUT /announcement/1.xml
-  def update
-    @announcement = Announcement.find(params[:id])
+  # PUT rubycampus.local/message_templates/1
+  # PUT rubycampus.local/message_templates/1.xml
+  def update #:nodoc:
+    @message_template = MessageTemplate.find(params[:id])
 
     respond_to do |format|
-      if @announcement.update_attributes(params[:announcement])
-        flash[:notice] = _("%s was successfully updated.") % _("Announcement")
-        format.html { redirect_to(announcement_path(@announcement)) }
-        format.xml  { head :ok }
+      if @message_template.update_attributes(params[:message_template])
+        flash[:notice] = _("%s was successfully updated.") % _("Message Template") 
+        format.html { redirect_to message_templates_url }
+        # format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @announcement.errors, :status => :unprocessable_entity }
+        # format.xml  { render :xml => @message_template.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /announcement/1
-  # DELETE /announcement/1.xml
-  def destroy
-    @announcement = Announcement.find(params[:id])
-    @announcement.destroy
+  # DELETE rubycampus.local/message_templates/1
+  # DELETE rubycampus.local/message_templates/1.xml
+  def destroy #:nodoc:
+    @message_template = MessageTemplate.find(params[:id])
+    @message_template.destroy
 
     respond_to do |format|
-      format.html { redirect_to(announcements_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to message_templates_url }
+      # format.xml  { head :ok }
     end
   end
+  
+  def lookup #:nodoc:
+    @message_templates = MessageTemplate.find_for_auto_complete_lookup(params[:search])                            
+  end
+
 end

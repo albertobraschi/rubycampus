@@ -4,7 +4,7 @@ h1. Relationship Management & Alumni Development for Higher Education
 
 h2. Overview
 
-"RubyCampus":https://rubycampus.org is a *relationship management system* for *admissions, strategic enrollment management and alumni development*. It is written in Ruby and is easy to install and use on Linux, Windows, Mac OS X, SunOS and BSD. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in increasing enrollment yields while promoting quality and greater campus diversity. It can also be used for student retention and alumni development. It is available in English, Japanese and Simplified Chinese, with more languages on the way. RubyCampus offers a free and fully transparent open source alternative to commercial software.
+"RubyCampus":https://rubycampus.org is a *relationship management system* for *admissions, strategic enrollment management and alumni development*. It is written in Ruby and is easy to install and use on *Linux, Windows, Mac OS X, SunOS* and *BSD*. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in increasing enrollment yields while promoting quality and greater campus diversity. It can also be used for student retention and alumni development. It is available in English, Japanese and Simplified Chinese, with more languages on the way. RubyCampus offers a free and fully transparent open source alternative to commercial software.
 
 _A working demo of RubyCampus can be accessed at "demo.rubycampus.org":https://demo.rubycampus.org or you can view our "online presentation":https://rubycampus.org/wiki/rubycampus/Keynote ._
 
@@ -16,19 +16,11 @@ h2. Official Repository
 
 * *RubyCampus* -- @git://rubycampus.org/rubycampus.git@
 
-h3. Trusted Mirrors
-
-* *RubyForge* -- @git://rubyforge.org/rubycampus.git@
-* *GitHub* -- @git://github.com/rubycampus/rubycampus.git@
-* *Gitorious* -- @git://gitorious.org/rubycampus/mainline.git@
-
 *See the instructions below, and also see the "RubyCampus Wiki":https://rubycampus.org/wiki/rubycampus for more details.*
 
 h2. Minimal Requirements
 
-The current version of RubyCampus can be installed and used on Linux, Windows, Mac OS X, SunOS and BSD.
-
-We suggest the following environment but you may choose any number of entirely suitable alternatives depending on your organizations specific requirements.
+RubyCampus is developed with POSIX-oriented operating systems in mind such as Linux, Mac OS X, SunOS and BSD/OS. While it is entirely possible to use Windows we recommend you use a POSIX-compliant operating system particularly in production environments.   
 
 h3. Recommended
 

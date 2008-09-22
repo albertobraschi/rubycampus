@@ -1,0 +1,16 @@
+- title((_(current_controller_gettext_human_name_pluralized)))
+.standard_box
+  = render :partial => "common/actions/for_form_index"
+  %h2= yield(:title)
+  %hr/
+  %table
+    %tr      
+      %th.small= _("Name")
+      %th.small= _("Subject")
+      %th.small= _("Is active")
+      %th.small= _("Updated at")
+      %th
+    = render :partial => "message_template", :collection => @message_templates  
+  = render :partial => "common/actions/for_form_index"
+  = content_tag :div, _("No entries found"), :style => "text-align: center;" if @message_templates.empty?
+  %div.pagination= will_paginate @message_templates

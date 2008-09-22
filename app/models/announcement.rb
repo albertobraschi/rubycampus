@@ -41,26 +41,7 @@ class Announcement < ActiveRecord::Base
   untranslate_all
   
   validates_presence_of :message
-  
-  # TODO incompatible with presenter pattern
-  # begin RESTful_ACL
-    def is_updatable_by(user)
-      true
-    end
     
-    def is_deletable_by(user)
-      true
-    end
-    
-    def self.is_readable_by(user, object = nil)
-      true
-    end
-    
-    def self.is_creatable_by(user)
-      true
-    end     
-  # end RESTful_ACL
-  
   def self.find_all_and_paginate(page)
     paginate :per_page => ROWS_PER_PAGE, :page => page
   end
