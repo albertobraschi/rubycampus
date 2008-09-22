@@ -38,7 +38,6 @@
 class AnnouncementsController < ApplicationController 
   before_filter :login_required
   before_filter :check_super_user_role
-  before_filter :has_permission?
   
   # GET /announcement
   # GET /announcement.xml
