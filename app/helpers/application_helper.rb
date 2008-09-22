@@ -160,5 +160,15 @@ module ApplicationHelper
   def current_user_is_super_user_role
     current_user.is_admin || current_user.has_role?('administrator')
   end
+  
+  # Returns UL of mergable tokens
+  # FIXME Just a mock
+  def list_mergable_tokens      
+      out = "<ul>"
+      for token in TOKENS do
+        out << content_tag(:li, token, :style => "list-style-type: none")                        
+      end
+      out << "</ul>"                  
+  end    
 
 end
