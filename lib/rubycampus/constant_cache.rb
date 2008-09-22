@@ -54,7 +54,53 @@ RUBYCAMPUS_PATH_TO_DEFAULTS = "lib/#{RUBYCAMPUS}/defaults"
 RUBYCAMPUS_ORG_BASE_URL = 'https://rubycampus.org/'
 
 # Debug CSS
-SHOWGRID = false   
+SHOWGRID = false 
+ 
+# Used to indicate which fields can be merged (i.e. mail merge)
+TOKENS = %w{{contact.academic_level}
+            {contact.assigned_to_user}
+            {contact.citizenship}
+            {contact.contact_type}
+            {contact.country_of_birth}
+            {contact.created_at}
+            {contact.date_of_birth}
+            {contact.deceased_date}
+            {contact.do_not_email}
+            {contact.do_not_mail}
+            {contact.do_not_phone}
+            {contact.do_not_trade}
+            {contact.education_level}
+            {contact.entry_term}
+            {contact.ethnicity}
+            {contact.external_identifier}
+            {contact.first_name}
+            {contact.gender}
+            {contact.greeting}
+            {contact.homepage_url}
+            {contact.household_name}
+            {contact.id}
+            {contact.is_deceased}
+            {contact.is_foreign}
+            {contact.is_opt_out}
+            {contact.job_title}
+            {contact.language}
+            {contact.last_name}
+            {contact.legal_identifier}
+            {contact.legal_name}
+            {contact.marital_status}
+            {contact.middle_name}
+            {contact.moodle_user}
+            {contact.name_prefix}
+            {contact.name_suffix}
+            {contact.nationality}
+            {contact.nick_name}
+            {contact.organization_name}
+            {contact.program}
+            {contact.sic_code}
+            {contact.source}
+            {contact.stage}
+            {contact.time_zone}
+            {contact.updated_at}}  
 
 # Load RubyCampus SDK hook if present
 begin
