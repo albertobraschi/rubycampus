@@ -1,0 +1,14 @@
+Gem::Specification.new do |s|
+  s.name = "show_readonly"
+  s.version = "0.50"
+  s.date = "2008-09-21"
+  s.summary = "A plugin to make an entire form readonly RubyOnRails"
+  s.email = "l.adam.bailey@gmail.com"
+  s.homepage = "http://github.com/notyet"
+  s.description = "A plugin to prototype's form enable/disable feature. Project site: http://code.google.com/p/notyet/"
+  s.has_rdoc = false
+  s.authors = ["Adam Bailey"]
+  s.files = ["CHANGELOG","MIT-LICENSE","README","show_readonly.gemspec","init.rb"]
+  s.test_files = [""]
+end
+
