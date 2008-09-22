@@ -18,4 +18,5 @@
         %td=h announcement.ends_at
         %td
           = render :partial => "common/actions/for_row_index", :locals => { :local => announcement }
+= content_tag :div, _("No entries found"), :style => "text-align: center;" if @announcements.empty?
 %div.pagination= will_paginate @announcements     
