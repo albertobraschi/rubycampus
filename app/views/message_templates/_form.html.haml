@@ -1,30 +1,42 @@
-%label{:for => "message_template_name", :class => "w50 inputselect"}
-  %span.wrapper
-    %span.title= _("Name") 
-    = form.text_field :name, :class => "field" 
-%label{:for => "message_template_is_enabled", :class => "w25 radiocheck"}
-  %span.wrapper
-    %br/ 
-    = form.check_box :is_enabled, :class => "select" 
-    %span.title= _("Is active")
-.clear
+.span-14
+  %label{:for => "message_template_name", :class => "w75 inputselect mandatory"}
+    %span.wrapper
+      %span.title
+        = _("Name")
+      %span.example= _("Used in message template selection lists") 
+      = form.text_field :name, :class => "field" 
+  %label{:for => "message_template_is_enabled", :class => "w25 radiocheck"}
+    %span.wrapper
+      %br/ 
+      = form.check_box :is_enabled, :class => "select" 
+      %span.title= _("Is active")
+  .clear
 
-%label{:for => "message_template_subject", :class => "w50 inputselect"}
-  %span.wrapper
-    %span.title= _("Subject") 
-    = form.text_field :subject, :class => "field"
-.clear
+  %label{:for => "message_template_subject", :class => "w100 inputselect mandatory"}
+    %span.wrapper
+      %span.title
+        = _("Subject")
+      %span.example= _("Token aware subject for email message") 
+      = form.text_field :subject, :class => "field"
+  .clear
+  
+  %label{:for => "message_template_textile", :class => "w100 inputselect mandatory"}
+    %span.wrapper
+      %span.title
+        = _("Textile") 
+      %span.example= _("Token aware, plain text or textile supported. Generates HTML and Text message when using textile")
+      = form.text_area :textile, :class => "field"
+  .clear
+  
+  %label{:for => "message_template_html", :class => "w100 inputselect"}
+    %span.wrapper
+      %span.title
+        = _("HTML") 
+      %span.example= _("Token aware, supports HTML formatted version of this message, don't complete this if you use textile")
+      = form.text_area :html, :class => "field"
+  .clear  
 
-%label{:for => "message_template_text", :class => "w100 inputselect"}
-  %span.wrapper
-    %span.title= _("Text") 
-    = form.text_area :text, :class => "field"
-.cleqr
-
-%label{:for => "message_template_html", :class => "w100 inputselect"}
-  %span.wrapper
-    %span.title= _("Html") 
-    = form.text_area :html, :class => "field"
-.clear
-
-
+.span-5.last
+  .box
+    %h3{:style => "text-align: center;"}= _("Merge Tokens")
+    = list_mergable_tokens                            
