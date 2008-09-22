@@ -43,7 +43,7 @@ class CreateMessageTemplates < ActiveRecord::Migration
       t.string     :subject
       t.text       :text
       t.text       :html
-      t.boolean    :is_active
+      t.boolean    :is_enabled, :default => true
       t.datetime   :created_at
       t.datetime   :updated_at
     end
