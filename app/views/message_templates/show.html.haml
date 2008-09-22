@@ -7,3 +7,4 @@
       %hr/ 
       = render :partial => "form", :locals => {:form => form}
       = render :partial => "common/actions/for_form_show"
+      = form.show_readonly :options => { :disable => "true" } 
