@@ -86,7 +86,7 @@ class AnnouncementsController < ApplicationController
     respond_to do |format|
       if @announcement.save
         flash[:notice] = _("%s was successfully created.") % _("Announcement")
-        format.html { redirect_to(announcement_path(@announcement)) }
+        format.html { redirect_to announcements_path }
         format.xml  { render :xml => @announcement, :status => :created, :location => @announcement }
       else
         format.html { render :action => "new" }
