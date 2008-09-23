@@ -39,10 +39,10 @@ class CreateMessageTemplates < ActiveRecord::Migration
   def self.up
     create_table :message_templates do |t|
       t.integer    :domain_id, :default => 1, :null => false  # TODO Remove default
-      t.string     :name
-      t.string     :subject
+      t.string     :name, :null => false
+      t.string     :subject, :null => false
       t.text       :html
-      t.text       :textile
+      t.text       :textile, :null => false
       t.boolean    :is_enabled, :default => true
       t.datetime   :created_at
       t.datetime   :updated_at
