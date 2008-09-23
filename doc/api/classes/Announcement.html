@@ -1,4 +1,4 @@
-  <div id="C00000055">
+  <div id="C00000057">
 <div class='banner'>
   <span class="file-title-prefix">Class</span><br />Announcement<br/>
   In:
@@ -17,12 +17,8 @@ ActiveRecord::Base
 
   <div class="sectiontitle">Methods</div>
   <ul>
-  <li><a href="index.html?a=M000046&name=current_announcements" >current_announcements</a></li>
-  <li><a href="index.html?a=M000045&name=find_all_and_paginate" >find_all_and_paginate</a></li>
-  <li><a href="index.html?a=M000044&name=is_creatable_by" >is_creatable_by</a></li>
-  <li><a href="index.html?a=M000042&name=is_deletable_by" >is_deletable_by</a></li>
-  <li><a href="index.html?a=M000043&name=is_readable_by" >is_readable_by</a></li>
-  <li><a href="index.html?a=M000041&name=is_updatable_by" >is_updatable_by</a></li>
+  <li><a href="index.html?a=M000044&name=current_announcements" >current_announcements</a></li>
+  <li><a href="index.html?a=M000043&name=find_all_and_paginate" >find_all_and_paginate</a></li>
   </ul>
 
 
@@ -31,115 +27,40 @@ ActiveRecord::Base
 
 
 <div class="sectiontitle">Public Class methods</div>
-<div id="M000046" class="method">
-  <div id="M000046_title" class="title">
-    <b>current_announcements</b>(hide_time)
-  </div>
-<div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000046_source')" id="l_M000046_source">show source</a> ]</p>
-  <div id="M000046_source" class="dyn-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 68</span>
-68:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">current_announcements</span>(<span class="ruby-identifier">hide_time</span>)
-69:     <span class="ruby-identifier">with_scope</span> <span class="ruby-identifier">:find</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;starts_at &lt;= now() AND ends_at &gt;= now()&quot;</span> } <span class="ruby-keyword kw">do</span>
-70:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hide_time</span>.<span class="ruby-identifier">nil?</span>
-71:         <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>)
-72:       <span class="ruby-keyword kw">else</span>
-73:         <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;updated_at &gt; ? OR starts_at &gt; ?&quot;</span>, <span class="ruby-identifier">hide_time</span>, <span class="ruby-identifier">hide_time</span>])
-74:       <span class="ruby-keyword kw">end</span>
-75:     <span class="ruby-keyword kw">end</span>
-76:   <span class="ruby-keyword kw">end</span>
-</pre>
-  </div>
-</div>
-</div>
-<div id="M000045" class="method">
-  <div id="M000045_title" class="title">
-    <b>find_all_and_paginate</b>(page)
-  </div>
-  <div class="description">
-  <p>
-end RESTful_ACL
-</p>
-  </div>
-<div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000045_source')" id="l_M000045_source">show source</a> ]</p>
-  <div id="M000045_source" class="dyn-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 64</span>
-64:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_all_and_paginate</span>(<span class="ruby-identifier">page</span>)
-65:     <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">ROWS_PER_PAGE</span>, <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>
-66:   <span class="ruby-keyword kw">end</span>
-</pre>
-  </div>
-</div>
-</div>
 <div id="M000044" class="method">
   <div id="M000044_title" class="title">
-    <b>is_creatable_by</b>(user)
+    <b>current_announcements</b>(hide_time)
   </div>
 <div class="sourcecode">
   <p class="source-link">[ <a href="javascript:toggleSource('M000044_source')" id="l_M000044_source">show source</a> ]</p>
   <div id="M000044_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 59</span>
-59:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_creatable_by</span>(<span class="ruby-identifier">user</span>)
-60:       <span class="ruby-keyword kw">true</span>
-61:     <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 49</span>
+49:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">current_announcements</span>(<span class="ruby-identifier">hide_time</span>)
+50:     <span class="ruby-identifier">with_scope</span> <span class="ruby-identifier">:find</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;starts_at &lt;= now() AND ends_at &gt;= now()&quot;</span> } <span class="ruby-keyword kw">do</span>
+51:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hide_time</span>.<span class="ruby-identifier">nil?</span>
+52:         <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>)
+53:       <span class="ruby-keyword kw">else</span>
+54:         <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;updated_at &gt; ? OR starts_at &gt; ?&quot;</span>, <span class="ruby-identifier">hide_time</span>, <span class="ruby-identifier">hide_time</span>])
+55:       <span class="ruby-keyword kw">end</span>
+56:     <span class="ruby-keyword kw">end</span>
+57:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
 </div>
 <div id="M000043" class="method">
   <div id="M000043_title" class="title">
-    <b>is_readable_by</b>(user, object = nil)
+    <b>find_all_and_paginate</b>(page)
   </div>
 <div class="sourcecode">
   <p class="source-link">[ <a href="javascript:toggleSource('M000043_source')" id="l_M000043_source">show source</a> ]</p>
   <div id="M000043_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 55</span>
-55:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_readable_by</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">object</span> = <span class="ruby-keyword kw">nil</span>)
-56:       <span class="ruby-keyword kw">true</span>
-57:     <span class="ruby-keyword kw">end</span>
-</pre>
-  </div>
-</div>
-</div>
-<div class="sectiontitle">Public Instance methods</div>
-<div id="M000042" class="method">
-  <div id="M000042_title" class="title">
-    <b>is_deletable_by</b>(user)
-  </div>
-<div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000042_source')" id="l_M000042_source">show source</a> ]</p>
-  <div id="M000042_source" class="dyn-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 51</span>
-51:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_deletable_by</span>(<span class="ruby-identifier">user</span>)
-52:       <span class="ruby-keyword kw">true</span>
-53:     <span class="ruby-keyword kw">end</span>
-</pre>
-  </div>
-</div>
-</div>
-<div id="M000041" class="method">
-  <div id="M000041_title" class="title">
-    <b>is_updatable_by</b>(user)
-  </div>
-  <div class="description">
-  <p>
-TODO incompatible with presenter pattern begin RESTful_ACL
-</p>
-  </div>
-<div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000041_source')" id="l_M000041_source">show source</a> ]</p>
-  <div id="M000041_source" class="dyn-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 47</span>
-47:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_updatable_by</span>(<span class="ruby-identifier">user</span>)
-48:       <span class="ruby-keyword kw">true</span>
-49:     <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 45</span>
+45:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_all_and_paginate</span>(<span class="ruby-identifier">page</span>)
+46:     <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">ROWS_PER_PAGE</span>, <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>
+47:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
