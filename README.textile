@@ -1,4 +1,4 @@
-!=https://rubycampus.org/r/screenshots/001.png!
+!=https://rubycampus.org/r/wiki/splash.png!
 
 h1. Relationship Management & Alumni Development for Higher Education
 
