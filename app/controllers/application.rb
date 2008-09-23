@@ -39,23 +39,30 @@ class ApplicationController < ActionController::Base
   helper :all
   layout 'application', :except => [ :extract, :lookup ]
   include AuthenticatedSystem
-  
-  # Sets time zone for current user if logged in 
+
+  # Sets time zone for current user if logged in
   before_filter :set_user_time_zone
   before_filter :set_user_language
   before_filter :set_locale_by_session
 
   protect_from_forgery  :secret => '60a83ab641fb4d1dbed20dffdb77395f'
   filter_parameter_logging :password, :government_identification_number
-  
+
+  before_filter :instantiate_controller_and_action_names
+
   private
-  
+
   def set_user_time_zone
     Time.zone = current_user.time_zone if logged_in?
   end
-  
+
   def set_user_language
     session['lang'] = current_user.language if logged_in?
-  end 
-   
+  end
+
+  def instantiate_controller_and_action_names
+    @current_action = action_name
+    @current_controller = controller_name
+  end
+
 end
