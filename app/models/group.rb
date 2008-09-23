@@ -43,7 +43,9 @@ class Group < ActiveRecord::Base
   belongs_to :group_type 
   
   # begin Validations
-    validates_presence_of :name
+    validates_presence_of :name 
+    validates_presence_of :title 
+    validates_presence_of :group_type_id
   # ends Validations
   
   # Searchable attributes
