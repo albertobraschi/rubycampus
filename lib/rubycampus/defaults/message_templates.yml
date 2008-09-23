@@ -37,9 +37,26 @@
 
 --- 
 rubycampus_message_templates_001: 
-  name: Standard Inquiry Thank You
-  subject: Thanks for Inquiring
-  textile: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Donec porttitor ligula eu dolor. Maecenas vitae nulla consequat libero cursus venenatis. Nam magna enim, accumsan eu, blandit sed, blandit a, eros.
-
-        Quisque facilisis erat a dui. Nam malesuada ornare dolor. Cras gravida, diam sit amet rhoncus ornare, erat elit consectetuer erat, id egestas pede nibh eget odio. Proin tincidunt, velit vel porta elementum, magna diam molestie sapien, non aliquet massa pede eu diam."
+  name: Inquiry Thank You
+  subject: Institute for RubyCampus Studies
+  textile: |
+   Dear {contact.name_prefix}. {contact.first_name} {contact.last_name},
+   
+   Thank you for your interest in the Institute for RubyCampus Studies programs.
+   Information on using RubyCampus for student recruitment, enrollment management
+   retention and alumni development will be sent to you shortly.
+   
+   Please go to the application to begin the admission process for this program.
+   
+   If you have questions regarding the application process, or any program, please
+   contact our admissions department directly at 555-555-5555 or not_real@not_real_school.edu
+   
+   Thank you,
+   
+   Asai Nagamasa 
+   
+   Admission Coordinator | RubyCampus Education
+   Institute for RubyCampus Studies | RubyCampus University
+   1 Fukuoka Way | Fukuoka City, Fukuoka Japan
+   Tel: 555-555-5555 | Fax: 555-555-8888
   html: ""
