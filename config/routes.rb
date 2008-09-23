@@ -63,6 +63,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :ethnicities, :collection => { :lookup => :get }
   map.resources :genders, :collection => { :lookup => :get }
   map.resources :greetings, :collection => { :lookup => :get }
+  map.resources :groups, :collection => { :lookup => :get }
   map.resources :head_of_households, :collection => { :lookup => :get }
   map.resources :location_types, :collection => { :lookup => :get }
   map.resources :marital_statuses, :collection => { :lookup => :get }
@@ -76,7 +77,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :regions, :collection => { :lookup => :get }
   map.resources :sources, :collection => { :lookup => :get }
   map.resources :stages, :collection => { :lookup => :get }
-  map.resources :statuses, :collection => { :lookup => :get }
+  map.resources :statuses, :collection => { :lookup => :get } 
   # end RubyCampus RESTful Code Tables
 
   # begin RESTful_authentication routes
