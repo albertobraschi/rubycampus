@@ -45,4 +45,8 @@ class GroupType < ActiveRecord::Base
   N_('Exclude')
 
   has_many :groups
+  
+  # begin Validations
+    validates_presence_of :name
+  # ends Validations
 end
