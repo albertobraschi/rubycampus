@@ -11,6 +11,7 @@ digraph controllers_diagram {
 	"EthnicitiesController" [shape=Mrecord, label="{EthnicitiesController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
 	"GendersController" [shape=Mrecord, label="{GendersController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
 	"GreetingsController" [shape=Mrecord, label="{GreetingsController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
+	"GroupsController" [shape=Mrecord, label="{GroupsController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
 	"HeadOfHouseholdsController" [shape=Mrecord, label="{HeadOfHouseholdsController|index\l|\l|\l}"]
 	"HouseholdsController" [shape=Mrecord, label="{HouseholdsController|create\ldestroy\ledit\lextract\lindex\lnew\lshow\lupdate\l|\l|\l}"]
 	"IndividualsController" [shape=Mrecord, label="{IndividualsController|create\ldestroy\ledit\lextract\lindex\lnew\lshow\lupdate\l|\l|\l}"]
