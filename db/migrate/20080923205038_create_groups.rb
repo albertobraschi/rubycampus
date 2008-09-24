@@ -43,11 +43,12 @@ class CreateGroups < ActiveRecord::Migration
       t.string     :title, :null => false
       t.string     :description
       t.integer    :saved_search_id
-      t.boolean    :is_enabled, :default => true
       t.text       :where_clause
       t.text       :select_tables
       t.text       :where_tables
       t.integer    :group_type_id, :null => false
+      t.boolean    :is_enabled, :default => true
+      t.timestamps
     end
     require 'active_record/fixtures'
     Fixtures.create_fixtures(RUBYCAMPUS_PATH_TO_DEFAULTS, File.basename("groups.yml", '.*'))
