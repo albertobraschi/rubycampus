@@ -38,14 +38,13 @@
 class CreateMessengers < ActiveRecord::Migration
   def self.up
     create_table :messengers do |t|
-      t.integer     :contact_id
-      t.integer     :location_type_id
-      t.string      :name
-      t.integer     :messaging_provider_id
-      t.boolean     :is_primary
-      t.boolean     :is_billing
-      t.datetime    :created_at
-      t.datetime    :updated_at
+      t.integer    :contact_id
+      t.integer    :location_type_id
+      t.string     :name
+      t.integer    :messaging_provider_id
+      t.boolean    :is_primary
+      t.boolean    :is_billing
+      t.timestamps
     end
   end
 
