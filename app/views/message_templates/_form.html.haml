@@ -20,12 +20,12 @@
       = form.text_field :subject, :class => "field"
   .clear
   
-  %label{:for => "message_template_textile", :class => "w100 inputselect mandatory"}
+  %label{:for => "message_template_text", :class => "w100 inputselect mandatory"}
     %span.wrapper
       %span.title
-        = _("Textile") 
+        = _("Text") 
       %span.example= _("Token aware, plain text or textile supported. Generates HTML and Text message when using textile")
-      = form.text_area :textile, :class => "field"
+      = form.text_area :text, :class => "field"
   .clear
   
   %label{:for => "message_template_html", :class => "w100 inputselect"}
