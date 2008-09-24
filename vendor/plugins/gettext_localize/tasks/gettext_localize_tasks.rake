@@ -3,7 +3,7 @@ namespace :gettext do
   desc "Update app pot/po files."
   task :updatepo => :environment do
     require 'gettext/utils' 
-    require 'rubycampus/haml_parser'
+    require 'haml_parser'
     # Tell ruby-gettext's ErbParser to parse .erb files as well
     # See also http://zargony.com/2007/07/29/using-ruby-gettext-with-edge-rails/
     GetText::ErbParser.init(:extnames => ['.rhtml', '.erb'])
@@ -23,7 +23,7 @@ namespace :gettext do
     desc "Update pot/po files of all plugins."
     task :updatepo => :environment do
       require 'gettext/utils'
-      require 'rubycampus/haml_parser'
+      require 'haml_parser'
       # Tell ruby-gettext's ErbParser to parse .erb files as well
       # See also http://zargony.com/2007/07/29/using-ruby-gettext-with-edge-rails/
       GetText::ErbParser.init(:extnames => ['.rhtml', '.erb'])
