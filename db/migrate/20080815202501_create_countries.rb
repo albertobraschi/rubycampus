@@ -38,19 +38,19 @@
 class CreateCountries < ActiveRecord::Migration
   def self.up
     create_table :countries do |t|
-      t.string     :name
+      t.string     :name, :null => false
       t.string     :iso_code
       t.string     :country_code
       t.string     :idd_prefix
       t.string     :ndd_prefix
       t.integer    :region_id 
-      t.boolean    :is_nationality,             :default => true
-      t.boolean    :is_country_of_birth,        :default => true
-      t.boolean    :is_citizenship,             :default => true 
-      t.boolean    :is_default,                 :default => false      
-      t.boolean    :is_reserved,                :default => true
-      t.boolean    :is_enabled,                 :default => true
-      t.integer    :position,                   :default => nil
+      t.boolean    :is_nationality, :default => true
+      t.boolean    :is_country_of_birth, :default => true
+      t.boolean    :is_citizenship, :default => true 
+      t.boolean    :is_default, :default => false      
+      t.boolean    :is_reserved, :default => true
+      t.boolean    :is_enabled, :default => true
+      t.integer    :position, :default => nil
       t.timestamps
     end
     # Using ISO
