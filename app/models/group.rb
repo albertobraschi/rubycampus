@@ -62,3 +62,23 @@ class Group < ActiveRecord::Base
   end
 
 end
+# == Schema Information
+# Schema version: 20080923205038
+#
+# Table name: rubycampus_groups
+#
+#  id              :integer(11)     not null, primary key
+#  domain_id       :integer(11)     default(1), not null
+#  name            :string(255)     not null
+#  title           :string(255)     not null
+#  description     :string(255)
+#  saved_search_id :integer(11)
+#  where_clause    :text
+#  select_tables   :text
+#  where_tables    :text
+#  group_type_id   :integer(11)     not null
+#  is_enabled      :boolean(1)      default(TRUE)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+

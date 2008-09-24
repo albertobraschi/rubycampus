@@ -213,8 +213,9 @@ end
   end              
 
 end
+
 # == Schema Information
-# Schema version: 20080915003954
+# Schema version: 20080923205038
 #
 # Table name: rubycampus_users
 #
@@ -224,19 +225,19 @@ end
 #  email                     :string(100)
 #  crypted_password          :string(40)
 #  salt                      :string(40)
-#  created_at                :datetime
-#  updated_at                :datetime
 #  remember_token            :string(40)
 #  remember_token_expires_at :datetime
 #  activation_code           :string(40)
-#  activated_at              :datetime
 #  password_reset_code       :string(40)
 #  enabled                   :boolean(1)      default(TRUE)
-#  updated_by                :integer(11)
 #  state                     :string(255)     default("passive")
-#  deleted_at                :datetime
 #  is_admin                  :boolean(1)
 #  time_zone                 :string(255)
 #  language                  :string(5)       default("en"), not null
+#  updated_by                :integer(11)
+#  activated_at              :datetime
+#  deleted_at                :datetime
+#  created_at                :datetime
+#  updated_at                :datetime
 #
 

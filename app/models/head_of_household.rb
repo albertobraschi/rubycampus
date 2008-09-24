@@ -45,8 +45,9 @@ class HeadOfHousehold < ActiveRecord::Base
   has_many :contacts     
     
 end
+
 # == Schema Information
-# Schema version: 20080915003954
+# Schema version: 20080923205038
 #
 # Table name: rubycampus_contacts
 #
@@ -100,11 +101,13 @@ end
 #  lock_version                      :integer(11)     default(0)
 #  date_of_birth                     :date
 #  government_identification_number  :binary
+#  time_zone                         :string(255)
+#  language                          :string(5)       default("en"), not null
 #  is_foreign                        :boolean(1)
 #  is_deceased                       :boolean(1)
-#  created_at                        :datetime
-#  updated_at                        :datetime
 #  last_modified_by_user_id          :integer(11)
 #  asset_id                          :integer(11)
+#  created_at                        :datetime
+#  updated_at                        :datetime
 #
 

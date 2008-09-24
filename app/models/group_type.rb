@@ -50,3 +50,14 @@ class GroupType < ActiveRecord::Base
     validates_presence_of :name
   # ends Validations
 end
+# == Schema Information
+# Schema version: 20080923205038
+#
+# Table name: rubycampus_group_types
+#
+#  id         :integer(11)     not null, primary key
+#  name       :string(255)     not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+

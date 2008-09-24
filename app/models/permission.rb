@@ -44,14 +44,15 @@ class Permission < ActiveRecord::Base
   belongs_to :role                
   
 end
+
 # == Schema Information
-# Schema version: 20080902230656
+# Schema version: 20080923205038
 #
 # Table name: rubycampus_permissions
 #
 #  id         :integer(11)     not null, primary key
-#  role_id    :integer(11)     not null
 #  user_id    :integer(11)     not null
+#  role_id    :integer(11)     not null
 #  updated_by :integer(11)
 #  created_at :datetime
 #  updated_at :datetime

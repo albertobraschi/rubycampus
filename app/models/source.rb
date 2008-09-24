@@ -63,13 +63,14 @@ class Source < ActiveRecord::Base
   [s.name, s.id] 
   end
 end
+
 # == Schema Information
-# Schema version: 20080915003954
+# Schema version: 20080923205038
 #
 # Table name: rubycampus_sources
 #
 #  id          :integer(11)     not null, primary key
-#  name        :string(255)
+#  name        :string(255)     not null
 #  position    :integer(11)
 #  is_default  :boolean(1)
 #  is_reserved :boolean(1)
