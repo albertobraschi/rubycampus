@@ -38,7 +38,7 @@
 class AddRubyCampusTable < ActiveRecord::Migration
   def self.up
     create_table :settings do |t|
-      t.integer    :domain_id,                             :default => 1, :null => false  # TODO Remove default      
+      t.integer    :domain_id, :default => 1, :null => false  # TODO Remove default      
       t.string     :var, :null => false
       t.text       :value, :null => true
       t.timestamps
