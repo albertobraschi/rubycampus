@@ -38,7 +38,7 @@
 class CreateStages < ActiveRecord::Migration
   def self.up
     create_table :stages do |t|
-      t.string     :name,                                          :null => false
+      t.string     :name, :null => false
       t.integer    :position
       t.boolean    :is_default, :default => false      
       t.boolean    :is_reserved, :default => false
