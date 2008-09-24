@@ -106,7 +106,7 @@ class ActivityTypesController < ApplicationController
 
     respond_to do |format|
       if @activity_type.update_attributes(params[:activity_type])
-        flash[:notice] = _("%s was successfully updated.") % _("ActivityType") 
+        flash[:notice] = _("%s was successfully updated.") % _("Activity Type") 
         format.html { redirect_to activity_types_url }
         # format.xml  { head :ok }
       else

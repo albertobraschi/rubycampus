@@ -106,7 +106,7 @@ class MobileProvidersController < ApplicationController
 
     respond_to do |format|
       if @mobile_provider.update_attributes(params[:mobile_provider])
-        flash[:notice] = _("%s was successfully updated.") % _("MobileProvider") 
+        flash[:notice] = _("%s was successfully updated.") % _("Mobile Provider") 
         format.html { redirect_to mobile_providers_url }
         # format.xml  { head :ok }
       else

@@ -106,7 +106,7 @@ class MaritalStatusesController < ApplicationController
 
     respond_to do |format|
       if @marital_status.update_attributes(params[:marital_status])
-        flash[:notice] = _("%s was successfully updated.") % _("MaritalStatus") 
+        flash[:notice] = _("%s was successfully updated.") % _("Marital Status") 
         format.html { redirect_to marital_statuses_url }
         # format.xml  { head :ok }
       else

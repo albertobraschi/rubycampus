@@ -106,7 +106,7 @@ class LocationTypesController < ApplicationController
 
     respond_to do |format|
       if @location_type.update_attributes(params[:location_type])
-        flash[:notice] = _("%s was successfully updated.") % _("LocationType") 
+        flash[:notice] = _("%s was successfully updated.") % _("Location Type") 
         format.html { redirect_to location_types_url }
         # format.xml  { head :ok }
       else

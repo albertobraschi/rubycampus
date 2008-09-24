@@ -106,7 +106,7 @@ class PhoneTypesController < ApplicationController
 
     respond_to do |format|
       if @phone_type.update_attributes(params[:phone_type])
-        flash[:notice] = _("%s was successfully updated.") % _("PhoneType") 
+        flash[:notice] = _("%s was successfully updated.") % _("Phone Type") 
         format.html { redirect_to phone_types_url }
         # format.xml  { head :ok }
       else

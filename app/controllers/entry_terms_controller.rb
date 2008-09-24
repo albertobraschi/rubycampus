@@ -106,7 +106,7 @@ class EntryTermsController < ApplicationController
 
     respond_to do |format|
       if @entry_term.update_attributes(params[:entry_term])
-        flash[:notice] = _("%s was successfully updated.") % _("EntryTerm") 
+        flash[:notice] = _("%s was successfully updated.") % _("Entry Term") 
         format.html { redirect_to entry_terms_url }
         # format.xml  { head :ok }
       else

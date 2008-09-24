@@ -106,7 +106,7 @@ class NameSuffixesController < ApplicationController
 
     respond_to do |format|
       if @name_suffix.update_attributes(params[:name_suffix])
-        flash[:notice] = _("%s was successfully updated.") % _("NameSuffix") 
+        flash[:notice] = _("%s was successfully updated.") % _("Name Suffix") 
         format.html { redirect_to name_suffixes_url }
         # format.xml  { head :ok }
       else

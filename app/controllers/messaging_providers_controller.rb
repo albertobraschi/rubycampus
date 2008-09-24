@@ -106,7 +106,7 @@ class MessagingProvidersController < ApplicationController
 
     respond_to do |format|
       if @messaging_provider.update_attributes(params[:messaging_provider])
-        flash[:notice] = _("%s was successfully updated.") % _("MessagingProvider") 
+        flash[:notice] = _("%s was successfully updated.") % _("Messaging Provider") 
         format.html { redirect_to messaging_providers_url }
         # format.xml  { head :ok }
       else
