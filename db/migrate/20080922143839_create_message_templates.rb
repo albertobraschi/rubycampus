@@ -42,10 +42,9 @@ class CreateMessageTemplates < ActiveRecord::Migration
       t.string     :name, :null => false
       t.string     :subject, :null => false
       t.text       :html
-      t.text       :textile, :null => false
+      t.text       :text, :null => false
       t.boolean    :is_enabled, :default => true
-      t.datetime   :created_at
-      t.datetime   :updated_at
+      t.timestamps
     end
     require 'active_record/fixtures'
     Fixtures.create_fixtures(RUBYCAMPUS_PATH_TO_DEFAULTS, File.basename("message_templates.yml", '.*'))
