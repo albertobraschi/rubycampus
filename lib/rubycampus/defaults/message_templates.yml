@@ -39,7 +39,7 @@
 rubycampus_message_templates_001: 
   name: Inquiry Thank You
   subject: Institute for RubyCampus Studies
-  textile: |
+  text: |
    Dear {contact.name_prefix}. {contact.first_name} {contact.last_name},
    
    Thank you for your interest in the Institute for RubyCampus Studies programs.
