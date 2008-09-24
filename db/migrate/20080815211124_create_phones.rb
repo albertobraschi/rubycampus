@@ -38,15 +38,14 @@
 class CreatePhones < ActiveRecord::Migration
   def self.up
     create_table :phones do |t|
-      t.integer     :contact_id
-      t.integer     :location_type_id
-      t.boolean     :is_primary
-      t.boolean     :is_billing
-      t.integer     :mobile_provider_id
+      t.integer    :contact_id
+      t.integer    :location_type_id
+      t.boolean    :is_primary
+      t.boolean    :is_billing
+      t.integer    :mobile_provider_id
       t.string     :phone
-      t.integer     :phone_type_id
-      t.datetime     :created_at
-      t.datetime     :updated_at
+      t.integer    :phone_type_id
+      t.timestamps
     end
   end
 
