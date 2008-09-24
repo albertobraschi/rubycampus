@@ -48,8 +48,7 @@ class CreateAddresses < ActiveRecord::Migration
       t.integer    :region_id
       t.string     :postal_code
       t.integer    :country_id
-      t.datetime   :created_at
-      t.datetime   :updated_at
+      t.timestamps
     end
   end
 
