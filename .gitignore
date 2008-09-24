@@ -18,6 +18,7 @@
 .DS_Store
 .svn
 sdk
+po
 # +----------------------------------------------------+
 # | Folder placeholders for locally generated system   |
 # | files are exempted from being tracked but we keep  |
