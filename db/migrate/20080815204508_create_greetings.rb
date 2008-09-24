@@ -38,10 +38,10 @@
 class CreateGreetings < ActiveRecord::Migration
   def self.up
     create_table :greetings do |t|
-      t.string :name
-      t.integer :position
-      t.boolean :is_default, :default => false      
-      t.boolean :is_enabled, :default => true
+      t.string     :name, :null => false
+      t.integer    :position
+      t.boolean    :is_default, :default => false      
+      t.boolean    :is_enabled, :default => true
       t.timestamps
     end 
     require 'active_record/fixtures'
