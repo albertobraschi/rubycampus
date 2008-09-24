@@ -39,6 +39,7 @@ class CreateGroupTypes < ActiveRecord::Migration
   def self.up
     create_table :group_types do |t|
       t.string     :name, :null => false
+      t.timestamps
     end
     require 'active_record/fixtures'
     Fixtures.create_fixtures(RUBYCAMPUS_PATH_TO_DEFAULTS, File.basename("group_types.yml", '.*'))
