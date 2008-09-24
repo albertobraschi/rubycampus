@@ -38,8 +38,8 @@
 class CreateRoles < ActiveRecord::Migration
   def self.up
     create_table :roles do |t|
-    t.string :name
-    t.integer :updated_by
+    t.string       :name
+    t.integer      :updated_by
     t.timestamps
     end   
   end
