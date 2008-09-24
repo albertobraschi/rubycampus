@@ -106,7 +106,7 @@ class EducationLevelsController < ApplicationController
 
     respond_to do |format|
       if @education_level.update_attributes(params[:education_level])
-        flash[:notice] = _("%s was successfully updated.") % _("EducationLevel") 
+        flash[:notice] = _("%s was successfully updated.") % _("Education Level") 
         format.html { redirect_to education_levels_url }
         # format.xml  { head :ok }
       else
