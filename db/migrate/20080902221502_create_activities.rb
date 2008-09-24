@@ -38,15 +38,15 @@
 class CreateActivities < ActiveRecord::Migration
   def self.up
     create_table :activities do |t|
-      t.integer    :contact_id
+      t.integer    :contact_id, :null => false
       t.integer    :activity_type_id
       t.integer    :status_id
-      t.integer    :priority_id
-      t.datetime   :starts_at
-      t.datetime   :ends_at      
+      t.integer    :priority_id   
       t.string     :subject
       t.text       :details
       t.string     :location
+      t.datetime   :starts_at
+      t.datetime   :ends_at
       t.timestamps
     end
   end
