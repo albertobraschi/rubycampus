@@ -6,8 +6,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: RubyCampus 0.1.0 (82e1dac)\n"
-"POT-Creation-Date: 2008-09-23 02:51+0900\n"
+"Project-Id-Version: RubyCampus 0.1.0 (e69b5d7)\n"
+"POT-Creation-Date: 2008-09-24 18:23+0900\n"
 "PO-Revision-Date: 2008-09-19 07:17+0900\n"
 "Last-Translator: KEVIN ALEMAN <KALEMAN@RUBYCAMPUS.ORG>\n"
 "Language-Team: Project <project@rubycampus.org>\n"
@@ -25,8 +25,9 @@ msgstr ""
 #: app/controllers/ethnicities_controller.rb:88
 #: app/controllers/genders_controller.rb:88
 #: app/controllers/greetings_controller.rb:88
+#: app/controllers/groups_controller.rb:88
 #: app/controllers/households_controller.rb:83
-#: app/controllers/individuals_controller.rb:82
+#: app/controllers/individuals_controller.rb:83
 #: app/controllers/location_types_controller.rb:88
 #: app/controllers/marital_statuses_controller.rb:88
 #: app/controllers/message_templates_controller.rb:88
@@ -57,8 +58,9 @@ msgstr ""
 #: app/controllers/ethnicities_controller.rb:109
 #: app/controllers/genders_controller.rb:109
 #: app/controllers/greetings_controller.rb:109
+#: app/controllers/groups_controller.rb:109
 #: app/controllers/households_controller.rb:104
-#: app/controllers/individuals_controller.rb:103
+#: app/controllers/individuals_controller.rb:104
 #: app/controllers/location_types_controller.rb:109
 #: app/controllers/marital_statuses_controller.rb:109
 #: app/controllers/message_templates_controller.rb:109
@@ -126,6 +128,11 @@ msgstr ""
 msgid "Greeting"
 msgstr ""
 
+#: app/controllers/groups_controller.rb:88
+#: app/controllers/groups_controller.rb:109
+msgid "Group"
+msgstr ""
+
 #: app/controllers/households_controller.rb:83
 #: app/controllers/households_controller.rb:104
 #: app/controllers/households_controller.rb:119 app/models/contact_type.rb:46
@@ -134,14 +141,14 @@ msgid "Household"
 msgstr ""
 
 #: app/controllers/households_controller.rb:119
-#: app/controllers/individuals_controller.rb:118
+#: app/controllers/individuals_controller.rb:119
 #: app/controllers/organizations_controller.rb:119
 msgid "%s was successfully destroyed."
 msgstr ""
 
-#: app/controllers/individuals_controller.rb:82
-#: app/controllers/individuals_controller.rb:103
-#: app/controllers/individuals_controller.rb:118 app/models/contact_type.rb:44
+#: app/controllers/individuals_controller.rb:83
+#: app/controllers/individuals_controller.rb:104
+#: app/controllers/individuals_controller.rb:119 app/models/contact_type.rb:44
 #: app/views/individuals/edit.html.haml:1
 #: app/views/individuals/new.html.haml:1
 msgid "Individual"
@@ -448,6 +455,14 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
+#: app/models/group_type.rb:44
+msgid "Include"
+msgstr ""
+
+#: app/models/group_type.rb:45
+msgid "Exclude"
+msgstr ""
+
 #: app/models/location_type.rb:44
 msgid "Home"
 msgstr ""
@@ -565,6 +580,7 @@ msgid "HTML"
 msgstr ""
 
 #: app/models/preferred_email_format.rb:46
+#: app/views/message_templates/_form.html.haml:26
 msgid "Text"
 msgstr ""
 
@@ -718,7 +734,8 @@ msgstr ""
 #: app/views/ethnicities/_form.html.haml:4
 #: app/views/ethnicities/index.html.haml:7 app/views/genders/_form.html.haml:4
 #: app/views/genders/index.html.haml:7 app/views/greetings/_form.html.haml:4
-#: app/views/greetings/index.html.haml:7
+#: app/views/greetings/index.html.haml:7 app/views/groups/_form.html.haml:7
+#: app/views/groups/index.html.haml:8
 #: app/views/location_types/_form.html.haml:4
 #: app/views/location_types/index.html.haml:7
 #: app/views/marital_statuses/_form.html.haml:4
@@ -787,7 +804,7 @@ msgstr ""
 #: app/views/ethnicities/index.html.haml:9
 #: app/views/genders/_form.html.haml:14 app/views/genders/index.html.haml:9
 #: app/views/greetings/_form.html.haml:14
-#: app/views/greetings/index.html.haml:9
+#: app/views/greetings/index.html.haml:9 app/views/groups/_form.html.haml:23
 #: app/views/location_types/_form.html.haml:19
 #: app/views/location_types/index.html.haml:11
 #: app/views/marital_statuses/_form.html.haml:14
@@ -816,7 +833,8 @@ msgstr ""
 #: app/views/education_levels/edit.html.haml:1
 #: app/views/entry_terms/edit.html.haml:1
 #: app/views/ethnicities/edit.html.haml:1 app/views/genders/edit.html.haml:1
-#: app/views/greetings/edit.html.haml:1 app/views/households/edit.html.haml:1
+#: app/views/greetings/edit.html.haml:1 app/views/groups/edit.html.haml:1
+#: app/views/households/edit.html.haml:1
 #: app/views/individuals/edit.html.haml:1
 #: app/views/location_types/edit.html.haml:1
 #: app/views/marital_statuses/edit.html.haml:1
@@ -838,7 +856,8 @@ msgstr ""
 #: app/views/education_levels/new.html.haml:1
 #: app/views/entry_terms/new.html.haml:1 app/views/ethnicities/new.html.haml:1
 #: app/views/genders/new.html.haml:1 app/views/greetings/new.html.haml:1
-#: app/views/households/new.html.haml:1 app/views/individuals/new.html.haml:1
+#: app/views/groups/new.html.haml:1 app/views/households/new.html.haml:1
+#: app/views/individuals/new.html.haml:1
 #: app/views/location_types/new.html.haml:1
 #: app/views/marital_statuses/new.html.haml:1
 #: app/views/message_templates/new.html.haml:1
@@ -901,7 +920,7 @@ msgid "End At"
 msgstr ""
 
 #: app/views/activities/show.html.haml:1
-#: app/views/announcements/show.html.haml:1
+#: app/views/announcements/show.html.haml:1 app/views/groups/show.html.haml:1
 #: app/views/households/show.html.haml:1
 #: app/views/individuals/show.html.haml:1
 #: app/views/message_templates/show.html.haml:1
@@ -923,6 +942,7 @@ msgid "Ends at"
 msgstr ""
 
 #: app/views/announcements/index.html.haml:21
+#: app/views/groups/index.html.haml:20
 #: app/views/message_templates/index.html.haml:15
 msgid "No entries found"
 msgstr ""
@@ -1151,10 +1171,63 @@ msgid "End date"
 msgstr ""
 
 #: app/views/entry_terms/_form.html.haml:24
+#: app/views/groups/_form.html.haml:15 app/views/groups/index.html.haml:10
 #: app/views/location_types/_form.html.haml:26
 #: app/views/location_types/index.html.haml:9
 #: app/views/programs/_form.html.haml:26 app/views/programs/index.html.haml:9
 msgid "Description"
+msgstr ""
+
+#: app/views/groups/_form.html.haml:3
+msgid "Domain"
+msgstr ""
+
+#: app/views/groups/_form.html.haml:11 app/views/groups/index.html.haml:9
+msgid "Title"
+msgstr ""
+
+#: app/views/groups/_form.html.haml:19
+msgid "Saved search"
+msgstr ""
+
+#: app/views/groups/_form.html.haml:27
+msgid "Where clause"
+msgstr ""
+
+#: app/views/groups/_form.html.haml:31
+msgid "Select tables"
+msgstr ""
+
+#: app/views/groups/_form.html.haml:35
+msgid "Where tables"
+msgstr ""
+
+#: app/views/groups/_form.html.haml:39
+msgid "Group type"
+msgstr ""
+
+#: app/views/groups/index.html.haml:11
+msgid "Saved Search"
+msgstr ""
+
+#: app/views/groups/index.html.haml:12
+msgid "Is Enabled"
+msgstr ""
+
+#: app/views/groups/index.html.haml:13
+msgid "Where Clause"
+msgstr ""
+
+#: app/views/groups/index.html.haml:14
+msgid "Select Tables"
+msgstr ""
+
+#: app/views/groups/index.html.haml:15
+msgid "Where Tables"
+msgstr ""
+
+#: app/views/groups/index.html.haml:16
+msgid "Group Type"
 msgstr ""
 
 #: app/views/households/_contact.html.haml:1
@@ -1344,10 +1417,6 @@ msgstr ""
 msgid "Token aware subject for email message"
 msgstr ""
 
-#: app/views/message_templates/_form.html.haml:26
-msgid "Textile"
-msgstr ""
-
 #: app/views/message_templates/_form.html.haml:27
 msgid ""
 "Token aware, plain text or textile supported. Generates HTML and Text "
@@ -1478,6 +1547,10 @@ msgstr ""
 
 #: app/views/sidebars/_global.html.haml:12
 msgid "Message Templates"
+msgstr ""
+
+#: app/views/sidebars/_global.html.haml:16
+msgid "Groups"
 msgstr ""
 
 #: app/views/user_accounts/edit.html.haml:6
