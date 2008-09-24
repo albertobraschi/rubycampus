@@ -38,17 +38,16 @@
 class CreateEmails < ActiveRecord::Migration
   def self.up
     create_table :emails do |t|
-      t.integer     :contact_id
-      t.integer     :location_type_id
+      t.integer    :contact_id
+      t.integer    :location_type_id
       t.string     :address
-      t.boolean     :is_primary
-      t.boolean     :is_billing
-      t.boolean     :is_on_hold
-      t.boolean     :is_bulk_mail
-      t.datetime     :hold_date
-      t.datetime     :reset_date
-      t.datetime     :created_at
-      t.datetime     :updated_at
+      t.boolean    :is_primary
+      t.boolean    :is_billing
+      t.boolean    :is_on_hold
+      t.boolean    :is_bulk_mail
+      t.datetime   :hold_date
+      t.datetime   :reset_date
+      t.timestamps
     end
   end
 
