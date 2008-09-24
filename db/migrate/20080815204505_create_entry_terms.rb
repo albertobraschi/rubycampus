@@ -38,15 +38,15 @@
 class CreateEntryTerms < ActiveRecord::Migration
   def self.up
     create_table :entry_terms do |t|
-      t.string :name, :null => false
-      t.string :code
-      t.date :start_date, :null => false
-      t.date :end_date, :null => false
-      t.string :description
-      t.integer :position    
-      t.boolean :is_default, :default => false      
-      t.boolean :is_reserved, :default => false
-      t.boolean :is_enabled, :default => true
+      t.string     :name, :null => false
+      t.string     :code
+      t.date       :start_date, :null => false
+      t.date       :end_date, :null => false
+      t.string     :description
+      t.integer    :position    
+      t.boolean    :is_default, :default => false      
+      t.boolean    :is_reserved, :default => false
+      t.boolean    :is_enabled, :default => true
       t.timestamps
     end 
     require 'active_record/fixtures'
