@@ -1,41 +1,44 @@
-%label{:for => "group_domain_id", :class => "w25 inputselect"}
-  %span.wrapper
-    %span.title= _("Domain") 
-    = form.text_field :domain_id, :class => "field"
-%label{:for => "group_name", :class => "w25 inputselect"}
+%label{:for => "group_name", :class => "w75 inputselect mandatory"}
   %span.wrapper
     %span.title= _("Name") 
     = form.text_field :name, :class => "field"
-%label{:for => "group_title", :class => "w25 inputselect"}
+%label{:for => "group_group_type_id", :class => "w25 inputselect mandatory"}
   %span.wrapper
-    %span.title= _("Title") 
-    = form.text_field :title, :class => "field"
-%label{:for => "group_description", :class => "w25 inputselect"}
+    %span.title= _("Group Type")
+    = form.select(:group_type_id, GroupType::NAMES_KEYS, :class => "field")
+.clear
+
+%label{:for => "group_description", :class => "w75 inputselect mandatory"}
   %span.wrapper
     %span.title= _("Description") 
     = form.text_field :description, :class => "field"
-%label{:for => "group_saved_search_id", :class => "w25 inputselect"}
-  %span.wrapper
-    %span.title= _("Saved search") 
-    = form.text_field :saved_search_id, :class => "field"
-%label{:for => "group_is_enabled", :class => "w25 inputselect"}
-  %span.wrapper
-    %span.title= _("Is enabled") 
-    = form.check_box :is_enabled, :class => "field"
-%label{:for => "group_where_clause", :class => "w25 inputselect"}
-  %span.wrapper
-    %span.title= _("Where clause") 
-    = form.text_area :where_clause, :class => "field"
-%label{:for => "group_select_tables", :class => "w25 inputselect"}
-  %span.wrapper
-    %span.title= _("Select tables") 
-    = form.text_area :select_tables, :class => "field"
-%label{:for => "group_where_tables", :class => "w25 inputselect"}
-  %span.wrapper
-    %span.title= _("Where tables") 
-    = form.text_area :where_tables, :class => "field"
-%label{:for => "group_group_type_id", :class => "w25 inputselect"}
-  %span.wrapper
-    %span.title= _("Group type") 
-    = form.text_field :group_type_id, :class => "field"
-.clear
+.clear  
+/ %label{:for => "group_domain_id", :class => "w25 inputselect"}
+/   %span.wrapper
+/     %span.title= _("Domain") 
+/     = form.text_field :domain_id, :class => "field"      
+/ %label{:for => "group_title", :class => "w25 inputselect"}
+/   %span.wrapper
+/     %span.title= _("Title") 
+/     = form.text_field :title, :class => "field"  
+/ %label{:for => "group_saved_search_id", :class => "w25 inputselect"}
+/   %span.wrapper
+/     %span.title= _("Saved search") 
+/     = form.text_field :saved_search_id, :class => "field"
+/ %label{:for => "group_is_enabled", :class => "w25 inputselect"}
+/   %span.wrapper
+/     %span.title= _("Is enabled") 
+/     = form.check_box :is_enabled, :class => "field"
+/ %label{:for => "group_where_clause", :class => "w25 inputselect"}
+/   %span.wrapper
+/     %span.title= _("Where clause") 
+/     = form.text_area :where_clause, :class => "field"
+/ %label{:for => "group_select_tables", :class => "w25 inputselect"}
+/   %span.wrapper
+/     %span.title= _("Select tables") 
+/     = form.text_area :select_tables, :class => "field"
+/ %label{:for => "group_where_tables", :class => "w25 inputselect"}
+/   %span.wrapper
+/     %span.title= _("Where tables") 
+/     = form.text_area :where_tables, :class => "field"               
+
