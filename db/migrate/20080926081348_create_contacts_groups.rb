@@ -38,8 +38,8 @@
 class CreateContactsGroups < ActiveRecord::Migration
   def self.up
     create_table :contacts_groups, :id => false do |t|
-      t.integer    :contact_id
-      t.integer    :group_id
+      t.integer    :contact_id, :null => false
+      t.integer    :group_id, :null => false
     end
     add_index :contacts_groups, [:contact_id]
     add_index :contacts_groups, [:group_id]
