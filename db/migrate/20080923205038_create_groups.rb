@@ -40,7 +40,7 @@ class CreateGroups < ActiveRecord::Migration
     create_table :groups do |t|
       t.integer    :domain_id, :default => 1, :null => false  # TODO Remove default
       t.string     :name, :null => false
-      t.string     :title, :null => false
+      t.string     :title
       t.string     :description
       t.integer    :saved_search_id
       t.text       :where_clause
