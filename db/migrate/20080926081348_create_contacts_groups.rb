@@ -40,7 +40,6 @@ class CreateContactsGroups < ActiveRecord::Migration
     create_table :contacts_groups, :id => false do |t|
       t.integer    :contact_id
       t.integer    :group_id
-      t.string     :status_id
     end
     add_index :contacts_groups, [:contact_id]
     add_index :contacts_groups, [:group_id]
