@@ -37,6 +37,5 @@
  
 Inflector.inflections do |inflect|
   inflect.irregular 'premium', 'premiums'
-  inflect.singular 'address', 'address'  # Corrects #classify singularizes as addres
 end
 

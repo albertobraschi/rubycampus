@@ -49,10 +49,10 @@ class OrganizationsController < ApplicationController
   # GET rubycampus.local/organizations/1.xml
   def show #:nodoc:
     @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
-                                          :address => Address.find(params[:id]),
-                                          :email => Email.find(params[:id]),
-                                          :messenger => Messenger.find(params[:id]),
-                                          :phone => Phone.find(params[:id]))
+                                             :address => Address.find(params[:id]),
+                                             :email => Email.find(params[:id]),
+                                             :messenger => Messenger.find(params[:id]),
+                                             :phone => Phone.find(params[:id]))
     @form_id = "edit_organization_"+params[:id]
     respond_to do |format|
       format.html # show.html.haml
@@ -67,10 +67,10 @@ class OrganizationsController < ApplicationController
   # GET rubycampus.local/organizations/1/edit 
   def edit #:nodoc:
     @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
-                                          :address => Address.find(params[:id]),
-                                          :email => Email.find(params[:id]),
-                                          :messenger => Messenger.find(params[:id]),
-                                          :phone => Phone.find(params[:id])) 
+                                             :address => Address.find(params[:id]),
+                                             :email => Email.find(params[:id]),
+                                             :messenger => Messenger.find(params[:id]),
+                                             :phone => Phone.find(params[:id])) 
   end
   
   # POST rubycampus.local/organizations
@@ -78,6 +78,13 @@ class OrganizationsController < ApplicationController
   def create #:nodoc:                                    
     @presenter = OrganizationPresenter.new(params[:presenter])
     @presenter.contact_contact_type_id = ContactType::ORGANIZATION.id
+    
+    # TODO There is no nil method available for params to use ||= operator
+    begin     
+    @presenter.contact_group_ids = params[:contact_groups][:group_ids]    
+    rescue
+    @presenter.contact_group_ids = []
+    end
 
     if @presenter.save 
       flash[:notice] = _("%s was successfully created.") % _("Organization")
@@ -95,10 +102,17 @@ class OrganizationsController < ApplicationController
   # PUT rubycampus.local/organizations/1.xml
   def update #:nodoc:
     @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
-                                          :address => Address.find(params[:id]),
-                                          :email => Email.find(params[:id]),
-                                          :messenger => Messenger.find(params[:id]),
-                                          :phone => Phone.find(params[:id]))
+                                             :address => Address.find(params[:id]),
+                                             :email => Email.find(params[:id]),
+                                             :messenger => Messenger.find(params[:id]),
+                                             :phone => Phone.find(params[:id]))
+                                          
+    # TODO There is no nil method available for params to use ||= operator
+    begin     
+    @presenter.contact_group_ids = params[:contact_groups][:group_ids]    
+    rescue
+    @presenter.contact_group_ids = []
+    end     
                                            
     if @presenter.update_attributes(params[:presenter]) 
       flash[:notice] = _("%s was successfully updated.") % _("Organization")
@@ -111,7 +125,6 @@ class OrganizationsController < ApplicationController
   # DELETE rubycampus.local/organizations/1
   # DELETE rubycampus.local/organizations/1.xml
   def destroy #:nodoc:
-   #@presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]))
     @presenter = Contact.find(params[:id])
     @presenter.destroy
 
@@ -125,10 +138,10 @@ class OrganizationsController < ApplicationController
   # Generates PDF Extract 
   def extract #:nodoc:
     @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
-                                          :address => Address.find(params[:id]),
-                                          :email => Email.find(params[:id]),
-                                          :messenger => Messenger.find(params[:id]),
-                                          :phone => Phone.find(params[:id]))
+                                             :address => Address.find(params[:id]),
+                                             :email => Email.find(params[:id]),
+                                             :messenger => Messenger.find(params[:id]),
+                                             :phone => Phone.find(params[:id]))
     # TODO Generate PDF based on form
     prawnto :inline => true
   end

@@ -49,11 +49,11 @@ class IndividualsController < ApplicationController
   # GET rubycampus.local/individuals/1.xml
   def show #:nodoc:
     @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
-                                          :address => Address.find(params[:id]),
-                                          :email => Email.find(params[:id]),
-                                          :messenger => Messenger.find(params[:id]),
-                                          :phone => Phone.find(params[:id]))
-    @form_id = "edit_individual_"+params[:id]
+                                           :address => Address.find(params[:id]),
+                                           :email => Email.find(params[:id]),
+                                           :messenger => Messenger.find(params[:id]),
+                                           :phone => Phone.find(params[:id]))    
+    @form_id = "edit_individual_"+params[:id]   
     respond_to do |format|
       format.html # show.html.haml
       format.xml  { render :xml => @presenter.contact } 
@@ -67,10 +67,10 @@ class IndividualsController < ApplicationController
   # GET rubycampus.local/individuals/1/edit
   def edit #:nodoc:
     @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
-                                          :address => Address.find(params[:id]),
-                                          :email => Email.find(params[:id]),
-                                          :messenger => Messenger.find(params[:id]),
-                                          :phone => Phone.find(params[:id])) 
+                                           :address => Address.find(params[:id]),
+                                           :email => Email.find(params[:id]),
+                                           :messenger => Messenger.find(params[:id]),
+                                           :phone => Phone.find(params[:id])) 
   end
   
   # POST rubycampus.local/individuals
@@ -78,7 +78,14 @@ class IndividualsController < ApplicationController
   def create #:nodoc:                                    
     @presenter = IndividualPresenter.new(params[:presenter])
     @presenter.contact_contact_type_id = ContactType::INDIVIDUAL.id
-
+    
+    # TODO There is no nil method available for params to use ||= operator
+    begin     
+    @presenter.contact_group_ids = params[:contact_groups][:group_ids]    
+    rescue
+    @presenter.contact_group_ids = []
+    end
+    
     if @presenter.save 
       flash[:notice] = _("%s was successfully created.") % _("Individual")
       if params[:create_and_new_button]
@@ -95,11 +102,18 @@ class IndividualsController < ApplicationController
   # PUT rubycampus.local/individuals/1.xml
   def update #:nodoc:
     @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
-                                          :address => Address.find(params[:id]),
-                                          :email => Email.find(params[:id]),
-                                          :messenger => Messenger.find(params[:id]),
-                                          :phone => Phone.find(params[:id]))
-                                           
+                                           :address => Address.find(params[:id]),
+                                           :email => Email.find(params[:id]),
+                                           :messenger => Messenger.find(params[:id]),
+                                           :phone => Phone.find(params[:id]))
+    
+    # TODO There is no nil method available for params to use ||= operator
+    begin     
+    @presenter.contact_group_ids = params[:contact_groups][:group_ids]    
+    rescue
+    @presenter.contact_group_ids = []
+    end
+                                  
     if @presenter.update_attributes(params[:presenter]) 
       flash[:notice] = _("%s was successfully updated.") % _("Individual")
       redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL.id ) 
@@ -111,7 +125,6 @@ class IndividualsController < ApplicationController
   # DELETE rubycampus.local/individuals/1
   # DELETE rubycampus.local/individuals/1.xml
   def destroy #:nodoc:
-   #@presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]))
     @presenter = Contact.find(params[:id])
     @presenter.destroy
 
@@ -125,10 +138,10 @@ class IndividualsController < ApplicationController
   # Generates PDF Extract 
   def extract #:nodoc:
     @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
-                                          :address => Address.find(params[:id]),
-                                          :email => Email.find(params[:id]),
-                                          :messenger => Messenger.find(params[:id]),
-                                          :phone => Phone.find(params[:id]))    
+                                           :address => Address.find(params[:id]),
+                                           :email => Email.find(params[:id]),
+                                           :messenger => Messenger.find(params[:id]),
+                                           :phone => Phone.find(params[:id]))    
     # TODO Generate PDF based on form
     prawnto :inline => true
   end
