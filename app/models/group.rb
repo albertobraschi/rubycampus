@@ -48,7 +48,7 @@ class Group < ActiveRecord::Base
   
   # begin Validations
     validates_presence_of :name 
-    validates_presence_of :title 
+    validates_presence_of :description 
     validates_presence_of :group_type_id
   # ends Validations
   
