@@ -49,6 +49,10 @@ class GroupType < ActiveRecord::Base
   # begin Validations
     validates_presence_of :name
   # ends Validations
+  
+  NAMES_KEYS = self.find(:all).map do |s|
+  [s.name, s.id]
+  end
 end
 # == Schema Information
 # Schema version: 20080923205038
