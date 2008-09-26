@@ -111,7 +111,6 @@ class HouseholdsController < ApplicationController
   # DELETE rubycampus.local/households/1
   # DELETE rubycampus.local/households/1.xml
   def destroy #:nodoc:
-   #@presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]))
     @presenter = Contact.find(params[:id])
     @presenter.destroy
 
