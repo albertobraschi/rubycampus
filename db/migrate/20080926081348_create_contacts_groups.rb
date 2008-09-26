@@ -35,19 +35,20 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class CreateGroupsContacts < ActiveRecord::Migration
+class CreateContactsGroups < ActiveRecord::Migration
   def self.up
-    create_table :groups_contacts do |t|
-      t.integer    :group_id
+    create_table :contacts_groups, :id => false do |t|
       t.integer    :contact_id
+      t.integer    :group_id
       t.integer    :email_id
       t.integer    :location_id
       t.string     :status_id
-      t.timestamps
     end
+    add_index :contacts_groups, [:contact_id]
+    add_index :contacts_groups, [:group_id]
   end
 
   def self.down
-    drop_table :groups_contacts
+    drop_table :contacts_groups
   end
 end
