@@ -54,7 +54,7 @@ module ApplicationHelper
   # By default, uses the current controller and action to render the url to the
   # corresponding RubyCampus wiki page.
   #
-  def link_to_help
+  def link_to_help(label="Help")
     wiki_page = "#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/"
     case controller.action_name.to_s
       when "index"
@@ -68,7 +68,22 @@ module ApplicationHelper
       else
         wiki_page << "#{controller.controller_name.titleize}"
       end
-    link_to _("Help"), "#{wiki_page}", :popup => true
+    link_to _(label), "#{wiki_page}", :popup => true
+  end 
+  
+  #
+  # Should be used in inline help on pages. By default, uses the current controller and action
+  # to render the url to the corresponding RubyCampus wiki page.
+  #
+  def link_to_learn_more
+    { :learn_more => link_to_help(_("Learn more...")) }
+  end
+  
+  #
+  # Should be called only by context_help from helpers
+  #
+  def content_tag_for_context_help(help_message)
+    content_tag :p, (_(help_message) % link_to_learn_more), :class => "quiet"
   end
 
   # Links to RubyCampus issue tracker and fill basic issue information
@@ -169,6 +184,6 @@ module ApplicationHelper
         out << content_tag(:li, token, :style => "list-style-type: none")                        
       end
       out << "</ul>"                  
-  end    
+  end
 
 end
