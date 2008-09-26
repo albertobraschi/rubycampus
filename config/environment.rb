@@ -60,15 +60,10 @@ Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate',     :version => '2.3.3',
                                          :lib => 'will_paginate',
                                          :source => 'http://gems.github.com'
-  config.gem 'graticule',                :version => '0.2.6',
-                                         :source => 'http://gems.github.com'
-  config.gem 'active_presenter'
+  config.gem 'graticule',                :version => '0.2.6'
+  config.gem 'active_presenter',         :version => '0.0.4'
   config.gem 'ezcrypto',                 :version => '0.7'
-  config.gem 'prawn',                    :version => '0.2.0',
-                                         :source => 'http://gems.github.com'
-# config.gem 'fatjam-acts_as_revisable', :version => '0.9.7',
-#                                        :lib => 'acts_as_revisable',
-#                                        :source => 'http://gems.github.com'
+  config.gem 'prawn',                    :version => '0.2.0'
 
   # RubyCampus presenters
   config.load_paths += %W( #{RAILS_ROOT}/app/presenters )
