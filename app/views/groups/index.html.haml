@@ -3,7 +3,7 @@
   = render :partial => "common/actions/for_form_index"
   %h2= yield(:title)
   %hr/
-  = context_help
+  = context_help(_("Groups help you organize contacts (e.g. these contacts are members of our 'Japanese Studies Program'). You can also create 'smart' groups whose membership is based on contact characteristics. %{learn_more}"))
   %table
     %tr      
       %th.small= _("Name")

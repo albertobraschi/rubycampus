@@ -3,7 +3,7 @@
   = render :partial => "common/actions/for_form_index"
   %h2= yield(:title)
   %hr/
-  = context_help
+  = context_help(_("Message templates enable you to create and maintain messages with layouts. They are helpful when sending similar emails to contacts on a recurring basis. %{learn_more}"))
   %table
     %tr      
       %th.small= _("Name")

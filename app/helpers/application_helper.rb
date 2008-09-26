@@ -58,15 +58,15 @@ module ApplicationHelper
     wiki_page = "#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/"
     case controller.action_name.to_s
       when "index"
-        wiki_page << "Managing_#{controller.controller_name.titleize}"
+        wiki_page << "Managing_#{controller.controller_name.titleize.gsub(" ","_")}"
       when "show"
-        wiki_page << "Viewing_An_Existing_#{controller.controller_name.singularize.titleize}"
+        wiki_page << "Viewing_An_Existing_#{controller.controller_name.singularize.titleize.gsub(" ","_")}"
       when "new"
-        wiki_page << "Creating_A_New_#{controller.controller_name.singularize.titleize}"
+        wiki_page << "Creating_A_New_#{controller.controller_name.singularize.titleize.gsub(" ","_")}"
       when "edit"
-        wiki_page << "Editing_An_Existing_#{controller.controller_name.singularize.titleize}"
+        wiki_page << "Editing_An_Existing_#{controller.controller_name.singularize.titleize.gsub(" ","_")}"
       else
-        wiki_page << "#{controller.controller_name.titleize}"
+        wiki_page << "#{controller.controller_name.titleize.gsub(" ","_")}"
       end
     link_to _(label), "#{wiki_page}", :popup => true
   end 
@@ -82,7 +82,7 @@ module ApplicationHelper
   #
   # Should be called only by context_help from helpers
   #
-  def content_tag_for_context_help(help_message)
+  def context_help(help_message)
     content_tag :p, (_(help_message) % link_to_learn_more), :class => "quiet"
   end
 

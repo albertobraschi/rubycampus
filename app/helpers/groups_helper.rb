@@ -35,10 +35,5 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-module GroupsHelper 
-
-  def context_help
-    content_tag_for_context_help N_("Groups help you organize contacts (e.g. these contacts are members of our 'Japanese Studies Program'). You can also create 'smart' groups whose membership is based on contact characteristics. %{learn_more}")
-  end
-  
+module GroupsHelper  
 end
