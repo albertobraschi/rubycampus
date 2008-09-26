@@ -1,11 +1,12 @@
 %tr[group]{:class => cycle("even","odd")}
   %td=h group.name
-  %td=h group.title
+  %td=h group.id
   %td=h group.description
-  %td=h group.saved_search_id
   %td=h group.is_enabled
-  %td=h group.where_clause
-  %td=h group.select_tables
-  %td=h group.where_tables
-  %td=h group.group_type_id
+  %td=h group.group_type.name
+  / %td=h group.title
+  / %td=h group.saved_search_id
+  / %td=h group.where_clause
+  / %td=h group.select_tables
+  / %td=h group.where_tables   
   %td= render :partial => "common/actions/for_row_index", :locals => { :local => group }
