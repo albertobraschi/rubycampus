@@ -40,7 +40,11 @@ class Group < ActiveRecord::Base
   require 'gettext/rails'
   untranslate_all
   
-  belongs_to :group_type 
+  # start Associations
+    belongs_to :group_type 
+    
+    has_and_belongs_to_many :contacts
+  # end Associations
   
   # begin Validations
     validates_presence_of :name 
