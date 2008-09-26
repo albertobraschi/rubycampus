@@ -6,15 +6,16 @@
   %table
     %tr      
       %th.small= _("Name")
-      %th.small= _("Title")
-      %th.small= _("Description")
-      %th.small= _("Saved Search")
+      %th.small= _("ID")
+      %th.small= _("Description")   
       %th.small= _("Is Enabled")
-      %th.small= _("Where Clause")
-      %th.small= _("Select Tables")
-      %th.small= _("Where Tables")
-      %th.small= _("Group Type")
+      %th.small= _("Group Type")   
       %th
+      / %th.small= _("Title")
+      / %th.small= _("Saved Search")
+      / %th.small= _("Where Clause")
+      / %th.small= _("Select Tables")
+      / %th.small= _("Where Tables")
     = render :partial => "group", :collection => @groups  
   = render :partial => "common/actions/for_form_index"
   = content_tag :div, _("No entries found"), :style => "text-align: center;" if @groups.empty?
