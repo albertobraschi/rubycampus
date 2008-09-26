@@ -1,9 +1,9 @@
+%hr/
 %h2= _("Groups")
 - for group in Group.find(:all)
   %label{:for => "contact_group", :class => "w15 radiocheck"}
     %span.wrapper
       %br/
       = check_box_tag "contact_groups[group_ids][]", group.id, @presenter.contact_groups.include?(group), :class => "select"
-      %span.title= _(group.name)
-.clear   
-%hr/ 
+      %span.title= _(group.name) 
+  .clear     
