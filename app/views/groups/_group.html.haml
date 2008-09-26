@@ -2,7 +2,7 @@
   %td=h group.name
   %td=h group.id
   %td=h group.description
-  %td=h group.is_enabled
+  %td=h group.is_enabled ? _('Yes') : _('No')
   %td=h group.group_type.name
   / %td=h group.title
   / %td=h group.saved_search_id
