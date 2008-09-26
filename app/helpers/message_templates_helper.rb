@@ -36,4 +36,9 @@
 #++
 
 module MessageTemplatesHelper
+  
+  def context_help
+    content_tag_for_context_help N_("Message templates enable you to create and maintain messages with layouts. They are helpful when sending similar emails to contacts on a recurring basis. %{learn_more}")
+  end
+  
 end
