@@ -61,7 +61,6 @@ Rails::Initializer.run do |config|
                                          :lib => 'will_paginate',
                                          :source => 'http://gems.github.com'
   config.gem 'graticule',                :version => '0.2.6'
-  config.gem 'active_presenter',         :version => '0.0.4'
   config.gem 'ezcrypto',                 :version => '0.7'
   config.gem 'prawn',                    :version => '0.2.0'
 
