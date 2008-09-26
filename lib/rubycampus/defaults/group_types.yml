@@ -37,7 +37,4 @@
 
 rubycampus_group_types_001:
   id: 1
-  name: Include
-rubycampus_group_types_002:
-  id: 2
-  name: Exclude
+  name: Mailing List
