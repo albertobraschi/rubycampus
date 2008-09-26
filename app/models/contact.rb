@@ -73,6 +73,8 @@ class Contact < ActiveRecord::Base
     has_many :messengers,   :dependent => :destroy
     has_many :phones,       :dependent => :destroy
     has_one  :asset,        :dependent => :destroy # Unimplemented  
+    
+    has_and_belongs_to_many :groups
   # end Associations 
   
   # TODO allow auto_complete of assignable users  
