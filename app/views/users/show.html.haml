@@ -3,7 +3,6 @@
     .buttons
       = link_to _('Change Password'), change_password_path
       = link_to _('Update Profile'), edit_user_path(current_user)
-      = link_to _('Announcements'), announcements_path if current_user_is_super_user_role
     %h2= h "#{@user.name} (#{@user.login})"     
   %hr/
   %h3= _("Joined on: %s") % (@user.created_at.to_s(:long))
