@@ -57,7 +57,7 @@ Rails::Initializer.run do |config|
                                          :lib => 'gettext/rails'
   config.gem 'haml',                     :version => '2.0.3',
                                          :lib => 'haml'
-  config.gem 'mislav-will_paginate',     :version => '2.3.3',
+  config.gem 'mislav-will_paginate',     :version => '2.3.4',
                                          :lib => 'will_paginate',
                                          :source => 'http://gems.github.com'
   config.gem 'graticule',                :version => '0.2.6'
