@@ -36,3 +36,4 @@ config/crypto.yml
 config/database.yml
 config/deploy.rb
 config/email.yml
+config/facebooker.yml
