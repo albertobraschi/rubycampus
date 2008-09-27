@@ -63,7 +63,8 @@ Rails::Initializer.run do |config|
   config.gem 'graticule',                :version => '0.2.6'
   config.gem 'ezcrypto',                 :version => '0.7'
   config.gem 'prawn',                    :version => '0.2.0'
-
+  config.gem 'facebooker',               :version => '0.9.5'
+  
   # RubyCampus presenters
   config.load_paths += %W( #{RAILS_ROOT}/app/presenters )
 
