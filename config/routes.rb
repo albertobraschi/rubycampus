@@ -40,6 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "sessions", :action => "destroy"
 
   # begin RubyCampus Administration
+  map.resources :administers 
   map.resources :announcements
   # end RubyCampus Administration
 
