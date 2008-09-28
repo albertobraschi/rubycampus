@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_language
-    session['lang'] = current_user.language if logged_in?
+    session[:lang] = current_user.language if logged_in?
   end
 
   def instantiate_controller_and_action_names
