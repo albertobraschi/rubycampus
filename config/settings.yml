@@ -47,7 +47,7 @@ site_name:
   default:  RubyCampus
 site_description:
   default:  Relationship Management and Alumni Development
-site_protocal:
+site_protocol:
   default:  https://
 site_domain:
   default:  demo.rubycampus.org

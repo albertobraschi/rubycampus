@@ -5,7 +5,13 @@
   = label_for_setting :setting => :site_title_default, :mandatory => true
   = label_for_setting :setting => :site_title_login,  :mandatory => true
   .clear
-  = label_for_setting :setting => :site_protocal, :width => "w50", :mandatory => true, :example => "http://"
+  %label{:for => "setting_site_protocol", :class => "w10 inputselect"}
+    %span.wrapper
+      %span.title
+        = _("Site Protocol")
+        %br/
+        %span.example= _("http or https")
+      = select_tag 'settings[site_protocol]', options_for_select(['http://', 'https://'], Setting.site_protocol)
   = label_for_setting :setting => :site_domain, :width => "w50", :mandatory => true, :example => "demo.rubycampus.org"
   .clear  
   %hr/
