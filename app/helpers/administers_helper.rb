@@ -35,42 +35,52 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-require "rubycampus/rubycampus"
+module AdministersHelper
 
-RubyCampus.defaults[:demo] = false
-RubyCampus.defaults[:site_name] = 'RubyCampus'
-RubyCampus.defaults[:site_protocal] = 'http://'                   # http:// or https://
-RubyCampus.defaults[:site_url] = 'rubycampus.local'               # Deployment url (eg. rubycampus.org, site.rubycampus.org)
-RubyCampus.defaults[:site_from_email] = 'admin@rubycampus.local'
-RubyCampus.defaults[:site_title_default] = 'Relationship Management and Fundraising'
-RubyCampus.defaults[:site_title_login] = 'Welcome to RubyCampus'
+  #
+  # Renders settings input and labels
+  #
+  # Accepts: label_for_setting :setting => :site_name,      <-- Required 
+  #                                        :example => _("The example"), 
+  #                                        :width => "w100", 
+  #                                        :input_type => :radiocheck,
+  #                                        :mandatory => true,
+  #
+  def label_for_setting(opts={})
+    setting = opts[:setting].to_s
+    example = opts[:example] || ''
+    width = opts[:width] || 'w100'
+    input_type = opts[:input_type] || 'inputselect'
+    mandatory = opts[:mandatory] ? 'mandatory' : ''
+    label = opts[:label] || opts[:setting].to_s
+    
+    case input_type.to_sym
+    when :inputselect || nil
+    (content_tag(:label, 
+                 (
+                 content_tag(:span,(content_tag(:span,_(label.humanize.titleize),:class => "title")) + (
+                 content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) + (
+                 text_field_tag "settings[#{setting}]", Setting.send(setting), :class => "field"), 
+                 :class => "wrapper")), :for => "setting_#{setting}", :class => "#{width} #{input_type} #{mandatory}"))             
+    when :radiocheck
+      # FIXME check_box_tag (#75)
+      (content_tag(:label, 
+                   (
+                   content_tag(:span,(content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) + "<br/>" +(
+                   check_box_tag "settings[#{setting}]", Setting.send(setting), nil, :class => "select") + (
+                   content_tag(:span,_(label.humanize.titleize),:class => "title")), :class => "wrapper")), 
+                   :for => "setting_#{setting}", :class => "#{width} #{input_type} #{mandatory}"))    
+    else
+      "Input Type doesn't exist"
+    end
+  end
+  
+  def administer_setting_tabs
+    tabs = [{:name => 'general', :partial => 'administers/settings/general', :label => _("General")},
+            {:name => 'settings', :partial => 'administers/settings/settings', :label => _("Settings")},
+            {:name => 'notifications', :partial => 'administers/settings/notifications', :label => _("Mail Notification")},
+            {:name => 'debug', :partial => 'administers/settings/debug', :label => _("Debug")}
+            ]
+  end
 
-# Used for syncing course management system users with RubyCampus
-# This feature currently is designed to work with Moodle
-# Database connection settings defined inside of config/database.yml
-RubyCampus.defaults[:cms_enabled] = false
-RubyCampus.defaults[:cms_table_prefix] = 'mdl_'
-RubyCampus.defaults[:cms_contact_table] = 'user'
-
-# Encrypts sensitive contact attributes stored within the database to meet and
-# exceed information storage and retrieval requirments mandated by various agencies
-# using U.S. Department of Homeland Security and National Security Agency approved
-# cryptography
-#
-# WARNING: Think very carefully about whether you really need this information
-#          encrypted. Please review your organizations policy regarding the
-#          need to cryptographically protect attributes WITHIN the database
-#          itself. This means YOUR DATABASE ADMINISTRATOR CANNOT READ ENCRYPTED
-#          attributes and you will not be able to search on those attributes.
-#
-# Visit https://rubycampus.org for more information
-RubyCampus.defaults[:encrypt_sensitive_attributes] = false
-
-# RubyCampus domain-wide look and feel
-RubyCampus.defaults[:domain_gui_calender_theme] = 'default'
-
-# RubyCampus domain-wide display formats
-CalendarDateSelect.format = :hyphen_ampm
-
-# Default is Google Maps API for http://rubycampus.local
-RubyCampus.defaults[:geocodable_service_api_key] = "ABQIAAAA_JjoUvqa134bquGy4vY15RRO4G5fyh1zZNzSCFmcvO7LZYRzsRT7v27fmOMDtR2bY8zj5aAhj8c8QQ"
+end
