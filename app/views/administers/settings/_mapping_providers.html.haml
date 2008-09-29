@@ -1,0 +1,6 @@
+- form_tag({:action => 'edit'}, :class => "hakozaki") do
+  %loud= context_help(_("RubyCampus includes support for Google's mapping services which allow your users to display contact addresses on a map and retrieves geographic positioning information. To enable this feature, obtain a 'key' for your site from that Google. %{learn_more}"))
+  = label_for_setting :setting => :geocodable_service_enabled, :input_type => :radiocheck, :width => "w25"
+  = label_for_setting :setting => :geocodable_service_api_key, :width => "w75" 
+  %hr/
+  = render :partial => "common/actions/for_form_button_save"            

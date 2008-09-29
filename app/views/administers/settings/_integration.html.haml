@@ -1,0 +1,25 @@
+- form_tag({:action => 'edit'}, :class => "hakozaki") do
+  %h2= _("%s Settings") % _("Facebook")
+  = context_help(_("RubyCampus has the ability to utilize the Facebook API to gather social information. %{learn_more}"))
+  = label_for_setting :setting => :facebook_enabled, :input_type => :radiocheck, :width => "w25"
+  = label_for_setting :setting => :facebook_api_key, :width => "w75"
+  .clear  
+  = label_for_setting :setting => :facebook_canvas_page_name, :width => "w50"
+  = label_for_setting :setting => :facebook_callback_url, :width => "w50"
+  .clear
+  %hr/   
+  %h2= _("%s Settings") % _("Moodle e-Learning Platform")
+  = context_help(_("RubyCampus has the ability to import users from this resource. %{learn_more}"))
+  = label_for_setting :setting => :moodle_enabled, :input_type => :radiocheck, :width => "w25"
+  = label_for_setting :setting => :moodle_table_prefix, :width => "w25"
+  = label_for_setting :setting => :moodle_contact_table, :width => "w25"
+  .clear 
+  %hr/
+  %h2= _("%s Settings") % _("Sakai CLE")
+  = context_help(_("RubyCampus has the ability to import users from this resource. %{learn_more}"))
+  = label_for_setting :setting => :sakai_enabled, :input_type => :radiocheck, :width => "w25"
+  = label_for_setting :setting => :sakai_table_prefix, :width => "w25"
+  = label_for_setting :setting => :sakai_contact_table, :width => "w25"
+  .clear
+  %hr/
+  = render :partial => "common/actions/for_form_button_save"
