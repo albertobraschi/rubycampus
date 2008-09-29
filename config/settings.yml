@@ -33,24 +33,28 @@
 # | technical reasons, the Appropriate Legal Notices must display the words "Powered   |
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
-#++ 
-
-# THIS FILE SHOULD NOT BE EDITED BY HAND!!!!
-
+#++
+#
+# This file should not be edited, it is only used as a placeholder for application
+# defaults. RubyCampus does not store YOUR settings in this file, those are stored
+# within the database itself. Modifying this file without understanding how it is
+# used by RubyCampus can have detrimental effects on your installation. Use the built-in
+# settings manager provided within RubyCampus.
+#
 demo:
   default:  0
 site_name:
-  default:  'RubyCampus'
+  default:  RubyCampus
 site_description:
-  default:  Relationship Management and Alumni Development  
+  default:  Relationship Management and Alumni Development
 site_protocal:
-  default:  'https://'
+  default:  https://
 site_domain:
-  default:  'demo.rubycampus.org'
+  default:  demo.rubycampus.org
 site_title_default:
-  default:  'Relationship Management and Alumni Development'
+  default:  Relationship Management and Alumni Development
 site_title_login:
-  default:  'Welcome to RubyCampus'
+  default:  Welcome to RubyCampus
 site_from_name:
   default: RubyCampus Project
 site_from_email_address:
@@ -58,25 +62,25 @@ site_from_email_address:
 site_from_email_domain:
   default:  rubycampus.org
 site_from_email_return_path:
-  default: project@rubycampus.org 
-site_street_address_line_1: 
+  default: project@rubycampus.org
+site_street_address_line_1:
   default:  Fukuoka Tower
 site_street_address_line_2:
   default:
 site_street_address_line_3:
   default:
-site_city: 
+site_city:
   default:  Fukuoka City
-site_postal_code: 
+site_postal_code:
   default:  814-0001
-site_country: 
+site_country:
   default:  Japan
-site_state_or_province: 
+site_state_or_province:
   default:  Fukuoka
-site_preferred_email_address: 
+site_preferred_email_address:
   default:  project@rubycampus.org
 site_preferred_phone:
-  default:    
+  default:
 share_site_information_with_rubycampus:
   default: 0
 # start Data Services
@@ -89,41 +93,41 @@ moodle_contact_table:
 sakai_enabled:
   default:  0
 sakai_table_prefix:
-  default:  ''
+  default:
 sakai_contact_table:
-  default:  ''
+  default:
 facebook_enabled:
   default: 0
 facebook_api_key:
-  default: ''
+  default:
 facebook_canvas_page_name:
-  default: ''
+  default:
 facebook_callback_url:
-  default: ''   
+  default:
 # end Data Services
 encrypt_sensitive_attributes:
   default:  0
 domain_gui_calender_theme:
-  default: 'default'
+  default: default
 # FIXME Not implemented
 geocodable_service_enabled:
   default: 0
 geocodable_service_api_key:
-  default:  "ABQIAAAA_JjoUvqa134bquGy4vY15RRO4G5fyh1zZNzSCFmcvO7LZYRzsRT7v27fmOMDtR2bY8zj5aAhj8c8QQ"
+  default:  ABQIAAAA_JjoUvqa134bquGy4vY15RRO4G5fyh1zZNzSCFmcvO7LZYRzsRT7v27fmOMDtR2bY8zj5aAhj8c8QQ
 calendar_date_select_format:
   default: hyphen_ampm
 # Mail
 email_server_enabled:
   default: 0
-email_server_smtp_address: 
+email_server_smtp_address:
   default: 127.0.0.1
-email_server_smtp_port: 
+email_server_smtp_port:
   default: 25
-email_server_smtp_domain: 
+email_server_smtp_domain:
   default: rubycampus.org
 email_server_smtp_user_name:
-  default: '' 
+  default:
 email_server_smtp_password:
-  default: ''
+  default:
 automatically_check_for_rubycampus_version_updates:
   default: 1
