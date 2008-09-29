@@ -63,16 +63,17 @@ module AdministersHelper
                  text_field_tag "settings[#{setting}]", Setting.send(setting), :class => "field"), 
                  :class => "wrapper")), :for => "setting_#{setting}", :class => "#{width} #{input_type} #{mandatory}"))             
     when :radiocheck
-      # FIXME check_box_tag (#75)
       (content_tag(:label, 
                    (
                    content_tag(:span,(content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) + "<br/>" +(
-                   check_box_tag "settings[#{setting}]", Setting.send(setting), nil, :class => "select") + (
+                   check_box_tag "settings[#{setting}]", 1, Setting.send(setting+"?") , :class => "select") + (
+                   hidden_field_tag "settings[#{setting}]", 0) + (
                    content_tag(:span,_(label.humanize.titleize),:class => "title")), :class => "wrapper")), 
                    :for => "setting_#{setting}", :class => "#{width} #{input_type} #{mandatory}"))    
     else
       "Input Type doesn't exist"
     end
+  # <%= check_box_tag 'settings[default_projects_public]', 1, Setting.default_projects_public? %><%= hidden_field_tag 'settings[default_projects_public]', 0 %></p>    
   end
   
   def administer_setting_tabs
