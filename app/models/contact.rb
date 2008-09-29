@@ -42,7 +42,7 @@ class Contact < ActiveRecord::Base
   untranslate_all
  
   # Encrypts sensitive information INSIDE database
-  if RubyCampus.encrypt_sensitive_attributes
+  if Setting.encrypt_sensitive_attributes?
     acts_as_secure :crypto_provider => MasterCryptoProvider
   end
   

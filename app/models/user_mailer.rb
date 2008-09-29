@@ -41,19 +41,19 @@ class UserMailer < ActionMailer::Base
     setup_email(user)
     @subject += _('Please activate your new account')
     
-    @body[:url] = "#{RubyCampus.site_protocal}#{RubyCampus.site_url}/activate/#{user.activation_code}"
+    @body[:url] = "#{Setting.site_protocal}#{Setting.site_url}/activate/#{user.activation_code}"
   end
 
   def activation(user)
     setup_email(user)
     @subject += _('Your account has been activated!')
-    @body[:url] = "#{RubyCampus.site_protocal}#{RubyCampus.site_url}/"
+    @body[:url] = "#{Setting.site_protocal}#{Setting.site_url}/"
   end
 
   def forgot_password(user)
     setup_email(user)
     @subject += _('You have requested to change your password')
-    @body[:url] = "#{RubyCampus.site_protocal}#{RubyCampus.site_url}/reset_password/#{user.password_reset_code}"
+    @body[:url] = "#{Setting.site_protocal}#{Setting.site_url}/reset_password/#{user.password_reset_code}"
   end
 
   def reset_password(user)
@@ -65,8 +65,8 @@ class UserMailer < ActionMailer::Base
   
   def setup_email(user)
     @recipients = "#{user.email}"
-    @from = RubyCampus.site_from_email
-    @subject = _("%s email setup") % RubyCampus.site_url
+    @from = Setting.site_from_email
+    @subject = _("%s email setup") % Setting.site_url
     @sent_on = Time.now
     @body[:user] = user         
   end              

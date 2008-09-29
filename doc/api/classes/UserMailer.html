@@ -42,7 +42,7 @@ ActionMailer::Base
 47:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activation</span>(<span class="ruby-identifier">user</span>)
 48:     <span class="ruby-identifier">setup_email</span>(<span class="ruby-identifier">user</span>)
 49:     <span class="ruby-ivar">@subject</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">_</span>(<span class="ruby-value str">'Your account has been activated!'</span>)
-50:     <span class="ruby-ivar">@body</span>[<span class="ruby-identifier">:url</span>] = <span class="ruby-node">&quot;#{RubyCampus.site_protocal}#{RubyCampus.site_url}/&quot;</span>
+50:     <span class="ruby-ivar">@body</span>[<span class="ruby-identifier">:url</span>] = <span class="ruby-node">&quot;#{Setting.site_protocal}#{Setting.site_url}/&quot;</span>
 51:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
@@ -60,7 +60,7 @@ ActionMailer::Base
 53:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">forgot_password</span>(<span class="ruby-identifier">user</span>)
 54:     <span class="ruby-identifier">setup_email</span>(<span class="ruby-identifier">user</span>)
 55:     <span class="ruby-ivar">@subject</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">_</span>(<span class="ruby-value str">'You have requested to change your password'</span>)
-56:     <span class="ruby-ivar">@body</span>[<span class="ruby-identifier">:url</span>] = <span class="ruby-node">&quot;#{RubyCampus.site_protocal}#{RubyCampus.site_url}/reset_password/#{user.password_reset_code}&quot;</span>
+56:     <span class="ruby-ivar">@body</span>[<span class="ruby-identifier">:url</span>] = <span class="ruby-node">&quot;#{Setting.site_protocal}#{Setting.site_url}/reset_password/#{user.password_reset_code}&quot;</span>
 57:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
@@ -96,7 +96,7 @@ ActionMailer::Base
 41:     <span class="ruby-identifier">setup_email</span>(<span class="ruby-identifier">user</span>)
 42:     <span class="ruby-ivar">@subject</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">_</span>(<span class="ruby-value str">'Please activate your new account'</span>)
 43:     
-44:     <span class="ruby-ivar">@body</span>[<span class="ruby-identifier">:url</span>] = <span class="ruby-node">&quot;#{RubyCampus.site_protocal}#{RubyCampus.site_url}/activate/#{user.activation_code}&quot;</span>
+44:     <span class="ruby-ivar">@body</span>[<span class="ruby-identifier">:url</span>] = <span class="ruby-node">&quot;#{Setting.site_protocal}#{Setting.site_url}/activate/#{user.activation_code}&quot;</span>
 45:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>

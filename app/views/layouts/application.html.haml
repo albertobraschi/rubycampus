@@ -2,7 +2,7 @@
 %html{ :lang => "en" }
   %head
     %title
-      = h(RubyCampus.site_name + " - " + (yield(:title) || RubyCampus.site_title_default))
+      = h(Setting.site_name + " - " + (yield(:title) || Setting.site_title_default))
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "content-type" }/
     %meta{ :name => "description", :content => Rubycampus::Info::name }/
     %meta{ :name => "keywords", :content => Rubycampus::Info::keywords }/
@@ -13,7 +13,7 @@
       <link rel="stylesheet" href="/stylesheets/rubycampus/ie.css" type="text/css" media="screen, projection">
       <![endif]
     = javascript_include_tag :defaults
-    = calendar_date_select_includes RubyCampus.domain_gui_calender_theme
+    = calendar_date_select_includes Setting.domain_gui_calender_theme
   %body{ :class => body_tag_classes.join(' ') }
     = render :partial => "layouts/announcement"
     %div{:class => "container%s" % (' showgrid' if SHOWGRID == true)}

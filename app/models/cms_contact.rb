@@ -41,7 +41,7 @@ class CmsContact < ActiveRecord::Base
   require 'gettext/rails'
   untranslate_all
  
-  self.table_name = "#{RubyCampus.cms_table_prefix}#{RubyCampus.cms_contact_table}"
+  self.table_name = "#{Setting.cms_table_prefix}#{Setting.cms_contact_table}"
   self.abstract_class = true
   self.establish_connection :course_management_system
 end

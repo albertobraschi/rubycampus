@@ -2,7 +2,7 @@
 %html{ :lang => "en" }
   %head
     %title
-      = RubyCampus.site_name + " - " + (yield(:title) || RubyCampus.site_title_default)
+      = Setting.site_name + " - " + (yield(:title) || Setting.site_title_default)
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "content-type" }/
     %meta{ :name => "description", :content => Rubycampus::Info::name }/
     %meta{ :name => "keywords", :content => Rubycampus::Info::keywords }/
