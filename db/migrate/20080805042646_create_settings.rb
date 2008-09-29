@@ -35,32 +35,17 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class AdministersController < ApplicationController
-
-  before_filter :login_required
-  before_filter :check_super_user_role
-    
-  def index
-    edit
-    render :action => :edit
-  end 
-  
-  def show
-    edit
-    render :action => :edit
-  end
-
-  def edit
-    if request.post? && params[:settings] && params[:settings].is_a?(Hash)
-      settings = (params[:settings] || {}).dup.symbolize_keys
-      settings.each do |name, value|
-        value.delete_if {|v| v.blank? } if value.is_a?(Array)
-        Setting[name] = value
-      end
-      flash[:notice] = _("%s successfully saved.") % _("Settings")
-      redirect_to :action => :edit, :tab => params[:tab]
-      return
+class CreateSettings < ActiveRecord::Migration
+  def self.up
+    create_table :settings do |t|
+      t.integer    :domain_id, :default => 1, :null => false  # TODO Remove default
+      t.string     :name, :null => false
+      t.text       :value, :null => true
+      t.timestamps
     end
   end
 
+  def self.down
+    drop_table :settings
+  end
 end
