@@ -61,7 +61,14 @@ module AdministersHelper
                  content_tag(:span,(content_tag(:span,_(label.humanize.titleize),:class => "title")) + (
                  content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) + (
                  text_field_tag "settings[#{setting}]", Setting.send(setting), :class => "field"), 
-                 :class => "wrapper")), :for => "setting_#{setting}", :class => "#{width} #{input_type} #{mandatory}"))             
+                 :class => "wrapper")), :for => "setting_#{setting}", :class => "#{width} #{input_type} #{mandatory}"))
+    when :inputselect_password
+    (content_tag(:label, 
+                (
+                content_tag(:span,(content_tag(:span,_(label.humanize.titleize),:class => "title")) + (
+                content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) + (
+                password_field_tag "settings[#{setting}]", Setting.send(setting), :class => "field"), 
+                :class => "wrapper")), :for => "setting_#{setting}", :class => "#{width} #{input_type} #{mandatory}"))             
     when :radiocheck
       (content_tag(:label, 
                    (

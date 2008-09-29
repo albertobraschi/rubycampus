@@ -81,21 +81,34 @@ site_preferred_email_address:
   default:  project@rubycampus.org
 site_preferred_phone:
   default:
-share_site_information_with_rubycampus:
-  default: 0
 # start Data Services
+# Moodle e-Learning Platform
 moodle_enabled:
   default:  0
 moodle_table_prefix:
   default:  'mdl_'
 moodle_contact_table:
   default:  'user'
+moodle_database_user:
+  default:
+moodle_database_password:
+  default:
+moodle_database_socket:
+  default:
+# Sakai CLE  
 sakai_enabled:
   default:  0
 sakai_table_prefix:
   default:
 sakai_contact_table:
   default:
+sakai_database_user:
+  default:
+sakai_database_password:
+  default:      
+sakai_database_socket:
+  default:    
+# Facebook API
 facebook_enabled:
   default: 0
 facebook_api_key:
@@ -116,7 +129,7 @@ geocodable_service_api_key:
   default:  ABQIAAAA_JjoUvqa134bquGy4vY15RRO4G5fyh1zZNzSCFmcvO7LZYRzsRT7v27fmOMDtR2bY8zj5aAhj8c8QQ
 calendar_date_select_format:
   default: hyphen_ampm
-# Mail
+# Outbound Mail
 email_server_enabled:
   default: 0
 email_server_smtp_address:
@@ -129,5 +142,8 @@ email_server_smtp_user_name:
   default:
 email_server_smtp_password:
   default:
+# RubyCampus Community
+share_site_information_with_rubycampus:
+  default: 0
 automatically_check_for_rubycampus_version_updates:
   default: 1

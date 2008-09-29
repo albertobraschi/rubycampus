@@ -5,6 +5,6 @@
   = label_for_setting :setting => :email_server_smtp_port
   = label_for_setting :setting => :email_server_smtp_domain
   = label_for_setting :setting => :email_server_smtp_user_name
-  = label_for_setting :setting => :email_server_smtp_password
+  = label_for_setting :setting => :email_server_smtp_password, :input_type => :inputselect_password 
   %hr/
   = render :partial => "common/actions/for_form_button_save" 
