@@ -80,8 +80,7 @@ module AdministersHelper
             {:name => 'domain', :partial => 'administers/settings/domain', :label => _("Domain")},
             {:name => 'mail', :partial => 'administers/settings/mail', :label => _("Mail")},
             {:name => 'integration', :partial => 'administers/settings/integration', :label => _("Integration")},
-            {:name => 'mapping_providers', :partial => 'administers/settings/mapping_providers', :label => _("Mapping Providers")},
-            {:name => 'debug', :partial => 'administers/settings/debug', :label => _("Debug")}
+            {:name => 'mapping_providers', :partial => 'administers/settings/mapping_providers', :label => _("Mapping Providers")}
             ]
   end
 
