@@ -33,34 +33,97 @@
 # | technical reasons, the Appropriate Legal Notices must display the words "Powered   |
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
-#++
+#++ 
+
+# THIS FILE SHOULD NOT BE EDITED BY HAND!!!!
 
 demo:
   default:  0
 site_name:
   default:  'RubyCampus'
+site_description:
+  default:  Relationship Management and Alumni Development  
 site_protocal:
   default:  'http://'
-site_url:
-  default:  'rubycampus.local'
-site_from_email:
-  default:  'admin@rubycampus.local'
+site_domain:
+  default:  'demo.rubycampus.org'
 site_title_default:
   default:  'Relationship Management and Alumni Development'
 site_title_login:
   default:  'Welcome to RubyCampus'
+site_from_name:
+  default: RubyCampus Project
+site_from_email_address:
+  default: project@rubycampus.org
+site_from_email_domain:
+  default:  rubycampus.org
+site_from_email_return_path:
+  default: project@rubycampus.org 
+site_street_address_line_1: 
+  default:  Fukuoka Tower
+site_street_address_line_2:
+  default:
+site_street_address_line_3:
+  default:
+site_city: 
+  default:  Fukuoka City
+site_postal_code: 
+  default:  814-0001
+site_country: 
+  default:  Japan
+site_state_or_province: 
+  default:  Fukuoka
+site_preferred_email_address: 
+  default:  project@rubycampus.org
+site_preferred_phone:
+  default:    
+share_site_information_with_rubycampus:
+  default: 0
+# start Data Services
 moodle_enabled:
   default:  0
 moodle_table_prefix:
   default:  'mdl_'
 moodle_contact_table:
   default:  'user'
+sakai_enabled:
+  default:  0
+sakai_table_prefix:
+  default:  ''
+sakai_contact_table:
+  default:  ''
+facebook_enabled:
+  default: 0
+facebook_api_key:
+  default: ''
+facebook_canvas_page_name:
+  default: ''
+facebook_callback_url:
+  default: ''   
+# end Data Services
 encrypt_sensitive_attributes:
   default:  0
 domain_gui_calender_theme:
   default: 'default'
-# TODO Not implemented
+# FIXME Not implemented
+geocodable_service_enabled:
+  default: 0
 geocodable_service_api_key:
   default:  "ABQIAAAA_JjoUvqa134bquGy4vY15RRO4G5fyh1zZNzSCFmcvO7LZYRzsRT7v27fmOMDtR2bY8zj5aAhj8c8QQ"
 calendar_date_select_format:
   default: hyphen_ampm
+# Mail
+email_server_enabled:
+  default: 0
+email_server_smtp_address: 
+  default: 127.0.0.1
+email_server_smtp_port: 
+  default: 25
+email_server_smtp_domain: 
+  default: rubycampus.org
+email_server_smtp_user_name:
+  default: '' 
+email_server_smtp_password:
+  default: ''
+automatically_check_for_rubycampus_version_updates:
+  default: 1

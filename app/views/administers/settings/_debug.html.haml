@@ -1,5 +1,4 @@
 - form_tag({:action => 'edit'}, :class => "hakozaki") do
-  = render :partial => "common/actions/for_form_button_save"  
-  = label_for_setting :setting => :demo, :input_type => :radiocheck, :width => "w25"
-  .clear
+  %h2= "This RubyCampus installation is running in %s" % (Setting.demo ? "production mode" : "demo mode") 
+  %hr/
   = render :partial => "common/actions/for_form_button_save"            

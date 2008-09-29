@@ -77,8 +77,10 @@ module AdministersHelper
   
   def administer_setting_tabs
     tabs = [{:name => 'general', :partial => 'administers/settings/general', :label => _("General")},
-            {:name => 'settings', :partial => 'administers/settings/settings', :label => _("Settings")},
-            {:name => 'notifications', :partial => 'administers/settings/notifications', :label => _("Mail Notification")},
+            {:name => 'domain', :partial => 'administers/settings/domain', :label => _("Domain")},
+            {:name => 'mail', :partial => 'administers/settings/mail', :label => _("Mail")},
+            {:name => 'integration', :partial => 'administers/settings/integration', :label => _("Integration")},
+            {:name => 'mapping_providers', :partial => 'administers/settings/mapping_providers', :label => _("Mapping Providers")},
             {:name => 'debug', :partial => 'administers/settings/debug', :label => _("Debug")}
             ]
   end
