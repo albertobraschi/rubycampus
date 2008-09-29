@@ -44,7 +44,7 @@ site_name:
 site_description:
   default:  Relationship Management and Alumni Development  
 site_protocal:
-  default:  'http://'
+  default:  'https://'
 site_domain:
   default:  'demo.rubycampus.org'
 site_title_default:
