@@ -33,26 +33,24 @@
 # | technical reasons, the Appropriate Legal Notices must display the words "Powered   |
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
-#++                                   
+#++
 
-# RubyCampus applies sophisticated cryptography to certain attributes stored within your 
-# database to help you meet and exceed governmental and organizational requirements on 
+# RubyCampus applies sophisticated cryptography to certain attributes stored within your
+# database to help you meet and exceed governmental and organizational requirements on
 # managing sensitive personal information electronically.
 
 # Please provide a master key (similar to a password) and salt which is a random pattern of
 # letters and numbers. You should not change this after it is set and this file should not
 # be accessible by unauthorized persons.
 
-development: 
-  master_key: YOUR_SECRET_MASTER_KEY 
-  salt: YOUR_SALT 
+development:
+  master_key: YOUR_SECRET_MASTER_KEY
+  salt: YOUR_SALT
 
-test: 
-  master_key: YOUR_SECRET_MASTER_KEY 
-  salt: YOUR_SALT 
+test:
+  master_key: YOUR_SECRET_MASTER_KEY
+  salt: YOUR_SALT
 
-production: 
-  master_key: YOUR_SECRET_MASTER_KEY 
-  salt: YOUR_SALT 
-
-
+production:
+  master_key: YOUR_SECRET_MASTER_KEY
+  salt: YOUR_SALT

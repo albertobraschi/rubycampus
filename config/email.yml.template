@@ -34,10 +34,10 @@
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
 #++
-
+#
 # RubyCampus Outbound Mail Settings
-# See https://rubycampus.org/ for documentation
-
+# See https://rubycampus.org/wiki/rubycampus for documentation
+#
 production:
   delivery_method: :smtp
   smtp_settings:
@@ -45,9 +45,9 @@ production:
     port: 25
     domain: rubycampus.org
     authentication: :login
-    user_name: 
-    password: 
-  
+    user_name:
+    password:
+
 development:
   delivery_method: :smtp
   smtp_settings:
@@ -55,5 +55,5 @@ development:
     port: 25
     domain: rubycampus.org
     authentication: :login
-    user_name: 
-    password: 
+    user_name:
+    password:

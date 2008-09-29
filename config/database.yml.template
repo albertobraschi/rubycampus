@@ -34,10 +34,10 @@
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
 #++
-
+#
 # RubyCampus Database Settings
-# See https://rubycampus.org/ for documentation
-
+# See https://rubycampus.org/wiki/rubycampus for documentation
+#
 development:
   adapter: mysql
   encoding: utf8
@@ -64,15 +64,3 @@ production:
   username: rubycampus
   password: 
 # socket: /tmp/mysql.sock
-
-# Experimental * OPTIONAL *
-# Designed to fetch users from a remote course management system
-# database and import them into RubyCampus as Individuals
-# Currently compatible only with the Moodle e-learning platform
-course_management_system:  
-  adapter: mysql
-  encoding: utf8
-  database: 
-  username: 
-  password:
-# socket: /tmp/mysql.sock    
