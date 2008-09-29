@@ -1,0 +1,18 @@
+- form_tag({:action => 'edit'}, :class => "hakozaki") do
+  = render :partial => "common/actions/for_form_button_save"  
+  = label_for_setting :setting => :site_name, :mandatory => true, :example => _("Name of this RubyCampus installation")      
+  = label_for_setting :setting => :site_protocal, :mandatory => true
+  = label_for_setting :setting => :site_url, :mandatory => true
+  = label_for_setting :setting => :site_from_email, :mandatory => true
+  = label_for_setting :setting => :site_title_default, :mandatory => true
+  = label_for_setting :setting => :site_title_login,  :mandatory => true
+  .clear
+  = label_for_setting :setting => :moodle_enabled, :input_type => :radiocheck, :width => "w25"
+  = label_for_setting :setting => :moodle_table_prefix, :width => "w25"
+  = label_for_setting :setting => :moodle_contact_table, :width => "w25"
+  .clear
+  =# label_for_setting :setting => :encrypt_sensitive_attributes
+  =# label_for_setting :setting => :domain_gui_calender_theme
+  = label_for_setting :setting => :geocodable_service_api_key
+  =# label_for_setting :setting => :calendar_date_select_format
+  = render :partial => "common/actions/for_form_button_save"            

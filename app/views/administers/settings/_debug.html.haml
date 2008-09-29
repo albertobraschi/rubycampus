@@ -1,0 +1,5 @@
+- form_tag({:action => 'edit'}, :class => "hakozaki") do
+  = render :partial => "common/actions/for_form_button_save"  
+  = label_for_setting :setting => :demo, :input_type => :radiocheck, :width => "w25"
+  .clear
+  = render :partial => "common/actions/for_form_button_save"            
