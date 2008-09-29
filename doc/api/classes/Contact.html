@@ -1,4 +1,4 @@
-  <div id="C00000079">
+  <div id="C00000081">
 <div class='banner'>
   <span class="file-title-prefix">Class</span><br />Contact<br/>
   In:
@@ -17,10 +17,10 @@ ActiveRecord::Base
 
   <div class="sectiontitle">Methods</div>
   <ul>
-  <li><a href="index.html?a=M000088&name=find_for_auto_complete_lookup" >find_for_auto_complete_lookup</a></li>
-  <li><a href="index.html?a=M000087&name=search_for_all_and_paginate" >search_for_all_and_paginate</a></li>
-  <li><a href="index.html?a=M000085&name=with_stages" >with_stages</a></li>
-  <li><a href="index.html?a=M000086&name=without_stages" >without_stages</a></li>
+  <li><a href="index.html?a=M000097&name=find_for_auto_complete_lookup" >find_for_auto_complete_lookup</a></li>
+  <li><a href="index.html?a=M000096&name=search_for_all_and_paginate" >search_for_all_and_paginate</a></li>
+  <li><a href="index.html?a=M000094&name=with_stages" >with_stages</a></li>
+  <li><a href="index.html?a=M000095&name=without_stages" >without_stages</a></li>
   </ul>
 
 
@@ -29,8 +29,8 @@ ActiveRecord::Base
 
 
 <div class="sectiontitle">Public Class methods</div>
-<div id="M000088" class="method">
-  <div id="M000088_title" class="title">
+<div id="M000097" class="method">
+  <div id="M000097_title" class="title">
     <b>find_for_auto_complete_lookup</b>(search)
   </div>
   <div class="description">
@@ -41,19 +41,19 @@ organization_name, household_name
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000088_source')" id="l_M000088_source">show source</a> ]</p>
-  <div id="M000088_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000097_source')" id="l_M000097_source">show source</a> ]</p>
+  <div id="M000097_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/contact.rb, line 151</span>
-151:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
-152:       <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'last_name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>])  
-153:     <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/contact.rb, line 153</span>
+153:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
+154:       <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'last_name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>])  
+155:     <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
 </div>
-<div id="M000087" class="method">
-  <div id="M000087_title" class="title">
+<div id="M000096" class="method">
+  <div id="M000096_title" class="title">
     <b>search_for_all_and_paginate</b>(search, page, contact_type, stage)
   </div>
   <div class="description">
@@ -62,23 +62,23 @@ Fetches scoped contacts with pagination
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000087_source')" id="l_M000087_source">show source</a> ]</p>
-  <div id="M000087_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000096_source')" id="l_M000096_source">show source</a> ]</p>
+  <div id="M000096_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/contact.rb, line 140</span>
-140:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search_for_all_and_paginate</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">page</span>, <span class="ruby-identifier">contact_type</span>, <span class="ruby-identifier">stage</span>)
-141:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">stage</span>  
-142:         <span class="ruby-identifier">with_stages</span>(<span class="ruby-identifier">contact_type</span>, <span class="ruby-identifier">stage</span>) { <span class="ruby-identifier">search</span>(<span class="ruby-identifier">search</span>).<span class="ruby-identifier">paginate</span>( <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>, <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">ROWS_PER_PAGE</span>, <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at ASC'</span> ) }
-143:       <span class="ruby-keyword kw">else</span>
-144:         <span class="ruby-identifier">without_stages</span>(<span class="ruby-identifier">contact_type</span>) { <span class="ruby-identifier">search</span>(<span class="ruby-identifier">search</span>).<span class="ruby-identifier">paginate</span>( <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>, <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">ROWS_PER_PAGE</span>, <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at ASC'</span> ) }
-145:       <span class="ruby-keyword kw">end</span>
-146:     <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/contact.rb, line 142</span>
+142:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search_for_all_and_paginate</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">page</span>, <span class="ruby-identifier">contact_type</span>, <span class="ruby-identifier">stage</span>)
+143:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">stage</span>  
+144:         <span class="ruby-identifier">with_stages</span>(<span class="ruby-identifier">contact_type</span>, <span class="ruby-identifier">stage</span>) { <span class="ruby-identifier">search</span>(<span class="ruby-identifier">search</span>).<span class="ruby-identifier">paginate</span>( <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>, <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">ROWS_PER_PAGE</span>, <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at ASC'</span> ) }
+145:       <span class="ruby-keyword kw">else</span>
+146:         <span class="ruby-identifier">without_stages</span>(<span class="ruby-identifier">contact_type</span>) { <span class="ruby-identifier">search</span>(<span class="ruby-identifier">search</span>).<span class="ruby-identifier">paginate</span>( <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>, <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">ROWS_PER_PAGE</span>, <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at ASC'</span> ) }
+147:       <span class="ruby-keyword kw">end</span>
+148:     <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
 </div>
-<div id="M000085" class="method">
-  <div id="M000085_title" class="title">
+<div id="M000094" class="method">
+  <div id="M000094_title" class="title">
     <b>with_stages</b>(contact_type, stage) {|| ...}
   </div>
   <div class="description">
@@ -87,36 +87,36 @@ begin Queries TODO DRY this up Required scope for segmenting contact_types
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000085_source')" id="l_M000085_source">show source</a> ]</p>
-  <div id="M000085_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000094_source')" id="l_M000094_source">show source</a> ]</p>
+  <div id="M000094_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/contact.rb, line 124</span>
-124:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">with_stages</span>(<span class="ruby-identifier">contact_type</span>, <span class="ruby-identifier">stage</span>)
-125:       <span class="ruby-identifier">contact_type</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;%&quot;</span>
-126:       <span class="ruby-identifier">stage</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;%&quot;</span>
-127:       <span class="ruby-identifier">with_scope</span>(<span class="ruby-identifier">:find</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;contact_type_id LIKE ? AND stage_id LIKE ?&quot;</span>, <span class="ruby-identifier">contact_type</span>, <span class="ruby-identifier">stage</span>] } ) <span class="ruby-keyword kw">do</span>
-128:         <span class="ruby-keyword kw">yield</span>
-129:       <span class="ruby-keyword kw">end</span> 
-130:     <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/contact.rb, line 126</span>
+126:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">with_stages</span>(<span class="ruby-identifier">contact_type</span>, <span class="ruby-identifier">stage</span>)
+127:       <span class="ruby-identifier">contact_type</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;%&quot;</span>
+128:       <span class="ruby-identifier">stage</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;%&quot;</span>
+129:       <span class="ruby-identifier">with_scope</span>(<span class="ruby-identifier">:find</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;contact_type_id LIKE ? AND stage_id LIKE ?&quot;</span>, <span class="ruby-identifier">contact_type</span>, <span class="ruby-identifier">stage</span>] } ) <span class="ruby-keyword kw">do</span>
+130:         <span class="ruby-keyword kw">yield</span>
+131:       <span class="ruby-keyword kw">end</span> 
+132:     <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
 </div>
-<div id="M000086" class="method">
-  <div id="M000086_title" class="title">
+<div id="M000095" class="method">
+  <div id="M000095_title" class="title">
     <b>without_stages</b>(contact_type) {|| ...}
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000086_source')" id="l_M000086_source">show source</a> ]</p>
-  <div id="M000086_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000095_source')" id="l_M000095_source">show source</a> ]</p>
+  <div id="M000095_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/contact.rb, line 132</span>
-132:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">without_stages</span>(<span class="ruby-identifier">contact_type</span>)
-133:       <span class="ruby-identifier">contact_type</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;%&quot;</span>
-134:       <span class="ruby-identifier">with_scope</span>(<span class="ruby-identifier">:find</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;contact_type_id LIKE ?&quot;</span>, <span class="ruby-identifier">contact_type</span>] } ) <span class="ruby-keyword kw">do</span>
-135:         <span class="ruby-keyword kw">yield</span>
-136:       <span class="ruby-keyword kw">end</span> 
-137:     <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/contact.rb, line 134</span>
+134:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">without_stages</span>(<span class="ruby-identifier">contact_type</span>)
+135:       <span class="ruby-identifier">contact_type</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;%&quot;</span>
+136:       <span class="ruby-identifier">with_scope</span>(<span class="ruby-identifier">:find</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;contact_type_id LIKE ?&quot;</span>, <span class="ruby-identifier">contact_type</span>] } ) <span class="ruby-keyword kw">do</span>
+137:         <span class="ruby-keyword kw">yield</span>
+138:       <span class="ruby-keyword kw">end</span> 
+139:     <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>

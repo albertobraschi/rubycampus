@@ -1,4 +1,4 @@
-  <div id="C00000101">
+  <div id="C00000104">
 <div class='banner'>
   <span class="file-title-prefix">Module</span><br />UsersHelper<br/>
   In:
@@ -15,10 +15,10 @@
 
   <div class="sectiontitle">Methods</div>
   <ul>
-  <li><a href="index.html?a=M000095&name=if_authorized?" >if_authorized?</a></li>
-  <li><a href="index.html?a=M000098&name=link_to_current_user" >link_to_current_user</a></li>
-  <li><a href="index.html?a=M000097&name=link_to_login_with_IP" >link_to_login_with_IP</a></li>
-  <li><a href="index.html?a=M000096&name=link_to_user" >link_to_user</a></li>
+  <li><a href="index.html?a=M000106&name=if_authorized?" >if_authorized?</a></li>
+  <li><a href="index.html?a=M000109&name=link_to_current_user" >link_to_current_user</a></li>
+  <li><a href="index.html?a=M000108&name=link_to_login_with_IP" >link_to_login_with_IP</a></li>
+  <li><a href="index.html?a=M000107&name=link_to_user" >link_to_user</a></li>
   </ul>
 
 
@@ -27,8 +27,8 @@
 
 
 <div class="sectiontitle">Public Instance methods</div>
-<div id="M000095" class="method">
-  <div id="M000095_title" class="title">
+<div id="M000106" class="method">
+  <div id="M000106_title" class="title">
     <b>if_authorized?</b>(action, resource) {|action, resource| ...}
   </div>
   <div class="description">
@@ -39,20 +39,20 @@ all access control at the controller level.
 </p>
 <p>
 Example: &lt;%= <a
-href="index.html?a=M000095&name=if_authorized?">if_authorized?</a>(:index,
-<a href="index.html?a=C00000072&name=User">User</a>) do link_to(&#8216;List
+href="index.html?a=M000106&name=if_authorized?">if_authorized?</a>(:index,
+<a href="index.html?a=C00000074&name=User">User</a>) do link_to(&#8216;List
 all users&#8217;, users_path) end %&gt; | &lt;%= <a
-href="index.html?a=M000095&name=if_authorized?">if_authorized?</a>(:edit,
+href="index.html?a=M000106&name=if_authorized?">if_authorized?</a>(:edit,
 @user) do link_to(&#8216;Edit this user&#8217;, edit_user_path) end %&gt; |
 &lt;%= <a
-href="index.html?a=M000095&name=if_authorized?">if_authorized?</a>(:destroy,
+href="index.html?a=M000106&name=if_authorized?">if_authorized?</a>(:destroy,
 @user) do link_to &#8216;Destroy&#8217;, @user, :confirm =&gt; &#8216;Are
 you sure?&#8217;, :method =&gt; :delete end %&gt;
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000095_source')" id="l_M000095_source">show source</a> ]</p>
-  <div id="M000095_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000106_source')" id="l_M000106_source">show source</a> ]</p>
+  <div id="M000106_source" class="dyn-source">
 <pre>
     <span class="ruby-comment cmt"># File app/helpers/users_helper.rb, line 51</span>
 51:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">if_authorized?</span>(<span class="ruby-identifier">action</span>, <span class="ruby-identifier">resource</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
@@ -64,21 +64,21 @@ you sure?&#8217;, :method =&gt; :delete end %&gt;
   </div>
 </div>
 </div>
-<div id="M000098" class="method">
-  <div id="M000098_title" class="title">
+<div id="M000109" class="method">
+  <div id="M000109_title" class="title">
     <b>link_to_current_user</b>(options={})
   </div>
   <div class="description">
   <p>
 Link to the current user&#8217;s page (using <a
-href="index.html?a=M000096&name=link_to_user">link_to_user</a>) or to the
+href="index.html?a=M000107&name=link_to_user">link_to_user</a>) or to the
 login page (using <a
-href="index.html?a=M000097&name=link_to_login_with_IP">link_to_login_with_IP</a>).
+href="index.html?a=M000108&name=link_to_login_with_IP">link_to_login_with_IP</a>).
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000098_source')" id="l_M000098_source">show source</a> ]</p>
-  <div id="M000098_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000109_source')" id="l_M000109_source">show source</a> ]</p>
+  <div id="M000109_source" class="dyn-source">
 <pre>
      <span class="ruby-comment cmt"># File app/helpers/users_helper.rb, line 119</span>
 119:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to_current_user</span>(<span class="ruby-identifier">options</span>={})
@@ -95,8 +95,8 @@ href="index.html?a=M000097&name=link_to_login_with_IP">link_to_login_with_IP</a>
   </div>
 </div>
 </div>
-<div id="M000097" class="method">
-  <div id="M000097_title" class="title">
+<div id="M000108" class="method">
+  <div id="M000108_title" class="title">
     <b>link_to_login_with_IP</b>(content_text=nil, options={})
   </div>
   <div class="description">
@@ -118,8 +118,8 @@ Examples:
 </pre>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000097_source')" id="l_M000097_source">show source</a> ]</p>
-  <div id="M000097_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000108_source')" id="l_M000108_source">show source</a> ]</p>
+  <div id="M000108_source" class="dyn-source">
 <pre>
      <span class="ruby-comment cmt"># File app/helpers/users_helper.rb, line 104</span>
 104:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to_login_with_IP</span> <span class="ruby-identifier">content_text</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">options</span>={}
@@ -136,8 +136,8 @@ Examples:
   </div>
 </div>
 </div>
-<div id="M000096" class="method">
-  <div id="M000096_title" class="title">
+<div id="M000107" class="method">
+  <div id="M000107_title" class="title">
     <b>link_to_user</b>(user, options={})
   </div>
   <div class="description">
@@ -184,8 +184,8 @@ Examples:
 </pre>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000096_source')" id="l_M000096_source">show source</a> ]</p>
-  <div id="M000096_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000107_source')" id="l_M000107_source">show source</a> ]</p>
+  <div id="M000107_source" class="dyn-source">
 <pre>
     <span class="ruby-comment cmt"># File app/helpers/users_helper.rb, line 83</span>
 83:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to_user</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">options</span>={})

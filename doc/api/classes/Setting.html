@@ -1,0 +1,164 @@
+  <div id="C00000025">
+<div class='banner'>
+  <span class="file-title-prefix">Class</span><br />Setting<br/>
+  In:
+<a href="#" onclick="jsHref('files/app/models/setting_rb.html');">app/models/setting.rb</a>
+
+Parent:&nbsp;
+ActiveRecord::Base
+</div>
+ <!-- banner header -->
+
+  <div id="bodyContent" >
+      <div id="content">
+
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="index.html?a=M000027&name=[]" >[]</a></li>
+  <li><a href="index.html?a=M000028&name=[]=" >[]=</a></li>
+  <li><a href="index.html?a=M000030&name=check_cache" >check_cache</a></li>
+  <li><a href="index.html?a=M000029&name=per_page_options_array" >per_page_options_array</a></li>
+  <li><a href="index.html?a=M000025&name=value" >value</a></li>
+  <li><a href="index.html?a=M000026&name=value=" >value=</a></li>
+  </ul>
+
+
+
+
+
+
+<div class="sectiontitle">Public Class methods</div>
+<div id="M000027" class="method">
+  <div id="M000027_title" class="title">
+    <b>[]</b>(name)
+  </div>
+  <div class="description">
+  <p>
+Returns the value of the setting named name
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000027_source')" id="l_M000027_source">show source</a> ]</p>
+  <div id="M000027_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/setting.rb, line 66</span>
+66:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-operator">[]</span>(<span class="ruby-identifier">name</span>)
+67:     <span class="ruby-identifier">v</span> = <span class="ruby-ivar">@cached_settings</span>[<span class="ruby-identifier">name</span>]
+68:     <span class="ruby-identifier">v</span> <span class="ruby-value">? </span><span class="ruby-identifier">v</span> <span class="ruby-operator">:</span> (<span class="ruby-ivar">@cached_settings</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">find_or_default</span>(<span class="ruby-identifier">name</span>).<span class="ruby-identifier">value</span>)
+69:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000028" class="method">
+  <div id="M000028_title" class="title">
+    <b>[]=</b>(name, v)
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show source</a> ]</p>
+  <div id="M000028_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/setting.rb, line 71</span>
+71:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-operator">[]=</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">v</span>)
+72:     <span class="ruby-identifier">setting</span> = <span class="ruby-identifier">find_or_default</span>(<span class="ruby-identifier">name</span>)
+73:     <span class="ruby-identifier">setting</span>.<span class="ruby-identifier">value</span> = (<span class="ruby-identifier">v</span> <span class="ruby-value">? </span><span class="ruby-identifier">v</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;&quot;</span>)
+74:     <span class="ruby-ivar">@cached_settings</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-keyword kw">nil</span>
+75:     <span class="ruby-identifier">setting</span>.<span class="ruby-identifier">save</span>
+76:     <span class="ruby-identifier">setting</span>.<span class="ruby-identifier">value</span>
+77:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000030" class="method">
+  <div id="M000030_title" class="title">
+    <b>check_cache</b>()
+  </div>
+  <div class="description">
+  <p>
+Checks if settings have changed since the values were read and clears the
+cache hash if it&#8217;s the case Called once per request
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show source</a> ]</p>
+  <div id="M000030_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/models/setting.rb, line 108</span>
+108:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">check_cache</span>
+109:     <span class="ruby-identifier">settings_updated_on</span> = <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">maximum</span>(<span class="ruby-identifier">:updated_on</span>)
+110:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">settings_updated_on</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@cached_cleared_on</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">settings_updated_on</span>
+111:       <span class="ruby-ivar">@cached_settings</span>.<span class="ruby-identifier">clear</span>
+112:       <span class="ruby-ivar">@cached_cleared_on</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+113:       <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-value str">&quot;Settings cache cleared.&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">logger</span>
+114:     <span class="ruby-keyword kw">end</span>
+115:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000029" class="method">
+  <div id="M000029_title" class="title">
+    <b>per_page_options_array</b>()
+  </div>
+  <div class="description">
+  <p>
+Helper that returns an array based on per_page_options setting
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000029_source')" id="l_M000029_source">show source</a> ]</p>
+  <div id="M000029_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/models/setting.rb, line 101</span>
+101:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">per_page_options_array</span>
+102:     <span class="ruby-identifier">per_page_options</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">%r{[\s,]}</span>).<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">:to_i</span>).<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>}.<span class="ruby-identifier">sort</span>
+103:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="sectiontitle">Public Instance methods</div>
+<div id="M000025" class="method">
+  <div id="M000025_title" class="title">
+    <b>value</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000025_source')" id="l_M000025_source">show source</a> ]</p>
+  <div id="M000025_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/setting.rb, line 52</span>
+52:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">value</span>
+53:     <span class="ruby-identifier">v</span> = <span class="ruby-identifier">read_attribute</span>(<span class="ruby-identifier">:value</span>)
+54:     <span class="ruby-comment cmt"># Unserialize serialized settings</span>
+55:     <span class="ruby-identifier">v</span> = <span class="ruby-constant">YAML</span><span class="ruby-operator">::</span><span class="ruby-identifier">load</span>(<span class="ruby-identifier">v</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@available_settings</span>[<span class="ruby-identifier">name</span>][<span class="ruby-value str">'serialized'</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+56:     <span class="ruby-identifier">v</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@available_settings</span>[<span class="ruby-identifier">name</span>][<span class="ruby-value str">'format'</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'symbol'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">v</span>.<span class="ruby-identifier">blank?</span>
+57:     <span class="ruby-identifier">v</span>
+58:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000026" class="method">
+  <div id="M000026_title" class="title">
+    <b>value=</b>(v)
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000026_source')" id="l_M000026_source">show source</a> ]</p>
+  <div id="M000026_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/setting.rb, line 60</span>
+60:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">value=</span>(<span class="ruby-identifier">v</span>)
+61:     <span class="ruby-identifier">v</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_yaml</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@@available_settings</span>[<span class="ruby-identifier">name</span>][<span class="ruby-value str">'serialized'</span>]
+62:     <span class="ruby-identifier">write_attribute</span>(<span class="ruby-identifier">:value</span>, <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_s</span>)
+63:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>
