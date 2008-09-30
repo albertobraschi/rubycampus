@@ -1,10 +1,10 @@
 !=https://rubycampus.org/r/wiki/splash.png!
 
-h1. Relationship Management & Alumni Development for Higher Education
+h1.  Student & Alumni Relationship Management Software
 
 h2. Overview
 
-"RubyCampus":https://rubycampus.org is a *relationship management system* for *admissions, strategic enrollment management and alumni development*. It is written in Ruby and is easy to install and use on *Linux, Windows, Mac OS X, SunOS* and *BSD*. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in increasing enrollment yields while promoting quality and greater campus diversity. It can also be used for student retention and alumni development. It is available in English, Japanese and Simplified Chinese, with more languages on the way. RubyCampus offers a free and fully transparent open source alternative to commercial software.
+"RubyCampus":https://rubycampus.org is a *relationship management system* for *admissions, strategic enrollment management* and *alumni development*. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in student recruitment, increasing enrollment yields while refining communications and improving overall campus diversity and student retention rates. It can also be used in conjunction with one or more e-Learning platforms such as *Moodle* and *Sakai* with built in synchronization features and tools. It is written in Ruby, "internationalized":https://rubycampus.org/wiki/rubycampus/Translations and is easy to install and use on *Linux, Windows, Mac OS X, SunOS* and *BSD*. Offering a free and fully transparent open source alternative to commercial software for student recruitment and alumni development.
 
 _A working demo of RubyCampus can be accessed at "demo.rubycampus.org":https://demo.rubycampus.org or you can view our "online presentation":https://rubycampus.org/wiki/rubycampus/Keynote ._
 
@@ -47,12 +47,6 @@ _Prior to running @rake@ tasks you must first complete the required configuratio
 * @ rake db:migrate @
 
 h2. Populating Contacts (optional)
-
-h3. Moodle e-Learning Platform Contacts
-
-RubyCampus can automatically import existing users from your *Moodle e-Learning platform* by running a specific task designed for that purpose. In order to connect to your Moodle database please ensure you entered the correct credentials into the *config/database.yml* file under the area labeled *course_management_system* . Then you can run the populate Moodle users task by running:
-
-* @ rake db:populate_moodle_users @
 
 h3. Generating Realistic Test Constituent Data
 

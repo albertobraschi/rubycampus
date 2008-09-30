@@ -1,6 +1,6 @@
 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
 # +------------------------------------------------------------------------------------+
-# | RubyCampus - Relationship Management & Alumni Development Software                 |
+# | RubyCampus - Student & Alumni Relationship Management Software                     |
 # +------------------------------------------------------------------------------------+
 # | Copyright (C) 2008 Kevin Aleman, RubyCampus LLC - https://rubycampus.org           |
 # +------------------------------------------------------------------------------------+
