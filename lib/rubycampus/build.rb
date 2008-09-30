@@ -38,7 +38,6 @@
 module Rubycampus
   module Build
     class << self
-
       def version
         return @@version if defined?(@@version)
 
@@ -69,7 +68,6 @@ module Rubycampus
 
         @@version
       end
-
     end
   end
 end
