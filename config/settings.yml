@@ -112,6 +112,8 @@ sakai_database_socket:
   default:
 sakai_version:
   default: 2.5.3
+sakai_database_adapter:
+  default: MySQL 5.0
 # Facebook API
 facebook_enabled:
   default: 0
