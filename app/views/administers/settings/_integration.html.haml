@@ -11,8 +11,14 @@
   %h2= _("%s Settings") % _("Moodle e-Learning Platform")
   = context_help(_("RubyCampus can import Moodle users as contacts and keep their details current. %{learn_more}"))
   = label_for_setting :setting => :moodle_enabled, :input_type => :radiocheck, :width => "w20"
-  = label_for_setting :setting => :moodle_table_prefix, :width => "w40"
+  = label_for_setting :setting => :moodle_table_prefix, :width => "w25"
   = label_for_setting :setting => :moodle_contact_table, :width => "w40"
+  %label{:for => "setting_moodle_version", :class => "w15 inputselect"}
+    %span.wrapper
+      %span.title
+        = _("%s Version") % _("Moodle")
+        %br/
+      = select_tag 'settings[moodle_version]', options_for_select(['1.9.2','1.9.2+'], Setting.moodle_version)
   .clear
   = label_for_setting :setting => :moodle_database_user, :width => "w35"
   = label_for_setting :setting => :moodle_database_password, :input_type => :inputselect_password, :width => "w35"

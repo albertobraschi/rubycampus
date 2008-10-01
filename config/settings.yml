@@ -95,6 +95,8 @@ moodle_database_password:
   default:
 moodle_database_socket:
   default:
+moodle_version:
+  default: 1.9.2+
 # Sakai CLE  
 sakai_enabled:
   default:  0
