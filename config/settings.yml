@@ -109,7 +109,9 @@ sakai_database_user:
 sakai_database_password:
   default:      
 sakai_database_socket:
-  default:    
+  default:
+sakai_version:
+  default: 2.5.3
 # Facebook API
 facebook_enabled:
   default: 0
