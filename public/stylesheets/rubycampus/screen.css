@@ -1438,6 +1438,7 @@ html>body #spinner {position:fixed;}
 .icons.find_contact {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -7453px;}
 .icons.household {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -8497px;}
 .icons.find_individual {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -7453px;}
+.no_data {padding:.8em;margin-bottom:1em;border:2px solid #ddd;background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;background-position:0px -6985px;}
 .icons.individual {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -17173px;}
 .icons.find_household {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -7453px;}
 .icons.organization {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -2179px;}
