@@ -38,16 +38,24 @@
 class AcademicLevelsController < ApplicationController
   before_filter :login_required, :except => [ :lookup ]
   before_filter :check_super_user_role, :except => [ :lookup ]
-  
-  # GET rubycampus.local/academic_levels
-  # GET rubycampus.local/academic_levels.xml
-  def index #:nodoc:
-    # @academic_levels = AcademicLevel.find(:all)
-    @academic_levels = AcademicLevel.search_for_all_and_paginate(params[:locate], params[:page])
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @academic_levels }
+  def index #:nodoc:
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "is_default"  then "is_default"
+           when "is_default_reverse"  then "is_default DESC"
+           when "is_enabled"  then "is_default"
+           when "is_enabled_reverse"  then "is_enabled DESC"
+           end
+
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = AcademicLevel.count(:conditions => conditions)
+    @academic_levels_pages, @academic_levels = paginate :academic_levels, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "academic_levels", :layout => false
     end
   end
 
@@ -106,7 +114,7 @@ class AcademicLevelsController < ApplicationController
 
     respond_to do |format|
       if @academic_level.update_attributes(params[:academic_level])
-        flash[:notice] = _("%s was successfully updated.") % _("Academic Level") 
+        flash[:notice] = _("%s was successfully updated.") % _("Academic Level")
         format.html { redirect_to academic_levels_url }
         # format.xml  { head :ok }
       else
@@ -127,9 +135,9 @@ class AcademicLevelsController < ApplicationController
       # format.xml  { head :ok }
     end
   end
-  
+
   def lookup #:nodoc:
-    @academic_levels = AcademicLevel.find_for_auto_complete_lookup(params[:search])                            
+    @academic_levels = AcademicLevel.find_for_auto_complete_lookup(params[:search])
   end
 
 end
