@@ -60,7 +60,7 @@ class Stage < ActiveRecord::Base
 
   # Fetches all stages with pagination
   def self.search_for_all_and_paginate(locate, page)
-    search(locate).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' )
+    search(locate).paginate( :page => page, :per_page => AppConfig.rows_per_page, :order => 'updated_at ASC' )
   end
 
   # Lists qualifying model attributes for use by auto completion in forms

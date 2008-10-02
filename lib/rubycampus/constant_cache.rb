@@ -41,8 +41,6 @@
 # * RUBYCAMPUS RELEASES, MODULES, COMPONENTS, CORE METHODS AND SPECIFICATION TEST.     *
 # **************************************************************************************
 #++   
-
-ROWS_PER_PAGE = 15 # for :per_page => ROWS_PER_PAGE in pagination
  
 # Tables and Defaults
 RUBYCAMPUS = "rubycampus"

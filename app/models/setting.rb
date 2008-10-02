@@ -123,3 +123,17 @@ private
     setting ||= new(:name => name, :value => @@available_settings[name]['default']) if @@available_settings.has_key? name
   end
 end
+
+# == Schema Information
+# Schema version: 20080926081348
+#
+# Table name: rubycampus_settings
+#
+#  id         :integer(11)     not null, primary key
+#  domain_id  :integer(11)     default(1), not null
+#  name       :string(255)     not null
+#  value      :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+

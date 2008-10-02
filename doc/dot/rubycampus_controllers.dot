@@ -3,6 +3,7 @@ digraph controllers_diagram {
 	"AcademicLevelsController" [shape=Mrecord, label="{AcademicLevelsController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
 	"ActivitiesController" [shape=Mrecord, label="{ActivitiesController|create\ldestroy\ledit\lindex\lnew\lshow\lupdate\l|\l|\l}"]
 	"ActivityTypesController" [shape=Mrecord, label="{ActivityTypesController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
+	"AdministersController" [shape=Mrecord, label="{AdministersController|edit\lindex\lshow\l|\l|\l}"]
 	"AnnouncementsController" [shape=Mrecord, label="{AnnouncementsController|create\ldestroy\ledit\lindex\lnew\lshow\lupdate\l|\l|\l}"]
 	"ContactsController" [shape=Mrecord, label="{ContactsController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
 	"CountriesController" [shape=Mrecord, label="{CountriesController|lookup\l|\l|\l}"]

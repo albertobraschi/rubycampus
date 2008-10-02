@@ -43,7 +43,7 @@ class Announcement < ActiveRecord::Base
   validates_presence_of :message
     
   def self.find_all_and_paginate(page)
-    paginate :per_page => ROWS_PER_PAGE, :page => page
+    paginate :per_page => AppConfig.rows_per_page, :page => page
   end
   
   def self.current_announcements(hide_time)

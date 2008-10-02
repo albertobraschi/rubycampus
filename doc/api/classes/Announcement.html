@@ -59,7 +59,7 @@ ActiveRecord::Base
 <pre>
     <span class="ruby-comment cmt"># File app/models/announcement.rb, line 45</span>
 45:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_all_and_paginate</span>(<span class="ruby-identifier">page</span>)
-46:     <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">ROWS_PER_PAGE</span>, <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>
+46:     <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">AppConfig</span>.<span class="ruby-identifier">rows_per_page</span>, <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>
 47:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>

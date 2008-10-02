@@ -57,7 +57,7 @@ class Group < ActiveRecord::Base
   
   # Fetches all groups with pagination
   def self.search_for_all_and_paginate(locate, page)
-    search(locate).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' )
+    search(locate).paginate( :page => page, :per_page => AppConfig.rows_per_page, :order => 'updated_at ASC' )
   end         
   
   # Lists qualifying model attributes for use by auto completion in forms
@@ -66,15 +66,16 @@ class Group < ActiveRecord::Base
   end
 
 end
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20080926081348
 #
 # Table name: rubycampus_groups
 #
 #  id              :integer(11)     not null, primary key
 #  domain_id       :integer(11)     default(1), not null
 #  name            :string(255)     not null
-#  title           :string(255)     not null
+#  title           :string(255)
 #  description     :string(255)
 #  saved_search_id :integer(11)
 #  where_clause    :text

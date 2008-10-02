@@ -141,9 +141,9 @@ class Contact < ActiveRecord::Base
     # Fetches scoped contacts with pagination
     def self.search_for_all_and_paginate(search, page, contact_type, stage)
       if stage  
-        with_stages(contact_type, stage) { search(search).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' ) }
+        with_stages(contact_type, stage) { search(search).paginate( :page => page, :per_page => AppConfig.rows_per_page, :order => 'updated_at ASC' ) }
       else
-        without_stages(contact_type) { search(search).paginate( :page => page, :per_page => ROWS_PER_PAGE, :order => 'updated_at ASC' ) }
+        without_stages(contact_type) { search(search).paginate( :page => page, :per_page => AppConfig.rows_per_page, :order => 'updated_at ASC' ) }
       end
     end
   
