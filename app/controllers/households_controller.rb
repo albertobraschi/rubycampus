@@ -37,18 +37,30 @@
 
 class HouseholdsController < ApplicationController
   before_filter :login_required
-  
-  # See Contacts Controller   
-  # GET rubycampus.local/households
-  # GET rubycampus.local/households.xml
+
   def index #:nodoc:
-    redirect_to contacts_url(:contact_type => ContactType::HOUSEHOLD.id)
+    sort = case params['sort']
+           when "household_name"  then "household_name"
+           when "household_name_reverse"  then "household_name DESC"
+           when "updated_at"  then "updated_at"
+           when "updated_at_reverse"  then "updated_at DESC"
+           end
+
+    conditions = ["contact_type_id = ?", ContactType::HOUSEHOLD.id] unless !params[:query].nil?
+    conditions = ["household_name LIKE ? AND contact_type_id = ?", "%#{params[:query]}%", ContactType::HOUSEHOLD.id] unless params[:query].nil?
+
+    @total = Contact.count(:conditions => conditions)
+    @contacts_pages, @contacts = paginate :contacts, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "households", :layout => false
+    end
   end
 
   # GET rubycampus.local/households/1
   # GET rubycampus.local/households/1.xml
   def show #:nodoc:
-    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]),
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
@@ -62,24 +74,24 @@ class HouseholdsController < ApplicationController
 
   def new #:nodoc:
     @presenter = HouseholdPresenter.new
-  end      
-   
+  end
+
   # GET rubycampus.local/households/1/edit
   def edit #:nodoc:
-    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]),
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
-                                          :phone => Phone.find(params[:id])) 
+                                          :phone => Phone.find(params[:id]))
   end
-  
+
   # POST rubycampus.local/households
-  # POST rubycampus.local/households.xml  
-  def create #:nodoc:                                    
+  # POST rubycampus.local/households.xml
+  def create #:nodoc:
     @presenter = HouseholdPresenter.new(params[:presenter])
     @presenter.contact_contact_type_id = ContactType::HOUSEHOLD.id
 
-    if @presenter.save 
+    if @presenter.save
       flash[:notice] = _("%s was successfully created.") % _("Household")
       if params[:create_and_new_button]
         redirect_to new_household_url
@@ -89,18 +101,18 @@ class HouseholdsController < ApplicationController
     else
       render :action => "new"
     end
-  end  
-  
+  end
+
   # PUT rubycampus.local/households/1
   # PUT rubycampus.local/households/1.xml
   def update #:nodoc:
-    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]),
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
                                           :phone => Phone.find(params[:id]))
-                                           
-    if @presenter.update_attributes(params[:presenter]) 
+
+    if @presenter.update_attributes(params[:presenter])
       flash[:notice] = _("%s was successfully updated.") % _("Household")
       redirect_to contacts_url(:contact_type => ContactType::HOUSEHOLD.id)
     else
@@ -114,20 +126,20 @@ class HouseholdsController < ApplicationController
     @presenter = Contact.find(params[:id])
     @presenter.destroy
 
-    respond_to do |format| 
+    respond_to do |format|
       flash[:notice] = _("%s was successfully destroyed.") % _("Household")
       format.html { redirect_to contacts_url(:contact_type => ContactType::HOUSEHOLD.id) }
       format.xml  { head :ok }
     end
   end
-  
-  # Generates PDF Extract 
+
+  # Generates PDF Extract
  def extract #:nodoc:
-    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = HouseholdPresenter.new(:contact => Contact.find(params[:id]),
                                           :address => Address.find(params[:id]),
                                           :email => Email.find(params[:id]),
                                           :messenger => Messenger.find(params[:id]),
-                                          :phone => Phone.find(params[:id]))    
+                                          :phone => Phone.find(params[:id]))
     # TODO Generate PDF based on form
     prawnto :inline => true
   end
