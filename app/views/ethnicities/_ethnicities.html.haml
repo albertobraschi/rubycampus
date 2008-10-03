@@ -1,0 +1,21 @@
+- if @total == 0
+  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+- else
+  %table
+    %tr
+      %th{ :class => (sort_th_class_helper "name") }
+        = sort_link_helper _("Name"), "name"
+      %th{ :class => (sort_th_class_helper "is_default") }
+        = sort_link_helper _("Is Default"), "is_default"
+      %th{ :class => (sort_th_class_helper "is_enabled") }
+        = sort_link_helper _("Is Enabled"), "is_enabled"
+      %th
+    - @ethnicities.each do |ethnicity|
+      %tr{:class => cycle("even","odd")}
+        %td=h ethnicity.name
+        %td=h ethnicity.is_default ? _('Yes') : _('No')
+        %td=h ethnicity.is_enabled ? _('Yes') : _('No')
+        %td= render :partial => "common/actions/for_row_index_no_show", :locals => { :local => ethnicity }
+  - if @ethnicities_pages.page_count > 1
+    %div.pagination
+      = pagination_links_remote @ethnicities_pages
