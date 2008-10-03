@@ -1,0 +1,30 @@
+- if @total == 0
+  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+- else
+  %table
+    %tr
+      %th{ :class => (sort_th_class_helper "name") }
+        = sort_link_helper _("Name"), "name"
+      %th{ :class => (sort_th_class_helper "code") }
+        = sort_link_helper _("Code"), "code"
+      %th{ :class => (sort_th_class_helper "start_date") }
+        = sort_link_helper _("Start Date"), "start_date"
+      %th{ :class => (sort_th_class_helper "end_date") }
+        = sort_link_helper _("End Date"), "end_date"                
+      %th{ :class => (sort_th_class_helper "is_default") }
+        = sort_link_helper _("Is Default"), "is_default"
+      %th{ :class => (sort_th_class_helper "is_enabled") }
+        = sort_link_helper _("Is Enabled"), "is_enabled"
+      %th
+    - @entry_terms.each do |entry_term|
+      %tr{:class => cycle("even","odd")}
+        %td=h entry_term.name
+        %td=h entry_term.code
+        %td=h entry_term.start_date
+        %td=h entry_term.end_date                        
+        %td=h entry_term.is_default ? _('Yes') : _('No')
+        %td=h entry_term.is_enabled ? _('Yes') : _('No')
+        %td= render :partial => "common/actions/for_row_index_no_show", :locals => { :local => entry_term }
+  - if @entry_terms_pages.page_count > 1
+    %div.pagination
+      = pagination_links_remote @entry_terms_pages
