@@ -41,13 +41,23 @@ class ActivityTypesController < ApplicationController
   
   # GET rubycampus.local/activity_types
   # GET rubycampus.local/activity_types.xml
-  def index #:nodoc:
-    # @activity_types = ActivityType.find(:all)
-    @activity_types = ActivityType.search_for_all_and_paginate(params[:locate], params[:page])
+  def index #:nodoc:    
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "is_default"  then "is_default"
+           when "is_default_reverse"  then "is_default DESC"
+           when "is_enabled"  then "is_default"
+           when "is_enabled_reverse"  then "is_enabled DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @activity_types }
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+    
+    @total = ActivityType.count(:conditions => conditions)
+    @activity_types_pages, @activity_types = paginate :activity_types, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "activity_types", :layout => false
     end
   end
 
