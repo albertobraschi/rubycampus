@@ -1,0 +1,27 @@
+- if @total == 0
+  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+- else
+  %table
+    %tr
+      %th{ :class => (sort_th_class_helper "login") }
+        = sort_link_helper _("Login"), "login"
+      %th{ :class => (sort_th_class_helper "email") }
+        = sort_link_helper _("Email"), "email"
+      %th{ :class => (sort_th_class_helper "enabled") }
+        = sort_link_helper _("Status"), "enabled"
+      %th{ :class => (sort_th_class_helper "updated_at") }
+        = sort_link_helper _("Last Updated"), "updated_at"
+      %th
+    - @users.each do |user|
+      %tr{:class => cycle("even","odd")}
+        %td=h user.login
+        %td= content_tag(:span, (mail_to h(user.email)), :class => "icons email")
+        %td
+          = user.enabled ? (link_to(_('disable'), user_path(user.id), :method => :delete, :class => "icons lightbulb")) : (link_to(_('enable'), enable_user_path(user.id), :method => :put, :class => "icons lightbulb_off")) unless user == current_user
+          = _("Protected") if user == current_user
+        %td{:style => "vertical-align:top;"}
+          = h (_("%s ago") % distance_of_time_in_words(Time.now, (user.updated_at))) rescue nil
+        %td.action_buttons= link_to _('Edit Roles'), user_roles_path(user), :class => "button"
+  - if @users_pages.page_count > 1
+    %div.pagination
+      = pagination_links_remote @users_pages
