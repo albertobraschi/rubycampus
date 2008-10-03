@@ -1,16 +1,16 @@
 - title((_(current_controller_gettext_human_name_pluralized)))
 .standard_box
-  = render :partial => "common/actions/for_form_index"
-  %h2= yield(:title)
-  %table
-    %tr
-      %th.small= _("Name")
-      %th.small= _("Code")
-      %th.small= _("Start date")
-      %th.small= _("End date")
-      %th.small= _("Is default")
-      %th.small= _("Is enabled")
-      %th
-    = render :partial => "entry_term", :collection => @entry_terms  
-  = render :partial => "common/actions/for_form_index"
-  %div.pagination= will_paginate @entry_terms
+  .hako
+    = render :partial => "common/actions/for_form_index"
+    %h2= yield(:title)
+    %p
+      %form{ :name => "rubycampus", :action => "", :class => "hakozaki" }
+        %label{ :for => "entry_term_name", :class => "w35 inputselect"}
+          %span.wrapper
+            %span.title= _("Filter on %s name:") % current_controller_gettext_human_name
+            = text_field_tag("query", params['query'], :class => "field", :autocomplete => "off") 
+        .clear  
+    = observe_field 'query', :frequency => 2, :update => 'table', :before => "Element.show('spinner')", :success => "Element.hide('spinner')", :url => { :action => 'index' }, :with => 'query'   
+    %div#table
+      = render :partial => "entry_terms"
+    = render :partial => "common/actions/for_form_index"          
