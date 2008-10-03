@@ -42,12 +42,28 @@ class EntryTermsController < ApplicationController
   # GET rubycampus.local/entry_terms
   # GET rubycampus.local/entry_terms.xml
   def index #:nodoc:
-    # @entry_terms = EntryTerm.find(:all)
-    @entry_terms = EntryTerm.search_for_all_and_paginate(params[:locate], params[:page])
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "code"  then "code"
+           when "code_reverse"  then "code DESC"
+           when "start_date"  then "start_date"
+           when "start_date_reverse"  then "start_date DESC"
+           when "end_date"  then "end_date"
+           when "end_date_reverse"  then "end_date DESC"
+           when "is_default"  then "is_default"
+           when "is_default_reverse"  then "is_default DESC"
+           when "is_enabled"  then "is_default"
+           when "is_enabled_reverse"  then "is_enabled DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @entry_terms }
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = EntryTerm.count(:conditions => conditions)
+    @entry_terms_pages, @entry_terms = paginate :entry_terms, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "entry_terms", :layout => false
     end
   end
 
