@@ -42,12 +42,22 @@ class EthnicitiesController < ApplicationController
   # GET rubycampus.local/ethnicities
   # GET rubycampus.local/ethnicities.xml
   def index #:nodoc:
-    # @ethnicities = Ethnicity.find(:all)
-    @ethnicities = Ethnicity.search_for_all_and_paginate(params[:locate], params[:page])
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "is_default"  then "is_default"
+           when "is_default_reverse"  then "is_default DESC"
+           when "is_enabled"  then "is_default"
+           when "is_enabled_reverse"  then "is_enabled DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @ethnicities }
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = Ethnicity.count(:conditions => conditions)
+    @ethnicities_pages, @ethnicities = paginate :ethnicities, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "ethnicities", :layout => false
     end
   end
 
