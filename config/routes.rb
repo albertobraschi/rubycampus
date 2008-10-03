@@ -59,7 +59,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :academic_levels, :collection => { :lookup => :get, :index => :get }
   map.resources :activity_types, :collection => { :lookup => :get, :index => :get }
   map.resources :countries, :collection => { :lookup => :get }
-  map.resources :education_levels, :collection => { :lookup => :get }
+  map.resources :education_levels, :collection => { :lookup => :get, :index => :get }
   map.resources :entry_terms, :collection => { :lookup => :get }
   map.resources :ethnicities, :collection => { :lookup => :get }
   map.resources :genders, :collection => { :lookup => :get }
