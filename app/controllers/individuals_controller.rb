@@ -35,58 +35,74 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class IndividualsController < ApplicationController 
+class IndividualsController < ApplicationController
   before_filter :login_required
-  
-  # See Contacts Controller  
-  # GET rubycampus.local/individuals
-  # GET rubycampus.local/individuals.xml
+
   def index #:nodoc:
-    redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL.id )
-  end     
+    sort = case params['sort']
+           when "first_name"  then "first_name"
+           when "first_name_reverse"  then "first_name DESC"
+           when "last_name"  then "last_name"
+           when "last_name_reverse"  then "last_name DESC"
+           when "stage_id"  then "stage_id"
+           when "stage_id_reverse"  then "stage_id DESC"
+           when "updated_at"  then "updated_at"
+           when "updated_at_reverse"  then "updated_at DESC"
+           end
+
+    conditions = ["contact_type_id = ?", ContactType::INDIVIDUAL.id] unless !params[:query].nil?
+    conditions = ["last_name LIKE ? AND contact_type_id = ?", "%#{params[:query]}%", ContactType::INDIVIDUAL.id] unless params[:query].nil?
+
+    @total = Contact.count(:conditions => conditions)
+    @contacts_pages, @contacts = paginate :contacts, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "individuals", :layout => false
+    end
+  end
 
   # GET rubycampus.local/individuals/1
   # GET rubycampus.local/individuals/1.xml
   def show #:nodoc:
-    @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]),
                                            :address => Address.find(params[:id]),
                                            :email => Email.find(params[:id]),
                                            :messenger => Messenger.find(params[:id]),
-                                           :phone => Phone.find(params[:id]))    
-    @form_id = "edit_individual_"+params[:id]   
+                                           :phone => Phone.find(params[:id]))
+    @form_id = "edit_individual_"+params[:id]
     respond_to do |format|
       format.html # show.html.haml
-      format.xml  { render :xml => @presenter.contact } 
+      format.xml  { render :xml => @presenter.contact }
     end
   end
 
   def new #:nodoc:
     @presenter = IndividualPresenter.new
-  end      
-   
+  end
+
   # GET rubycampus.local/individuals/1/edit
   def edit #:nodoc:
-    @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]),
                                            :address => Address.find(params[:id]),
                                            :email => Email.find(params[:id]),
                                            :messenger => Messenger.find(params[:id]),
-                                           :phone => Phone.find(params[:id])) 
+                                           :phone => Phone.find(params[:id]))
   end
-  
+
   # POST rubycampus.local/individuals
-  # POST rubycampus.local/individuals.xml  
-  def create #:nodoc:                                    
+  # POST rubycampus.local/individuals.xml
+  def create #:nodoc:
     @presenter = IndividualPresenter.new(params[:presenter])
     @presenter.contact_contact_type_id = ContactType::INDIVIDUAL.id
-    
+
     # TODO There is no nil method available for params to use ||= operator
-    begin     
-    @presenter.contact_group_ids = params[:contact_groups][:group_ids]    
+    begin
+    @presenter.contact_group_ids = params[:contact_groups][:group_ids]
     rescue
     @presenter.contact_group_ids = []
     end
-    
-    if @presenter.save 
+
+    if @presenter.save
       flash[:notice] = _("%s was successfully created.") % _("Individual")
       if params[:create_and_new_button]
         redirect_to new_individual_url
@@ -96,27 +112,27 @@ class IndividualsController < ApplicationController
     else
       render :action => "new"
     end
-  end  
-  
+  end
+
   # PUT rubycampus.local/individuals/1
   # PUT rubycampus.local/individuals/1.xml
   def update #:nodoc:
-    @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]),
                                            :address => Address.find(params[:id]),
                                            :email => Email.find(params[:id]),
                                            :messenger => Messenger.find(params[:id]),
                                            :phone => Phone.find(params[:id]))
-    
+
     # TODO There is no nil method available for params to use ||= operator
-    begin     
-    @presenter.contact_group_ids = params[:contact_groups][:group_ids]    
+    begin
+    @presenter.contact_group_ids = params[:contact_groups][:group_ids]
     rescue
     @presenter.contact_group_ids = []
     end
-                                  
-    if @presenter.update_attributes(params[:presenter]) 
+
+    if @presenter.update_attributes(params[:presenter])
       flash[:notice] = _("%s was successfully updated.") % _("Individual")
-      redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL.id ) 
+      redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL.id )
     else
       render :action => "edit"
     end
@@ -128,20 +144,20 @@ class IndividualsController < ApplicationController
     @presenter = Contact.find(params[:id])
     @presenter.destroy
 
-    respond_to do |format| 
+    respond_to do |format|
       flash[:notice] = _("%s was successfully destroyed.") % _("Individual")
       format.html { redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL.id )  }
       format.xml  { head :ok }
     end
   end
-  
-  # Generates PDF Extract 
+
+  # Generates PDF Extract
   def extract #:nodoc:
-    @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = IndividualPresenter.new(:contact => Contact.find(params[:id]),
                                            :address => Address.find(params[:id]),
                                            :email => Email.find(params[:id]),
                                            :messenger => Messenger.find(params[:id]),
-                                           :phone => Phone.find(params[:id]))    
+                                           :phone => Phone.find(params[:id]))
     # TODO Generate PDF based on form
     prawnto :inline => true
   end

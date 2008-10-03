@@ -1,0 +1,17 @@
+- title((_(current_controller_gettext_human_name_pluralized)))
+.standard_box
+  .hako
+    = render :partial => "common/actions/for_form_index"
+    %h2= yield(:title)
+    %h3= context_help(_("Use Individuals to manage the contact details of prospective students and those already enrolled. You can use live search to locate contacts and can sort by clicking on column labels. %{learn_more}"))
+    %p
+      %form{ :name => "rubycampus", :action => "", :class => "hakozaki" }
+        %label{ :for => "contact_last_name", :class => "w35 inputselect"}
+          %span.wrapper
+            %span.title= _("Find an %s:") % current_controller_gettext_human_name
+            = text_field_tag("query", params['query'], :class => "field", :autocomplete => "off")
+        .clear
+    = observe_field 'query', :frequency => 2, :update => 'table', :before => "Element.show('spinner')", :success => "Element.hide('spinner')", :url => { :action => 'index' }, :with => 'query'
+    %div#table
+      = render :partial => "individuals"
+    = render :partial => "common/actions/for_form_index"
