@@ -40,8 +40,29 @@ class UsersController < ApplicationController
   before_filter :login_required, :only => [:show, :edit, :update]
   before_filter :check_super_user_role, :only => [:index, :destroy, :enable]
   
+  # def index #:nodoc:
+  #   @users = User.search(params[:search],params[:page])
+  # end   
   def index #:nodoc:
-    @users = User.search(params[:search],params[:page])
+    sort = case params['sort']
+           when "login"  then "login"
+           when "login_reverse"  then "login DESC"
+           when "email"  then "email"
+           when "email_reverse"  then "email DESC"
+           when "enabled"  then "enabled"
+           when "enabled_reverse"  then "enabled DESC"
+           when "updated_at"  then "updated_at"
+           when "updated_at_reverse"  then "updated_at DESC"
+           end
+
+    conditions = ["login LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = User.count(:conditions => conditions)
+    @users_pages, @users = paginate :users, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "users", :layout => false
+    end
   end
 
   # this show action only allows users to view their own profile
