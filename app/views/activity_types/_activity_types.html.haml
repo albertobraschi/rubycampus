@@ -7,7 +7,7 @@
         = sort_link_helper _("Name"), "name"
       %th{ :class => (sort_th_class_helper "is_default") }
         = sort_link_helper _("Is Default"), "is_default"
-      %th{ :class => (sort_th_class_helper "is_default") }
+      %th{ :class => (sort_th_class_helper "is_enabled") }
         = sort_link_helper _("Is Enabled"), "is_enabled"
       %th
     - @activity_types.each do |activity_type|
