@@ -89,7 +89,7 @@ ActionController::Routing::Routes.draw do |map|
   map.change_password '/change_password',   :controller => 'user_accounts', :action => 'edit'
   map.forgot_password '/forgot_password',   :controller => 'passwords', :action => 'new'
   map.reset_password '/reset_password/:id', :controller => 'passwords', :action => 'edit'
-  map.resources :users, :member => { :enable => :put } do |users|
+  map.resources :users, :collection => { :index => :get }, :member => { :enable => :put } do |users|
     users.resource  :user_account
     users.resources :roles
   end
