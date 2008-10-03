@@ -1,0 +1,35 @@
+- if @total == 0
+  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+- else
+  %table
+    %tr
+      %th{ :class => (sort_th_class_helper "organization_name") }
+        = sort_link_helper _("Organization Name"), "organization_name"
+      %th= _("Address")
+      %th{ :class => (sort_th_class_helper "updated_at") }
+        = sort_link_helper _("Last Updated"), "updated_at"
+      %th
+    - @contacts.each do |contact|
+      %tr{:class => cycle("even","odd")}
+        %td=h contact.organization_name
+        %td{:style => "vertical-align:top;"}
+          - for address in contact.addresses do
+            = h address.line_1
+            %br/
+            = h address.locality
+            = h address.region.name
+            %br/
+            = h address.country.name
+            %br/
+            - for phone in contact.phones do
+              %span.icons.telephone= h phone.phone
+              %br/
+            - for email in contact.emails do
+              %span.icons.email= mail_to email.address
+              %br
+        %td{:style => "vertical-align:top;"}
+          = h (_("%s ago") % distance_of_time_in_words(Time.now, (contact.updated_at))) rescue nil
+        %td= render :partial => "common/actions/for_row_index", :locals => { :local => contact }
+  - if @contacts_pages.page_count > 1
+    %div.pagination
+      = pagination_links_remote @contacts_pages

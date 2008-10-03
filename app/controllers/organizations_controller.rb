@@ -37,18 +37,30 @@
 
 class OrganizationsController < ApplicationController
   before_filter :login_required
-  
-  # See Contacts Controller   
-  # GET rubycampus.local/organizations
-  # GET rubycampus.local/organizations.xml
+
   def index #:nodoc:
-    redirect_to contacts_url(:contact_type => ContactType::ORGANIZATION.id) 
+    sort = case params['sort']
+           when "organization_name"  then "organization_name"
+           when "organization_name_reverse"  then "organization_name DESC"
+           when "updated_at"  then "updated_at"
+           when "updated_at_reverse"  then "updated_at DESC"
+           end
+
+    conditions = ["contact_type_id = ?", ContactType::ORGANIZATION.id] unless !params[:query].nil?
+    conditions = ["organization_name LIKE ? AND contact_type_id = ?", "%#{params[:query]}%", ContactType::ORGANIZATION.id] unless params[:query].nil?
+
+    @total = Contact.count(:conditions => conditions)
+    @contacts_pages, @contacts = paginate :contacts, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "organizations", :layout => false
+    end
   end
 
   # GET rubycampus.local/organizations/1
   # GET rubycampus.local/organizations/1.xml
   def show #:nodoc:
-    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]),
                                              :address => Address.find(params[:id]),
                                              :email => Email.find(params[:id]),
                                              :messenger => Messenger.find(params[:id]),
@@ -62,31 +74,31 @@ class OrganizationsController < ApplicationController
 
   def new #:nodoc:
     @presenter = OrganizationPresenter.new
-  end      
-  
-  # GET rubycampus.local/organizations/1/edit 
+  end
+
+  # GET rubycampus.local/organizations/1/edit
   def edit #:nodoc:
-    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]),
                                              :address => Address.find(params[:id]),
                                              :email => Email.find(params[:id]),
                                              :messenger => Messenger.find(params[:id]),
-                                             :phone => Phone.find(params[:id])) 
+                                             :phone => Phone.find(params[:id]))
   end
-  
+
   # POST rubycampus.local/organizations
-  # POST rubycampus.local/organizations.xml  
-  def create #:nodoc:                                    
+  # POST rubycampus.local/organizations.xml
+  def create #:nodoc:
     @presenter = OrganizationPresenter.new(params[:presenter])
     @presenter.contact_contact_type_id = ContactType::ORGANIZATION.id
-    
+
     # TODO There is no nil method available for params to use ||= operator
-    begin     
-    @presenter.contact_group_ids = params[:contact_groups][:group_ids]    
+    begin
+    @presenter.contact_group_ids = params[:contact_groups][:group_ids]
     rescue
     @presenter.contact_group_ids = []
     end
 
-    if @presenter.save 
+    if @presenter.save
       flash[:notice] = _("%s was successfully created.") % _("Organization")
       if params[:create_and_new_button]
         redirect_to new_organization_url
@@ -96,27 +108,27 @@ class OrganizationsController < ApplicationController
     else
       render :action => "new"
     end
-  end  
-  
+  end
+
   # PUT rubycampus.local/organizations/1
   # PUT rubycampus.local/organizations/1.xml
   def update #:nodoc:
-    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]),
                                              :address => Address.find(params[:id]),
                                              :email => Email.find(params[:id]),
                                              :messenger => Messenger.find(params[:id]),
                                              :phone => Phone.find(params[:id]))
-                                          
+
     # TODO There is no nil method available for params to use ||= operator
-    begin     
-    @presenter.contact_group_ids = params[:contact_groups][:group_ids]    
+    begin
+    @presenter.contact_group_ids = params[:contact_groups][:group_ids]
     rescue
     @presenter.contact_group_ids = []
-    end     
-                                           
-    if @presenter.update_attributes(params[:presenter]) 
+    end
+
+    if @presenter.update_attributes(params[:presenter])
       flash[:notice] = _("%s was successfully updated.") % _("Organization")
-      redirect_to contacts_url(:contact_type => ContactType::ORGANIZATION.id) 
+      redirect_to contacts_url(:contact_type => ContactType::ORGANIZATION.id)
     else
       render :action => "edit"
     end
@@ -128,16 +140,16 @@ class OrganizationsController < ApplicationController
     @presenter = Contact.find(params[:id])
     @presenter.destroy
 
-    respond_to do |format| 
+    respond_to do |format|
       flash[:notice] = _("%s was successfully destroyed.") % _("Organization")
       format.html { redirect_to contacts_url(:contact_type => ContactType::ORGANIZATION.id) }
       format.xml  { head :ok }
     end
-  end       
-  
-  # Generates PDF Extract 
+  end
+
+  # Generates PDF Extract
   def extract #:nodoc:
-    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]), 
+    @presenter = OrganizationPresenter.new(:contact => Contact.find(params[:id]),
                                              :address => Address.find(params[:id]),
                                              :email => Email.find(params[:id]),
                                              :messenger => Messenger.find(params[:id]),
