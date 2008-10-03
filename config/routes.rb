@@ -45,7 +45,7 @@ ActionController::Routing::Routes.draw do |map|
   # end RubyCampus Administration
 
   # begin RubyCampus Processors
-  map.resources :activities
+  map.resources :activities, :collection => { :index => :get}
   # end RubyCampus Processors
 
   # begin RubyCampus Constituents
