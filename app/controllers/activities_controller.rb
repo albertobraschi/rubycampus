@@ -38,15 +38,25 @@
 class ActivitiesController < ApplicationController
   before_filter :login_required
 
-  # GET rubycampus.local/activities
-  # GET rubycampus.local/activities.xml
   def index #:nodoc:
-    # @activities = Activity.find(:all)
-    @activities = Activity.search_for_all_and_paginate(params[:search], params[:page])
+    sort = case params['sort']
+           when "activity_type_id"  then "activity_type_id"
+           when "activity_type_id_reverse"  then "activity_type_id DESC"
+           when "subject"  then "subject"
+           when "subject_reverse"  then "subject DESC"
+           when "contact_id"  then "contact_id"
+           when "contact_id_reverse"  then "contact_id DESC"
+           when "updated_at"  then "updated_at"
+           when "updated_at_reverse"  then "updated_at DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @activities }
+    conditions = ["subject LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = Activity.count(:conditions => conditions)
+    @activities_pages, @activities = paginate :activities, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "activities", :layout => false
     end
   end
 
