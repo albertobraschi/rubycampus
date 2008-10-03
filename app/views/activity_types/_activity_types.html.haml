@@ -10,12 +10,12 @@
       %th{ :class => (sort_th_class_helper "is_enabled") }
         = sort_link_helper _("Is Enabled"), "is_enabled"
       %th
-    - @academic_levels.each do |academic_level|
+    - @activity_types.each do |activity_type|
       %tr{:class => cycle("even","odd")}
-        %td=h academic_level.name
-        %td=h academic_level.is_default ? _('Yes') : _('No')
-        %td=h academic_level.is_enabled ? _('Yes') : _('No')
-        %td= render :partial => "common/actions/for_row_index_no_show", :locals => { :local => academic_level }
-  - if @academic_levels_pages.page_count > 1
+        %td=h activity_type.name
+        %td=h activity_type.is_default ? _('Yes') : _('No')
+        %td=h activity_type.is_enabled ? _('Yes') : _('No')
+        %td= render :partial => "common/actions/for_row_index_no_show", :locals => { :local => activity_type }
+  - if @activity_types_pages.page_count > 1
     %div.pagination
-      = pagination_links_remote @academic_levels_pages
+      = pagination_links_remote @activity_types_pages

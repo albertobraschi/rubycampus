@@ -42,12 +42,22 @@ class EducationLevelsController < ApplicationController
   # GET rubycampus.local/education_levels
   # GET rubycampus.local/education_levels.xml
   def index #:nodoc:
-    # @education_levels = EducationLevel.find(:all)
-    @education_levels = EducationLevel.search_for_all_and_paginate(params[:locate], params[:page])
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "is_default"  then "is_default"
+           when "is_default_reverse"  then "is_default DESC"
+           when "is_enabled"  then "is_default"
+           when "is_enabled_reverse"  then "is_enabled DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @education_levels }
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = EducationLevel.count(:conditions => conditions)
+    @education_levels_pages, @education_levels = paginate :education_levels, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "education_levels", :layout => false
     end
   end
 
