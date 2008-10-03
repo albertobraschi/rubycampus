@@ -50,9 +50,9 @@ ActionController::Routing::Routes.draw do |map|
 
   # begin RubyCampus Constituents
   map.resources :contacts, :collection => { :lookup => :get }
-  map.resources :individuals
-  map.resources :organizations
-  map.resources :households
+  map.resources :individuals, :collection => { :index => :get }
+  map.resources :organizations, :collection => { :index => :get }
+  map.resources :households, :collection => { :index => :get }
   # end RubyCampus Constituents
 
   # begin RubyCampus RESTful Code Tables
