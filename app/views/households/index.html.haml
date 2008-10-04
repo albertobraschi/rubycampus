@@ -3,7 +3,7 @@
   .hako
     = render :partial => "common/actions/for_form_index"
     %h2= yield(:title)
-    %h3= context_help(_("Use Households to manage instances to help organize and identify individuals that reside at the same residence, it is useful for avoiding a duplication of effort when sending certain correspondence. You can use live search to locate contacts and can sort by clicking on column labels. %{learn_more}"))
+    %h3= context_help(_("Use households to manage instances to help organize and identify individuals that reside at the same residence, it is useful for avoiding a duplication of effort when sending certain correspondence. You can use live search to locate contacts and can sort by clicking on column labels. %{learn_more}"))
     %p
       %form{ :name => "rubycampus", :action => "", :class => "hakozaki", :autocomplete => :off }
         %label{ :for => "contact_household_name", :class => "w35 inputselect"}
