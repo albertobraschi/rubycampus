@@ -17,7 +17,7 @@
         %td=h announcement.message
         %td=h announcement.starts_at
         %td=h announcement.ends_at
-        %td{:style => "vertical-align:top;"}
+        %td
           = h (_("%s ago") % distance_of_time_in_words(Time.now, (announcement.updated_at))) rescue nil
         %td= render :partial => "common/actions/for_row_index", :locals => { :local => announcement }
   - if @announcements_pages.page_count > 1
