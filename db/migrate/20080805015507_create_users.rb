@@ -40,6 +40,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string     :login, :limit => 40 
       t.string     :name, :limit => 100, :default => '', :null => true
+      t.string     :cas_user, :limit => 100, :default => '', :null => true
       t.string     :email, :limit => 100
       t.string     :crypted_password, :limit => 40
       t.string     :salt, :limit => 40
