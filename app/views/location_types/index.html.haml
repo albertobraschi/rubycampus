@@ -4,11 +4,11 @@
     = render :partial => "common/actions/for_form_index"
     %h2= yield(:title)
     %p
-      %form{ :name => "rubycampus", :action => "", :class => "hakozaki" }
+      %form{ :name => "rubycampus", :action => "", :class => "hakozaki", :autocomplete => :off }
         %label{ :for => "location_type_name", :class => "w35 inputselect"}
           %span.wrapper
             %span.title= _("Filter on %s name:") % current_controller_gettext_human_name
-            = text_field_tag("query", params['query'], :class => "field", :autocomplete => "off") 
+            = text_field_tag("query", params['query'], :class => "field") 
         .clear  
     = observe_field 'query', :frequency => 2, :update => 'table', :before => "Element.show('spinner')", :success => "Element.hide('spinner')", :url => { :action => 'index' }, :with => 'query'   
     %div#table

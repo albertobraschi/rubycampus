@@ -1,7 +1,7 @@
 - title((_("Viewing %s") % current_controller_gettext_human_name))
 .standard_box
   .hako
-    - form_for @group, :url => group_path, :html => { :method => :put, :class => "hakozaki" } do |form|
+    - form_for @group, :url => group_path, :html => { :method => :put, :class => "hakozaki", :autocomplete => :off } do |form|
       = render :partial => "common/actions/for_form_show"
       %h1=h @group.name
       %hr/ 

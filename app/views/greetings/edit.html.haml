@@ -2,7 +2,7 @@
 = error_messages_for :greeting  
 .standard_box
   .hako
-    - form_for @greeting, :url => greeting_path, :html => { :method => :put, :class => "hakozaki" } do |form|     
+    - form_for @greeting, :url => greeting_path, :html => { :method => :put, :class => "hakozaki", :autocomplete => :off } do |form|     
       = render :partial => "common/actions/for_form_edit"
       %h1= yield(:title)
       %hr/

@@ -2,7 +2,7 @@
 = error_messages_for :presenter
 .organization_box
   .hako
-    - form_for :presenter, :url => organization_path, :html => { :method => :put, :class => "hakozaki" } do |form|
+    - form_for :presenter, :url => organization_path, :html => { :method => :put, :class => "hakozaki", :autocomplete => :off } do |form|
       = render :partial => "contacts/actions/for_form_edit"
       %h1= yield(:title) 
       %hr/

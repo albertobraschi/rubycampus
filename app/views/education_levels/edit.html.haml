@@ -2,7 +2,7 @@
 = error_messages_for :education_level  
 .standard_box
   .hako
-    - form_for @education_level, :url => education_level_path, :html => { :method => :put, :class => "hakozaki" } do |form|     
+    - form_for @education_level, :url => education_level_path, :html => { :method => :put, :class => "hakozaki", :autocomplete => :off } do |form|     
       = render :partial => "common/actions/for_form_edit"
       %h1= yield(:title)
       %hr/
