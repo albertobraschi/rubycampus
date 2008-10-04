@@ -66,7 +66,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :greetings, :collection => { :lookup => :get, :index => :get }
   map.resources :groups, :collection => { :lookup => :get }
   map.resources :head_of_households, :collection => { :lookup => :get }
-  map.resources :location_types, :collection => { :lookup => :get }
+  map.resources :location_types, :collection => { :lookup => :get, :index => :get }
   map.resources :marital_statuses, :collection => { :lookup => :get }
   map.resources :message_templates, :collection => { :lookup => :get }
   map.resources :messaging_providers, :collection => { :lookup => :get }
