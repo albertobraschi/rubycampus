@@ -124,8 +124,6 @@ facebook_canvas_page_name:
 facebook_callback_url:
   default:
 # end Data Services
-encrypt_sensitive_attributes:
-  default:  0
 domain_gui_calender_theme:
   default: default
 # FIXME Not implemented
