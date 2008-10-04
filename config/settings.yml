@@ -133,8 +133,6 @@ geocodable_service_enabled:
   default: 0
 geocodable_service_api_key:
   default:  ABQIAAAA_JjoUvqa134bquGy4vY15RRO4G5fyh1zZNzSCFmcvO7LZYRzsRT7v27fmOMDtR2bY8zj5aAhj8c8QQ
-calendar_date_select_format:
-  default: hyphen_ampm
 # Outbound Mail
 email_server_enabled:
   default: 0
