@@ -38,15 +38,26 @@
 class AnnouncementsController < ApplicationController 
   before_filter :login_required
   before_filter :check_super_user_role
-  
-  # GET /announcement
-  # GET /announcement.xml
-  def index
-    @announcements = Announcement.find_all_and_paginate(params[:page])
+    
+  def index #:nodoc:
+    sort = case params['sort']
+           when "message"  then "message"
+           when "message_reverse"  then "message DESC"
+           when "starts_at"  then "starts_at"
+           when "starts_at_reverse"  then "starts_at DESC"
+           when "ends_at"  then "ends_at"
+           when "ends_at_reverse"  then "ends_at DESC"
+           when "updated_at"  then "updated_at"
+           when "updated_at_reverse"  then "updated_at DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.haml
-      format.xml  { render :xml => @announcements }
+    conditions = ["message LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = Announcement.count(:conditions => conditions)
+    @announcements_pages, @announcements = paginate :announcements, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "announcements", :layout => false
     end
   end
 

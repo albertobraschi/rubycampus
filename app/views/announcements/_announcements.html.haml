@@ -1,0 +1,25 @@
+- if @total == 0
+  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+- else
+  %table
+    %tr
+      %th{ :class => (sort_th_class_helper "message") }
+        = sort_link_helper _("Message"), "message"
+      %th{ :class => (sort_th_class_helper "starts_at") }
+        = sort_link_helper _("Starts At"), "starts_at"
+      %th{ :class => (sort_th_class_helper "ends_at") }
+        = sort_link_helper _("Ends At"), "ends_at"
+      %th{ :class => (sort_th_class_helper "updated_at") }
+        = sort_link_helper _("Last Updated"), "updated_at"
+      %th
+    - @announcements.each do |announcement|
+      %tr{:class => cycle("even","odd")}
+        %td=h announcement.message
+        %td=h announcement.starts_at
+        %td=h announcement.ends_at
+        %td{:style => "vertical-align:top;"}
+          = h (_("%s ago") % distance_of_time_in_words(Time.now, (announcement.updated_at))) rescue nil
+        %td= render :partial => "common/actions/for_row_index", :locals => { :local => announcement }
+  - if @announcements_pages.page_count > 1
+    %div.pagination
+      = pagination_links_remote @announcements_pages
