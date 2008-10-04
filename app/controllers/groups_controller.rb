@@ -39,15 +39,29 @@ class GroupsController < ApplicationController
   before_filter :login_required, :except => [ :lookup ]
   before_filter :check_super_user_role, :except => [ :lookup ]
   
-  # GET rubycampus.local/groups
-  # GET rubycampus.local/groups.xml
   def index #:nodoc:
-    # @groups = Group.find(:all)
-    @groups = Group.search_for_all_and_paginate(params[:locate], params[:page])
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "id"  then "id"
+           when "id_reverse"  then "id DESC"
+           when "description"  then "description"
+           when "description_reverse"  then "description DESC"
+           when "is_enabled"  then "is_enabled"
+           when "is_enabled_reverse"  then "is_enabled DESC"
+           when "group_type_id"  then "group_type_id"
+           when "group_type_id_reverse"  then "group_type_id DESC"
+           when "updated_at"  then "updated_at"
+           when "updated_at_reverse"  then "updated_at DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @groups }
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = Group.count(:conditions => conditions)
+    @groups_pages, @groups = paginate :groups, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "groups", :layout => false
     end
   end
 

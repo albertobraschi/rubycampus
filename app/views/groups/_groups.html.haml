@@ -1,0 +1,31 @@
+- if @total == 0
+  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+- else
+  %table
+    %tr
+      %th{ :class => (sort_th_class_helper "name") }
+        = sort_link_helper _("Name"), "name"
+      %th{ :class => (sort_th_class_helper "id") }
+        = sort_link_helper _("ID"), "id"
+      %th{ :class => (sort_th_class_helper "description") }
+        = sort_link_helper _("Description"), "description"
+      %th{ :class => (sort_th_class_helper "is_enabled") }
+        = sort_link_helper _("Is Enabled"), "is_enabled"
+      %th{ :class => (sort_th_class_helper "group_type_id") }
+        = sort_link_helper _("Group Type"), "group_type_id" 
+      %th{ :class => (sort_th_class_helper "updated_at") }
+        = sort_link_helper _("Last Updated"), "updated_at"
+      %th
+    - @groups.each do |group|
+      %tr{:class => cycle("even","odd")}
+        %td=h group.name
+        %td=h group.id
+        %td=h group.description
+        %td=h group.is_enabled ? _('Yes') : _('No')
+        %td=h group.group_type.name
+        %td{:style => "vertical-align:top;"}
+          = h (_("%s ago") % distance_of_time_in_words(Time.now, (group.updated_at))) rescue nil
+        %td= render :partial => "common/actions/for_row_index", :locals => { :local => group }
+  - if @groups_pages.page_count > 1
+    %div.pagination
+      = pagination_links_remote @groups_pages
