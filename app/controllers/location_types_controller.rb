@@ -57,7 +57,7 @@ class LocationTypesController < ApplicationController
 
     conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
 
-    @total = AcademicLevel.count(:conditions => conditions)
+    @total = LocationType.count(:conditions => conditions)
     @location_types_pages, @location_types = paginate :location_types, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
 
     if request.xml_http_request?

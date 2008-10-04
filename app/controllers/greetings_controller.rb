@@ -53,7 +53,7 @@ class GreetingsController < ApplicationController
 
     conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
 
-    @total = AcademicLevel.count(:conditions => conditions)
+    @total = Greeting.count(:conditions => conditions)
     @greetings_pages, @greetings = paginate :greetings, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
 
     if request.xml_http_request?
