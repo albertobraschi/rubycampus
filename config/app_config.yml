@@ -38,3 +38,8 @@
 rows_per_page: 15
 calendar_date_select_format: iso_date
 encrypt_sensitive_attributes: 0
+#
+# Central Authentication System
+# FEATURE: #98 Central Authentication System
+#
+cas_base_url: https://cas.rubycampus.local/
