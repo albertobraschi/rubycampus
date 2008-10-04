@@ -36,5 +36,5 @@
 #++
 
 # NOTE: Don't use Setting model here as it isn't available when this is initialized
-CalendarDateSelect.format = :hyphen_ampm
+CalendarDateSelect.format = AppConfig.calendar_date_select_format.to_sym
 Geocode.geocoder = Graticule.service(:google).new 'ABQIAAAA_JjoUvqa134bquGy4vY15RRO4G5fyh1zZNzSCFmcvO7LZYRzsRT7v27fmOMDtR2bY8zj5aAhj8c8QQ'
