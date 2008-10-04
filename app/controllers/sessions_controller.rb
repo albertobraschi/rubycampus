@@ -49,6 +49,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy #:nodoc:
+    #
+    # FEATURE: #98 Central Authentication System
+    #   reset_session
+    #   redirect_to CAS::Filter.logout_url(self, request.referer)
+    #
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token
     reset_session
