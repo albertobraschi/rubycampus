@@ -39,6 +39,12 @@ class ApplicationController < ActionController::Base
   helper :all
   layout 'application', :except => [ :extract, :lookup ]
   include AuthenticatedSystem
+  #
+  # FEATURE: #98 Central Authentication System
+  # before_filter CASClient::Frameworks::Rails::Filter
+  # before_filter CASClient::Frameworks::Rails::Filter, :except => [ :unprotected_action, :another_unprotected_action ]
+  # session[:cas_user]
+  #
 
   # Sets time zone for current user if logged in
   before_filter :set_user_time_zone
