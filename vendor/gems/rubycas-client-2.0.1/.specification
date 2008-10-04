@@ -1,0 +1,84 @@
+--- !ruby/object:Gem::Specification 
+name: rubycas-client
+version: !ruby/object:Gem::Version 
+  version: 2.0.1
+platform: ruby
+authors: 
+- Matt Zukowski
+- Matt Walker
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2008-02-27 00:00:00 +09:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: activesupport
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+description: Client library for the Central Authentication Service (CAS) protocol.
+email: matt at roughest dot net
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- CHANGELOG.txt
+- History.txt
+- LICENSE.txt
+- Manifest.txt
+- README.txt
+files: 
+- CHANGELOG.txt
+- History.txt
+- LICENSE.txt
+- Manifest.txt
+- README.txt
+- Rakefile
+- init.rb
+- lib/casclient.rb
+- lib/casclient/client.rb
+- lib/casclient/frameworks/rails/cas_proxy_callback_controller.rb
+- lib/casclient/frameworks/rails/filter.rb
+- lib/casclient/responses.rb
+- lib/casclient/tickets.rb
+- lib/casclient/version.rb
+- lib/rubycas-client.rb
+- setup.rb
+has_rdoc: true
+homepage: http://rubycas-client.rubyforge.org
+post_install_message: 
+rdoc_options: 
+- --main
+- README.txt
+require_paths: 
+- bin
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: rubycas-client
+rubygems_version: 1.2.0
+signing_key: 
+specification_version: 2
+summary: Client library for the Central Authentication Service (CAS) protocol.
+test_files: []
+
