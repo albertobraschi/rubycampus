@@ -1,6 +1,0 @@
-%tr[message_template]{:class => cycle("even","odd")}
-  %td=h message_template.name
-  %td=h message_template.subject
-  %td=h message_template.is_enabled ? _('Yes') : _('No')
-  %td=h message_template.updated_at
-  %td= render :partial => "common/actions/for_row_index", :locals => { :local => message_template }

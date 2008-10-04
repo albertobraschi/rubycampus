@@ -39,15 +39,25 @@ class MessageTemplatesController < ApplicationController
   before_filter :login_required, :except => [ :lookup ]
   before_filter :check_super_user_role, :except => [ :lookup ]
   
-  # GET rubycampus.local/message_templates
-  # GET rubycampus.local/message_templates.xml
   def index #:nodoc:
-    # @message_templates = MessageTemplate.find(:all)
-    @message_templates = MessageTemplate.search_for_all_and_paginate(params[:locate], params[:page])
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "subject"  then "subject"
+           when "subject_reverse"  then "subject DESC"
+           when "is_active"  then "is_active"
+           when "is_active_reverse"  then "is_active DESC"
+           when "updated_at"  then "updated_at"
+           when "updated_at_reverse"  then "updated_at DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @message_templates }
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = MessageTemplate.count(:conditions => conditions)
+    @message_templates_pages, @message_templates = paginate :message_templates, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "message_templates", :layout => false
     end
   end
 
