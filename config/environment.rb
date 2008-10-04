@@ -60,7 +60,7 @@ Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate',     :version => '2.3.4',
                                          :lib => 'will_paginate',
                                          :source => 'http://gems.github.com'
-  config.gem 'graticule',                :version => '0.2.6'
+  config.gem 'graticule',                :version => '0.2.8'
   config.gem 'ezcrypto',                 :version => '0.7'
   config.gem 'prawn',                    :version => '0.2.0'
   config.gem 'json',                     :version => '1.1.3'
