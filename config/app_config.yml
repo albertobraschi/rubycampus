@@ -36,3 +36,4 @@
 #++
 
 rows_per_page: 15
+calendar_date_select_format: iso_date
