@@ -5,12 +5,12 @@
   .login_header_backdrop
     = yield(:title)
   .login_top    
-    - form_for :user, :url => users_path, :html => { :class => "form" } do |f|
-      .form_row= f.text_field :login, {:class => "form_text"}
-      .form_row= f.text_field :email, {:class => "form_text"}
-      .form_row= f.password_field :password, {:class => "form_text"}
-      .form_row= f.password_field :password_confirmation, {:class => "form_text"}
-      .form_row= f.time_zone_select :time_zone, TimeZone.us_zones, {:class => "form_text"}
+    - form_for :user, :url => users_path, :html => { :class => "form" } do |form|
+      .form_row= form.text_field :login, {:class => "form_text"}
+      .form_row= form.text_field :email, {:class => "form_text"}
+      .form_row= form.password_field :password, {:class => "form_text"}
+      .form_row= form.password_field :password_confirmation, {:class => "form_text"}
+      .form_row= form.time_zone_select :time_zone, TimeZone.us_zones, {:class => "form_text"}
       .form_row= submit_tag _('Sign up')     
   .login_bottom/
 .notice= error_messages_for :user

@@ -1,7 +1,7 @@
 = error_messages_for :user
 .standard_box
   .hako 
-    - form_for :user, :url => user_path(@user), :html => { :method => :put, :class => "hakozaki", :autocomplete => :off } do |f|
+    - form_for :user, :url => user_path(@user), :html => { :method => :put, :class => "hakozaki", :autocomplete => :off } do |form|
       .buttons
         %button{:type => "submit", :class => "positive"}
           = _("Save")
@@ -9,22 +9,4 @@
         = link_to _('Show Profile'), user_path(@user)
       %h2= _("Edit Your Account")
       %hr/      
-      %label{:for => "user_email", :class => "w50 inputselect mandatory"}
-        %span.wrapper
-          %span.title= _("Email Address")
-          = f.text_field :email, :class => "field"
-      %label{:for => "contact_time_zone", :class => "w50 inputselect"}
-        %span.wrapper
-          %span.title= _("Time Zone")
-          = f.time_zone_select :time_zone, TimeZone.us_zones, {:class => "field"}   
-      .clear
-      
-      %label{:for => "name", :class => "w50 inputselect mandatory"}
-        %span.wrapper
-          %span.title= _("Display Name")
-          = f.text_field :name, :class => "field"
-      %label{:for => "language", :class => "w50 inputselect"}
-        %span.wrapper
-          %span.title= _("Display Language")          
-          = f.select :language, language_options_for_select, :class => "field"
-      .clear
+      = render :partial => "form", :locals => {:form => form}

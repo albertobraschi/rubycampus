@@ -1,0 +1,19 @@
+%label{:for => "user_email", :class => "w50 inputselect mandatory"}
+  %span.wrapper
+    %span.title= _("Email Address")
+    = form.text_field :email, :class => "field"
+%label{:for => "contact_time_zone", :class => "w50 inputselect"}
+  %span.wrapper
+    %span.title= _("Time Zone")
+    = form.time_zone_select :time_zone, TimeZone.us_zones, {:class => "field"}   
+.clear
+
+%label{:for => "name", :class => "w50 inputselect mandatory"}
+  %span.wrapper
+    %span.title= _("Display Name")
+    = form.text_field :name, :class => "field"
+%label{:for => "language", :class => "w50 inputselect"}
+  %span.wrapper
+    %span.title= _("Display Language")          
+    = form.select :language, language_options_for_select, :class => "field"
+.clear  
