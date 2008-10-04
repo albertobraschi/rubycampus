@@ -149,3 +149,11 @@ share_site_information_with_rubycampus:
   default: 0
 automatically_check_for_rubycampus_version_updates:
   default: 1
+#
+# Central Authentication System
+# FEATURE: #98 Central Authentication System
+#
+central_authentication_system_enabled:
+  default: 0
+cas_base_url: 
+  default: https://cas.rubycampus.org/ 
