@@ -42,12 +42,22 @@ class NameSuffixesController < ApplicationController
   # GET rubycampus.local/name_suffixes
   # GET rubycampus.local/name_suffixes.xml
   def index #:nodoc:
-    # @name_suffixes = NameSuffix.find(:all)
-    @name_suffixes = NameSuffix.search_for_all_and_paginate(params[:locate], params[:page])
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "is_default"  then "is_default"
+           when "is_default_reverse"  then "is_default DESC"
+           when "is_enabled"  then "is_default"
+           when "is_enabled_reverse"  then "is_enabled DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @name_suffixes }
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = NameSuffix.count(:conditions => conditions)
+    @name_suffixes_pages, @name_suffixes = paginate :name_suffixes, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "name_suffixes", :layout => false
     end
   end
 
