@@ -77,7 +77,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :programs, :collection => { :lookup => :get, :index => :get }
   map.resources :regions, :collection => { :lookup => :get }
   map.resources :sources, :collection => { :lookup => :get, :index => :get }
-  map.resources :stages, :collection => { :lookup => :get }
+  map.resources :stages, :collection => { :lookup => :get, :index => :get }
   map.resources :statuses, :collection => { :lookup => :get } 
   # end RubyCampus RESTful Code Tables
 
