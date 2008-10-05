@@ -78,7 +78,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :regions, :collection => { :lookup => :get }
   map.resources :sources, :collection => { :lookup => :get, :index => :get }
   map.resources :stages, :collection => { :lookup => :get, :index => :get }
-  map.resources :statuses, :collection => { :lookup => :get } 
+  map.resources :statuses, :collection => { :lookup => :get, :index => :get } 
   # end RubyCampus RESTful Code Tables
 
   # begin RESTful_authentication routes
