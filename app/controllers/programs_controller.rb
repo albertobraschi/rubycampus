@@ -42,12 +42,26 @@ class ProgramsController < ApplicationController
   # GET rubycampus.local/programs
   # GET rubycampus.local/programs.xml
   def index #:nodoc:
-    # @programs = Program.find(:all)
-    @programs = Program.search_for_all_and_paginate(params[:locate], params[:page])
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "external_identifier"  then "external_identifier"
+           when "external_identifier_reverse"  then "external_identifier DESC"           
+           when "description"  then "description"
+           when "description_reverse"  then "description DESC"           
+           when "is_default"  then "is_default"
+           when "is_default_reverse"  then "is_default DESC"
+           when "is_enabled"  then "is_default"
+           when "is_enabled_reverse"  then "is_enabled DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @programs }
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = Program.count(:conditions => conditions)
+    @programs_pages, @programs = paginate :programs, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "programs", :layout => false
     end
   end
 
