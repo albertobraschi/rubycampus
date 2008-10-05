@@ -50,7 +50,7 @@ class SessionsController < ApplicationController
 
   def destroy #:nodoc:
     #
-    # FEATURE: #98 Central Authentication System
+    # FEATURE: #98 Central Authentication Service
     #   reset_session
     #   redirect_to CAS::Filter.logout_url(self, request.referer)
     #

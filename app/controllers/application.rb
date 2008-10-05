@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
   layout 'application', :except => [ :extract, :lookup ]
   include AuthenticatedSystem
   #
-  # FEATURE: #98 Central Authentication System
+  # FEATURE: #98 Central Authentication Service
   # before_filter CASClient::Frameworks::Rails::Filter
   # before_filter CASClient::Frameworks::Rails::Filter, :except => [ :unprotected_action, :another_unprotected_action ]
   # session[:cas_user]

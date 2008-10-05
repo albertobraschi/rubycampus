@@ -65,7 +65,7 @@ Rails::Initializer.run do |config|
   config.gem 'prawn',                    :version => '0.2.0'
   config.gem 'json',                     :version => '1.1.3'
   
-  # Central Authentication System (CAS)
+  # Central Authentication Service (CAS)
   config.gem 'rubycas-client',           :version => '2.0.1'
   
   # RubyCampus presenters

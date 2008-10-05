@@ -1,7 +1,7 @@
 - form_tag({:action => 'edit'}, :class => "hakozaki", :autocomplete => :off ) do
-  %h2= _("%s Settings") % _("Central Authentication System (CAS)")
+  %h2= _("%s Settings") % _("Central Authentication Service (CAS)")
   = context_help(_("RubyCampus can use CAS developed by Yale University to provide a secure single sign on solution. The user logs in to your organization's CAS server, and is automatically authenticated for RubyCampus. %{learn_more}"))
-  = label_for_setting :setting => :central_authentication_system_enabled, :input_type => :radiocheck, :width => "w50"
+  = label_for_setting :setting => :central_authentication_service_enabled, :input_type => :radiocheck, :width => "w50"
   = label_for_setting :setting => :cas_base_url, :width => "w50"
   .clear 
   %hr/
