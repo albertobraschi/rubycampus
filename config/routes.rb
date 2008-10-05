@@ -73,7 +73,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :mobile_providers, :collection => { :lookup => :get, :index => :get }
   map.resources :name_prefixes, :collection => { :lookup => :get }
   map.resources :name_suffixes, :collection => { :lookup => :get, :index => :get }
-  map.resources :phone_types, :collection => { :lookup => :get }   
+  map.resources :phone_types, :collection => { :lookup => :get, :index => :get }   
   map.resources :programs, :collection => { :lookup => :get }
   map.resources :regions, :collection => { :lookup => :get }
   map.resources :sources, :collection => { :lookup => :get }
