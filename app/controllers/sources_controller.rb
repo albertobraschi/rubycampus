@@ -42,12 +42,22 @@ class SourcesController < ApplicationController
   # GET rubycampus.local/sources
   # GET rubycampus.local/sources.xml
   def index #:nodoc:
-    # @sources = Source.find(:all)
-    @sources = Source.search_for_all_and_paginate(params[:locate], params[:page])
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "is_default"  then "is_default"
+           when "is_default_reverse"  then "is_default DESC"
+           when "is_enabled"  then "is_default"
+           when "is_enabled_reverse"  then "is_enabled DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @sources }
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = Source.count(:conditions => conditions)
+    @sources_pages, @sources = paginate :sources, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "sources", :layout => false
     end
   end
 

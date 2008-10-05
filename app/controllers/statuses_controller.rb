@@ -42,12 +42,22 @@ class StatusesController < ApplicationController
   # GET rubycampus.local/statuses
   # GET rubycampus.local/statuses.xml
   def index #:nodoc:
-    # @statuses = Status.find(:all)
-    @statuses = Status.search_for_all_and_paginate(params[:locate], params[:page])
+    sort = case params['sort']
+           when "name"  then "name"
+           when "name_reverse"  then "name DESC"
+           when "is_default"  then "is_default"
+           when "is_default_reverse"  then "is_default DESC"
+           when "is_enabled"  then "is_default"
+           when "is_enabled_reverse"  then "is_enabled DESC"
+           end
 
-    respond_to do |format|
-      format.html # index.html.haml
-      # format.xml  { render :xml => @statuses }
+    conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    @total = Status.count(:conditions => conditions)
+    @statuses_pages, @statuses = paginate :statuses, :order => sort, :conditions => conditions, :per_page => AppConfig.rows_per_page
+
+    if request.xml_http_request?
+      render :partial => "statuses", :layout => false
     end
   end
 

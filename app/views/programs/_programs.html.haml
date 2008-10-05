@@ -5,8 +5,8 @@
     %tr
       %th{ :class => (sort_th_class_helper "name") }
         = sort_link_helper _("Name"), "name"
-      %th{ :class => (sort_th_class_helper "vcard_name") }
-        = sort_link_helper _("Vcard name"), "vcard_name"
+      %th{ :class => (sort_th_class_helper "external_identifier") }
+        = sort_link_helper _("External identifier"), "external_identifier"
       %th{ :class => (sort_th_class_helper "description") }
         = sort_link_helper _("Description"), "description"        
       %th{ :class => (sort_th_class_helper "is_default") }
@@ -14,14 +14,14 @@
       %th{ :class => (sort_th_class_helper "is_enabled") }
         = sort_link_helper _("Is Enabled"), "is_enabled"
       %th
-    - @location_types.each do |location_type|
+    - @programs.each do |program|
       %tr{:class => cycle("even","odd")}
-        %td=h location_type.name
-        %td=h location_type.vcard_name
-        %td=h location_type.description                
-        %td=h location_type.is_default ? _('Yes') : _('No')
-        %td=h location_type.is_enabled ? _('Yes') : _('No')
-        %td= render :partial => "common/actions/for_row_index_no_show", :locals => { :local => location_type }
-  - if @location_types_pages.page_count > 1
+        %td=h program.name
+        %td=h program.external_identifier
+        %td=h program.description                
+        %td=h program.is_default ? _('Yes') : _('No')
+        %td=h program.is_enabled ? _('Yes') : _('No')
+        %td= render :partial => "common/actions/for_row_index_no_show", :locals => { :local => program }
+  - if @programs_pages.page_count > 1
     %div.pagination
-      = pagination_links_remote @location_types_pages
+      = pagination_links_remote @programs_pages
