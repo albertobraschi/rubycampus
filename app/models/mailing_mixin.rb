@@ -75,3 +75,19 @@ class MailingMixin < ActiveRecord::Base
   #:startdoc:
 
 end
+# == Schema Information
+# Schema version: 20081006092209
+#
+# Table name: rubycampus_mailing_mixins
+#
+#  id                    :integer(11)     not null, primary key
+#  domain_id             :integer(11)     default(1), not null
+#  name                  :string(255)     not null
+#  subject               :string(255)     not null
+#  html                  :text
+#  text                  :text            not null
+#  mailing_mixin_type_id :integer(11)     not null
+#  is_default            :boolean(1)
+#  is_enabled            :boolean(1)      default(TRUE)
+#
+

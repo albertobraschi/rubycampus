@@ -214,14 +214,16 @@ end
 
 end
 
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_users
 #
 #  id                        :integer(11)     not null, primary key
 #  login                     :string(40)
 #  name                      :string(100)     default("")
+#  cas_user                  :string(100)     default("")
 #  email                     :string(100)
 #  crypted_password          :string(40)
 #  salt                      :string(40)
