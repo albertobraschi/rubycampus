@@ -1,4 +1,4 @@
-  <div id="C00000060">
+  <div id="C00000064">
 <div class='banner'>
   <span class="file-title-prefix">Class</span><br />Announcement<br/>
   In:
@@ -17,8 +17,8 @@ ActiveRecord::Base
 
   <div class="sectiontitle">Methods</div>
   <ul>
-  <li><a href="index.html?a=M000053&name=current_announcements" >current_announcements</a></li>
-  <li><a href="index.html?a=M000052&name=find_all_and_paginate" >find_all_and_paginate</a></li>
+  <li><a href="index.html?a=M000054&name=current_announcements" >current_announcements</a></li>
+  <li><a href="index.html?a=M000053&name=find_all_and_paginate" >find_all_and_paginate</a></li>
   </ul>
 
 
@@ -27,40 +27,45 @@ ActiveRecord::Base
 
 
 <div class="sectiontitle">Public Class methods</div>
+<div id="M000054" class="method">
+  <div id="M000054_title" class="title">
+    <b>current_announcements</b>(hide_time)
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000054_source')" id="l_M000054_source">show source</a> ]</p>
+  <div id="M000054_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 58</span>
+58:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">current_announcements</span>(<span class="ruby-identifier">hide_time</span>)
+59:     <span class="ruby-identifier">with_scope</span> <span class="ruby-identifier">:find</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;starts_at &lt;= now() AND ends_at &gt;= now()&quot;</span> } <span class="ruby-keyword kw">do</span>
+60:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hide_time</span>.<span class="ruby-identifier">nil?</span>
+61:         <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>)
+62:       <span class="ruby-keyword kw">else</span>
+63:         <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;updated_at &gt; ? OR starts_at &gt; ?&quot;</span>, <span class="ruby-identifier">hide_time</span>, <span class="ruby-identifier">hide_time</span>])
+64:       <span class="ruby-keyword kw">end</span>
+65:     <span class="ruby-keyword kw">end</span>
+66:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
 <div id="M000053" class="method">
   <div id="M000053_title" class="title">
-    <b>current_announcements</b>(hide_time)
+    <b>find_all_and_paginate</b>(page)
+  </div>
+  <div class="description">
+  <p>
+validates_presence_of :starts_at validates_presence_of :ends_at
+</p>
   </div>
 <div class="sourcecode">
   <p class="source-link">[ <a href="javascript:toggleSource('M000053_source')" id="l_M000053_source">show source</a> ]</p>
   <div id="M000053_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 49</span>
-49:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">current_announcements</span>(<span class="ruby-identifier">hide_time</span>)
-50:     <span class="ruby-identifier">with_scope</span> <span class="ruby-identifier">:find</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;starts_at &lt;= now() AND ends_at &gt;= now()&quot;</span> } <span class="ruby-keyword kw">do</span>
-51:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hide_time</span>.<span class="ruby-identifier">nil?</span>
-52:         <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>)
-53:       <span class="ruby-keyword kw">else</span>
-54:         <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;updated_at &gt; ? OR starts_at &gt; ?&quot;</span>, <span class="ruby-identifier">hide_time</span>, <span class="ruby-identifier">hide_time</span>])
-55:       <span class="ruby-keyword kw">end</span>
-56:     <span class="ruby-keyword kw">end</span>
-57:   <span class="ruby-keyword kw">end</span>
-</pre>
-  </div>
-</div>
-</div>
-<div id="M000052" class="method">
-  <div id="M000052_title" class="title">
-    <b>find_all_and_paginate</b>(page)
-  </div>
-<div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000052_source')" id="l_M000052_source">show source</a> ]</p>
-  <div id="M000052_source" class="dyn-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 45</span>
-45:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_all_and_paginate</span>(<span class="ruby-identifier">page</span>)
-46:     <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">AppConfig</span>.<span class="ruby-identifier">rows_per_page</span>, <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>
-47:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/announcement.rb, line 54</span>
+54:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_all_and_paginate</span>(<span class="ruby-identifier">page</span>)
+55:     <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">AppConfig</span>.<span class="ruby-identifier">rows_per_page</span>, <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>
+56:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>

@@ -18,6 +18,8 @@ digraph controllers_diagram {
 	"IndividualsController" [shape=Mrecord, label="{IndividualsController|create\ldestroy\ledit\lextract\lindex\lnew\lshow\lupdate\l|\l|\l}"]
 	"JavascriptsController" [shape=Mrecord, label="{JavascriptsController|hide_announcement\l|\l|\l}"]
 	"LocationTypesController" [shape=Mrecord, label="{LocationTypesController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
+	"MailingMixinTypesController" [shape=Mrecord, label="{MailingMixinTypesController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
+	"MailingMixinsController" [shape=Mrecord, label="{MailingMixinsController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
 	"MaritalStatusesController" [shape=Mrecord, label="{MaritalStatusesController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
 	"MessageTemplatesController" [shape=Mrecord, label="{MessageTemplatesController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
 	"MessagingProvidersController" [shape=Mrecord, label="{MessagingProvidersController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
@@ -36,5 +38,5 @@ digraph controllers_diagram {
 	"StatusesController" [shape=Mrecord, label="{StatusesController|create\ldestroy\ledit\lindex\llookup\lnew\lshow\lupdate\l|\l|\l}"]
 	"UserAccountsController" [shape=Mrecord, label="{UserAccountsController|edit\lshow\lupdate\l|\l|\l}"]
 	"UsersController" [shape=Mrecord, label="{UsersController|activate\lcreate\ldestroy\ledit\lenable\lindex\lnew\lshow\lupdate\l|\l|\l}"]
-	"ApplicationController" [shape=Mrecord, label="{ApplicationController|\l|filter_parameters\l|instantiate_controller_and_action_names\lset_user_language\lset_user_time_zone\l}"]
+	"ApplicationController" [shape=Mrecord, label="{ApplicationController|\l|filter_parameters\l|instantiate_controller_and_action_names\lset_user_locale\lset_user_time_zone\l}"]
 }

@@ -1,4 +1,4 @@
-  <div id="C00000080">
+  <div id="C00000084">
 <div class='banner'>
   <span class="file-title-prefix">Class</span><br />Contact<br/>
   In:
@@ -17,10 +17,10 @@ ActiveRecord::Base
 
   <div class="sectiontitle">Methods</div>
   <ul>
-  <li><a href="index.html?a=M000097&name=find_for_auto_complete_lookup" >find_for_auto_complete_lookup</a></li>
-  <li><a href="index.html?a=M000096&name=search_for_all_and_paginate" >search_for_all_and_paginate</a></li>
-  <li><a href="index.html?a=M000094&name=with_stages" >with_stages</a></li>
-  <li><a href="index.html?a=M000095&name=without_stages" >without_stages</a></li>
+  <li><a href="index.html?a=M000098&name=find_for_auto_complete_lookup" >find_for_auto_complete_lookup</a></li>
+  <li><a href="index.html?a=M000097&name=search_for_all_and_paginate" >search_for_all_and_paginate</a></li>
+  <li><a href="index.html?a=M000095&name=with_stages" >with_stages</a></li>
+  <li><a href="index.html?a=M000096&name=without_stages" >without_stages</a></li>
   </ul>
 
 
@@ -29,8 +29,8 @@ ActiveRecord::Base
 
 
 <div class="sectiontitle">Public Class methods</div>
-<div id="M000097" class="method">
-  <div id="M000097_title" class="title">
+<div id="M000098" class="method">
+  <div id="M000098_title" class="title">
     <b>find_for_auto_complete_lookup</b>(search)
   </div>
   <div class="description">
@@ -41,8 +41,8 @@ organization_name, household_name
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000097_source')" id="l_M000097_source">show source</a> ]</p>
-  <div id="M000097_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000098_source')" id="l_M000098_source">show source</a> ]</p>
+  <div id="M000098_source" class="dyn-source">
 <pre>
      <span class="ruby-comment cmt"># File app/models/contact.rb, line 153</span>
 153:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
@@ -52,8 +52,8 @@ organization_name, household_name
   </div>
 </div>
 </div>
-<div id="M000096" class="method">
-  <div id="M000096_title" class="title">
+<div id="M000097" class="method">
+  <div id="M000097_title" class="title">
     <b>search_for_all_and_paginate</b>(search, page, contact_type, stage)
   </div>
   <div class="description">
@@ -62,8 +62,8 @@ Fetches scoped contacts with pagination
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000096_source')" id="l_M000096_source">show source</a> ]</p>
-  <div id="M000096_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000097_source')" id="l_M000097_source">show source</a> ]</p>
+  <div id="M000097_source" class="dyn-source">
 <pre>
      <span class="ruby-comment cmt"># File app/models/contact.rb, line 142</span>
 142:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search_for_all_and_paginate</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">page</span>, <span class="ruby-identifier">contact_type</span>, <span class="ruby-identifier">stage</span>)
@@ -77,8 +77,8 @@ Fetches scoped contacts with pagination
   </div>
 </div>
 </div>
-<div id="M000094" class="method">
-  <div id="M000094_title" class="title">
+<div id="M000095" class="method">
+  <div id="M000095_title" class="title">
     <b>with_stages</b>(contact_type, stage) {|| ...}
   </div>
   <div class="description">
@@ -87,8 +87,8 @@ begin Queries TODO DRY this up Required scope for segmenting contact_types
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000094_source')" id="l_M000094_source">show source</a> ]</p>
-  <div id="M000094_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000095_source')" id="l_M000095_source">show source</a> ]</p>
+  <div id="M000095_source" class="dyn-source">
 <pre>
      <span class="ruby-comment cmt"># File app/models/contact.rb, line 126</span>
 126:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">with_stages</span>(<span class="ruby-identifier">contact_type</span>, <span class="ruby-identifier">stage</span>)
@@ -102,13 +102,13 @@ begin Queries TODO DRY this up Required scope for segmenting contact_types
   </div>
 </div>
 </div>
-<div id="M000095" class="method">
-  <div id="M000095_title" class="title">
+<div id="M000096" class="method">
+  <div id="M000096_title" class="title">
     <b>without_stages</b>(contact_type) {|| ...}
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000095_source')" id="l_M000095_source">show source</a> ]</p>
-  <div id="M000095_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000096_source')" id="l_M000096_source">show source</a> ]</p>
+  <div id="M000096_source" class="dyn-source">
 <pre>
      <span class="ruby-comment cmt"># File app/models/contact.rb, line 134</span>
 134:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">without_stages</span>(<span class="ruby-identifier">contact_type</span>)
