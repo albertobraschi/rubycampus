@@ -1,0 +1,109 @@
+#--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
+# +------------------------------------------------------------------------------------+
+# | RubyCampus - Relationship Management & Alumni Development Software                 |
+# +------------------------------------------------------------------------------------+
+# | Copyright (C) 2008 Kevin Aleman, RubyCampus LLC - https://rubycampus.org           |
+# +------------------------------------------------------------------------------------+
+# |                                                                                    |
+# | This program is free software; you can redistribute it and/or modify it under the  |
+# | terms of the GNU Affero General Public License version 3 as published by the Free  |
+# | Software Foundation with the addition of the following permission added to Section |
+# | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
+# | COPYRIGHT IS OWNED BY RUBYCAMPUS LLC, RUBYCAMPUS LLC DISCLAIMS THE WARRANTY OF NON |
+# | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
+# |                                                                                    |
+# | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
+# | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
+# | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
+# |                                                                                    |
+# | You should have received a copy of the GNU Affero General Public License along     |
+# | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
+# | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
+# | USA.                                                                               |
+# |                                                                                    |
+# | You can contact RubyCampus, LLC. at email address project@rubycampus.org.          |
+# |                                                                                    |
+# | The interactive user interfaces in modified source and object code versions of     |
+# | this program must display Appropriate Legal Notices, as required under Section 5   |
+# | of the GNU Affero General Public License version 3.                                |
+# |                                                                                    |
+# | In accordance with Section 7(b) of the GNU Affero General Public License version   |
+# | 3, these Appropriate Legal Notices must retain the display of the "Powered by      |
+# | RubyCampus" logo. If the display of the logo is not reasonably feasible for        |
+# | technical reasons, the Appropriate Legal Notices must display the words "Powered   |
+# | by RubyCampus".                                                                    |
+# +------------------------------------------------------------------------------------+
+#++
+
+rubycampus_mailing_mixins_001:
+  id: 1
+  name: Mailing Header
+  mailing_mixin_type_id: 1
+  subject: Descriptive Title for this Header
+  html: Sample Header for HTML formatted content.
+  text: Sample Header for TEXT formatted content.
+  is_default: true
+  is_enabled: true
+rubycampus_mailing_mixins_002:
+  id: 2
+  name: Mailing Footer
+  mailing_mixin_type_id: 2
+  subject: Descriptive Title for this Footer.
+  html: Sample Footer for TEXT formatted content.
+  text: Sample Footer for HTML formatted content.
+  is_default: true
+  is_enabled: true
+rubycampus_mailing_mixins_003:
+  id: 3
+  name: Welcome Message
+  mailing_mixin_type_id: 3
+  subject: Welcome Message
+  html: Welcome. Your subscription has been activated.
+  text: Welcome. Your subscription has been activated.
+  is_default: true
+  is_enabled: true
+rubycampus_mailing_mixins_004:
+  id: 4
+  name: Opt-out Message
+  mailing_mixin_type_id: 4
+  subject: Opt-out Confirmation
+  html: Your email address has been removed from our mailing lists.
+  text: Your email address has been removed from our mailing lists.
+  is_default: true
+  is_enabled: true
+rubycampus_mailing_mixins_005:
+  id: 5
+  name: Subscribe Message
+  mailing_mixin_type_id: 5
+  subject: Subscription Confirmation Request
+  html: You have a pending subscription to our mailing list.
+  text: You have a pending subscription to our mailing list.
+  is_default: true
+  is_enabled: true
+rubycampus_mailing_mixins_007:
+  id: 7
+  name: Unsubscribe Message
+  mailing_mixin_type_id: 7
+  subject: Un-subscribe Confirmation
+  html: You have been un-subscribed.
+  text: You have been un-subscribed.
+  is_default: true
+  is_enabled: true
+rubycampus_mailing_mixins_006:
+  id: 6
+  name: Resubscribe Message
+  mailing_mixin_type_id: 6
+  subject: Re-subscribe Confirmation
+  html: You have been re-subscribed.
+  text: You have been re-subscribed.
+  is_default: true
+  is_enabled: true
+rubycampus_mailing_mixins_007:
+  id: 7
+  name: Auto-Responder
+  mailing_mixin_type_id: 7
+  subject: Please send correspondance to our contact email address
+  html: This is an automated reply from an un-attended mailbox. Please send correspondance to our contact email address.
+  text: This is an automated reply from an un-attended mailbox. Please send correspondance to our contact email address.
+  is_default: true
+  is_enabled: true
