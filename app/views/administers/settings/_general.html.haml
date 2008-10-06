@@ -1,9 +1,9 @@
 %fieldset
-  %legend= _("Manage")
+  %legend= _("Site Administration")
   .span-3= link_to _('Announcements'), announcements_path
   .span-3.last= link_to _('Users'), users_path
 %fieldset
-  %legend= _("Options Lists")   
+  %legend= _("Code Lists & Lookups")   
   .span-3= link_to _("Academic Levels"), academic_levels_path 
   .span-3= link_to _("Activity Types"), activity_types_path
   .span-3= link_to _("Education Levels"), education_levels_path    
@@ -23,6 +23,7 @@
   .span-3= link_to _("Stages"), stages_path 
   .span-3.last= link_to _("Statuses"), statuses_path    
 %fieldset
-  %legend= _("Core Services")
+  %legend= _("Communication")
+  .span-3= link_to _("Message Templates"), message_templates_path
   .span-3.last= link_to _('Mailing Mixins'), mailing_mixins_path
 %hr/
