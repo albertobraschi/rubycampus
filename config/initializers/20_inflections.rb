@@ -33,9 +33,9 @@
 # | technical reasons, the Appropriate Legal Notices must display the words "Powered   |
 # | by RubyCampus".                                                                    |
 # +------------------------------------------------------------------------------------+
-#++               
- 
-Inflector.inflections do |inflect|
+#++
+
+ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'premium', 'premiums'
 end
 
