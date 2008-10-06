@@ -1,0 +1,10 @@
+- title((_("Viewing %s") % current_controller_gettext_human_name))
+.standard_box
+  .hako
+    - form_for @mailing_mixin_type, :url => mailing_mixin_type_path, :html => { :method => :put, :class => "hakozaki" } do |form|
+      = render :partial => "common/actions/for_form_show"
+      %h1=h @mailing_mixin_type.name
+      %hr/ 
+      = render :partial => "form", :locals => {:form => form}
+      = render :partial => "common/actions/for_form_show"
+      = form.show_readonly :options => { :disable => "true" }
