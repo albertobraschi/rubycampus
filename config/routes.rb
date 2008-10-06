@@ -40,7 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "sessions", :action => "destroy"
 
   # begin RubyCampus Administration
-  map.resources :administers 
+  map.resources :administers
   map.resources :announcements, :collection => { :index => :get}
   # end RubyCampus Administration
 
@@ -54,6 +54,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :organizations, :collection => { :index => :get }
   map.resources :households, :collection => { :index => :get }
   # end RubyCampus Constituents
+
+  # begin RubyCampus Mailings
+  map.resources :mailing_mixins, :collection => { :lookup => :get, :index => :get }
+  map.resources :mailing_mixin_types, :collection => { :lookup => :get, :index => :get }
+  # end RubyCampus Mailings
 
   # begin RubyCampus RESTful Code Tables
   map.resources :academic_levels, :collection => { :lookup => :get, :index => :get }
@@ -73,12 +78,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :mobile_providers, :collection => { :lookup => :get, :index => :get }
   map.resources :name_prefixes, :collection => { :lookup => :get, :index => :get }
   map.resources :name_suffixes, :collection => { :lookup => :get, :index => :get }
-  map.resources :phone_types, :collection => { :lookup => :get, :index => :get }   
+  map.resources :phone_types, :collection => { :lookup => :get, :index => :get }
   map.resources :programs, :collection => { :lookup => :get, :index => :get }
   map.resources :regions, :collection => { :lookup => :get }
   map.resources :sources, :collection => { :lookup => :get, :index => :get }
   map.resources :stages, :collection => { :lookup => :get, :index => :get }
-  map.resources :statuses, :collection => { :lookup => :get, :index => :get } 
+  map.resources :statuses, :collection => { :lookup => :get, :index => :get }
   # end RubyCampus RESTful Code Tables
 
   # begin RESTful_authentication routes
