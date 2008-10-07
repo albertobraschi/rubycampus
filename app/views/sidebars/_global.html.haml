@@ -1,24 +1,25 @@
-.actions
-  = link_to _("Individuals"), individuals_path
-  = link_to _("New Individual"), new_individual_path, :class => "positive"
-
-  = link_to _("Organizations"), organizations_path
-  = link_to _("New Organization"), new_organization_path, :class => "positive" 
-
-  = link_to _("Households"), households_path
-  = link_to _("New Household"), new_household_path, :class => "positive"
-%hr/                                              
-.actions
-  = link_to _("Activities"), activities_path
-  = link_to _("New Activity"), new_activity_path, :class => "positive"
-%hr/
-.actions
-  = link_to _("Manage Groups"), groups_path
-%hr/   
-- if !Setting.demo?
-  - nil      
-- else
-  = content_tag(:div,"Some actions are intentionally removed from this demo either because they are considered unstable or as a security precaution.", :class => "notice")
-  = content_tag(:div,"Help us shape the future and let us know what features you'd like to see included.", :class => "notice")
+- if logged_in?
   .actions
-    = link_to "Submit Suggestion", "https://rubycampus.org/wiki/rubycampus/Suggestions", :class => "positive"
+    = link_to _("Individuals"), individuals_path
+    = link_to _("New Individual"), new_individual_path, :class => "positive"
+
+    = link_to _("Organizations"), organizations_path
+    = link_to _("New Organization"), new_organization_path, :class => "positive" 
+
+    = link_to _("Households"), households_path
+    = link_to _("New Household"), new_household_path, :class => "positive"
+  %hr/                                              
+  .actions
+    = link_to _("Activities"), activities_path
+    = link_to _("New Activity"), new_activity_path, :class => "positive"
+  %hr/
+  .actions
+    = link_to _("Manage Groups"), groups_path
+  %hr/   
+  - if !Setting.demo?
+    - nil      
+  - else
+    = content_tag(:div,"Some actions are intentionally removed from this demo either because they are considered unstable or as a security precaution.", :class => "notice")
+    = content_tag(:div,"Help us shape the future and let us know what features you'd like to see included.", :class => "notice")
+    .actions
+      = link_to "Submit Suggestion", "https://rubycampus.org/wiki/rubycampus/Suggestions", :class => "positive"    
