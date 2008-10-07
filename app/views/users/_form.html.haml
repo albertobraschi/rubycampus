@@ -16,4 +16,18 @@
   %span.wrapper
     %span.title= _("Display Language")          
     = form.select :language, language_options_for_select, :class => "field"
-.clear  
+.clear
+- if @current_action == "new"
+  %label{:for => "user_login", :class => "w100 inputselect mandatory"}
+    %span.wrapper
+      %span.title= _("Login")
+      = form.text_field :login, :class => "field"
+  %label{:for => "user_password", :class => "w50 inputselect mandatory"}
+    %span.wrapper
+      %span.title= _("Password")
+      = form.password_field :password, :class => "field"
+  %label{:for => "user_password_confirmation", :class => "w50 inputselect mandatory"}
+    %span.wrapper
+      %span.title= _("Password Confirmation")
+      = form.password_field :password_confirmation, :class => "field"  
+  .clear     

@@ -1,19 +1,28 @@
 - title(Setting.site_title_login,"login")
-.login
-  .login_header_backdrop{:style => "text-align:center;"}
-    = yield(:title)
-  .login_top
-    - form_tag session_path, {:class => "form"} do
-      .form_row
-        %label{ :class => "login_label", :for => "login" }= _("Login")
-        = text_field_tag 'login', nil, {:class => "form_text"}
-      .form_row
-        %label{ :class => "login_label", :for => "password" }= _("Password")
-        = password_field_tag 'password', nil, {:class => "form_text"}
-      .form_row
-        = submit_tag _('Log in')         
+.span-12.push-6
+  .login_box
+    .hako
+      - form_tag session_path, { :class => "hakozaki", :autocomplete => :off } do
+        %h1= yield(:title)
+      
+        %label{ :for => "login", :class => "w100 inputselect mandatory" }
+          %span.wrapper
+            %span.title= _("Login")
+          = text_field_tag 'login', nil, :class => "field"     
+        .clear
+      
+        %label{ :for => "password", :class => "w100 inputselect mandatory" }
+          %span.wrapper
+            %span.title= _("Password")
+          = password_field_tag 'password', nil, :class => "field"
+        .clear
+        .clear
+        .buttons
+          %button{:type => "submit", :class => ""}
+            = _("Log in")        
         = check_box_tag 'remember_me'
         = _("Remember me")
         = #link_to _("Sign Up"), new_user_path
-        = link_to _('Forgot Password?'), forgot_password_path
-  .login_bottom/
+        = link_to _('Forgot Password?'), forgot_password_path   
+  
+

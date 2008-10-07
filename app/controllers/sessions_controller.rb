@@ -36,7 +36,6 @@
 #++
 
 class SessionsController < ApplicationController               
-  layout 'login'
   before_filter :login_required, :only => :destroy
   before_filter :not_logged_in_required, :only => [:new, :create]
 

@@ -36,13 +36,9 @@
 #++
 
 class UsersController < ApplicationController      
-  before_filter :not_logged_in_required, :only => [:new, :create]
-  before_filter :login_required, :only => [:show, :edit, :update]
-  before_filter :check_super_user_role, :only => [:index, :destroy, :enable]
+  before_filter :login_required #, :only => [:show, :edit, :update]
+  before_filter :check_super_user_role, :only => [:index, :destroy, :enable, :new, :create]
   
-  # def index #:nodoc:
-  #   @users = User.search(params[:search],params[:page])
-  # end   
   def index #:nodoc:
     sort = case params['sort']
            when "login"  then "login"
@@ -76,16 +72,17 @@ class UsersController < ApplicationController
   end
 
   def create #:nodoc:
-    cookies.delete :auth_token
+    # Uncomment if performing external creation before authentication
+    # cookies.delete :auth_token
     @user = User.new(params[:user])
     @user.save!
     # Uncomment to have the user automatically
     # logged in after creating an account - Not Recommended
     # self.current_user = @user
-    flash[:notice] = _("Thanks for signing up! Please check your email to activate your account before logging in.")
-    redirect_to login_path
+    flash[:notice] = _("User has been created and an email has been sent to activate their account before logging in.")
+    redirect_to users_path
     rescue ActiveRecord::RecordInvalid
-    flash[:error] = _("There was a problem creating your account.")
+    flash[:error] = _("There was a problem creating this account.")
     render :action => 'new'
   end
 

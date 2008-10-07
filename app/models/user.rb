@@ -35,14 +35,13 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-require 'digest/sha1'  
+require 'digest/sha1'
 
 class User < ActiveRecord::Base
   # Excludes model from being included in PO template
   require 'gettext/rails'
   untranslate_all
- 
-  
+
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
@@ -58,9 +57,9 @@ class User < ActiveRecord::Base
   validates_format_of       :email, :with => /(^([^@\s]+)@((?:[-_a-z0-9]+\.)+[a-z]{2,})$)|(^$)/i
 
   has_many :permissions
-  has_many :roles, :through => :permissions  
-  
-  # TODO allow auto_complete of assignable users 
+  has_many :roles, :through => :permissions
+
+  # TODO allow auto_complete of assignable users
   # has_many :contacts, :class_name => "contact", :foreign_key => "assigned_to_user_id"
 
   before_save :encrypt_password
@@ -68,22 +67,22 @@ class User < ActiveRecord::Base
 
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else a RubyCampus user can change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation, :time_zone, :name, :language 
-  
-  # Queries from Controller   
+  attr_accessible :login, :email, :password, :password_confirmation, :time_zone, :name, :language
+
+  # Queries from Controller
   # Action Index
   def self.search(search, page)
-    paginate :page => page, 
+    paginate :page => page,
              :conditions => ['name like ?', "%#{search}%"],
-             :order => 'name'    
-  end        
+             :order => 'name'
+  end
 
 class ActivationCodeNotFound < StandardError; end
 class AlreadyActivated < StandardError
-  attr_reader :user, :message;  
+  attr_reader :user, :message;
   def initialize(user, message=nil)
     @message, @user = message, user
-  end     
+  end
 end
 
   # Finds the user with the corresponding activation code, activates their account and returns the user.
@@ -97,12 +96,12 @@ end
     raise ActivationCodeNotFound if !user
     raise AlreadyActivated.new(user) if user.active?
     user.send(:activate!)
-    user     
+    user
   end
 
   def active?
     # the presence of an activation date means they have activated
-    !activated_at.nil?     
+    !activated_at.nil?
   end
 
   # Returns true if the user has just been activated.
@@ -113,7 +112,7 @@ end
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     u = find :first, :conditions => ['login = ?', login] # need to get the salt
-    u && u.authenticated?(password) ? u : nil   
+    u && u.authenticated?(password) ? u : nil
   end
 
   # Encrypts some data with the salt.
@@ -146,13 +145,13 @@ end
   def remember_me_until(time)
     self.remember_token_expires_at = time
     self.remember_token            = encrypt("#{email}–#{remember_token_expires_at}")
-    save(false)    
+    save(false)
   end
 
   def forget_me
     self.remember_token_expires_at = nil
     self.remember_token            = nil
-    save(false)  
+    save(false)
   end
 
   def forgot_password
@@ -164,7 +163,7 @@ end
     # First update the password_reset_code before setting the
     # reset_password flag to avoid duplicate email notifications.
     update_attribute(:password_reset_code, nil)
-    @reset_password = true   
+    @reset_password = true
   end
 
   # used in user_observer
@@ -190,7 +189,7 @@ end
   def encrypt_password
     return if password.blank?
     self.salt = Digest::SHA1.hexdigest("–#{Time.now.to_s}–#{login}–") if new_record?
-    self.crypted_password = encrypt(password)  
+    self.crypted_password = encrypt(password)
   end
 
   def password_required?
@@ -210,7 +209,7 @@ end
   def activate!
     @activated = true
     self.update_attribute(:activated_at, Time.now.utc)
-  end              
+  end
 
 end
 

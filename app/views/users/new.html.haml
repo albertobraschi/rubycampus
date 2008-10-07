@@ -1,16 +1,11 @@
-- title(_("Sign up as a new user"),"login") 
+- title(_("New User"),"login") 
+= error_messages_for :user 
 - @user.password = @user.password_confirmation = nil
-
-.login
-  .login_header_backdrop
-    = yield(:title)
-  .login_top    
-    - form_for :user, :url => users_path, :html => { :class => "form" } do |form|
-      .form_row= form.text_field :login, {:class => "form_text"}
-      .form_row= form.text_field :email, {:class => "form_text"}
-      .form_row= form.password_field :password, {:class => "form_text"}
-      .form_row= form.password_field :password_confirmation, {:class => "form_text"}
-      .form_row= form.time_zone_select :time_zone, TimeZone.us_zones, {:class => "form_text"}
-      .form_row= submit_tag _('Sign up')     
-  .login_bottom/
-.notice= error_messages_for :user
+.standard_box
+  .hako
+    - form_for :user, :url => users_path, :html => { :class => "hakozaki", :autocomplete => :off } do |form|
+      .buttons
+        %button{:type => "submit", :class => "positive"}
+          = _("Create User")
+      %h1= yield(:title)      
+      = render :partial => "form", :locals => {:form => form}

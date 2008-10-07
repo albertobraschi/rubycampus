@@ -36,7 +36,6 @@
 #++
 
 class PasswordsController < ApplicationController 
-  layout 'login'
   before_filter :not_logged_in_required, :only => [:new, :create]
 
   # Enter email address to recover password
