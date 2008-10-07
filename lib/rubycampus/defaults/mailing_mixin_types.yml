@@ -59,3 +59,15 @@ rubycampus_mailing_mixin_types_007:
 rubycampus_mailing_mixin_types_008:
   id: 8
   name: Reply Auto-Responder
+rubycampus_mailing_mixin_types_009:
+  id: 9
+  name: Signup Notification
+rubycampus_mailing_mixin_types_010:
+  id: 10
+  name: Activation
+rubycampus_mailing_mixin_types_011:
+  id: 11
+  name: Forgot Password
+rubycampus_mailing_mixin_types_012:
+  id: 12
+  name: Reset Password   
