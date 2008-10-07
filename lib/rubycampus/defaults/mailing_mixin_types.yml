@@ -46,10 +46,10 @@ rubycampus_mailing_mixin_types_003:
   name: Welcome Message
 rubycampus_mailing_mixin_types_004:
   id: 4
-  name: Opt-Out Message
+  name: Opt Out Message
 rubycampus_mailing_mixin_types_005:
   id: 5
-  name: Subscription Confirmation
+  name: Opt In Message
 rubycampus_mailing_mixin_types_006:
   id: 6
   name: Unsubscribe Message
@@ -58,10 +58,10 @@ rubycampus_mailing_mixin_types_007:
   name: Resubscribe Message
 rubycampus_mailing_mixin_types_008:
   id: 8
-  name: Reply Auto-Responder
+  name: Reply Auto Responder
 rubycampus_mailing_mixin_types_009:
   id: 9
-  name: Signup Notification
+  name: New User Notification
 rubycampus_mailing_mixin_types_010:
   id: 10
   name: Activation

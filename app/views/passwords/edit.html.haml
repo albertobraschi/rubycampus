@@ -1,10 +1,19 @@
-- form_tag url_for(:action => "update", :id => params[:id]) do
-  = _("Password:")
-  %br/
-  = password_field_tag :password
-  %br/
-  = _("Confirm Password:")
-  %br/
-  = password_field_tag :password_confirmation
-  %br/
-  = submit_tag _("Reset Your Password")
+- title(_("Reset Password"),"login") 
+.span-12.push-6
+  .login_box
+    .hako
+      - form_tag url_for(:action => "update", :id => params[:id]), { :class => "hakozaki", :autocomplete => :off } do
+        %h1= yield(:title)
+        %label{ :for => "password", :class => "w100 inputselect mandatory" }
+          %span.wrapper
+            %span.title= _("Password")
+          = password_field_tag :password, nil, {:class => "field"}
+        %label{ :for => "password_confirmation", :class => "w100 inputselect mandatory" }
+          %span.wrapper
+            %span.title= _("Password Confirmation")
+          = password_field_tag :password_confirmation, nil, {:class => "field"}
+        .clear
+        .clear
+        .buttons
+          %button{:type => "submit", :class => ""}
+            = _('Reset Password')

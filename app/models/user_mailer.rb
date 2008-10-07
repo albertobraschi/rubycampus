@@ -36,39 +36,67 @@
 #++
 
 class UserMailer < ActionMailer::Base
-  
-  def signup_notification(user)
+
+  def new_user_notification(user)
     setup_email(user)
-    @subject += _('Please activate your new account')
-    
-    @body[:url] = "#{Setting.site_protocol}#{Setting.site_domain}/activate/#{user.activation_code}"
+    begin
+      body = MailingMixin.find_by_mailing_mixin_type_id(MailingMixinType::NEW_USER_NOTIFICATION.id)
+      @subject = body.subject % tokens(user)
+      @body[:message] = body.text % tokens(user)
+    rescue
+      nil
+    end
   end
 
   def activation(user)
     setup_email(user)
-    @subject += _('Your account has been activated!')
-    @body[:url] = "#{Setting.site_protocol}#{Setting.site_domain}/"
+    begin
+      body = MailingMixin.find_by_mailing_mixin_type_id(MailingMixinType::ACTIVATION.id)
+      @subject = body.subject % tokens(user)
+      @body[:message] = body.text % tokens(user)
+    rescue
+      nil
+    end
   end
 
   def forgot_password(user)
     setup_email(user)
-    @subject += _('You have requested to change your password')
-    @body[:url] = "#{Setting.site_protocol}#{Setting.site_domain}/reset_password/#{user.password_reset_code}"
+    begin
+      body = MailingMixin.find_by_mailing_mixin_type_id(MailingMixinType::FORGOT_PASSWORD.id)
+      @subject = body.subject % tokens(user)
+      @body[:message] = body.text % tokens(user)
+    rescue
+      nil
+    end
   end
 
   def reset_password(user)
     setup_email(user)
-    @subject += _('Your password has been reset.')
+    begin
+      body = MailingMixin.find_by_mailing_mixin_type_id(MailingMixinType::RESET_PASSWORD.id)
+      @subject = body.subject % tokens(user)
+      @body[:message] = body.text % tokens(user)
+    rescue
+      nil
+    end
   end
 
-  protected   
-  
+  protected
+
   def setup_email(user)
     @recipients = "#{user.email}"
     @from = "#{Setting.site_from_email_address}"
     @subject = _("%s email setup") % Setting.site_domain
     @sent_on = Time.now
-    @body[:user] = user         
-  end              
-    
+    @body[:user] = user
+  end
+
+  def tokens(user)
+    {
+     :user_activation_code => "#{Setting.site_protocol}#{Setting.site_domain}/activate/#{user.activation_code}",
+     :site_domain => "#{Setting.site_protocol}#{Setting.site_domain}/",
+     :user_password_reset_code => "#{Setting.site_protocol}#{Setting.site_domain}/reset_password/#{user.password_reset_code}"
+    }
+  end
+
 end

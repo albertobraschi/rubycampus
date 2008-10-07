@@ -44,13 +44,18 @@ class MailingMixinType < ActiveRecord::Base
   N_('Header')
   N_('Footer')
   N_('Welcome Message')
-  N_('Opt-Out Message')
-  N_('Subscription Confirmation')
+  N_('Opt Out Message')
+  N_('Opt In Message')
   N_('Unsubscribe Message')
   N_('Resubscribe Message')
-  N_('Reply Auto-Responder')
+  N_('Reply Auto Responder')
+  N_('New User Notification')
+  N_('Activation')
+  N_('Forgot Password')
+  N_('Reset Password')
   # begin gettext constants
-
+  caches_constants
+  
   # begin Associations
     has_many :mailing_mixins
   # end Associations
