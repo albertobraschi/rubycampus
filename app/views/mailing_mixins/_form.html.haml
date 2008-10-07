@@ -7,7 +7,8 @@
   %label{:for => "mailing_mixin_mailing_mixin_type_id", :class => "w25 inputselect mandatory"}
     %span.wrapper
       = label_with_lookup :controller => :mailing_mixin_type, :label => _("Mailing Mixin Type"), :example => '<br/>' + _("Used by mailer")
-      = text_field_with_auto_complete :mailing_mixin, :mailing_mixin_type_name, { :class => "field" }, { :url => formatted_lookup_mailing_mixin_types_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
+      =# text_field_with_auto_complete :mailing_mixin, :mailing_mixin_type_name, { :class => "field" }, { :url => formatted_lookup_mailing_mixin_types_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
+      = @mailing_mixin.mailing_mixin_type.name 
   .clear
 
   %label{:for => "mailing_mixin_subject", :class => "w100 inputselect mandatory"}
@@ -33,18 +34,18 @@
       %span.example= _("Token aware, supports HTML formatted version of this message, don't complete this if you use textile")
       = form.text_area :html, :class => "field"
   .clear
-
-  %label{:for => "mailing_mixin_is_default", :class => "w25 radiocheck"}
-    %span.wrapper
-      %br/
-      = form.check_box :is_default, :class => "select"
-      %span.title= _("Is Default")
-  %label{:for => "mailing_mixin_is_enabled", :class => "w25 radiocheck"}
-    %span.wrapper
-      %br/
-      = form.check_box :is_enabled, :class => "select"
-      %span.title= _("Is Enabled")
-  .clear
+  -# We are not letting users manage this yet
+  -# %label{:for => "mailing_mixin_is_default", :class => "w25 radiocheck"}
+  -#   %span.wrapper
+  -#     %br/
+  -#     = form.check_box :is_default, :class => "select"
+  -#     %span.title= _("Is Default")
+  -# %label{:for => "mailing_mixin_is_enabled", :class => "w25 radiocheck"}
+  -#   %span.wrapper
+  -#     %br/
+  -#     = form.check_box :is_enabled, :class => "select"
+  -#     %span.title= _("Is Enabled")
+  -# .clear
 
 .span-5.last
   .box
