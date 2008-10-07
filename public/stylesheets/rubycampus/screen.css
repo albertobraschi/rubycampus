@@ -1322,32 +1322,7 @@ li.current li ul.nav_bar {list-style-type:none;display:inline;}
 .individual_box {padding:1.5em;margin-bottom:1.5em;background:#fff;}
 .household_box {padding:1.5em;margin-bottom:1.5em;background:#f9fefe;}
 .standard_box {padding:1.5em;margin-bottom:1.5em;background:#fcfcfc;}
-
-/* rubycampus-login */
-body.login {background-color:#343434;}
-.login_header_backdrop {width:375px;margin-left:auto;margin-right:auto;margin-bottom:10px;font-size:197%;color:#fff;}
-.login {width:409px;margin-left:auto;margin-right:auto;margin-top:175px;}
-.login_top {background:url(/images/rubycampus/login_form_top_bg.png) no-repeat 0 0;width:329px;padding:25px 40px 5px 40px;}
-.login_bottom {width:409px;height:18px;background:url(/images/rubycampus/login_form_bottom_bg.png) no-repeat 0 0;padding:1px 0;overflow:hidden;}
-.footer {clear:both;border-top:1px solid #aaa;font-size:93%;color:#666666;padding:10px;margin:20px 35px;text-align:center;}
-.form .form_text, .form .form_textarea {border:1px solid #aaa;background-color:#f5f9ea;padding:1%;font-size:108%;width:98%;}
-.form label {font-size:116%;color:#454545;display:block;margin-bottom:3px;}
-.form option {font-size:108%;}
-.form .form_row {margin-bottom:10px;}
-.form .form_row:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
-.form_row {display:inline-block;}
-* html .form_row {height:1%;}
-.form_row {display:block;}
-.form .form_row_inline {clear:left;}
-.form .form_row_inline label {width:30%;margin-right:4%;padding:1% 0;float:left;display:inline;}
-.form .form_element_label {font-size:93%;margin-bottom:5px;padding-left:3px;}
-.form .form_note {font-size:93%;margin:0 0 5px 0;font-style:italic;color:#666666;}
-.form .form_row_inline .form_text {width:63%;}
-.form .form_radio, .form .form_checkbox {margin-right:3px;}
-.form .submit_button {margin:0 10px 0 0;float:left;display:inline;}
-.form .cancel {line-height:31px;}
-a:link, a:visited {color:#4890d8;text-decoration:underline;}
-a:hover {text-decoration:none;}
+.login_box {padding:1.5em;margin-bottom:1.5em;background:#fcfcfc;border-style:solid;border-color:#feebf4;top:10px;position:relative;}
 
 /* rubycampus-buttons */
 .buttons a, .buttons button {display:block;float:right;margin:0 7px 0 0;background-color:#f5f5f5;border:2px solid #dedede;border-top:2px solid #eee;border-left:2px solid #eee;font-size:100%;line-height:130%;text-decoration:none;font-weight:bold;color:#565656;cursor:pointer;padding:5px 10px 6px 7px;}
