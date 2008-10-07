@@ -1,0 +1,3 @@
+.action_buttons[local]
+  = link_to(_("Show"), self.send((controller.controller_name.singularize+"_path"), local), :class => "positive")  
+  = link_to(_("Edit"), self.send(("edit_"+controller.controller_name.singularize+"_path"), local), :class => "positive")
