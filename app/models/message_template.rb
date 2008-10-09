@@ -39,8 +39,7 @@ class MessageTemplate < ActiveRecord::Base
   # Excludes model from being included in PO template
   require 'gettext/rails'
   untranslate_all
-   
-  
+
   # begin Validations
     validates_presence_of :name
     validates_presence_of :subject
@@ -48,6 +47,10 @@ class MessageTemplate < ActiveRecord::Base
     
     validates_uniqueness_of :name
   # ends Validations
+  
+  acts_as_revisable do
+    revision_class_name "Session"
+  end
   
   # Searchable attributes
   searchable_by :name
@@ -63,6 +66,7 @@ class MessageTemplate < ActiveRecord::Base
   end
 
 end
+
 # == Schema Information
 # Schema version: 20080923205038
 #
