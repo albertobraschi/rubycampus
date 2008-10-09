@@ -42,27 +42,37 @@ rubycampus_academic_levels_001:
   is_enabled: "1"
   name: Freshman
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_academic_levels_002: 
   id: "2"
   is_default: "0"
   is_enabled: "1"
   name: "High School Graduate"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_academic_levels_003: 
   id: "3"
   is_default: "0"
   is_enabled: "1"
   name: "High School Senior"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_academic_levels_004: 
   id: "4"
   is_default: "0"
   is_enabled: "1"
   name: "International Student"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_academic_levels_005: 
   id: "5"
   is_default: "0"
   is_enabled: "1"
   name: "Transfer Student"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
