@@ -42,6 +42,10 @@ class EntryTerm < ActiveRecord::Base
    
   has_many :contacts
   
+  acts_as_revisable do
+    revision_class_name "EntryTermRevision"
+  end
+  
   # begin Validations
     validates_presence_of :name
     validates_presence_of :start_date
@@ -64,6 +68,9 @@ class EntryTerm < ActiveRecord::Base
   NAMES_KEYS = self.find(:all).map do |s| 
   [s.name, s.id] 
   end
+end
+class EntryTermRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "EntryTerm"
 end
 # == Schema Information
 # Schema version: 20080915003954
