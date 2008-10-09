@@ -46,6 +46,10 @@ class Activity < ActiveRecord::Base
     belongs_to :status   
   # end Associations
   
+  acts_as_revisable do
+    revision_class_name "ActivityRevision"
+  end
+  
   # begin Validations
     validates_presence_of :activity_type_name
     validates_presence_of :contact_name
@@ -95,6 +99,9 @@ class Activity < ActiveRecord::Base
     # end contact_name
   # end Virtual Attributes
 #:startdoc:
+end
+class ActivityRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "Activity"
 end
 
 # == Schema Information
