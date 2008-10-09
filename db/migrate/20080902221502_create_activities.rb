@@ -41,7 +41,7 @@ class CreateActivities < ActiveRecord::Migration
       t.integer    :contact_id, :null => false
       t.integer    :activity_type_id
       t.integer    :status_id
-      t.integer    :priority_id   
+      t.integer    :priority_id
       t.string     :subject
       t.text       :details
       t.string     :location

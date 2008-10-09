@@ -40,15 +40,15 @@ class CreateLocationTypes < ActiveRecord::Migration
     create_table :location_types do |t|
       t.string     :name, :null => false
       t.string     :vcard_name
-      t.string     :description        
+      t.string     :description
       t.integer    :position
-      t.boolean    :is_default, :default => false      
+      t.boolean    :is_default, :default => false
       t.boolean    :is_reserved, :default => false
       t.boolean    :is_enabled, :default => true
       t.timestamps
     end
     require 'active_record/fixtures'
-    Fixtures.create_fixtures(RUBYCAMPUS_PATH_TO_DEFAULTS, File.basename("location_types.yml", '.*')) 
+    Fixtures.create_fixtures(RUBYCAMPUS_PATH_TO_DEFAULTS, File.basename("location_types.yml", '.*'))
   end
 
   def self.down

@@ -41,10 +41,10 @@ class CreateRoles < ActiveRecord::Migration
     t.string       :name
     t.integer      :updated_by
     t.timestamps
-    end   
+    end
   end
 
   def self.down
   drop_table :roles
-  end     
+  end
 end

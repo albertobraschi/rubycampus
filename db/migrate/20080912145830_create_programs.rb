@@ -41,8 +41,8 @@ class CreatePrograms < ActiveRecord::Migration
       t.string     :name, :null => false
       t.string     :external_identifier
       t.string     :description
-      t.integer    :position    
-      t.boolean    :is_default, :default => false      
+      t.integer    :position
+      t.boolean    :is_default, :default => false
       t.boolean    :is_reserved, :default => false
       t.boolean    :is_enabled, :default => true
       t.integer    :revisable_original_id
@@ -55,9 +55,9 @@ class CreatePrograms < ActiveRecord::Migration
       t.datetime   :revisable_deleted_at
       t.boolean    :revisable_is_current
       t.timestamps
-    end 
+    end
     require 'active_record/fixtures'
-    Fixtures.create_fixtures(RUBYCAMPUS_PATH_TO_DEFAULTS, File.basename("programs.yml", '.*'))    
+    Fixtures.create_fixtures(RUBYCAMPUS_PATH_TO_DEFAULTS, File.basename("programs.yml", '.*'))
   end
 
   def self.down

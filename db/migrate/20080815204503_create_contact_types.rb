@@ -40,11 +40,11 @@ class CreateContactTypes < ActiveRecord::Migration
     create_table :contact_types do |t|
       t.string     :name, :null => false
       t.integer    :position
-      t.boolean    :is_default, :default => false      
+      t.boolean    :is_default, :default => false
       t.boolean    :is_reserved, :default => false
       t.boolean    :is_enabled, :default => true
       t.timestamps
-    end     
+    end
     require 'active_record/fixtures'
     Fixtures.create_fixtures(RUBYCAMPUS_PATH_TO_DEFAULTS, File.basename("contact_types.yml", '.*'))
   end
@@ -52,4 +52,4 @@ class CreateContactTypes < ActiveRecord::Migration
   def self.down
     drop_table :contact_types
   end
-end                      
+end

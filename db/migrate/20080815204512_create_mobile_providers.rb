@@ -40,7 +40,7 @@ class CreateMobileProviders < ActiveRecord::Migration
     create_table :mobile_providers do |t|
       t.string     :name, :null => false
       t.integer    :position
-      t.boolean    :is_default, :default => false      
+      t.boolean    :is_default, :default => false
       t.boolean    :is_enabled, :default => true
       t.integer    :revisable_original_id
       t.integer    :revisable_branched_from_id
@@ -54,7 +54,7 @@ class CreateMobileProviders < ActiveRecord::Migration
       t.timestamps
     end
     require 'active_record/fixtures'
-    Fixtures.create_fixtures(RUBYCAMPUS_PATH_TO_DEFAULTS, File.basename("mobile_providers.yml", '.*')) 
+    Fixtures.create_fixtures(RUBYCAMPUS_PATH_TO_DEFAULTS, File.basename("mobile_providers.yml", '.*'))
   end
 
   def self.down

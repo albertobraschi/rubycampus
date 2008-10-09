@@ -39,8 +39,8 @@ class CreateSources < ActiveRecord::Migration
   def self.up
     create_table :sources do |t|
       t.string     :name, :null => false
-      t.integer    :position     
-      t.boolean    :is_default,           :default => false      
+      t.integer    :position
+      t.boolean    :is_default,           :default => false
       t.boolean    :is_reserved,          :default => false
       t.boolean    :is_enabled,           :default => true
       t.integer    :revisable_original_id
