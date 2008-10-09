@@ -75,23 +75,33 @@ end
 class AddressRevision < ActiveRecord::Base
   acts_as_revision :revisable_class_name => "Address"
 end
+
 # == Schema Information
-# Schema version: 20080902230656
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_addresses
 #
-#  id               :integer(11)     not null, primary key
-#  contact_id       :integer(11)
-#  location_type_id :integer(11)
-#  is_primary       :boolean(1)
-#  is_billing       :boolean(1)
-#  line_1           :string(255)
-#  line_2           :string(255)
-#  locality         :string(255)
-#  region_id        :integer(11)
-#  postal_code      :string(255)
-#  country_id       :integer(11)
-#  created_at       :datetime
-#  updated_at       :datetime
+#  id                         :integer(4)      not null, primary key
+#  contact_id                 :integer(4)
+#  location_type_id           :integer(4)
+#  is_primary                 :boolean(1)
+#  is_billing                 :boolean(1)
+#  line_1                     :string(255)
+#  line_2                     :string(255)
+#  locality                   :string(255)
+#  region_id                  :integer(4)
+#  postal_code                :string(255)
+#  country_id                 :integer(4)
+#  revisable_original_id      :integer(4)
+#  revisable_branched_from_id :integer(4)
+#  revisable_number           :integer(4)
+#  revisable_name             :string(255)
+#  revisable_type             :string(255)
+#  revisable_current_at       :datetime
+#  revisable_revised_at       :datetime
+#  revisable_deleted_at       :datetime
+#  revisable_is_current       :boolean(1)
+#  created_at                 :datetime
+#  updated_at                 :datetime
 #
 

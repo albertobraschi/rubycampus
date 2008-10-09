@@ -51,25 +51,26 @@ class Citizenship < ActiveRecord::Base
   end
 end
 
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_countries
 #
-#  id                  :integer(11)     not null, primary key
+#  id                  :integer(4)      not null, primary key
 #  name                :string(255)     not null
 #  iso_code            :string(255)
 #  country_code        :string(255)
 #  idd_prefix          :string(255)
 #  ndd_prefix          :string(255)
-#  region_id           :integer(11)
+#  region_id           :integer(4)
 #  is_nationality      :boolean(1)      default(TRUE)
 #  is_country_of_birth :boolean(1)      default(TRUE)
 #  is_citizenship      :boolean(1)      default(TRUE)
 #  is_default          :boolean(1)
 #  is_reserved         :boolean(1)      default(TRUE)
 #  is_enabled          :boolean(1)      default(TRUE)
-#  position            :integer(11)
+#  position            :integer(4)
 #  created_at          :datetime
 #  updated_at          :datetime
 #

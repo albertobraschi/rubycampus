@@ -104,22 +104,32 @@ class ActivityRevision < ActiveRecord::Base
   acts_as_revision :revisable_class_name => "Activity"
 end
 
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_activities
 #
-#  id               :integer(11)     not null, primary key
-#  contact_id       :integer(11)     not null
-#  activity_type_id :integer(11)
-#  status_id        :integer(11)
-#  priority_id      :integer(11)
-#  subject          :string(255)
-#  details          :text
-#  location         :string(255)
-#  starts_at        :datetime
-#  ends_at          :datetime
-#  created_at       :datetime
-#  updated_at       :datetime
+#  id                         :integer(4)      not null, primary key
+#  contact_id                 :integer(4)      not null
+#  activity_type_id           :integer(4)
+#  status_id                  :integer(4)
+#  priority_id                :integer(4)
+#  subject                    :string(255)
+#  details                    :text
+#  location                   :string(255)
+#  starts_at                  :datetime
+#  ends_at                    :datetime
+#  revisable_original_id      :integer(4)
+#  revisable_branched_from_id :integer(4)
+#  revisable_number           :integer(4)
+#  revisable_name             :string(255)
+#  revisable_type             :string(255)
+#  revisable_current_at       :datetime
+#  revisable_revised_at       :datetime
+#  revisable_deleted_at       :datetime
+#  revisable_is_current       :boolean(1)
+#  created_at                 :datetime
+#  updated_at                 :datetime
 #
 

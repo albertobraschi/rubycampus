@@ -63,20 +63,30 @@ end
 class PhoneRevision < ActiveRecord::Base
   acts_as_revision :revisable_class_name => "Phone"
 end
+
 # == Schema Information
-# Schema version: 20080902230656
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_phones
 #
-#  id                 :integer(11)     not null, primary key
-#  contact_id         :integer(11)
-#  location_type_id   :integer(11)
-#  is_primary         :boolean(1)
-#  is_billing         :boolean(1)
-#  mobile_provider_id :integer(11)
-#  phone              :string(255)
-#  phone_type_id      :integer(11)
-#  created_at         :datetime
-#  updated_at         :datetime
+#  id                         :integer(4)      not null, primary key
+#  contact_id                 :integer(4)
+#  location_type_id           :integer(4)
+#  is_primary                 :boolean(1)
+#  is_billing                 :boolean(1)
+#  mobile_provider_id         :integer(4)
+#  phone                      :string(255)
+#  phone_type_id              :integer(4)
+#  revisable_original_id      :integer(4)
+#  revisable_branched_from_id :integer(4)
+#  revisable_number           :integer(4)
+#  revisable_name             :string(255)
+#  revisable_type             :string(255)
+#  revisable_current_at       :datetime
+#  revisable_revised_at       :datetime
+#  revisable_deleted_at       :datetime
+#  revisable_is_current       :boolean(1)
+#  created_at                 :datetime
+#  updated_at                 :datetime
 #
 

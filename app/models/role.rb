@@ -44,14 +44,15 @@ class Role < ActiveRecord::Base
   has_many :users, :through => :permissions    
   
 end
+
 # == Schema Information
-# Schema version: 20080902230656
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_roles
 #
-#  id         :integer(11)     not null, primary key
+#  id         :integer(4)      not null, primary key
 #  name       :string(255)
-#  updated_by :integer(11)
+#  updated_by :integer(4)
 #  created_at :datetime
 #  updated_at :datetime
 #

@@ -316,32 +316,33 @@ class ContactRevision < ActiveRecord::Base
   acts_as_revision :revisable_class_name => "Contact"
 end
 
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_contacts
 #
-#  id                                :integer(11)     not null, primary key
-#  domain_id                         :integer(11)     default(1), not null
-#  academic_level_id                 :integer(11)
-#  citizenship_id                    :integer(11)
-#  contact_type_id                   :integer(11)
-#  country_of_birth_id               :integer(11)
-#  education_level_id                :integer(11)
-#  entry_term_id                     :integer(11)
-#  ethnicity_id                      :integer(11)
-#  gender_id                         :integer(11)
-#  greeting_id                       :integer(11)
-#  marital_status_id                 :integer(11)
-#  moodle_user_id                    :integer(11)
-#  name_prefix_id                    :integer(11)
-#  name_suffix_id                    :integer(11)
-#  nationality_id                    :integer(11)
-#  preferred_communication_method_id :integer(11)
-#  preferred_email_format_id         :integer(11)
-#  program_id                        :integer(11)
-#  source_id                         :integer(11)
-#  stage_id                          :integer(11)
+#  id                                :integer(4)      not null, primary key
+#  domain_id                         :integer(4)      default(1), not null
+#  academic_level_id                 :integer(4)
+#  citizenship_id                    :integer(4)
+#  contact_type_id                   :integer(4)
+#  country_of_birth_id               :integer(4)
+#  education_level_id                :integer(4)
+#  entry_term_id                     :integer(4)
+#  ethnicity_id                      :integer(4)
+#  gender_id                         :integer(4)
+#  greeting_id                       :integer(4)
+#  marital_status_id                 :integer(4)
+#  moodle_user_id                    :integer(4)
+#  name_prefix_id                    :integer(4)
+#  name_suffix_id                    :integer(4)
+#  nationality_id                    :integer(4)
+#  preferred_communication_method_id :integer(4)
+#  preferred_email_format_id         :integer(4)
+#  program_id                        :integer(4)
+#  source_id                         :integer(4)
+#  stage_id                          :integer(4)
 #  do_not_email                      :boolean(1)
 #  do_not_phone                      :boolean(1)
 #  do_not_mail                       :boolean(1)
@@ -361,22 +362,31 @@ end
 #  phonetic_middle_name              :string(255)
 #  job_title                         :string(255)
 #  deceased_date                     :date
-#  mail_to_household_id              :integer(11)
+#  mail_to_household_id              :integer(4)
 #  household_name                    :string(255)
-#  head_of_household_id              :integer(11)
+#  head_of_household_id              :integer(4)
 #  organization_name                 :string(255)
 #  sic_code                          :string(255)
-#  user_id                           :integer(11)
-#  assigned_to_user_id               :integer(11)
-#  lock_version                      :integer(11)     default(0)
+#  user_id                           :integer(4)
+#  assigned_to_user_id               :integer(4)
+#  lock_version                      :integer(4)      default(0)
 #  date_of_birth                     :date
 #  government_identification_number  :binary
 #  time_zone                         :string(255)
 #  language                          :string(5)       default("en"), not null
 #  is_foreign                        :boolean(1)
 #  is_deceased                       :boolean(1)
-#  last_modified_by_user_id          :integer(11)
-#  asset_id                          :integer(11)
+#  last_modified_by_user_id          :integer(4)
+#  asset_id                          :integer(4)
+#  revisable_original_id             :integer(4)
+#  revisable_branched_from_id        :integer(4)
+#  revisable_number                  :integer(4)
+#  revisable_name                    :string(255)
+#  revisable_type                    :string(255)
+#  revisable_current_at              :datetime
+#  revisable_revised_at              :datetime
+#  revisable_deleted_at              :datetime
+#  revisable_is_current              :boolean(1)
 #  created_at                        :datetime
 #  updated_at                        :datetime
 #

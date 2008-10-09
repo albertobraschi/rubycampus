@@ -53,22 +53,32 @@ end
 class EmailRevision < ActiveRecord::Base
   acts_as_revision :revisable_class_name => "Email"
 end
+
 # == Schema Information
-# Schema version: 20080902230656
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_emails
 #
-#  id               :integer(11)     not null, primary key
-#  contact_id       :integer(11)
-#  location_type_id :integer(11)
-#  address          :string(255)
-#  is_primary       :boolean(1)
-#  is_billing       :boolean(1)
-#  is_on_hold       :boolean(1)
-#  is_bulk_mail     :boolean(1)
-#  hold_date        :datetime
-#  reset_date       :datetime
-#  created_at       :datetime
-#  updated_at       :datetime
+#  id                         :integer(4)      not null, primary key
+#  contact_id                 :integer(4)
+#  location_type_id           :integer(4)
+#  address                    :string(255)
+#  is_primary                 :boolean(1)
+#  is_billing                 :boolean(1)
+#  is_on_hold                 :boolean(1)
+#  is_bulk_mail               :boolean(1)
+#  hold_date                  :datetime
+#  reset_date                 :datetime
+#  revisable_original_id      :integer(4)
+#  revisable_branched_from_id :integer(4)
+#  revisable_number           :integer(4)
+#  revisable_name             :string(255)
+#  revisable_type             :string(255)
+#  revisable_current_at       :datetime
+#  revisable_revised_at       :datetime
+#  revisable_deleted_at       :datetime
+#  revisable_is_current       :boolean(1)
+#  created_at                 :datetime
+#  updated_at                 :datetime
 #
 

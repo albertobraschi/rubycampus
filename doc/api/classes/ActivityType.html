@@ -1,4 +1,4 @@
-  <div id="C00000059">
+  <div id="C00000065">
 <div class='banner'>
   <span class="file-title-prefix">Class</span><br />ActivityType<br/>
   In:
@@ -48,10 +48,10 @@ Lists qualifying model attributes for use by auto completion in forms
   <p class="source-link">[ <a href="javascript:toggleSource('M000048_source')" id="l_M000048_source">show source</a> ]</p>
   <div id="M000048_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/activity_type.rb, line 63</span>
-63:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
-64:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;position ASC&quot;</span> )
-65:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/activity_type.rb, line 67</span>
+67:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
+68:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;position ASC&quot;</span> )
+69:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -69,10 +69,10 @@ Fetches all activity_types with pagination
   <p class="source-link">[ <a href="javascript:toggleSource('M000047_source')" id="l_M000047_source">show source</a> ]</p>
   <div id="M000047_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/activity_type.rb, line 58</span>
-58:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search_for_all_and_paginate</span>(<span class="ruby-identifier">locate</span>, <span class="ruby-identifier">page</span>)
-59:     <span class="ruby-identifier">search</span>(<span class="ruby-identifier">locate</span>).<span class="ruby-identifier">paginate</span>( <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>, <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">AppConfig</span>.<span class="ruby-identifier">rows_per_page</span>, <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at ASC'</span> )
-60:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/activity_type.rb, line 62</span>
+62:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search_for_all_and_paginate</span>(<span class="ruby-identifier">locate</span>, <span class="ruby-identifier">page</span>)
+63:     <span class="ruby-identifier">search</span>(<span class="ruby-identifier">locate</span>).<span class="ruby-identifier">paginate</span>( <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>, <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">AppConfig</span>.<span class="ruby-identifier">rows_per_page</span>, <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at ASC'</span> )
+64:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>

@@ -50,20 +50,21 @@ class Asset < ActiveRecord::Base
   # 
   # validates_as_attachment   
 end
+
 # == Schema Information
-# Schema version: 20080902230656
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_assets
 #
-#  id           :integer(11)     not null, primary key
-#  contact_id   :integer(11)
-#  parent_id    :integer(11)
+#  id           :integer(4)      not null, primary key
+#  contact_id   :integer(4)
+#  parent_id    :integer(4)
 #  content_type :string(255)
 #  filename     :string(255)
 #  thumbnail    :string(255)
-#  size         :integer(11)
-#  width        :integer(11)
-#  height       :integer(11)
+#  size         :integer(4)
+#  width        :integer(4)
+#  height       :integer(4)
 #  created_at   :datetime
 #  updated_at   :datetime
 #

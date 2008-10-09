@@ -1,4 +1,4 @@
-  <div id="C00000024">
+  <div id="C00000026">
 <div class='banner'>
   <span class="file-title-prefix">Class</span><br />UserObserver<br/>
   In:
@@ -37,7 +37,7 @@ ActiveRecord::Observer
 <pre>
     <span class="ruby-comment cmt"># File app/models/user_observer.rb, line 40</span>
 40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after_create</span>(<span class="ruby-identifier">user</span>)
-41:     <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">deliver_signup_notification</span>(<span class="ruby-identifier">user</span>)
+41:     <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">deliver_new_user_notification</span>(<span class="ruby-identifier">user</span>)
 42:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>

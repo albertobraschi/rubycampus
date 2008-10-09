@@ -1,4 +1,4 @@
-  <div id="C00000081">
+  <div id="C00000087">
 <div class='banner'>
   <span class="file-title-prefix">Class</span><br />Source<br/>
   In:
@@ -17,8 +17,8 @@ ActiveRecord::Base
 
   <div class="sectiontitle">Methods</div>
   <ul>
-  <li><a href="index.html?a=M000092&name=find_for_auto_complete_lookup" >find_for_auto_complete_lookup</a></li>
-  <li><a href="index.html?a=M000091&name=search_for_all_and_paginate" >search_for_all_and_paginate</a></li>
+  <li><a href="index.html?a=M000093&name=find_for_auto_complete_lookup" >find_for_auto_complete_lookup</a></li>
+  <li><a href="index.html?a=M000092&name=search_for_all_and_paginate" >search_for_all_and_paginate</a></li>
   </ul>
 
 
@@ -35,8 +35,8 @@ ActiveRecord::Base
 
 
 <div class="sectiontitle">Public Class methods</div>
-<div id="M000092" class="method">
-  <div id="M000092_title" class="title">
+<div id="M000093" class="method">
+  <div id="M000093_title" class="title">
     <b>find_for_auto_complete_lookup</b>(search)
   </div>
   <div class="description">
@@ -45,19 +45,19 @@ Lists qualifying model attributes for use by auto completion in forms
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000092_source')" id="l_M000092_source">show source</a> ]</p>
-  <div id="M000092_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000093_source')" id="l_M000093_source">show source</a> ]</p>
+  <div id="M000093_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/source.rb, line 58</span>
-58:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
-59:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;position ASC&quot;</span> )  
-60:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/source.rb, line 62</span>
+62:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
+63:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;position ASC&quot;</span> )  
+64:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
 </div>
-<div id="M000091" class="method">
-  <div id="M000091_title" class="title">
+<div id="M000092" class="method">
+  <div id="M000092_title" class="title">
     <b>search_for_all_and_paginate</b>(locate, page)
   </div>
   <div class="description">
@@ -66,13 +66,13 @@ Fetches all sources with pagination
 </p>
   </div>
 <div class="sourcecode">
-  <p class="source-link">[ <a href="javascript:toggleSource('M000091_source')" id="l_M000091_source">show source</a> ]</p>
-  <div id="M000091_source" class="dyn-source">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000092_source')" id="l_M000092_source">show source</a> ]</p>
+  <div id="M000092_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/source.rb, line 53</span>
-53:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search_for_all_and_paginate</span>(<span class="ruby-identifier">locate</span>, <span class="ruby-identifier">page</span>)
-54:     <span class="ruby-identifier">search</span>(<span class="ruby-identifier">locate</span>).<span class="ruby-identifier">paginate</span>( <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>, <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">AppConfig</span>.<span class="ruby-identifier">rows_per_page</span>, <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at ASC'</span> )
-55:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/source.rb, line 57</span>
+57:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search_for_all_and_paginate</span>(<span class="ruby-identifier">locate</span>, <span class="ruby-identifier">page</span>)
+58:     <span class="ruby-identifier">search</span>(<span class="ruby-identifier">locate</span>).<span class="ruby-identifier">paginate</span>( <span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>, <span class="ruby-identifier">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">AppConfig</span>.<span class="ruby-identifier">rows_per_page</span>, <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updated_at ASC'</span> )
+59:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>

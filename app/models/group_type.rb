@@ -54,12 +54,13 @@ class GroupType < ActiveRecord::Base
   [s.name, s.id]
   end
 end
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_group_types
 #
-#  id         :integer(11)     not null, primary key
+#  id         :integer(4)      not null, primary key
 #  name       :string(255)     not null
 #  created_at :datetime
 #  updated_at :datetime

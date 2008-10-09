@@ -67,19 +67,29 @@ class MessageTemplate < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_message_templates
 #
-#  id         :integer(11)     not null, primary key
-#  domain_id  :integer(11)     default(1), not null
-#  name       :string(255)     not null
-#  subject    :string(255)     not null
-#  html       :text
-#  text       :text            not null
-#  is_enabled :boolean(1)      default(TRUE)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                         :integer(4)      not null, primary key
+#  domain_id                  :integer(4)      default(1), not null
+#  name                       :string(255)     not null
+#  subject                    :string(255)     not null
+#  html                       :text
+#  text                       :text            not null
+#  is_enabled                 :boolean(1)      default(TRUE)
+#  revisable_original_id      :integer(4)
+#  revisable_branched_from_id :integer(4)
+#  revisable_number           :integer(4)
+#  revisable_name             :string(255)
+#  revisable_type             :string(255)
+#  revisable_current_at       :datetime
+#  revisable_revised_at       :datetime
+#  revisable_deleted_at       :datetime
+#  revisable_is_current       :boolean(1)
+#  created_at                 :datetime
+#  updated_at                 :datetime
 #
 

@@ -79,18 +79,28 @@ class StatusRevision < ActiveRecord::Base
   acts_as_revision :revisable_class_name => "Status"
 end
 
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_statuses
 #
-#  id          :integer(11)     not null, primary key
-#  name        :string(255)     not null
-#  position    :integer(11)
-#  is_default  :boolean(1)
-#  is_reserved :boolean(1)
-#  is_enabled  :boolean(1)      default(TRUE)
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id                         :integer(4)      not null, primary key
+#  name                       :string(255)     not null
+#  position                   :integer(4)
+#  is_default                 :boolean(1)
+#  is_reserved                :boolean(1)
+#  is_enabled                 :boolean(1)      default(TRUE)
+#  revisable_original_id      :integer(4)
+#  revisable_branched_from_id :integer(4)
+#  revisable_number           :integer(4)
+#  revisable_name             :string(255)
+#  revisable_type             :string(255)
+#  revisable_current_at       :datetime
+#  revisable_revised_at       :datetime
+#  revisable_deleted_at       :datetime
+#  revisable_is_current       :boolean(1)
+#  created_at                 :datetime
+#  updated_at                 :datetime
 #
 

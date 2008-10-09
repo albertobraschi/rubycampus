@@ -52,16 +52,17 @@ class Region < ActiveRecord::Base
   [s.name, s.id] 
   end
 end
+
 # == Schema Information
-# Schema version: 20080902230656
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_regions
 #
-#  id           :integer(11)     not null, primary key
+#  id           :integer(4)      not null, primary key
 #  name         :string(255)
 #  abbreviation :string(255)
-#  country_id   :integer(11)
-#  position     :integer(11)
+#  country_id   :integer(4)
+#  position     :integer(4)
 #  created_at   :datetime
 #  updated_at   :datetime
 #

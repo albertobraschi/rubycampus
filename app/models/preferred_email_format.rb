@@ -52,14 +52,15 @@ class PreferredEmailFormat < ActiveRecord::Base
   end
 end
 
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_preferred_email_formats
 #
-#  id          :integer(11)     not null, primary key
+#  id          :integer(4)      not null, primary key
 #  name        :string(255)     not null
-#  position    :integer(11)
+#  position    :integer(4)
 #  is_default  :boolean(1)
 #  is_reserved :boolean(1)
 #  is_enabled  :boolean(1)      default(TRUE)

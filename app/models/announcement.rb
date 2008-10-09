@@ -66,12 +66,13 @@ class Announcement < ActiveRecord::Base
   end
 end
 
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_announcements
 #
-#  id         :integer(11)     not null, primary key
+#  id         :integer(4)      not null, primary key
 #  message    :text            not null
 #  starts_at  :datetime        not null
 #  ends_at    :datetime        not null

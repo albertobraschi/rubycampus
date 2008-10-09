@@ -1,4 +1,4 @@
-  <div id="C00000053">
+  <div id="C00000059">
 <div class='banner'>
   <span class="file-title-prefix">Class</span><br />UsersController<br/>
   In:
@@ -37,16 +37,16 @@ ApplicationController
   <p class="source-link">[ <a href="javascript:toggleSource('M000041_source')" id="l_M000041_source">show source</a> ]</p>
   <div id="M000041_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 126</span>
-126:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activate</span>
-127:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_activation_code</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
-128:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">activate</span>
-129:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">current_user</span> = <span class="ruby-ivar">@user</span>
-130:     <span class="ruby-identifier">redirect_back_or_default</span>(<span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'/user_account'</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'index'</span>)
-131:     <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>] = <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;Your account has been activated.&quot;</span>)
-132:     <span class="ruby-keyword kw">end</span>
-133:     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'index'</span> 
-134:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 123</span>
+123:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activate</span>
+124:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_activation_code</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+125:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">activate</span>
+126:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">current_user</span> = <span class="ruby-ivar">@user</span>
+127:     <span class="ruby-identifier">redirect_back_or_default</span>(<span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'/user_account'</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'index'</span>)
+128:     <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>] = <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;Your account has been activated.&quot;</span>)
+129:     <span class="ruby-keyword kw">end</span>
+130:     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'index'</span> 
+131:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -59,16 +59,16 @@ ApplicationController
   <p class="source-link">[ <a href="javascript:toggleSource('M000040_source')" id="l_M000040_source">show source</a> ]</p>
   <div id="M000040_source" class="dyn-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 116</span>
-116:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">enable</span>
-117:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
-118:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-identifier">:enabled</span>, <span class="ruby-keyword kw">true</span>)
-119:     <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>] = <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;User enabled&quot;</span>)
-120:     <span class="ruby-keyword kw">else</span>
-121:     <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:error</span>] = <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;There was a problem enabling this user.&quot;</span>)
-122:     <span class="ruby-keyword kw">end</span>
-123:     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'index'</span>
-124:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/controllers/users_controller.rb, line 113</span>
+113:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">enable</span>
+114:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+115:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-identifier">:enabled</span>, <span class="ruby-keyword kw">true</span>)
+116:     <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>] = <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;User enabled&quot;</span>)
+117:     <span class="ruby-keyword kw">else</span>
+118:     <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:error</span>] = <span class="ruby-identifier">_</span>(<span class="ruby-value str">&quot;There was a problem enabling this user.&quot;</span>)
+119:     <span class="ruby-keyword kw">end</span>
+120:     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'index'</span>
+121:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>

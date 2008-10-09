@@ -45,15 +45,16 @@ class Permission < ActiveRecord::Base
   
 end
 
+
 # == Schema Information
-# Schema version: 20080923205038
+# Schema version: 20081006092209
 #
 # Table name: rubycampus_permissions
 #
-#  id         :integer(11)     not null, primary key
-#  user_id    :integer(11)     not null
-#  role_id    :integer(11)     not null
-#  updated_by :integer(11)
+#  id         :integer(4)      not null, primary key
+#  user_id    :integer(4)      not null
+#  role_id    :integer(4)      not null
+#  updated_by :integer(4)
 #  created_at :datetime
 #  updated_at :datetime
 #

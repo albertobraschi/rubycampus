@@ -82,19 +82,31 @@ end
 class MailingMixinRevision < ActiveRecord::Base
   acts_as_revision :revisable_class_name => "MailingMixin"
 end
+
 # == Schema Information
 # Schema version: 20081006092209
 #
 # Table name: rubycampus_mailing_mixins
 #
-#  id                    :integer(11)     not null, primary key
-#  domain_id             :integer(11)     default(1), not null
-#  name                  :string(255)     not null
-#  subject               :string(255)     not null
-#  html                  :text
-#  text                  :text            not null
-#  mailing_mixin_type_id :integer(11)     not null
-#  is_default            :boolean(1)
-#  is_enabled            :boolean(1)      default(TRUE)
+#  id                         :integer(4)      not null, primary key
+#  domain_id                  :integer(4)      default(1), not null
+#  name                       :string(255)     not null
+#  subject                    :string(255)     not null
+#  html                       :text
+#  text                       :text            not null
+#  mailing_mixin_type_id      :integer(4)      not null
+#  is_default                 :boolean(1)
+#  is_enabled                 :boolean(1)      default(TRUE)
+#  revisable_original_id      :integer(4)
+#  revisable_branched_from_id :integer(4)
+#  revisable_number           :integer(4)
+#  revisable_name             :string(255)
+#  revisable_type             :string(255)
+#  revisable_current_at       :datetime
+#  revisable_revised_at       :datetime
+#  revisable_deleted_at       :datetime
+#  revisable_is_current       :boolean(1)
+#  created_at                 :datetime
+#  updated_at                 :datetime
 #
 
