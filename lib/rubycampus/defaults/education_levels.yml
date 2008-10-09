@@ -42,39 +42,53 @@ rubycampus_education_levels_001:
   is_enabled: "1"
   name: "Associate's Degree"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_education_levels_002: 
   id: "2"
   is_default: "0"
   is_enabled: "1"
   name: "Bachelor's Degree"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_education_levels_003: 
   id: "3"
   is_default: "0"
   is_enabled: "1"
   name: GED
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_education_levels_004: 
   id: "4"
   is_default: "0"
   is_enabled: "1"
   name: "High School Diploma"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_education_levels_005: 
   id: "5"
   is_default: "0"
   is_enabled: "1"
   name: "Master's Degree"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_education_levels_006: 
   id: "6"
   is_default: "0"
   is_enabled: "1"
   name: "Some College"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_education_levels_007: 
   id: "7"
   is_default: "0"
   is_enabled: "1"
   name: "Some High School"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
