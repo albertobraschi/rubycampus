@@ -14,3 +14,4 @@
       = _("Is enabled") 
     = form.check_box :is_enabled, :class => "field"
 .clear
+= render :partial => "common/jackets/for_revisable", :locals => {:model => @name_suffix}
