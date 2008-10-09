@@ -44,6 +44,8 @@ rubycampus_mailing_mixins_001:
   text: Sample Header for TEXT formatted content.
   is_default: true
   is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_mailing_mixins_002:
   id: 2
   name: Mailing Footer
@@ -53,6 +55,8 @@ rubycampus_mailing_mixins_002:
   text: Sample Footer for HTML formatted content.
   is_default: true
   is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_mailing_mixins_003:
   id: 3
   name: Welcome Message
@@ -62,6 +66,8 @@ rubycampus_mailing_mixins_003:
   text: Welcome. Your subscription has been activated.
   is_default: true
   is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_mailing_mixins_004:
   id: 4
   name: Opt Out Message
@@ -71,6 +77,8 @@ rubycampus_mailing_mixins_004:
   text: Your email address has been removed from our mailing lists.
   is_default: true
   is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_mailing_mixins_005:
   id: 5
   name: Opt In Message
@@ -80,6 +88,8 @@ rubycampus_mailing_mixins_005:
   text: You have a pending subscription to our mailing list.
   is_default: true
   is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_mailing_mixins_006:
   id: 6
   name: Unsubscribe Message
@@ -89,6 +99,8 @@ rubycampus_mailing_mixins_006:
   text: You have been un-subscribed.
   is_default: true
   is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_mailing_mixins_007:
   id: 7
   name: Resubscribe Message
@@ -98,6 +110,8 @@ rubycampus_mailing_mixins_007:
   text: You have been re-subscribed.
   is_default: true
   is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_mailing_mixins_008:
   id: 8
   name: Reply Auto Responder
@@ -107,6 +121,8 @@ rubycampus_mailing_mixins_008:
   text: This is an automated reply from an un-attended mailbox. Please send correspondance to our contact email address.
   is_default: true
   is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_mailing_mixins_009:
   id: 9
   name: New User Notification
@@ -115,7 +131,9 @@ rubycampus_mailing_mixins_009:
   html: ""
   text: "Click here %{user_activation_code}"
   is_default: true
-  is_enabled: true 
+  is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_mailing_mixins_010:
   id: 10
   name: Activation
@@ -124,7 +142,9 @@ rubycampus_mailing_mixins_010:
   html: ""
   text: "Click here %{site_domain}"
   is_default: true
-  is_enabled: true     
+  is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1     
 rubycampus_mailing_mixins_011:
   id: 11
   name: Forgot Password
@@ -134,6 +154,8 @@ rubycampus_mailing_mixins_011:
   text: "Click here %{user_password_reset_code}"
   is_default: true
   is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_mailing_mixins_012:
   id: 12
   name: Reset Password
@@ -142,4 +164,6 @@ rubycampus_mailing_mixins_012:
   html: ""
   text: "Your RubyCampus password has been reset."
   is_default: true
-  is_enabled: true      
+  is_enabled: true
+  revisable_number: 1
+  revisable_is_current: 1     
