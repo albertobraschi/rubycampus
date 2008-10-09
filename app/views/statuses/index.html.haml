@@ -13,4 +13,4 @@
     = observe_field 'query', :frequency => 2, :update => 'table', :before => "Element.show('spinner')", :success => "Element.hide('spinner')", :url => { :action => 'index' }, :with => 'query'   
     %div#table
       = render :partial => "statuses"
-    = render :partial => "common/actions/for_form_index"          
+    = render :partial => "common/actions/for_form_index"
