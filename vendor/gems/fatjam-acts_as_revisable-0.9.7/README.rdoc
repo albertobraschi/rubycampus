@@ -1,0 +1,222 @@
+= acts_as_revisable
+
+http://github.com/fatjam/acts_as_revisable/tree/master
+
+== DESCRIPTION:
+
+acts_as_revisable enables revision tracking, querying, reverting and branching of ActiveRecord models. It does this while providing more Rails-like API than similar plugins. This includes extensions of standard ActiveRecord methods and numerous custom callbacks for the entire AAR life-cycle.
+
+This plugin wouldn't exist without Rick Olsen's acts_as_versioned. AAV has been a critical part of practically every Rails project I've developed. It's only through extensive usage of AAV that the concepts for AAR came about.
+
+== FEATURES:
+
+* Both the revisable and revision models must be explicitly defined.
+  Yes, this is a feature. The less magic needed the better. This allows you to build up your revision models just as you would any other.
+
+* Numerous custom callbacks for both revisable and revision models.
+  * revisable models
+    * before_revise
+    * after_revise
+    * before_revert
+    * after_revert
+    * before_changeset
+    * after_changeset
+    * after_branch_created
+  * revision models
+    * before_restore
+    * after_restore
+  * both revisable and revision models
+    * before_branch
+    * after_branch
+  These work like any other ActiveRecord callbacks. The before_* callbacks can stop the the action. This uses the Callbacks module in ActiveSupport.
+* Works with a single table.
+  * Provides migration generators to add the revisable columns.
+* Grouping several revisable actions into a single revision (changeset).
+* Monitor all or just specified columns to trigger a revision.
+* Clone all or specified associations to the revision model.
+* Uses ActiveRecord's dirty attribute tracking.
+* Several ways to find revisions including:
+  * revision number
+  * relative keywords (:first, :previous and :last)
+  * timestamp
+* Reverting
+* Branching
+* Selectively disable revision tracking
+* Naming revisions  
+
+== SYNOPSIS:
+
+Given a simple model:
+
+  class Project < ActiveRecord::Base
+    # columns: id, name, unimportant, created_at
+  end
+
+Let's make the projects table revisable:
+
+  ruby script/generate revisable_migration Project
+  rake db:migrate
+
+Now Project itself:
+  
+  class Project < ActiveRecord::Base
+    has_one :owner
+    
+    acts_as_revisable do
+      revision_class_name "Session"
+      except :unimportant
+    end
+  end
+
+Create the revision class:
+
+  class Session < ActiveRecord::Base
+    # we can accept the more standard hash syntax
+    acts_as_revision :revisable_class_name => "Project", :clone_associations => :all
+  end
+
+Some example usage:
+
+  @project = Project.create(:name => "Rich", :unimportant => "some text")
+  @project.revision_number        # => 0
+
+  @project.update_attribute(:unimportant, "more text")
+  @project.revision_number        # => 0
+  
+  @project.name = "Stephen"
+  @project.save(:without_revision => true)
+  @project.name                   # => "Stephen"
+  @project.revision_number        # => 0
+  
+  @project.name = "Sam"
+  @project.save(:revision_name => "Changed name")
+  @project.revision_number        # => 1
+  
+  @project.updated_attribute(:name, "Third")
+  @project.revision_number        # => 2
+  
+Navigating revisions:
+  
+  @previous = @project.find_revision(:previous)
+  # or
+  @previous = @project.revisions.first
+  
+  @previous.name                  # => "Sam"
+  @previous.current_revision.name # => "Third"
+  @previous.project.name          # => "Third"
+  @previous.revision_name         # => "Changed name"
+  
+  @previous.previous.name         # => "Rich"
+  
+  # Forcing the creation of a new revision.
+  @project.updated_attribute("Rogelio")
+  @project.revision_number        # => 3
+  
+  @newest = @project.find_revision(:previous)
+  @newest.ancestors.map(&:name)   # => ["Third", "Rich"]
+  
+  @oldest = @project.find_revision(:first)
+  @oldest.descendants.map(&:name) # => ["Sam", "Third"]
+  
+Reverting:
+
+  @project.revert_to!(:previous)
+  @project.revision_number        # => 2
+  @project.name                   # => "Rich"
+  
+  @project.revert_to!(1, :without_revision => true)
+  @project.revision_number        # => 2
+  @project.name                   # => "Sam"
+
+Branching:
+  
+  @branch = @project.branch(:name => "Bruno")
+  @branch.revision_number         # => 0
+  @branch.branch_source.name      # => "Sam"
+
+Changesets:
+  
+  @project.revision_number        # => 2
+  
+  @project.changeset! do 
+    @project.name = "Josh"
+    
+    # save would normally trigger a revision
+    @project.save
+    
+    # update_attribute triggers a save triggering a revision (normally)
+    @project.updated_attribute(:name, "Chris")
+    
+    # revise! normally forces a revision to be created
+    @project.revise!
+  end
+  
+  # our revision number has only incremented by one
+  @project.revision_number        # => 3
+  
+Associations have been cloned:
+
+  @project.owner === @previous.owner   # => true
+
+Maybe we don't want to be able to branch from revisions:
+
+  class Session < ActiveRecord::Base
+    # assuming we still have the other code from Session above
+    
+    before_branch do
+      false
+    end
+  end
+  
+  @project.revisions.first.branch # Raises an exception
+  @project.branch                 # works as expected
+  
+If the owner isn't set let's prevent reverting:
+
+  class Project < ActiveRecord::Base
+    # assuming we still have the other code from Project above
+    
+    before_revert :check_owner_befor_reverting
+    def check_owner_befor_reverting
+      false unless self.owner?
+    end
+  end
+
+== REQUIREMENTS:
+
+This plugin currently depends on Edge Rails, ActiveRecord and ActiveSupport specifically, which will eventually become Rails 2.1.
+
+== INSTALL:
+
+acts_as_revisable uses Rails' new ability to use gems as plugins. Installing AAR is as simple as installing a gem:
+
+  sudo gem install fatjam-acts_as_revisable --source=http://gems.github.com
+
+Once the gem is installed you'll want to activate it in your Rails app by adding the following line to config/environment.rb:
+
+  config.gem "fatjam-acts_as_revisable", :lib => "acts_as_revisable", :source => "http://gems.github.com"
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2008 JamLab, LLC.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

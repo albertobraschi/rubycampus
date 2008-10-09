@@ -1,0 +1,87 @@
+--- !ruby/object:Gem::Specification 
+name: fatjam-acts_as_revisable
+version: !ruby/object:Gem::Version 
+  version: 0.9.7
+platform: ruby
+authors: 
+- Rich Cavanaugh of JamLab, LLC.
+- Stephen Caudill of JamLab, LLC.
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2008-07-08 00:00:00 +09:00
+default_executable: 
+dependencies: []
+
+description: 
+email: cavanaugh@fatjam.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README.rdoc
+- LICENSE
+files: 
+- LICENSE
+- README.rdoc
+- Rakefile
+- spec/associations_spec.rb
+- spec/branch_spec.rb
+- spec/find_spec.rb
+- spec/general_spec.rb
+- spec/options_spec.rb
+- spec/quoted_columns_spec.rb
+- spec/revert_spec.rb
+- spec/spec.opts
+- spec/spec_helper.rb
+- lib/acts_as_revisable
+- lib/acts_as_revisable/acts
+- lib/acts_as_revisable/acts/common.rb
+- lib/acts_as_revisable/acts/deletable.rb
+- lib/acts_as_revisable/acts/revisable.rb
+- lib/acts_as_revisable/acts/revision.rb
+- lib/acts_as_revisable/acts/scoped_model.rb
+- lib/acts_as_revisable/base.rb
+- lib/acts_as_revisable/clone_associations.rb
+- lib/acts_as_revisable/gem_spec_options.rb
+- lib/acts_as_revisable/options.rb
+- lib/acts_as_revisable/quoted_columns.rb
+- lib/acts_as_revisable/version.rb
+- lib/acts_as_revisable.rb
+- generators/revisable_migration
+- generators/revisable_migration/revisable_migration_generator.rb
+- generators/revisable_migration/templates
+- generators/revisable_migration/templates/migration.rb
+- rails/init.rb
+has_rdoc: true
+homepage: http://github.com/fatjam/acts_as_revisable/tree/master
+post_install_message: 
+rdoc_options: 
+- --main
+- README.rdoc
+require_paths: 
+- bin
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.2.0
+signing_key: 
+specification_version: 2
+summary: acts_as_revisable enables revision tracking, querying, reverting and branching of ActiveRecord models. Inspired by acts_as_versioned.
+test_files: []
+
