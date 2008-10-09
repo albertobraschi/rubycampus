@@ -43,6 +43,8 @@ rubycampus_statuses_001:
   is_reserved: "1"
   name: Scheduled
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_statuses_002: 
   id: "2"
   is_default: "0"
@@ -50,6 +52,8 @@ rubycampus_statuses_002:
   is_reserved: "1"
   name: Completed
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_statuses_003: 
   id: "3"
   is_default: "0"
@@ -57,17 +61,23 @@ rubycampus_statuses_003:
   is_reserved: "1"
   name: Cancelled
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_statuses_004: 
   id: "4"
   is_default: "0"
   is_enabled: "1"
   is_reserved: "1"
   name: "Left Message"
-  position: <%= num += 1%> 
+  position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_statuses_005: 
   id: "5"
   is_default: "0"
   is_enabled: "1"
   is_reserved: "1"
   name: Unreachable
-  position: <%= num += 1%>   
+  position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1   
