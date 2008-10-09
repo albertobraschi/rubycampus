@@ -47,6 +47,10 @@ class PhoneType < ActiveRecord::Base
   N_('Pager')
 
   has_many :contacts
+  
+  acts_as_revisable do
+    revision_class_name "PhoneTypeRevision"
+  end
 
   # begin Validations
     validates_presence_of :name
@@ -68,6 +72,9 @@ class PhoneType < ActiveRecord::Base
   NAMES_KEYS = self.find(:all).map do |s|
   [s.name, s.id]
   end
+end
+class PhoneTypeRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "PhoneType"
 end
 
 # == Schema Information
