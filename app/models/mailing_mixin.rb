@@ -44,6 +44,10 @@ class MailingMixin < ActiveRecord::Base
     belongs_to :mailing_mixin_type
   # end Associations
   
+  acts_as_revisable do
+    revision_class_name "MailingMixinRevision"
+  end
+  
   # begin Validations
     validates_presence_of :name
     validates_presence_of :mailing_mixin_type_name
@@ -74,6 +78,9 @@ class MailingMixin < ActiveRecord::Base
     # Virtual Attributes for auto complete
   #:startdoc:
 
+end
+class MailingMixinRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "MailingMixin"
 end
 # == Schema Information
 # Schema version: 20081006092209
