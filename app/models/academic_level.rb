@@ -41,6 +41,10 @@ class AcademicLevel < ActiveRecord::Base
   untranslate_all
    
   has_many :contacts
+
+  acts_as_revisable do
+    revision_class_name "AcademicLevelRevision"
+  end
   
   # begin Validations
     validates_presence_of :name
@@ -62,6 +66,9 @@ class AcademicLevel < ActiveRecord::Base
   NAMES_KEYS = self.find(:all).map do |s| 
   [s.name, s.id] 
   end
+end
+class AcademicLevelRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "AcademicLevel"
 end
 
 # == Schema Information
