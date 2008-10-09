@@ -41,22 +41,30 @@ rubycampus_programs_001:
   name: "Japanese Studies I"
   description: "Introduction to Japanese language Unit I" 
   external_identifier: "JS101"
-  position: <%= num += 1%> 
+  position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_programs_002:
   id: "2"
   name: "Japanese Studies II"
   description: "Japanese language Unit II" 
   external_identifier: "JS102"
-  position: <%= num += 1%> 
+  position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_programs_003:
   id: "3"
   name: "Japanese Studies III"
   description: "Japanese language Unit III" 
   external_identifier: "JS103"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_programs_004:
   id: "4"
   name: "ESL I"
   description: "English as a second language unit I" 
   external_identifier: "ESL101"
-  position: <%= num += 1%>      
+  position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1      
