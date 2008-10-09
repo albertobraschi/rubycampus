@@ -42,33 +42,45 @@ rubycampus_ethnicities_001:
   is_enabled: "1"
   name: Black
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_ethnicities_002: 
   id: "2"
   is_default: "0"
   is_enabled: "1"
   name: White
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_ethnicities_003: 
   id: "3"
   is_default: "0"
   is_enabled: "1"
   name: "American Indian / Alaskan Native"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_ethnicities_004: 
   id: "4"
   is_default: "0"
   is_enabled: "1"
   name: "Asian or Pacific"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_ethnicities_005: 
   id: "5"
   is_default: "0"
   is_enabled: "1"
   name: Hispanic
   position: <%= num += 1%>
-rubycampus_ethnicities_006: 
+  revisable_number: 1
+  revisable_is_current: 1
+rubycampus_ethnicities_006:
   id: "6"
   is_default: "0"
   is_enabled: "1"
   name: Other
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
