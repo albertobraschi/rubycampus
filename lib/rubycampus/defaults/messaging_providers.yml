@@ -42,81 +42,109 @@ rubycampus_messaging_providers_001:
   is_enabled: "1"
   name: AIM
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_002: 
   id: "2"
   is_default: "0"
   is_enabled: "1"
   name: Bigant
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_003: 
   id: "3"
   is_default: "0"
   is_enabled: "1"
   name: eBuddy
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_004: 
   id: "4"
   is_default: "0"
   is_enabled: "1"
   name: Gadu-Gadu
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_005: 
   id: "5"
   is_default: "0"
   is_enabled: "1"
   name: "IBM Lotus Sametime"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_006: 
   id: "6"
   is_default: "0"
   is_enabled: "1"
   name: ICQ
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_007: 
   id: "7"
   is_default: "0"
   is_enabled: "1"
   name: Jabber
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_008: 
   id: "8"
   is_default: "0"
   is_enabled: "1"
   name: Meebo
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_009: 
   id: "9"
   is_default: "0"
   is_enabled: "1"
   name: MXit
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_010: 
   id: "10"
   is_default: "0"
   is_enabled: "1"
   name: QQ
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_011: 
   id: "11"
   is_default: "0"
   is_enabled: "1"
   name: Skype
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_012: 
   id: "12"
   is_default: "0"
   is_enabled: "1"
   name: "Windows Live Messenger"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_013: 
   id: "13"
   is_default: "0"
   is_enabled: "1"
   name: Xfire
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_messaging_providers_014: 
   id: "14"
   is_default: "0"
   is_enabled: "1"
   name: "Yahoo! Messenger"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
