@@ -40,23 +40,23 @@ class Phone < ActiveRecord::Base
   require 'gettext/rails'
   untranslate_all
 
-  belongs_to :contact   
-  belongs_to :location_type 
+  belongs_to :contact
+  belongs_to :location_type
   belongs_to :mobile_provider
   belongs_to :phone_type
-  
+
   acts_as_revisable do
     revision_class_name "PhoneRevision"
   end
 
-#:stopdoc:  
+#:stopdoc:
   # Virtual Attributes
   def mobile_provider_name
-    mobile_provider.name if mobile_provider    
-  end                  
-  
+    mobile_provider.name if mobile_provider
+  end
+
   def mobile_provider_name=(name)
-    self.mobile_provider = MobileProvider.find_or_create_by_name(name) unless name.blank?  
+    self.mobile_provider = MobileProvider.find_or_create_by_name(name) unless name.blank?
   end
 #:startdoc:
 end
