@@ -36,5 +36,9 @@
 #++
 
 class Session < ActiveRecord::Base
+  # Excludes model from being included in PO template
+  require 'gettext/rails'
+  untranslate_all
+  
   acts_as_revision :revisable_class_name => "MessageTemplate", :clone_associations => :all
 end 
