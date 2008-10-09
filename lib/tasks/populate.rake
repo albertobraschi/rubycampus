@@ -130,7 +130,9 @@ namespace :db do
       contact.updated_at               = contact.created_at
       # contact.last_modified_by_user_id
       # contact.asset_id
-
+      contact.revisable_number = 1                 # Required to trick our revision control system into accepting record
+      contact.revisable_is_current = 1             # Required to trick our revision control system into accepting record
+      
       Address.populate 1 do |address|
         address.contact_id = contact.id
         address.location_type_id = location_types

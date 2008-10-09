@@ -38,7 +38,7 @@
 class CreateContacts < ActiveRecord::Migration
   def self.up
     create_table :contacts do |t|
-      t.integer    :domain_id, :default => 1, :null => false  # TODO Remove default      
+      t.integer    :domain_id, :default => 1, :null => false  # TODO Remove default
       t.integer    :academic_level_id
       t.integer    :citizenship_id
       t.integer    :contact_type_id
@@ -55,7 +55,7 @@ class CreateContacts < ActiveRecord::Migration
       t.integer    :nationality_id
       t.integer    :preferred_communication_method_id
       t.integer    :preferred_email_format_id
-      t.integer    :program_id        
+      t.integer    :program_id
       t.integer    :source_id
       t.integer    :stage_id
       t.boolean    :do_not_email
@@ -93,7 +93,16 @@ class CreateContacts < ActiveRecord::Migration
       t.boolean    :is_deceased
       t.integer    :last_modified_by_user_id
       t.integer    :asset_id
-      t.timestamps      
+      t.integer    :revisable_original_id
+      t.integer    :revisable_branched_from_id
+      t.integer    :revisable_number
+      t.string     :revisable_name
+      t.string     :revisable_type
+      t.datetime   :revisable_current_at
+      t.datetime   :revisable_revised_at
+      t.datetime   :revisable_deleted_at
+      t.boolean    :revisable_is_current
+      t.timestamps
     end
   end
 

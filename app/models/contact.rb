@@ -75,7 +75,11 @@ class Contact < ActiveRecord::Base
     has_one  :asset,        :dependent => :destroy # Unimplemented  
     
     has_and_belongs_to_many :groups
-  # end Associations 
+  # end Associations
+  
+  acts_as_revisable do
+    revision_class_name "ContactRevision"
+  end 
   
   # TODO allow auto_complete of assignable users  
   # belongs_to :user, :class_name => "User", :foreign_key => "assigned_to_user_id"
@@ -307,6 +311,9 @@ class Contact < ActiveRecord::Base
       end
     # end head_of_household_last_name
 #:startdoc:  
+end
+class ContactRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "Contact"
 end
 
 # == Schema Information
