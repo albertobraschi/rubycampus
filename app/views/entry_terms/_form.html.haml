@@ -33,7 +33,8 @@
     %span.title
       = _("Is enabled") 
     = form.check_box :is_enabled, :class => "field"
-.clear                               
+.clear
+= render :partial => "common/jackets/for_revisable", :locals => {:model => @entry_term}                               
 
 
     
