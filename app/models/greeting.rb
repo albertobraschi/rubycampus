@@ -42,6 +42,10 @@ class Greeting < ActiveRecord::Base
    
   has_many :contacts
   
+  acts_as_revisable do
+    revision_class_name "GreetingRevision"
+  end
+  
   # begin Validations
     validates_presence_of :name
   # ends Validations
@@ -62,6 +66,9 @@ class Greeting < ActiveRecord::Base
   NAMES_KEYS = self.find(:all).map do |s| 
   [s.name, s.id] 
   end
+end
+class GreetingRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "Greeting"
 end
 
 # == Schema Information
