@@ -43,6 +43,8 @@ rubycampus_sources_001:
   is_reserved: "0"
   name: Internet
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_sources_002: 
   id: "2"
   is_default: "0"
@@ -50,6 +52,8 @@ rubycampus_sources_002:
   is_reserved: "0"
   name: "Formal Referral"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_sources_003: 
   id: "3"
   is_default: "0"
@@ -57,6 +61,8 @@ rubycampus_sources_003:
   is_reserved: "0"
   name: "Informal Referral"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_sources_004: 
   id: "4"
   is_default: "0"
@@ -64,6 +70,8 @@ rubycampus_sources_004:
   is_reserved: "0"
   name: "Graduate Referral"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_sources_005: 
   id: "5"
   is_default: "0"
@@ -71,6 +79,8 @@ rubycampus_sources_005:
   is_reserved: "0"
   name: Television
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_sources_006: 
   id: "6"
   is_default: "0"
@@ -78,6 +88,8 @@ rubycampus_sources_006:
   is_reserved: "0"
   name: Radio
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_sources_007: 
   id: "7"
   is_default: "0"
@@ -85,6 +97,8 @@ rubycampus_sources_007:
   is_reserved: "0"
   name: "Employee Referral"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_sources_008: 
   id: "8"
   is_default: "0"
@@ -92,6 +106,8 @@ rubycampus_sources_008:
   is_reserved: "0"
   name: Outreach
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_sources_009: 
   id: "9"
   is_default: "0"
@@ -99,6 +115,8 @@ rubycampus_sources_009:
   is_reserved: "0"
   name: Billboard
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_sources_010: 
   id: "10"
   is_default: "0"
@@ -106,6 +124,8 @@ rubycampus_sources_010:
   is_reserved: "0"
   name: "Subway Poster"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_sources_011: 
   id: "11"
   is_default: "0"
@@ -113,3 +133,5 @@ rubycampus_sources_011:
   is_reserved: "0"
   name: "Direct Mail"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
