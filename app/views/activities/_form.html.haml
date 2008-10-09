@@ -43,3 +43,4 @@
       = _("Ends At")
     = form.calendar_date_select :ends_at, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
 .clear
+= render :partial => "common/jackets/for_revisable", :locals => {:model => @activity}
