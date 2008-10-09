@@ -26,3 +26,5 @@
       = _("Description") 
     = form.text_area :description, :class => "field"
 .clear
+= render :partial => "common/jackets/for_revisable", :locals => {:model => @program}
+
