@@ -42,7 +42,9 @@ rubycampus_name_prefixes_001:
   is_enabled: "1"
   is_reserved: "0"
   name: Mr
-  position: <%= num += 1%> 
+  position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_name_prefixes_002: 
   id: "2"
   is_default: "0"
@@ -50,13 +52,17 @@ rubycampus_name_prefixes_002:
   is_reserved: "0"
   name: Ms
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_name_prefixes_003: 
   id: "3"
   is_default: "1"
   is_enabled: "1"
   is_reserved: "0"
   name: Mrs
-  position: <%= num += 1%>   
+  position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_name_prefixes_004: 
   id: "4"
   is_default: "0"
@@ -64,3 +70,5 @@ rubycampus_name_prefixes_004:
   is_reserved: "0"
   name: Dr
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
