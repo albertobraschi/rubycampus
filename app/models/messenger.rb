@@ -43,6 +43,10 @@ class Messenger < ActiveRecord::Base
   belongs_to :contact   
   belongs_to :location_type 
   belongs_to :messaging_provider
+  
+  acts_as_revisable do
+    revision_class_name "MessengerRevision"
+  end
 
 #:stopdoc:  
   # Virtual Attributes
@@ -54,6 +58,9 @@ class Messenger < ActiveRecord::Base
     self.messaging_provider = MessagingProvider.find_or_create_by_name(name) unless name.blank?  
   end
 #:startdoc:
+end
+class MessengerRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "Messenger"
 end
 # == Schema Information
 # Schema version: 20080902230656
