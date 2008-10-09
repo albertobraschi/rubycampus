@@ -50,6 +50,10 @@ class Stage < ActiveRecord::Base
 
   caches_constants
   has_many :contacts
+  
+  acts_as_revisable do
+    revision_class_name "StageRevision"
+  end
 
   # begin Validations
     validates_presence_of :name
@@ -76,6 +80,9 @@ class Stage < ActiveRecord::Base
   NAMES_KEYS = self.find(:all).map do |s|
   [s.name, s.id]
   end
+end
+class StageRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "Stage"
 end
 # == Schema Information
 # Schema version: 20080915003954
