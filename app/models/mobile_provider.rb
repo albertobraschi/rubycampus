@@ -42,6 +42,10 @@ class MobileProvider < ActiveRecord::Base
    
   has_many :contacts
   
+  acts_as_revisable do
+    revision_class_name "MobileProviderRevision"
+  end
+  
   # begin Validations
     validates_presence_of :name
   # ends Validations
@@ -62,6 +66,9 @@ class MobileProvider < ActiveRecord::Base
   NAMES_KEYS = self.find(:all).map do |s| 
   [s.name, s.id] 
   end
+end
+class MobileProviderRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "MobileProvider"
 end
 
 # == Schema Information
