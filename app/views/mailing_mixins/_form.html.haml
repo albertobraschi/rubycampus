@@ -51,3 +51,4 @@
   .box
     %h3{:style => "text-align: center;"}= _("Merge Tokens")
     = list_mergable_tokens
+= render :partial => "common/jackets/for_revisable", :locals => {:model => @mailing_mixin}
