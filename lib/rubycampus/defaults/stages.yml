@@ -43,6 +43,8 @@ rubycampus_stages_001:
   is_reserved: "1"
   name: "Prospect"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_stages_002: 
   id: "200"
   is_default: "0"
@@ -50,6 +52,8 @@ rubycampus_stages_002:
   is_reserved: "1"
   name: "Inquiry"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_stages_003: 
   id: "300"
   is_default: "0"
@@ -57,6 +61,8 @@ rubycampus_stages_003:
   is_reserved: "1"
   name: "Applicant"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_stages_004: 
   id: "400"
   is_default: "0"
@@ -64,6 +70,8 @@ rubycampus_stages_004:
   is_reserved: "1"
   name: "Confirmed"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_stages_005: 
   id: "500"
   is_default: "0"
@@ -71,6 +79,8 @@ rubycampus_stages_005:
   is_reserved: "1"
   name: "Enrolled"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_stages_006: 
   id: "999"
   is_default: "0"
@@ -78,3 +88,5 @@ rubycampus_stages_006:
   is_reserved: "1"
   name: "Canceled"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
