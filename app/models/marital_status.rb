@@ -49,6 +49,10 @@ class MaritalStatus < ActiveRecord::Base
   N_('Domestic Partner')
 
   has_many :contacts
+  
+  acts_as_revisable do
+    revision_class_name "MaritalStatusRevision"
+  end
 
   # begin Validations
     validates_presence_of :name
@@ -70,6 +74,9 @@ class MaritalStatus < ActiveRecord::Base
   NAMES_KEYS = self.find(:all).map do |s|
   [s.name, s.id]
   end
+end
+class MaritalStatusRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "MaritalStatus"
 end
 
 # == Schema Information
