@@ -37,10 +37,11 @@
 
 --- 
 rubycampus_message_templates_001: 
+  id: 1
   name: Inquiry Thank You
   subject: Institute for RubyCampus Studies
   text: |
-   Dear {contact.name_prefix}. {contact.first_name} {contact.last_name},
+   Dear %{contact_name_prefix}. %{contact_first_name} %{contact_last_name},
    
    Thank you for your interest in the Institute for RubyCampus Studies programs.
    Information on using RubyCampus for student recruitment, enrollment management
@@ -49,14 +50,16 @@ rubycampus_message_templates_001:
    Please go to the application to begin the admission process for this program.
    
    If you have questions regarding the application process, or any program, please
-   contact our admissions department directly at 555-555-5555 or not_real@not_real_school.edu
+   contact our admissions department directly at +81-92-000-0001 or not_real@not_real_school.edu
    
    Thank you,
    
-   Asai Nagamasa 
+   Asai Nagamasa
    
    Admission Coordinator | RubyCampus Education
    Institute for RubyCampus Studies | RubyCampus University
    1 Fukuoka Way | Fukuoka City, Fukuoka Japan
-   Tel: 555-555-5555 | Fax: 555-555-8888
+   Tel: +81-92-000-0001 | Fax: +81-92-000-0002
   html: ""
+  revisable_number: 1
+  revisable_is_current: 1
