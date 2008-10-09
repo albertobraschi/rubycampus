@@ -45,6 +45,10 @@ class NameSuffix < ActiveRecord::Base
   N_('Sr')
   N_('II')
   N_('III')
+  
+  acts_as_revisable do
+    revision_class_name "NameSuffixRevision"
+  end
 
   has_many :contacts
 
@@ -68,6 +72,9 @@ class NameSuffix < ActiveRecord::Base
   NAMES_KEYS = self.find(:all).map do |s|
   [s.name, s.id]
   end
+end
+class NameSuffixRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "NameSuffix"
 end
 
 # == Schema Information
