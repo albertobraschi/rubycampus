@@ -1,0 +1,2 @@
+- unless @current_action == 'new' || @current_action == 'create'
+  = _("%{controller_name} Revisions: %{revision_number}") % { :revision_number => model.revision_number, :controller_name => current_controller_gettext_human_name}
