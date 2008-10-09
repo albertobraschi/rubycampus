@@ -156,6 +156,8 @@ namespace :db do
         email.is_billing = [true,false]
         email.is_on_hold = [true,false]
         email.is_bulk_mail = [true,false]
+        email.revisable_number = 1                 # Required to trick our revision control system into accepting record
+        email.revisable_is_current = 1             # Required to trick our revision control system into accepting record
       end
 
       Messenger.populate 1 do |messenger|

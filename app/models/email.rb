@@ -41,10 +41,17 @@ class Email < ActiveRecord::Base
   untranslate_all
  
   belongs_to :contact 
-  belongs_to :location_type    
+  belongs_to :location_type
+  
+  acts_as_revisable do
+    revision_class_name "EmailRevision"
+  end    
   
   validates_as_rubycampus_email :address, :allow_blank => true
 
+end
+class EmailRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "Email"
 end
 # == Schema Information
 # Schema version: 20080902230656

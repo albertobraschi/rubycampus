@@ -47,6 +47,15 @@ class CreateEmails < ActiveRecord::Migration
       t.boolean    :is_bulk_mail
       t.datetime   :hold_date
       t.datetime   :reset_date
+      t.integer    :revisable_original_id
+      t.integer    :revisable_branched_from_id
+      t.integer    :revisable_number
+      t.string     :revisable_name
+      t.string     :revisable_type
+      t.datetime   :revisable_current_at
+      t.datetime   :revisable_revised_at
+      t.datetime   :revisable_deleted_at
+      t.boolean    :revisable_is_current
       t.timestamps
     end
   end
