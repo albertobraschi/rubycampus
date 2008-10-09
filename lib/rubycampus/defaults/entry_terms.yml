@@ -47,6 +47,8 @@ rubycampus_entry_terms_001:
   position: <%= num += 1%>
   start_date: <%="#{((Time.now)+1.year).year}-09-01"%>
   end_date: <%="#{((Time.now)+1.year).year}-12-01"%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_entry_terms_002: 
   code: <%="SPRING#{((Time.now)+1.year).year}"%>
   description: <%="Spring #{((Time.now)+1.year).year} Session Sample"%>
@@ -58,3 +60,5 @@ rubycampus_entry_terms_002:
   position: <%= num += 1%>
   start_date: <%="#{((Time.now)+1.year).year}-01-01"%>
   end_date: <%="#{((Time.now)+1.year).year}-06-01"%>
+  revisable_number: 1
+  revisable_is_current: 1
