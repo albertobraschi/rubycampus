@@ -67,6 +67,7 @@ Rails::Initializer.run do |config|
   config.gem "fatjam-acts_as_revisable", :version => '0.9.7',
                                          :lib => "acts_as_revisable",
                                          :source => "http://gems.github.com"
+  config.gem "rspec-rails",              :lib => "spec"
 
   # Central Authentication Service (CAS)
   config.gem 'rubycas-client',           :version => '2.0.1'
