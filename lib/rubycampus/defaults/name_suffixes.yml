@@ -43,6 +43,8 @@ rubycampus_name_suffixes_001:
   is_reserved: "0"
   name: Jr
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_name_suffixes_002: 
   id: "2"
   is_default: "0"
@@ -50,6 +52,8 @@ rubycampus_name_suffixes_002:
   is_reserved: "0"
   name: Sr
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_name_suffixes_003: 
   id: "3"
   is_default: "0"
@@ -57,6 +61,8 @@ rubycampus_name_suffixes_003:
   is_reserved: "0"
   name: II
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_name_suffixes_004: 
   id: "4"
   is_default: "0"
@@ -64,3 +70,5 @@ rubycampus_name_suffixes_004:
   is_reserved: "0"
   name: III
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
