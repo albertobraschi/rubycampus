@@ -48,6 +48,11 @@ class Status < ActiveRecord::Base
   N_('Unreachable')
 
   has_many :contacts
+  
+  acts_as_revisable do
+    revision_class_name "StatusRevision"
+    except :is_reserved, :position
+  end
 
   # begin Validations
     validates_presence_of :name
@@ -69,6 +74,9 @@ class Status < ActiveRecord::Base
   NAMES_KEYS = self.find(:all).map do |s|
   [s.name, s.id]
   end
+end
+class StatusRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "Status"
 end
 
 # == Schema Information
