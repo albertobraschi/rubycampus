@@ -42,6 +42,10 @@ class Ethnicity < ActiveRecord::Base
    
   has_many :contacts
   
+  acts_as_revisable do
+    revision_class_name "EthnicityRevision"
+  end
+  
   # begin Validations
     validates_presence_of :name
   # ends Validations
@@ -62,6 +66,9 @@ class Ethnicity < ActiveRecord::Base
   NAMES_KEYS = self.find(:all).map do |s| 
   [s.name, s.id] 
   end
+end
+class EthnicityRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "Ethnicity"
 end
 
 # == Schema Information
