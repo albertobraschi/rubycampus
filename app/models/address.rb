@@ -44,7 +44,11 @@ class Address < ActiveRecord::Base
   belongs_to :location_type
   
   belongs_to :country
-  belongs_to :region 
+  belongs_to :region
+  
+  acts_as_revisable do
+    revision_class_name "AddressRevision"
+  end 
   
   # Validations
   validates_as_rubycampus_street_address :line_1, :line_2  
@@ -67,6 +71,9 @@ class Address < ActiveRecord::Base
     self.region = Region.find_by_name(name) unless name.blank?  
   end
 #:startdoc:      
+end
+class AddressRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "Address"
 end
 # == Schema Information
 # Schema version: 20080902230656

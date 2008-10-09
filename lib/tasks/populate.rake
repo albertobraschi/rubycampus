@@ -144,6 +144,8 @@ namespace :db do
         address.region_id = Region.find_by_name(Faker::Address.us_state)
         address.country_id = Country.find_by_name("United States")
         address.postal_code = Faker::Address.zip_code
+        address.revisable_number = 1                 # Required to trick our revision control system into accepting record
+        address.revisable_is_current = 1             # Required to trick our revision control system into accepting record
       end
 
       Email.populate 1 do |email|

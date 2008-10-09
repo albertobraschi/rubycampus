@@ -48,6 +48,15 @@ class CreateAddresses < ActiveRecord::Migration
       t.integer    :region_id
       t.string     :postal_code
       t.integer    :country_id
+      t.integer    :revisable_original_id
+      t.integer    :revisable_branched_from_id
+      t.integer    :revisable_number
+      t.string     :revisable_name
+      t.string     :revisable_type
+      t.datetime   :revisable_current_at
+      t.datetime   :revisable_revised_at
+      t.datetime   :revisable_deleted_at
+      t.boolean    :revisable_is_current
       t.timestamps
     end
   end
