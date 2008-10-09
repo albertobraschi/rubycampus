@@ -33,7 +33,7 @@ h3. Required
 
 * Ruby 1.8.6 (Phusion Passenger's Ruby Enterprise Edition build if running Passenger)
 * Gem 1.2.0
-* Rails 2.1.0
+* Rails 2.1.1
 
 h2. Quick Install Reference
 
