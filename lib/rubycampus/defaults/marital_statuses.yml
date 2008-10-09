@@ -43,6 +43,8 @@ rubycampus_marital_statuses_001:
   is_reserved: "0"
   name: Married
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_marital_statuses_002: 
   id: "2"
   is_default: "0"
@@ -50,6 +52,8 @@ rubycampus_marital_statuses_002:
   is_reserved: "0"
   name: Single
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_marital_statuses_003: 
   id: "3"
   is_default: "0"
@@ -57,6 +61,8 @@ rubycampus_marital_statuses_003:
   is_reserved: "0"
   name: "Widow or Widower"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_marital_statuses_004: 
   id: "4"
   is_default: "0"
@@ -64,6 +70,8 @@ rubycampus_marital_statuses_004:
   is_reserved: "0"
   name: Divorced
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_marital_statuses_005: 
   id: "5"
   is_default: "0"
@@ -71,6 +79,8 @@ rubycampus_marital_statuses_005:
   is_reserved: "0"
   name: "Never Married"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_marital_statuses_006: 
   id: "6"
   is_default: "0"
@@ -78,3 +88,5 @@ rubycampus_marital_statuses_006:
   is_reserved: "0"
   name: "Domestic Partner"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
