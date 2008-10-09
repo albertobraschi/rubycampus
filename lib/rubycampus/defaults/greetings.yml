@@ -40,23 +40,31 @@ rubycampus_greetings_001:
   id: "1"
   is_default: "1"
   is_enabled: "1"
-  name: "Dear %{first_name} %{last_name}"
+  name: "Dear %{contact_first_name} %{contact_last_name}"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_greetings_002: 
   id: "2"
   is_default: "0"
   is_enabled: "1"
-  name: "Dear %{first_name}"
+  name: "Dear %{contact_first_name}"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_greetings_003: 
   id: "3"
   is_default: "0"
   is_enabled: "1"
-  name: "Dear %{name_prefix} %{last_name}"
+  name: "Dear %{contact_name_prefix} %{contact_last_name}"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
 rubycampus_greetings_004: 
   id: "4"
   is_default: "0"
   is_enabled: "1"
-  name: "Dear %{name_prefix} %{first_name} %{last_name}"
+  name: "Dear %{contact_name_prefix} %{contact_first_name} %{contact_last_name}"
   position: <%= num += 1%>
+  revisable_number: 1
+  revisable_is_current: 1
