@@ -161,6 +161,8 @@ namespace :db do
         messenger.messaging_provider_id = messaging_providers
         messenger.is_primary = [true,false]
         messenger.is_billing = [true,false]
+        messenger.revisable_number = 1              # Required to trick our revision control system into accepting record
+        messenger.revisable_is_current = 1          # Required to trick our revision control system into accepting record
       end
 
       Phone.populate 1 do |phone|
@@ -171,6 +173,8 @@ namespace :db do
         phone.mobile_provider_id = mobile_providers
         phone.phone_type_id = phone_types
         phone.phone = Faker::PhoneNumber.phone_number
+        phone.revisable_number = 1                 # Required to trick our revision control system into accepting record
+        phone.revisable_is_current = 1             # Required to trick our revision control system into accepting record
       end
 
     end
