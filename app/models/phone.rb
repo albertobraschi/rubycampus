@@ -43,7 +43,11 @@ class Phone < ActiveRecord::Base
   belongs_to :contact   
   belongs_to :location_type 
   belongs_to :mobile_provider
-  belongs_to :phone_type 
+  belongs_to :phone_type
+  
+  acts_as_revisable do
+    revision_class_name "PhoneRevision"
+  end
 
 #:stopdoc:  
   # Virtual Attributes
@@ -55,6 +59,9 @@ class Phone < ActiveRecord::Base
     self.mobile_provider = MobileProvider.find_or_create_by_name(name) unless name.blank?  
   end
 #:startdoc:
+end
+class PhoneRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "Phone"
 end
 # == Schema Information
 # Schema version: 20080902230656
