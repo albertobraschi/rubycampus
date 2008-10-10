@@ -52,7 +52,6 @@ class MailingMixin < ActiveRecord::Base
     validates_presence_of :name
     validates_presence_of :mailing_mixin_type_name
     validates_presence_of :subject
-    validates_presence_of :html
     validates_presence_of :text
   # ends Validations
   

@@ -41,7 +41,7 @@ module MailingMixinSpecHelper
   def valid_mailing_mixin_attributes
     {
       :name => "Mailing Header",
-      :mailing_mixin_type_id => 1,
+      :mailing_mixin_type_name => "Header",
       :subject => "Descriptive Title for this Header",
       :html => "Sample Header for HTML formatted content.",
       :text => "Sample Header for TEXT formatted content."
@@ -66,8 +66,8 @@ describe MailingMixin do
     @mailing_mixin.should have(1).error_on(:name)
   end
   
-  it "should require mailing mixin type" do
-    @mailing_mixin.should have(1).error_on(:mailing_mixin_type)
+  it "should require mailing mixin type name" do
+    @mailing_mixin.should have(1).error_on(:mailing_mixin_type_name)
   end
   
   it "should require subject" do
@@ -78,7 +78,7 @@ describe MailingMixin do
     @mailing_mixin.should have(0).error_on(:html)
   end
   
-  it "should require test message" do
+  it "should require text message" do
     @mailing_mixin.should have(1).error_on(:text)
   end
   

@@ -47,6 +47,10 @@ class ContactType < ActiveRecord::Base
 
   caches_constants
   has_many :contacts
+  
+  # begin Validations
+    validates_presence_of :name
+  # ends Validations
 
   # Lists qualifying model attributes for use by auto completion in forms
   def self.find_for_auto_complete_lookup(search)

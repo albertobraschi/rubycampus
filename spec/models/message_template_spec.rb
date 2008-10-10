@@ -61,13 +61,21 @@ describe MessageTemplate do
     @message_template.should be_valid
   end
   
-  # it "should require name" do
-  #   @message_template.should have(1).error_on(:name)
-  # end
-  # 
-  # it "should have error on name if missing (alternate)" do
-  #   @message_template.attributes = valid_message_template_attributes.except(:name)
-  #   @message_template.should have(1).error_on(:name)
-  # end  
+  it "should require message name" do
+    @message_template.should have(1).error_on(:name)
+  end
+  
+  it "should require message subject" do
+    @message_template.should have(1).error_on(:subject)
+  end
+  
+  it "should require message text" do
+    @message_template.should have(1).error_on(:text)
+  end
+  
+  it "should not have error on message html if missing" do
+    @message_template.attributes = valid_message_template_attributes.except(:html)
+    @message_template.should have(0).error_on(:html)
+  end  
 
 end
