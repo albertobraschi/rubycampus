@@ -49,7 +49,7 @@ class MessageTemplate < ActiveRecord::Base
   # ends Validations
   
   acts_as_revisable do
-    revision_class_name "Session"
+    revision_class_name "MessageTemplateRivision"
   end
   
   # Searchable attributes
@@ -65,6 +65,9 @@ class MessageTemplate < ActiveRecord::Base
     find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "name ASC" )  
   end
 
+end
+class MessageTemplateRevision < ActiveRecord::Base
+  acts_as_revision :revisable_class_name => "MessageTemplate"
 end
 
 
@@ -92,4 +95,3 @@ end
 #  created_at                 :datetime
 #  updated_at                 :datetime
 #
-
