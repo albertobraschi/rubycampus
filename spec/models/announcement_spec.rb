@@ -40,18 +40,40 @@ require File.dirname(__FILE__) + '/../spec_helper'
 module AnnouncementSpecHelper
   def valid_announcement_attributes
     {
+      :message => "This RubyCampus server is going down for maintenance.",
+      :starts_at => "2008-01-01 23:00",
+      :ends_at => "2008-01-01 23:30"
     }
   end
 end
 
 describe Announcement do
-  
+
   include AnnouncementSpecHelper
-  
+
   before(:each) do
     @announcement = Announcement.new
   end
-  
-  it "should be valid"
+
+  it do
+    @announcement.attributes = valid_announcement_attributes
+    @announcement.should be_valid
+  end
+
+  it do
+    @announcement.should validate_presence_of(:message)
+  end
+
+  it do
+    @announcement.should validate_length_of(:message, :within => 5..10)
+  end
+
+  it "should require starts at"do
+    @announcement.should have(1).error_on(:starts_at)
+  end
+
+  it "should require ends at" do
+    @announcement.should have(1).error_on(:ends_at)
+  end
 
 end
