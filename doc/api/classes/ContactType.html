@@ -48,10 +48,10 @@ Retrieves all active
   <p class="source-link">[ <a href="javascript:toggleSource('M000002_source')" id="l_M000002_source">show source</a> ]</p>
   <div id="M000002_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/contact_type.rb, line 57</span>
-57:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">all_active</span>
-58:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;is_enabled = ?&quot;</span>, <span class="ruby-keyword kw">true</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:position</span>)
-59:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/contact_type.rb, line 61</span>
+61:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">all_active</span>
+62:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;is_enabled = ?&quot;</span>, <span class="ruby-keyword kw">true</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:position</span>)
+63:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>
@@ -69,10 +69,10 @@ Lists qualifying model attributes for use by auto completion in forms
   <p class="source-link">[ <a href="javascript:toggleSource('M000001_source')" id="l_M000001_source">show source</a> ]</p>
   <div id="M000001_source" class="dyn-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/contact_type.rb, line 52</span>
-52:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
-53:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'last_name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;position ASC&quot;</span> )
-54:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/contact_type.rb, line 56</span>
+56:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
+57:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'last_name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;position ASC&quot;</span> )
+58:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>
 </div>

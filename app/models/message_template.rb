@@ -70,6 +70,7 @@ class MessageTemplateRevision < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 # Schema version: 20081006092209
 #
@@ -94,3 +95,4 @@ end
 #  created_at                 :datetime
 #  updated_at                 :datetime
 #
+
