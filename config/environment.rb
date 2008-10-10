@@ -64,10 +64,9 @@ Rails::Initializer.run do |config|
   config.gem 'ezcrypto',                 :version => '0.7'
   config.gem 'prawn',                    :version => '0.2.0'
   config.gem 'json',                     :version => '1.1.3'
-  config.gem "fatjam-acts_as_revisable", :version => '0.9.7',
-                                         :lib => "acts_as_revisable",
-                                         :source => "http://gems.github.com"
-  config.gem "rspec-rails",              :lib => "spec"
+  config.gem 'fatjam-acts_as_revisable', :version => '0.9.7',
+                                         :lib => 'acts_as_revisable',
+                                         :source => 'http://gems.github.com'
 
   # Central Authentication Service (CAS)
   config.gem 'rubycas-client',           :version => '2.0.1'
