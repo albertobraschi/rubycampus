@@ -46,22 +46,30 @@ module AcademicLevelSpecHelper
 end
 
 describe AcademicLevel do
-  
+
   include AcademicLevelSpecHelper
-  
+
   before(:each) do
     @academic_level = AcademicLevel.new
   end
-  
+
   it "should be valid" do
     @academic_level.attributes = valid_academic_level_attributes
     @academic_level.should be_valid
   end
-  
+
+  it "should have many contacts" do
+    @academic_level.should have_many(:contacts)
+  end
+
+  it "should validate the presence of name" do
+    @academic_level.should validate_presence_of(:name)
+  end
+
   it "should require name" do
     @academic_level.should have(1).error_on(:name)
   end
-  
+
   it "should have error on name if missing (alternate)" do
     @academic_level.attributes = valid_academic_level_attributes.except(:name)
     @academic_level.should have(1).error_on(:name)
