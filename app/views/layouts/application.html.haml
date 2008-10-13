@@ -1,5 +1,5 @@
-!!!
-%html{ :lang => "en" }
+!!! 1.1
+%html
   %head
     %title
       = h(Setting.site_name + " - " + (yield(:title) || Setting.site_title_default))
@@ -8,10 +8,8 @@
     %meta{ :name => "keywords", :content => Rubycampus::Info::keywords }/
     = stylesheet_link_tag 'rubycampus/screen', :media => 'screen, projection'
     = stylesheet_link_tag 'rubycampus/print', :media => 'print'
-    /
-      [if IE]>
-      <link rel="stylesheet" href="/stylesheets/rubycampus/ie.css" type="text/css" media="screen, projection">
-      <![endif]
+    /[if IE]
+      = stylesheet_link_tag 'rubycampus/ie', :rel => 'stylesheet', :media => 'screen, projection'
     = javascript_include_tag :defaults
     = calendar_date_select_includes Setting.domain_gui_calender_theme
   %body{ :class => body_tag_classes.join(' ') }
