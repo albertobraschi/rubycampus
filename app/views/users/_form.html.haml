@@ -17,7 +17,7 @@
     %span.title= _("Display Language")          
     = form.select :language, language_options_for_select, :class => "field"
 .clear
-- if @current_action == 'new' || 'create'
+- if @current_action == 'new' || @current_action == 'create'
   %label{:for => "user_login", :class => "w100 inputselect mandatory"}
     %span.wrapper
       %span.title= _("Login")
