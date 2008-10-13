@@ -102,6 +102,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :password
   # end RESTful_authentication routes
 
+  # start Static routes
+  map.with_options :controller => 'static' do |static|
+    static.about 'about', :action => 'about'
+  end
+  # end Static routes
+
   # begin RESTful_ACL routes
   map.error '/error', :controller => 'sessions', :action => 'error'
   map.denied '/denied', :controller => 'sessions', :action => 'denied'
