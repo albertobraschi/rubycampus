@@ -87,7 +87,7 @@ module Rubycampus
           must display the words "Powered by RubyCampus".
           <br/><br/>
           RubyCampus™, RubyCampus Community Edition™ are <a href="https://rubycampus.org/wiki/rubycampus/Licensing"
-           title="trademarks">trademarks</a> of Kevin R. Aleman and are governed by guidlines setforth in the <a 
+           title="trademarks">trademarks</a> of Kevin R. Aleman and are governed by guidelines set forth in the <a 
           href="https://rubycampus.org/wiki/rubycampus/Licensing" title="trademarks">trademarks and licensing</a> wiki page.
           </p>
           <h3>RubyCampus Community Resources</h3>
