@@ -105,6 +105,7 @@ ActionController::Routing::Routes.draw do |map|
   # start Static routes
   map.with_options :controller => 'static' do |static|
     static.about 'about', :action => 'about'
+    static.license 'license', :action => 'license'
   end
   # end Static routes
 

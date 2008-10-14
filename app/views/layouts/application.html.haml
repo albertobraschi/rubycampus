@@ -26,13 +26,15 @@
             = link_to _("Administer"), administers_path if current_user_is_super_user_role
             = link_to _('Logout'), logout_path
             = link_to_help
+          = "#{link_to _('Login'), login_path} | " unless logged_in?  
+          = link_to _("About"), about_path
         = render :partial => "layouts/search" if logged_in?
       %hr/
       = render :partial => "layouts/flash_message"
       - if logged_in?
         .span-4#sidebar
           = display_sidebar
-        .span-20.last#content{:style => "background-color:#fcfcfc;border-style:solid;"}
+        .span-20.last#content
           = yield
       - else
         = yield

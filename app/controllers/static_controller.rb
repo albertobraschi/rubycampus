@@ -39,5 +39,8 @@ class StaticController < ApplicationController
 
   def about
   end
+  
+  def license
+  end
 
 end
