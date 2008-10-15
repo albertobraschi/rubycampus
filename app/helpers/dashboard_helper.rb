@@ -35,66 +35,44 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class SessionsController < ApplicationController
-  before_filter :login_required, :only => :destroy
-  before_filter :not_logged_in_required, :only => [:new, :create]
-
-  # render new.html.haml
-  def new #:nodoc:
+module DashboardHelper
+  def widget_javascript
+    <<-EOF
+    <script language="JavaScript">
+    //<![CDATA[
+    function recreateSortables() {
+        Sortable.destroy('list-top');
+        Sortable.destroy('list-left');
+        Sortable.destroy('list-right');
+      
+      Sortable.create("list-top", {constraint:false, containment:['list-top','list-left','list-right'], dropOnEmpty:true, handle:'handle', onUpdate:function(){new Ajax.Request('/dashboard/order_widgets?group=top', {asynchronous:true, evalScripts:true, parameters:Sortable.serialize("list-top")})}, only:'dashboard-box', tag:'div'})
+      Sortable.create("list-left", {constraint:false, containment:['list-top','list-left','list-right'], dropOnEmpty:true, handle:'handle', onUpdate:function(){new Ajax.Request('/dashboard/order_widgets?group=left', {asynchronous:true, evalScripts:true, parameters:Sortable.serialize("list-left")})}, only:'dashboard-box', tag:'div'})
+      Sortable.create("list-right", {constraint:false, containment:['list-top','list-left','list-right'], dropOnEmpty:true, handle:'handle', onUpdate:function(){new Ajax.Request('/dashboard/order_widgets?group=right', {asynchronous:true, evalScripts:true, parameters:Sortable.serialize("list-right")})}, only:'dashboard-box', tag:'div'})
+    }
+    
+    function updateSelect() {
+        s = $('widget-select')
+        for (var i = 0; i < s.options.length; i++) {
+            if ($('widget_' + s.options[i].value)) {
+                s.options[i].disabled = true;
+            } else {
+                s.options[i].disabled = false;
+            }
+        }
+        s.options[0].selected = true;
+    }
+    
+    function afterAddBlock() {
+        recreateSortables();
+        updateSelect();
+    }
+    
+    function removeBlock(widget) {
+        Effect.DropOut(widget);
+        updateSelect();
+    }
+    //]]>
+    </script>
+    EOF
   end
-
-  def create #:nodoc:
-    password_authentication(params[:login], params[:password])
-  end
-
-  def destroy #:nodoc:
-    #
-    # FEATURE: #98 Central Authentication Service
-    #   reset_session
-    #   redirect_to CAS::Filter.logout_url(self, request.referer)
-    #
-    self.current_user.forget_me if logged_in?
-    cookies.delete :auth_token
-    reset_session
-    flash[:notice] = _("You have been logged out.")
-    redirect_to login_path
-  end
-
-  protected
-
-  def password_authentication(login, password)
-    user = User.authenticate(login, password)
-    if user == nil
-    failed_login(_("Your username or password is incorrect."))
-    elsif user.activated_at.blank?
-    failed_login(_("Your account is not active, please check your email for the activation code."))
-    elsif user.enabled == false
-    failed_login(_("Your account has been disabled."))
-    else
-    self.current_user = user
-    successful_login
-    end
-  end
-
-  private
-
-  def failed_login(message)
-    flash.now[:error] = message
-    render :action => 'new'
-  end
-
-  def successful_login
-    if params[:remember_me] == "1"
-    self.current_user.remember_me
-    cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
-    end
-    flash[:notice] = _("Logged in successfully")
-    return_to = session[:return_to]
-    if return_to.nil?
-    redirect_to :controller => 'dashboard' #contacts_path(:contact_type => ContactType::INDIVIDUAL.id, :stage => Stage::INQUIRY.id)
-    else
-    redirect_to return_to
-    end
-  end
-
 end

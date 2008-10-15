@@ -35,66 +35,64 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class SessionsController < ApplicationController
-  before_filter :login_required, :only => :destroy
-  before_filter :not_logged_in_required, :only => [:new, :create]
+class DashboardController < ApplicationController
+  before_filter :login_required
 
-  # render new.html.haml
-  def new #:nodoc:
+  WIDGETS = { 'my_contacts' => _("My Contacts"), 'activity' => _("Activity"), 'document' => _("Document") }.freeze
+  DEFAULT_LAYOUT = { 'top' => ['my_contacts'], 'left' => ['activity'], 'right' => ['document'] }.freeze
+  verify :xhr => true, :session => :page_layout, :only => [:add_widget, :remove_widget, :order_widgets]
+
+  def index
+    page
+    render :action => 'page'
   end
 
-  def create #:nodoc:
-    password_authentication(params[:login], params[:password])
+  def page
+    @user = current_user
+    @widgets = @user.preference[:my_page_layout] || DEFAULT_LAYOUT
   end
 
-  def destroy #:nodoc:
-    #
-    # FEATURE: #98 Central Authentication Service
-    #   reset_session
-    #   redirect_to CAS::Filter.logout_url(self, request.referer)
-    #
-    self.current_user.forget_me if logged_in?
-    cookies.delete :auth_token
-    reset_session
-    flash[:notice] = _("You have been logged out.")
-    redirect_to login_path
+  def page_layout
+    @user = current_user
+    @widgets = @user.preference[:my_page_layout] || DEFAULT_LAYOUT.dup
+    session[:page_layout] = @widgets
+    %w(top left right).each {|f| session[:page_layout][f] ||= [] }
+    @widget_options = []
+    WIDGETS.each {|k, v| @widget_options << [_(v), k]}
   end
 
-  protected
+  def add_widget
+    widget = params[:widget]
+    render(:nothing => true) and return unless widget && (WIDGETS.keys.include? widget)
+    @user = current_user
+    %w(top left right).each {|f| (session[:page_layout][f] ||= []).delete widget }
+    session[:page_layout]['top'].unshift widget
+    render :partial => "widget", :locals => {:user => @user, :widget_name => widget}
+  end
 
-  def password_authentication(login, password)
-    user = User.authenticate(login, password)
-    if user == nil
-    failed_login(_("Your username or password is incorrect."))
-    elsif user.activated_at.blank?
-    failed_login(_("Your account is not active, please check your email for the activation code."))
-    elsif user.enabled == false
-    failed_login(_("Your account has been disabled."))
-    else
-    self.current_user = user
-    successful_login
+  def remove_widget
+    widget = params[:widget]
+    %w(top left right).each {|f| (session[:page_layout][f] ||= []).delete widget }
+    render :nothing => true
+  end
+
+  def order_widgets
+    group = params[:group]
+    group_items = params["list-#{group}"]
+    if group_items and group_items.is_a? Array
+      %w(top left right).each {|f|
+        session[:page_layout][f] = (session[:page_layout][f] || []) - group_items
+      }
+      session[:page_layout][group] = group_items
     end
+    render :nothing => true
   end
 
-  private
-
-  def failed_login(message)
-    flash.now[:error] = message
-    render :action => 'new'
+  def page_layout_save
+    @user = current_user
+    @user.preference[:my_page_layout] = session[:page_layout] if session[:page_layout]
+    @user.preference.save
+    session[:page_layout] = nil
+    redirect_to :action => 'page'
   end
-
-  def successful_login
-    if params[:remember_me] == "1"
-    self.current_user.remember_me
-    cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
-    end
-    flash[:notice] = _("Logged in successfully")
-    return_to = session[:return_to]
-    if return_to.nil?
-    redirect_to :controller => 'dashboard' #contacts_path(:contact_type => ContactType::INDIVIDUAL.id, :stage => Stage::INQUIRY.id)
-    else
-    redirect_to return_to
-    end
-  end
-
 end

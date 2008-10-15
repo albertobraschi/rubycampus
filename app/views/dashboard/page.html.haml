@@ -1,0 +1,24 @@
+.contextual
+  = link_to _("Personalize Dashboard"), :action => 'page_layout'
+%h2
+  = _("Dashboard")
+#list-top
+  - @widgets['top'].each do |widget|
+    - next unless DashboardController::WIDGETS.keys.include? widget
+      .dashboard-box
+        = render :partial => "dashboard/widgets/#{widget}", :locals => { :user => @user }
+    - if @widgets['top']
+
+#list-left.contentpanelleft
+  - @widgets['left'].each do |widget|
+    - next unless DashboardController::WIDGETS.keys.include? widget
+      .dashboard-box
+        = render :partial => "dashboard/widgets/#{widget}", :locals => { :user => @user }
+    - if @widgets['left']
+
+#list-right.contentpanelright
+  - @widgets['right'].each do |widget|
+    - next unless DashboardController::WIDGETS.keys.include? widget
+      .dashboard-box
+        = render :partial => "dashboard/widgets/#{widget}", :locals => { :user => @user }
+    - if @widgets['right']  

@@ -1,0 +1,5 @@
+%div{ :id => "widget_#{widget_name}", :class => "dashboard-box" }
+  %div{ :style => "float:right;margin-right:16px;z-index:500;" }
+    = link_to_remote "", { :url => { :action => "remove_widget", :widget => widget_name }, :complete => "removeBlock('widget_#{widget_name}')" }, :class => "close-icon"
+  .handle
+    = render :partial => "dashboard/widgets/#{widget_name}", :locals => { :user => user }

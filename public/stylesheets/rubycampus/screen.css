@@ -1403,6 +1403,17 @@ button.positive, .action_buttons a.positive {color:#529214;}
 html>body #spinner {position:fixed;}
 #spinner span {background-position:0% 40%;background-repeat:no-repeat;background-image:url(/images/spinner.gif);padding-left:26px;vertical-align:bottom;}
 
+/* rubycampus-dashboard */
+.contextual {float:right;white-space:nowrap;line-height:1.4em;margin-top:5px;padding-left:10px;font-size:0.9em;}
+.contentpanelleft {float:left;width:49%;}
+.contentpanelright {float:right;width:49%;}
+form {display:inline;}
+.widget-receiver {border:3px dashed #c0c0c0;margin-bottom:20px;padding:15px 0 15px 0;}
+.dashboard-box {margin:0 0 20px 0;color:#505050;line-height:1.5em;}
+.handle {cursor:move;}
+a.close-icon {display:block;margin-top:3px;overflow:hidden;width:12px;height:12px;background-repeat:no-repeat;cursor:pointer;background-image:url('/images/lightbulb.png');}
+a.close-icon:hover {background-image:url('/images/lightbulb_off.png');}
+
 /* semantic class names */
 .icons.edit {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -235px;}
 .icons.find_organization {display:inline;overflow:hidden;height:18px;padding-left:18px;padding-bottom:5px;background-repeat:no-repeat;background-image:url(/images/sprites/icons.png);background-position:0px -7453px;}

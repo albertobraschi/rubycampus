@@ -1,0 +1,28 @@
+= widget_javascript
+.contextual
+  - form_tag({:action => "add_widget"}, :id => "widget-form") do
+    = select_tag 'widget', "<option></option>" + options_for_select(@widget_options), :id => "widget-select"
+    = link_to_remote _("Add"), {:url => { :action => "add_widget" }, :with => "Form.serialize('widget-form')", :update => "list-top", :position => :top, :complete => "afterAddBlock();" }, :class => 'icons add'
+    = link_to _("Save"), {:action => 'page_layout_save'}, :class => 'icons save'
+    = link_to _("Cancel"), {:action => 'page'}, :class => 'icons cancel'
+%h2
+  = _("Personalize Dashboard")
+#list-top.widget-receiver
+  - @widgets['top'].each do |widget|
+    - next unless DashboardController::WIDGETS.keys.include? widget
+      = render :partial => 'widget', :locals => {:user => @user, :widget_name => widget}
+      - if @widgets['top'] #FIXME should be - end if @widgets['top'] 
+#list-left.contentpanelleft.widget-receiver
+  - @widgets['left'].each do |widget|
+    - next unless DashboardController::WIDGETS.keys.include? widget
+      = render :partial => 'widget', :locals => {:user => @user, :widget_name => widget}
+      - if @widgets['left']
+#list-right.contentpanelright.widget-receiver
+  - @widgets['right'].each do |widget|
+    - next unless DashboardController::WIDGETS.keys.include? widget
+      = render :partial => 'widget', :locals => {:user => @user, :widget_name => widget}
+      - if @widgets['right']
+= sortable_element 'list-top', :tag => 'div', :only => 'dashboard-box', :handle => "handle", :dropOnEmpty => true, :containment => ['list-top', 'list-left', 'list-right'], :constraint => false, :url => { :action => "order_widgets", :group => "top" }
+= sortable_element 'list-left', :tag => 'div', :only => 'dashboard-box', :handle => "handle", :dropOnEmpty => true, :containment => ['list-top', 'list-left', 'list-right'], :constraint => false, :url => { :action => "order_widgets", :group => "left" }
+= sortable_element 'list-right', :tag => 'div', :only => 'dashboard-box', :handle => "handle", :dropOnEmpty => true, :containment => ['list-top', 'list-left', 'list-right'], :constraint => false, :url => { :action => "order_widgets", :group => "right" }
+= javascript_tag "updateSelect()"

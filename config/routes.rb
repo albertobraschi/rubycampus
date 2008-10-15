@@ -36,7 +36,7 @@
 #++
 
 ActionController::Routing::Routes.draw do |map|
-  map.home '', :controller => "users", :action => "show"
+  map.home '', :controller => "dashboard"
   map.root :controller => "sessions", :action => "destroy"
 
   # begin RubyCampus Administration

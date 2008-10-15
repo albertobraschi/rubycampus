@@ -22,7 +22,7 @@
           - if logged_in?
             = _("Welcome %{current_user}") % {:current_user => content_tag(:strong,(link_to h(current_user.login.titlecase), user_path(current_user)))}
             |
-            = link_to _('Profile'), edit_user_path(current_user)
+            = link_to _("Dashboard"), :controller => 'dashboard'
             = link_to _("Administer"), administers_path if current_user_is_super_user_role
             = link_to _('Logout'), logout_path
             = link_to_help

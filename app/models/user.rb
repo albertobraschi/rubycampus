@@ -58,6 +58,8 @@ class User < ActiveRecord::Base
 
   has_many :permissions
   has_many :roles, :through => :permissions
+  has_one :user_preference, :dependent => :destroy
+  #has_one :preference, :dependent => :destroy, :class_name => 'UserPreference'
 
   # TODO allow auto_complete of assignable users
   # has_many :contacts, :class_name => "contact", :foreign_key => "assigned_to_user_id"
@@ -183,6 +185,11 @@ end
     self.roles.find_by_name(name) ? true : false
   end
 
+  # Layouts  
+  def preference
+    self.user_preference ||= UserPreference.new(:user => self)
+  end
+
   protected
 
   # before filter
@@ -203,7 +210,7 @@ end
   def make_password_reset_code
     self.password_reset_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
   end
-
+  
   private
 
   def activate!
@@ -212,8 +219,6 @@ end
   end
 
 end
-
-
 
 # == Schema Information
 # Schema version: 20081006092209
