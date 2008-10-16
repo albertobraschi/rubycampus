@@ -33,11 +33,13 @@ h3. Required
 
 * Ruby 1.8.6 (Phusion Passenger's Ruby Enterprise Edition build if running Passenger)
 * Gem 1.2.0
-* Rails 2.1.1
+* Rails 2.1.1 (Included)
+* imagemagick & libmagick9-dev (You must compile this yourself)
+* rmagick gem
 
 h2. Quick Install Reference
 
-These instructions are meant for persons familiar with the *Ruby* programming language, *Rails* framework and *Git* distributed revision control. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide and our "forums":https://rubycampus.org/projects/rubycampus/boards.
+These instructions are meant for persons familiar with the *Ruby* programming language, *Rails* framework and *Git* distributed revision control. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide and our "forums":https://rubycampus.org/projects/rubycampus/boards. Before installing RubyCampus you must have a properly configured environment and already pre-compiled *imagemagick & libmagick9-dev* and installed the *rmagick* Ruby Gem. These libraries are used by RubyCampus to generate graphs, charts and other dynamic imagery.
 
 * @ git clone git://rubycampus.org/rubycampus.git  @
 
