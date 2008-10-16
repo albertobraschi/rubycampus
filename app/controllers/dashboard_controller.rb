@@ -38,8 +38,12 @@
 class DashboardController < ApplicationController
   before_filter :login_required
 
-  WIDGETS = { 'my_contacts' => _("My Contacts"), 'activity' => _("Activity"), 'document' => _("Document") }.freeze
-  DEFAULT_LAYOUT = { 'top' => ['my_contacts'], 'left' => ['activity'], 'right' => ['document'] }.freeze
+  WIDGETS = { 'my_contacts' => _("My Contacts"), 
+              'activity' => _("Activity"),
+              'graph_contacts' => _("Contacts by Type"),
+              'graph_stages' => _("Individuals by Enrollment Stage"), 
+              'document' => _("Document") }.freeze
+  DEFAULT_LAYOUT = { 'top' => ['my_contacts'], 'left' => ['graph_contacts'], 'right' => ['graph_stages'] }.freeze
   verify :xhr => true, :session => :page_layout, :only => [:add_widget, :remove_widget, :order_widgets]
 
   def index
@@ -95,4 +99,34 @@ class DashboardController < ApplicationController
     session[:page_layout] = nil
     redirect_to :action => 'page'
   end
+  
+  def graph_contacts
+    @g = Gruff::Pie.new("370x277")
+    @g.font = File.expand_path('lib/fonts/VerilySerifMono.otf', RAILS_ROOT)
+    @g.title = "Contacts by Type"
+    @g.data("Individuals",Contact.count(:conditions => ["contact_type_id = ?", ContactType::INDIVIDUAL.id]))
+    @g.data("Households",Contact.count(:conditions => ["contact_type_id = ?", ContactType::HOUSEHOLD.id]))
+    @g.data("Organizations",Contact.count(:conditions => ["contact_type_id = ?", ContactType::ORGANIZATION.id]))
+    send_data(@g.to_blob,
+                :disposition => 'inline',
+                :type => 'image/png',
+                :filename => "graph_contacts.png")
+  end
+  
+  def graph_stages
+    @g = Gruff::Pie.new("370x277")
+    @g.font = File.expand_path('lib/fonts/VerilySerifMono.otf', RAILS_ROOT)
+    @g.title = "Individuals by Enrollment Stage"
+    @g.data("Prospect",Contact.count(:conditions => ["stage_id = ?", Stage::PROSPECT.id]))
+    @g.data("Inquiry",Contact.count(:conditions => ["stage_id = ?", Stage::INQUIRY.id]))
+    @g.data("Applicant",Contact.count(:conditions => ["stage_id = ?", Stage::APPLICANT.id]))
+    @g.data("Confirmed",Contact.count(:conditions => ["stage_id = ?", Stage::CONFIRMED.id]))
+    @g.data("Enrolled",Contact.count(:conditions => ["stage_id = ?", Stage::ENROLLED.id]))
+    @g.data("Canceled",Contact.count(:conditions => ["stage_id = ?", Stage::CANCELED.id]))
+    send_data(@g.to_blob,
+                :disposition => 'inline',
+                :type => 'image/png',
+                :filename => "graph_stages.png")
+  end
+
 end
