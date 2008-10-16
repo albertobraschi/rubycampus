@@ -37,6 +37,28 @@
 
 module ApplicationHelper
 
+  # Returns a dashboard panel and its widgets
+  def dashboard_panel_receiver(widgets,user,panel)
+    val = ''
+    cp = case panel
+         when 'top' then ""
+         when 'left' then "contentpanelleft "
+         when 'right' then "contentpanelright "
+         end
+
+    widgets[panel].each do |widget|
+      next unless DashboardController::WIDGETS.keys.include? widget
+      val << render(:partial => 'widget', :locals => {:user => user, :widget_name => widget})
+      content_tag(:div, val, :class => "dashboard-box")
+    end if widgets[panel]
+
+    <<-EOF
+      <div id="list-#{panel}" class="#{cp}widget-receiver">
+      #{val}
+      </div>
+    EOF
+  end
+
   # Sets <body class=""> to controllers name for stylesheet hooks
   def body_tag_classes
     @body_tag_classes ||= [ RUBYCAMPUS, controller.controller_name ]
@@ -69,8 +91,8 @@ module ApplicationHelper
         wiki_page << "#{controller.controller_name.titleize.gsub(" ","_")}"
       end
     link_to _(label), "#{wiki_page}", :popup => true
-  end 
-  
+  end
+
   #
   # Should be used in inline help on pages. By default, uses the current controller and action
   # to render the url to the corresponding RubyCampus wiki page.
@@ -78,7 +100,7 @@ module ApplicationHelper
   def link_to_learn_more
     { :learn_more => link_to_help(_("Learn more...")) }
   end
-  
+
   #
   # Should be called only by context_help from helpers
   #
@@ -152,7 +174,7 @@ module ApplicationHelper
     end
     language_select
   end
-   
+
   # Renders hakozaki css class label requiring only the controller name
   #
   # Checks if user is authorized to edit lookup tables and optionally
@@ -170,22 +192,22 @@ module ApplicationHelper
     label = opts[:label] || opts[:controller]
     content_tag(:span, (current_user_is_super_user_role && @current_action !='show' ? (link_to _(label.to_s.titleize), self.send(controller.to_s.underscore.pluralize+"_path")) : _(label.to_s.titleize)) + (content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) , :class => "title")
   end
-    
+
   # Returns true if current_user is_admin and/or has_role of administrator
   def current_user_is_super_user_role
     current_user.is_admin || current_user.has_role?('administrator')
   end
-  
+
   # Returns UL of mergable tokens
   # FIXME Just a mock
-  def list_mergable_tokens      
+  def list_mergable_tokens
       out = "<ul>"
       for token in TOKENS do
-        out << content_tag(:li, token, :style => "list-style-type: none")                        
+        out << content_tag(:li, token, :style => "list-style-type: none")
       end
-      out << "</ul>"                  
+      out << "</ul>"
   end
-  
+
   def pagination_links_remote(paginator)
     page_options = {:window_size => 1}
     pagination_links_each(paginator, page_options) do |n|
@@ -199,7 +221,7 @@ module ApplicationHelper
       link_to_remote(n.to_s, options, html_options)
     end
   end
-  
+
   #
   # Adds contextual sorting class to tag
   #
@@ -208,7 +230,7 @@ module ApplicationHelper
     result = 'class="sortdown"' if params[:sort] == param + "_reverse"
     return result
   end
-  
+
   #
   # Generates link for sorting on provided text
   #
