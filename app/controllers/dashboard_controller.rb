@@ -101,7 +101,12 @@ class DashboardController < ApplicationController
   end
   
   def graph_contacts
-    @g = Gruff::Pie.new("370x277")
+    @g = Gruff::Pie.new("387x289")
+    @g.theme = {:font_color => 'white',
+                :colors => %w(orange purple green pink red blue),
+                :marker_color => 'blue',    
+                :background_image => 'lib/rubycampus/assets/rubycampus_chart_background.png'
+               }   
     @g.font = File.expand_path('lib/fonts/VerilySerifMono.otf', RAILS_ROOT)
     @g.title = "Contacts by Type"
     @g.data("Individuals",Contact.count(:conditions => ["contact_type_id = ?", ContactType::INDIVIDUAL.id]))
@@ -114,7 +119,12 @@ class DashboardController < ApplicationController
   end
   
   def graph_stages
-    @g = Gruff::Pie.new("370x277")
+    @g = Gruff::Pie.new("387x289")
+    @g.theme = {:font_color => 'white',
+                :colors => %w(orange purple green pink red blue),
+                :marker_color => 'blue',    
+                :background_image => 'lib/rubycampus/assets/rubycampus_chart_background.png'
+               }
     @g.font = File.expand_path('lib/fonts/VerilySerifMono.otf', RAILS_ROOT)
     @g.title = "Individuals by Enrollment Stage"
     @g.data("Prospect",Contact.count(:conditions => ["stage_id = ?", Stage::PROSPECT.id]))
