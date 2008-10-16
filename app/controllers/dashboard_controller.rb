@@ -38,18 +38,63 @@
 class DashboardController < ApplicationController
   before_filter :login_required
 
-  WIDGETS = { 'my_contacts' => _("My Contacts"), 
-              'activity' => _("Activity"),
+  WIDGETS = { 'activity' => _("Activity"),
+              'document' => _("Document"),
               'graph_contacts' => _("Contacts by Type"),
               'graph_individuals_by_ethnicity' => _("Individuals by Ethnicity"),
               'graph_individuals_by_marital_status' => _("Individuals by Marital Status"),
-              'graph_stages' => _("Individuals by Enrollment Stage"), 
-              'document' => _("Document") }.freeze
+              'graph_stages' => _("Individuals by Enrollment Stage"),
+              'my_contacts' => _("My Contacts")
+            }.freeze
   DEFAULT_LAYOUT = { 'top' => [''],
                      'left' => ['graph_contacts', 'graph_individuals_by_ethnicity'],
-                     'right' => ['graph_stages', 'graph_individuals_by_marital_status'] 
+                     'right' => ['graph_stages', 'graph_individuals_by_marital_status']
                    }.freeze
   verify :xhr => true, :session => :page_layout, :only => [:add_widget, :remove_widget, :order_widgets]
+
+  def graph_contacts
+    generate_graph(WIDGETS['graph_contacts'])
+    for contact_type in ContactType.all_active
+      @g.data("#{contact_type.name.titleize}",Contact.count(:conditions => ["contact_type_id = ?", contact_type.id]))
+    end
+    send_data(@g.to_blob,
+                :disposition => 'inline',
+                :type => 'image/png',
+                :filename => "graph_contacts.png")
+  end
+
+  def graph_individuals_by_ethnicity
+    generate_graph(WIDGETS['graph_individuals_by_ethnicity'])
+    for ethnicity in Ethnicity.all_active
+      @g.data("#{ethnicity.name.titleize}",Contact.count(:conditions => ["ethnicity_id = ?", ethnicity.id]))
+    end
+    send_data(@g.to_blob,
+                :disposition => 'inline',
+                :type => 'image/png',
+                :filename => "graph_contacts.png")
+  end
+
+  def graph_individuals_by_marital_status
+    generate_graph(WIDGETS['graph_individuals_by_marital_status'])
+    for marital_status in MaritalStatus.all_active
+      @g.data("#{marital_status.name.titleize}",Contact.count(:conditions => ["marital_status_id = ?", marital_status.id]))
+    end
+    send_data(@g.to_blob,
+                :disposition => 'inline',
+                :type => 'image/png',
+                :filename => "graph_contacts.png")
+  end
+
+  def graph_stages
+    generate_graph(WIDGETS['graph_stages'])
+    for stage in Stage.all_active
+      @g.data("#{stage.name.titleize}",Contact.count(:conditions => ["stage_id = ?", stage.id]))
+    end
+    send_data(@g.to_blob,
+                :disposition => 'inline',
+                :type => 'image/png',
+                :filename => "graph_stages.png")
+  end
 
   def index
     page
@@ -104,89 +149,18 @@ class DashboardController < ApplicationController
     session[:page_layout] = nil
     redirect_to :action => 'page'
   end
-  
-  def graph_contacts
-    @g = Gruff::Pie.new("387x289")
+
+  protected
+
+  def generate_graph(title,size="387x289")
+    @g = Gruff::Pie.new(size)
     @g.theme = {:font_color => 'white',
                 :colors => %w(orange purple green pink red blue),
-                :marker_color => 'blue',    
-                :background_image => 'lib/rubycampus/assets/rubycampus_chart_background.png'
-               }   
-    @g.font = File.expand_path('lib/fonts/VerilySerifMono.otf', RAILS_ROOT)
-    @g.title = "Contacts by Type"
-    @g.data("Individuals",Contact.count(:conditions => ["contact_type_id = ?", ContactType::INDIVIDUAL.id]))
-    @g.data("Households",Contact.count(:conditions => ["contact_type_id = ?", ContactType::HOUSEHOLD.id]))
-    @g.data("Organizations",Contact.count(:conditions => ["contact_type_id = ?", ContactType::ORGANIZATION.id]))
-    send_data(@g.to_blob,
-                :disposition => 'inline',
-                :type => 'image/png',
-                :filename => "graph_contacts.png")
-  end
-  
-  def graph_stages
-    @g = Gruff::Pie.new("387x289")
-    @g.theme = {:font_color => 'white',
-                :colors => %w(orange purple green pink red blue),
-                :marker_color => 'blue',    
+                :marker_color => 'blue',
                 :background_image => 'lib/rubycampus/assets/rubycampus_chart_background.png'
                }
     @g.font = File.expand_path('lib/fonts/VerilySerifMono.otf', RAILS_ROOT)
-    @g.title = "Individuals by Enrollment Stage"
-    @g.data("Prospect",Contact.count(:conditions => ["stage_id = ?", Stage::PROSPECT.id]))
-    @g.data("Inquiry",Contact.count(:conditions => ["stage_id = ?", Stage::INQUIRY.id]))
-    @g.data("Applicant",Contact.count(:conditions => ["stage_id = ?", Stage::APPLICANT.id]))
-    @g.data("Confirmed",Contact.count(:conditions => ["stage_id = ?", Stage::CONFIRMED.id]))
-    @g.data("Enrolled",Contact.count(:conditions => ["stage_id = ?", Stage::ENROLLED.id]))
-    @g.data("Canceled",Contact.count(:conditions => ["stage_id = ?", Stage::CANCELED.id]))
-    send_data(@g.to_blob,
-                :disposition => 'inline',
-                :type => 'image/png',
-                :filename => "graph_stages.png")
-  end
-  
-  # FIXME This is just a quick mock, should use any user created ethnicity
-  def graph_individuals_by_ethnicity
-    @g = Gruff::Pie.new("387x289")
-    @g.theme = {:font_color => 'white',
-                :colors => %w(orange purple green pink red blue),
-                :marker_color => 'blue',    
-                :background_image => 'lib/rubycampus/assets/rubycampus_chart_background.png'
-               }   
-    @g.font = File.expand_path('lib/fonts/VerilySerifMono.otf', RAILS_ROOT)
-    @g.title = "Individuals by Ethnicity"
-    
-    @g.data("Black",Contact.count(:conditions => ["ethnicity_id = ?", 1]))
-    @g.data("White",Contact.count(:conditions => ["ethnicity_id = ?", 2]))
-    @g.data("American Indian / Alaskan Native",Contact.count(:conditions => ["ethnicity_id = ?", 3]))
-    @g.data("Asian or Pacific",Contact.count(:conditions => ["ethnicity_id = ?", 4]))
-    @g.data("Hispanic",Contact.count(:conditions => ["ethnicity_id = ?", 5]))
-    @g.data("Other",Contact.count(:conditions => ["ethnicity_id = ?", 6]))
-    send_data(@g.to_blob,
-                :disposition => 'inline',
-                :type => 'image/png',
-                :filename => "graph_contacts.png")
-  end 
-  
-  # FIXME This is just a quick mock, should use any user created marital status
-  def graph_individuals_by_marital_status
-    @g = Gruff::Pie.new("387x289")
-    @g.theme = {:font_color => 'white',
-                :colors => %w(orange purple green pink red blue),
-                :marker_color => 'blue',    
-                :background_image => 'lib/rubycampus/assets/rubycampus_chart_background.png'
-               }   
-    @g.font = File.expand_path('lib/fonts/VerilySerifMono.otf', RAILS_ROOT)
-    @g.title = "Individuals by Marital Status"
-    @g.data("Married",Contact.count(:conditions => ["marital_status_id = ?", 1]))
-    @g.data("Single",Contact.count(:conditions => ["marital_status_id = ?", 2]))
-    @g.data("Widow or Widower",Contact.count(:conditions => ["marital_status_id = ?", 3]))
-    @g.data("Divorced",Contact.count(:conditions => ["marital_status_id = ?", 4]))
-    @g.data("Never Married",Contact.count(:conditions => ["marital_status_id = ?", 5]))
-    @g.data("Domestic Partner",Contact.count(:conditions => ["marital_status_id = ?", 6]))
-    send_data(@g.to_blob,
-                :disposition => 'inline',
-                :type => 'image/png',
-                :filename => "graph_contacts.png")
+    @g.title = _(title)
   end
 
 end

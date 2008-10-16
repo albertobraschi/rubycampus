@@ -70,6 +70,11 @@ class MaritalStatus < ActiveRecord::Base
   def self.find_for_auto_complete_lookup(search)
     find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "position ASC" )
   end
+  
+  # Retrieves all active marital statuses
+  def self.all_active
+    find(:all, :conditions => ["is_enabled = ?", true], :order => :position)
+  end
 
   NAMES_KEYS = self.find(:all).map do |s|
   [s.name, s.id]
