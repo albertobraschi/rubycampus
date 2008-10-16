@@ -1,5 +1,6 @@
 .contextual
-  = link_to _("Personalize Dashboard"), :action => 'page_layout'
+  %span.icons.user_edit= link_to _('Update Profile'), edit_user_path(current_user)
+  %span.icons.plugin_edit= link_to _("Personalize Dashboard"), :action => 'page_layout'
 %h2
   = _("Dashboard")
 #list-top
