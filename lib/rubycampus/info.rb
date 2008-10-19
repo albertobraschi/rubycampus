@@ -50,7 +50,7 @@ module Rubycampus
           val << <<-EOF
             <br/><blockquote>Constituent records for this demo though realistic are<br/>
             fictitious and <a target="_blank" href="#{RUBYCAMPUS_ORG_BASE_URL}repositories/entry/#{RUBYCAMPUS}/lib/tasks/populate.rake">randomly generated</a>. 
-            <br/>Login: <strong>admin</strong> Password: <strong>password</strong></blockquote>
+            <br/>Login: <strong>admin</strong> Password: <strong>rubycampus</strong></blockquote>
             <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

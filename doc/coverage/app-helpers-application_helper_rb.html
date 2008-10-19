@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3><a href=https://rubycampus.org><img src=../../public/images/rubycampus/logo.png></a></h3>
-    <p>RubyCampus C0 code coverage information generated on Sat Oct 11 03:52:13 +0900 2008.
+    <p>RubyCampus C0 code coverage information generated on Sun Oct 19 21:36:28 +0900 2008.
       </p>
     <hr/>
     <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
@@ -571,24 +571,24 @@ span.run100 {
     </thead>
   <tbody><tr class='light'><td><a href='app-helpers-application_helper_rb.html'>app/helpers/application_helper.rb</a>
         </td>
-      <td class='lines_total'><tt>231</tt>
+      <td class='lines_total'><tt>253</tt>
         </td>
-      <td class='lines_code'><tt>132</tt>
+      <td class='lines_code'><tt>149</tt>
         </td>
-      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_total'>52.4%</tt>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_total'>49.0%</tt>
               &nbsp;</td>
-            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='52'/>
-                  <td class='uncovered' width='48'/>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='49'/>
+                  <td class='uncovered' width='51'/>
                   </tr>
                 </table>
               </td>
             </tr>
           </table>
         </td>
-      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_code'>17.4%</tt>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_code'>16.1%</tt>
               &nbsp;</td>
-            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='17'/>
-                  <td class='uncovered' width='83'/>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='16'/>
+                  <td class='uncovered' width='84'/>
                   </tr>
                 </table>
               </td>
@@ -637,198 +637,220 @@ span.run100 {
 </span><span class="inferred0"><a name="line37"></a> 37 
 </span><span class="marked1"><a name="line38"></a> 38 module ApplicationHelper
 </span><span class="inferred0"><a name="line39"></a> 39 
-</span><span class="inferred1"><a name="line40"></a> 40   # Sets &lt;body class=&quot;&quot;&gt; to controllers name for stylesheet hooks
-</span><span class="marked0"><a name="line41"></a> 41   def body_tag_classes
-</span><span class="uncovered1"><a name="line42"></a> 42     @body_tag_classes ||= [ RUBYCAMPUS, controller.controller_name ]
-</span><span class="uncovered0"><a name="line43"></a> 43   end
-</span><span class="inferred1"><a name="line44"></a> 44 
-</span><span class="inferred0"><a name="line45"></a> 45   # Sets title and optionally &lt;body class=&quot;&quot;&gt;
-</span><span class="marked1"><a name="line46"></a> 46   def title(page_title,body_tag_klass=nil)
-</span><span class="uncovered0"><a name="line47"></a> 47     if !body_tag_klass.nil?
-</span><span class="uncovered1"><a name="line48"></a> 48       body_tag_classes &lt;&lt; body_tag_klass
-</span><span class="uncovered0"><a name="line49"></a> 49     end
-</span><span class="uncovered1"><a name="line50"></a> 50     content_for(:title) { page_title }
-</span><span class="uncovered0"><a name="line51"></a> 51   end
-</span><span class="inferred1"><a name="line52"></a> 52 
-</span><span class="inferred0"><a name="line53"></a> 53   #
-</span><span class="inferred1"><a name="line54"></a> 54   # By default, uses the current controller and action to render the url to the
-</span><span class="inferred0"><a name="line55"></a> 55   # corresponding RubyCampus wiki page.
-</span><span class="inferred1"><a name="line56"></a> 56   #
-</span><span class="marked0"><a name="line57"></a> 57   def link_to_help(label=&quot;Help&quot;)
-</span><span class="uncovered1"><a name="line58"></a> 58     wiki_page = &quot;#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/&quot;
-</span><span class="uncovered0"><a name="line59"></a> 59     case controller.action_name.to_s
-</span><span class="uncovered1"><a name="line60"></a> 60       when &quot;index&quot;
-</span><span class="uncovered0"><a name="line61"></a> 61         wiki_page &lt;&lt; &quot;Managing_#{controller.controller_name.titleize.gsub(&quot; &quot;,&quot;_&quot;)}&quot;
-</span><span class="uncovered1"><a name="line62"></a> 62       when &quot;show&quot;
-</span><span class="uncovered0"><a name="line63"></a> 63         wiki_page &lt;&lt; &quot;Viewing_An_Existing_#{controller.controller_name.singularize.titleize.gsub(&quot; &quot;,&quot;_&quot;)}&quot;
-</span><span class="uncovered1"><a name="line64"></a> 64       when &quot;new&quot;
-</span><span class="uncovered0"><a name="line65"></a> 65         wiki_page &lt;&lt; &quot;Creating_A_New_#{controller.controller_name.singularize.titleize.gsub(&quot; &quot;,&quot;_&quot;)}&quot;
-</span><span class="uncovered1"><a name="line66"></a> 66       when &quot;edit&quot;
-</span><span class="uncovered0"><a name="line67"></a> 67         wiki_page &lt;&lt; &quot;Editing_An_Existing_#{controller.controller_name.singularize.titleize.gsub(&quot; &quot;,&quot;_&quot;)}&quot;
-</span><span class="uncovered1"><a name="line68"></a> 68       else
-</span><span class="uncovered0"><a name="line69"></a> 69         wiki_page &lt;&lt; &quot;#{controller.controller_name.titleize.gsub(&quot; &quot;,&quot;_&quot;)}&quot;
-</span><span class="uncovered1"><a name="line70"></a> 70       end
-</span><span class="uncovered0"><a name="line71"></a> 71     link_to _(label), &quot;#{wiki_page}&quot;, :popup =&gt; true
-</span><span class="uncovered1"><a name="line72"></a> 72   end 
-</span><span class="inferred0"><a name="line73"></a> 73   
-</span><span class="inferred1"><a name="line74"></a> 74   #
-</span><span class="inferred0"><a name="line75"></a> 75   # Should be used in inline help on pages. By default, uses the current controller and action
-</span><span class="inferred1"><a name="line76"></a> 76   # to render the url to the corresponding RubyCampus wiki page.
-</span><span class="inferred0"><a name="line77"></a> 77   #
-</span><span class="marked1"><a name="line78"></a> 78   def link_to_learn_more
-</span><span class="uncovered0"><a name="line79"></a> 79     { :learn_more =&gt; link_to_help(_(&quot;Learn more...&quot;)) }
-</span><span class="uncovered1"><a name="line80"></a> 80   end
-</span><span class="inferred0"><a name="line81"></a> 81   
-</span><span class="inferred1"><a name="line82"></a> 82   #
-</span><span class="inferred0"><a name="line83"></a> 83   # Should be called only by context_help from helpers
-</span><span class="inferred1"><a name="line84"></a> 84   #
-</span><span class="marked0"><a name="line85"></a> 85   def context_help(help_message)
-</span><span class="uncovered1"><a name="line86"></a> 86     content_tag :p, (_(help_message) % link_to_learn_more), :class =&gt; &quot;quiet&quot;
-</span><span class="uncovered0"><a name="line87"></a> 87   end
-</span><span class="inferred1"><a name="line88"></a> 88 
-</span><span class="inferred0"><a name="line89"></a> 89   # Links to RubyCampus issue tracker and fill basic issue information
-</span><span class="marked1"><a name="line90"></a> 90   def link_to_tracker_issues_new
-</span><span class="uncovered0"><a name="line91"></a> 91     link_to _(&quot;New Issue&quot;), RUBYCAMPUS_ORG_BASE_URL + &quot;projects/#{RUBYCAMPUS}/issues/new&quot;, :popup =&gt; true
-</span><span class="uncovered1"><a name="line92"></a> 92   end
-</span><span class="inferred0"><a name="line93"></a> 93 
-</span><span class="inferred1"><a name="line94"></a> 94   # Get current controllers name
-</span><span class="marked0"><a name="line95"></a> 95   def current_controller_human_name
-</span><span class="uncovered1"><a name="line96"></a> 96     controller.controller_name.singularize.titleize
-</span><span class="uncovered0"><a name="line97"></a> 97   end
-</span><span class="inferred1"><a name="line98"></a> 98 
-</span><span class="marked0"><a name="line99"></a> 99   def current_controller_gettext_human_name
-</span><span class="uncovered1"><a name="line100"></a>100     _(current_controller_human_name)
-</span><span class="uncovered0"><a name="line101"></a>101   end
-</span><span class="inferred1"><a name="line102"></a>102 
-</span><span class="marked0"><a name="line103"></a>103   def current_controller_gettext_human_name_pluralized
-</span><span class="uncovered1"><a name="line104"></a>104     _(controller.controller_name.titleize)
-</span><span class="uncovered0"><a name="line105"></a>105   end
-</span><span class="inferred1"><a name="line106"></a>106 
-</span><span class="inferred0"><a name="line107"></a>107   # Returns a constant based on the controllers name singularlized
-</span><span class="marked1"><a name="line108"></a>108   def current_controller_contact_type
-</span><span class="uncovered0"><a name="line109"></a>109    eval = controller.controller_name.upcase.singularize
-</span><span class="uncovered1"><a name="line110"></a>110    case
-</span><span class="uncovered0"><a name="line111"></a>111      when eval == &quot;INDIVIDUAL&quot;
-</span><span class="uncovered1"><a name="line112"></a>112        return ContactType::INDIVIDUAL.id
-</span><span class="uncovered0"><a name="line113"></a>113      when eval == &quot;ORGANIZATION&quot;
-</span><span class="uncovered1"><a name="line114"></a>114        return ContactType::ORGANIZATION.id
-</span><span class="uncovered0"><a name="line115"></a>115      when eval == &quot;HOUSEHOLD&quot;
-</span><span class="uncovered1"><a name="line116"></a>116        return ContactType::HOUSEHOLD.id
-</span><span class="uncovered0"><a name="line117"></a>117      else
-</span><span class="uncovered1"><a name="line118"></a>118        return nil
-</span><span class="uncovered0"><a name="line119"></a>119      end
-</span><span class="uncovered1"><a name="line120"></a>120   end
-</span><span class="inferred0"><a name="line121"></a>121 
-</span><span class="inferred1"><a name="line122"></a>122   # Renders links for views
-</span><span class="marked0"><a name="line123"></a>123   def link_to_extract
-</span><span class="uncovered1"><a name="line124"></a>124     link_to _(&quot;PDF&quot;), { :action =&gt; :extract, :id =&gt; params[:id], :format =&gt; :pdf }, :class =&gt; &quot;positive&quot;
-</span><span class="uncovered0"><a name="line125"></a>125   end
-</span><span class="inferred1"><a name="line126"></a>126 
-</span><span class="marked0"><a name="line127"></a>127   def link_to_edit
-</span><span class="uncovered1"><a name="line128"></a>128     link_to(_(&quot;Edit&quot;), self.send((&quot;edit_&quot;+controller.controller_name.singularize+ &quot;_path&quot;)), :class =&gt; &quot;positive&quot;)
-</span><span class="uncovered0"><a name="line129"></a>129   end
-</span><span class="inferred1"><a name="line130"></a>130 
-</span><span class="marked0"><a name="line131"></a>131   def link_to_destroy
-</span><span class="uncovered1"><a name="line132"></a>132     link_to(_(&quot;Destroy&quot;), self.send((controller.controller_name.singularize+ &quot;_path&quot;)), :class =&gt; &quot;negative&quot;, :confirm =&gt; (_(&quot;Really destroy %s?&quot;) % controller.controller_name.titleize), :method =&gt; :delete )
-</span><span class="uncovered0"><a name="line133"></a>133   end
-</span><span class="inferred1"><a name="line134"></a>134 
-</span><span class="inferred0"><a name="line135"></a>135   # Returns true if current contact_type evaluates true
-</span><span class="marked1"><a name="line136"></a>136   def current_contact_type_is(contact_type)
-</span><span class="uncovered0"><a name="line137"></a>137     params[:contact_type] == contact_type.to_s
-</span><span class="uncovered1"><a name="line138"></a>138   end
-</span><span class="inferred0"><a name="line139"></a>139 
-</span><span class="marked1"><a name="line140"></a>140   def current_announcements
-</span><span class="uncovered0"><a name="line141"></a>141     @current_announcements ||= Announcement.current_announcements(session[:announcement_hide_time])
+</span><span class="inferred1"><a name="line40"></a> 40   # Returns a dashboard panel and its widgets
+</span><span class="marked0"><a name="line41"></a> 41   def dashboard_panel_receiver(widgets,user,panel)
+</span><span class="uncovered1"><a name="line42"></a> 42     val = ''
+</span><span class="uncovered0"><a name="line43"></a> 43     cp = case panel
+</span><span class="uncovered1"><a name="line44"></a> 44          when 'top' then &quot;&quot;
+</span><span class="uncovered0"><a name="line45"></a> 45          when 'left' then &quot;contentpanelleft &quot;
+</span><span class="uncovered1"><a name="line46"></a> 46          when 'right' then &quot;contentpanelright &quot;
+</span><span class="uncovered0"><a name="line47"></a> 47          end
+</span><span class="uncovered1"><a name="line48"></a> 48 
+</span><span class="uncovered0"><a name="line49"></a> 49     widgets[panel].each do |widget|
+</span><span class="uncovered1"><a name="line50"></a> 50       next unless DashboardController::WIDGETS.keys.include? widget
+</span><span class="uncovered0"><a name="line51"></a> 51       val &lt;&lt; render(:partial =&gt; 'widget', :locals =&gt; {:user =&gt; user, :widget_name =&gt; widget})
+</span><span class="uncovered1"><a name="line52"></a> 52       content_tag(:div, val, :class =&gt; &quot;dashboard-box&quot;)
+</span><span class="uncovered0"><a name="line53"></a> 53     end if widgets[panel]
+</span><span class="uncovered1"><a name="line54"></a> 54 
+</span><span class="uncovered0"><a name="line55"></a> 55     &lt;&lt;-EOF
+</span><span class="uncovered1"><a name="line56"></a> 56       &lt;div id=&quot;list-#{panel}&quot; class=&quot;#{cp}widget-receiver&quot;&gt;
+</span><span class="uncovered0"><a name="line57"></a> 57       #{val}
+</span><span class="uncovered1"><a name="line58"></a> 58       &lt;/div&gt;
+</span><span class="uncovered0"><a name="line59"></a> 59     EOF
+</span><span class="uncovered1"><a name="line60"></a> 60   end
+</span><span class="inferred0"><a name="line61"></a> 61 
+</span><span class="inferred1"><a name="line62"></a> 62   # Sets &lt;body class=&quot;&quot;&gt; to controllers name for stylesheet hooks
+</span><span class="marked0"><a name="line63"></a> 63   def body_tag_classes
+</span><span class="uncovered1"><a name="line64"></a> 64     @body_tag_classes ||= [ RUBYCAMPUS, controller.controller_name ]
+</span><span class="uncovered0"><a name="line65"></a> 65   end
+</span><span class="inferred1"><a name="line66"></a> 66 
+</span><span class="inferred0"><a name="line67"></a> 67   # Sets title and optionally &lt;body class=&quot;&quot;&gt;
+</span><span class="marked1"><a name="line68"></a> 68   def title(page_title,body_tag_klass=nil)
+</span><span class="uncovered0"><a name="line69"></a> 69     if !body_tag_klass.nil?
+</span><span class="uncovered1"><a name="line70"></a> 70       body_tag_classes &lt;&lt; body_tag_klass
+</span><span class="uncovered0"><a name="line71"></a> 71     end
+</span><span class="uncovered1"><a name="line72"></a> 72     content_for(:title) { page_title }
+</span><span class="uncovered0"><a name="line73"></a> 73   end
+</span><span class="inferred1"><a name="line74"></a> 74 
+</span><span class="inferred0"><a name="line75"></a> 75   #
+</span><span class="inferred1"><a name="line76"></a> 76   # By default, uses the current controller and action to render the url to the
+</span><span class="inferred0"><a name="line77"></a> 77   # corresponding RubyCampus wiki page.
+</span><span class="inferred1"><a name="line78"></a> 78   #
+</span><span class="marked0"><a name="line79"></a> 79   def link_to_help(label=&quot;Help&quot;)
+</span><span class="uncovered1"><a name="line80"></a> 80     wiki_page = &quot;#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/&quot;
+</span><span class="uncovered0"><a name="line81"></a> 81     case controller.action_name.to_s
+</span><span class="uncovered1"><a name="line82"></a> 82       when &quot;index&quot;
+</span><span class="uncovered0"><a name="line83"></a> 83         wiki_page &lt;&lt; &quot;Managing_#{controller.controller_name.titleize.gsub(&quot; &quot;,&quot;_&quot;)}&quot;
+</span><span class="uncovered1"><a name="line84"></a> 84       when &quot;show&quot;
+</span><span class="uncovered0"><a name="line85"></a> 85         wiki_page &lt;&lt; &quot;Viewing_An_Existing_#{controller.controller_name.singularize.titleize.gsub(&quot; &quot;,&quot;_&quot;)}&quot;
+</span><span class="uncovered1"><a name="line86"></a> 86       when &quot;new&quot;
+</span><span class="uncovered0"><a name="line87"></a> 87         wiki_page &lt;&lt; &quot;Creating_A_New_#{controller.controller_name.singularize.titleize.gsub(&quot; &quot;,&quot;_&quot;)}&quot;
+</span><span class="uncovered1"><a name="line88"></a> 88       when &quot;edit&quot;
+</span><span class="uncovered0"><a name="line89"></a> 89         wiki_page &lt;&lt; &quot;Editing_An_Existing_#{controller.controller_name.singularize.titleize.gsub(&quot; &quot;,&quot;_&quot;)}&quot;
+</span><span class="uncovered1"><a name="line90"></a> 90       else
+</span><span class="uncovered0"><a name="line91"></a> 91         wiki_page &lt;&lt; &quot;#{controller.controller_name.titleize.gsub(&quot; &quot;,&quot;_&quot;)}&quot;
+</span><span class="uncovered1"><a name="line92"></a> 92       end
+</span><span class="uncovered0"><a name="line93"></a> 93     link_to _(label), &quot;#{wiki_page}&quot;, :popup =&gt; true
+</span><span class="uncovered1"><a name="line94"></a> 94   end
+</span><span class="inferred0"><a name="line95"></a> 95 
+</span><span class="inferred1"><a name="line96"></a> 96   #
+</span><span class="inferred0"><a name="line97"></a> 97   # Should be used in inline help on pages. By default, uses the current controller and action
+</span><span class="inferred1"><a name="line98"></a> 98   # to render the url to the corresponding RubyCampus wiki page.
+</span><span class="inferred0"><a name="line99"></a> 99   #
+</span><span class="marked1"><a name="line100"></a>100   def link_to_learn_more
+</span><span class="uncovered0"><a name="line101"></a>101     { :learn_more =&gt; link_to_help(_(&quot;Learn more...&quot;)) }
+</span><span class="uncovered1"><a name="line102"></a>102   end
+</span><span class="inferred0"><a name="line103"></a>103 
+</span><span class="inferred1"><a name="line104"></a>104   #
+</span><span class="inferred0"><a name="line105"></a>105   # Should be called only by context_help from helpers
+</span><span class="inferred1"><a name="line106"></a>106   #
+</span><span class="marked0"><a name="line107"></a>107   def context_help(help_message)
+</span><span class="uncovered1"><a name="line108"></a>108     content_tag :p, (_(help_message) % link_to_learn_more), :class =&gt; &quot;quiet&quot;
+</span><span class="uncovered0"><a name="line109"></a>109   end
+</span><span class="inferred1"><a name="line110"></a>110 
+</span><span class="inferred0"><a name="line111"></a>111   # Links to RubyCampus issue tracker and fill basic issue information
+</span><span class="marked1"><a name="line112"></a>112   def link_to_tracker_issues_new
+</span><span class="uncovered0"><a name="line113"></a>113     link_to _(&quot;New Issue&quot;), RUBYCAMPUS_ORG_BASE_URL + &quot;projects/#{RUBYCAMPUS}/issues/new&quot;, :popup =&gt; true
+</span><span class="uncovered1"><a name="line114"></a>114   end
+</span><span class="inferred0"><a name="line115"></a>115 
+</span><span class="inferred1"><a name="line116"></a>116   # Get current controllers name
+</span><span class="marked0"><a name="line117"></a>117   def current_controller_human_name
+</span><span class="uncovered1"><a name="line118"></a>118     controller.controller_name.singularize.titleize
+</span><span class="uncovered0"><a name="line119"></a>119   end
+</span><span class="inferred1"><a name="line120"></a>120 
+</span><span class="marked0"><a name="line121"></a>121   def current_controller_gettext_human_name
+</span><span class="uncovered1"><a name="line122"></a>122     _(current_controller_human_name)
+</span><span class="uncovered0"><a name="line123"></a>123   end
+</span><span class="inferred1"><a name="line124"></a>124 
+</span><span class="marked0"><a name="line125"></a>125   def current_controller_gettext_human_name_pluralized
+</span><span class="uncovered1"><a name="line126"></a>126     _(controller.controller_name.titleize)
+</span><span class="uncovered0"><a name="line127"></a>127   end
+</span><span class="inferred1"><a name="line128"></a>128 
+</span><span class="inferred0"><a name="line129"></a>129   # Returns a constant based on the controllers name singularlized
+</span><span class="marked1"><a name="line130"></a>130   def current_controller_contact_type
+</span><span class="uncovered0"><a name="line131"></a>131    eval = controller.controller_name.upcase.singularize
+</span><span class="uncovered1"><a name="line132"></a>132    case
+</span><span class="uncovered0"><a name="line133"></a>133      when eval == &quot;INDIVIDUAL&quot;
+</span><span class="uncovered1"><a name="line134"></a>134        return ContactType::INDIVIDUAL.id
+</span><span class="uncovered0"><a name="line135"></a>135      when eval == &quot;ORGANIZATION&quot;
+</span><span class="uncovered1"><a name="line136"></a>136        return ContactType::ORGANIZATION.id
+</span><span class="uncovered0"><a name="line137"></a>137      when eval == &quot;HOUSEHOLD&quot;
+</span><span class="uncovered1"><a name="line138"></a>138        return ContactType::HOUSEHOLD.id
+</span><span class="uncovered0"><a name="line139"></a>139      else
+</span><span class="uncovered1"><a name="line140"></a>140        return nil
+</span><span class="uncovered0"><a name="line141"></a>141      end
 </span><span class="uncovered1"><a name="line142"></a>142   end
 </span><span class="inferred0"><a name="line143"></a>143 
-</span><span class="inferred1"><a name="line144"></a>144   # List available languages
-</span><span class="marked0"><a name="line145"></a>145   def language_options_for_select(blank=true)
-</span><span class="uncovered1"><a name="line146"></a>146     require 'yaml'
-</span><span class="uncovered0"><a name="line147"></a>147     language_select = []
-</span><span class="uncovered1"><a name="line148"></a>148     languages = YAML::load_file(&quot;#{RAILS_ROOT}/lib/rubycampus/system/languages.yml&quot;)
-</span><span class="uncovered0"><a name="line149"></a>149     available_locales.each do |v|
-</span><span class="uncovered1"><a name="line150"></a>150       n = languages[v] || _('Unknown Language')
-</span><span class="uncovered0"><a name="line151"></a>151       language_select &lt;&lt; [ n , v ]
-</span><span class="uncovered1"><a name="line152"></a>152     end
-</span><span class="uncovered0"><a name="line153"></a>153     language_select
-</span><span class="uncovered1"><a name="line154"></a>154   end
-</span><span class="inferred0"><a name="line155"></a>155    
-</span><span class="inferred1"><a name="line156"></a>156   # Renders hakozaki css class label requiring only the controller name
-</span><span class="inferred0"><a name="line157"></a>157   #
-</span><span class="inferred1"><a name="line158"></a>158   # Checks if user is authorized to edit lookup tables and optionally
-</span><span class="inferred0"><a name="line159"></a>159   # uses :example and :label.
-</span><span class="inferred1"><a name="line160"></a>160   #
-</span><span class="inferred0"><a name="line161"></a>161   # :label - overrides the default labeling scheme which uses the controllers name
-</span><span class="inferred1"><a name="line162"></a>162   # :example - renders a muted notation inline with the label
-</span><span class="inferred0"><a name="line163"></a>163   #
-</span><span class="inferred1"><a name="line164"></a>164   # Example:
-</span><span class="inferred0"><a name="line165"></a>165   #
-</span><span class="inferred1"><a name="line166"></a>166   # -&gt; label_with_lookup :controller =&gt; :name_prefix, :example =&gt; _(&quot;Fall 2009&quot;), :label =&gt; _(&quot;Prefix&quot;)
-</span><span class="marked0"><a name="line167"></a>167   def label_with_lookup(opts={})
-</span><span class="uncovered1"><a name="line168"></a>168     controller = opts[:controller]
-</span><span class="uncovered0"><a name="line169"></a>169     example = opts[:example] || ''
-</span><span class="uncovered1"><a name="line170"></a>170     label = opts[:label] || opts[:controller]
-</span><span class="uncovered0"><a name="line171"></a>171     content_tag(:span, (current_user_is_super_user_role &amp;&amp; @current_action !='show' ? (link_to _(label.to_s.titleize), self.send(controller.to_s.underscore.pluralize+&quot;_path&quot;)) : _(label.to_s.titleize)) + (content_tag(:span, ' ' + _(example), :class =&gt; &quot;example&quot;) unless example == nil) , :class =&gt; &quot;title&quot;)
-</span><span class="uncovered1"><a name="line172"></a>172   end
-</span><span class="inferred0"><a name="line173"></a>173     
-</span><span class="inferred1"><a name="line174"></a>174   # Returns true if current_user is_admin and/or has_role of administrator
-</span><span class="marked0"><a name="line175"></a>175   def current_user_is_super_user_role
-</span><span class="uncovered1"><a name="line176"></a>176     current_user.is_admin || current_user.has_role?('administrator')
-</span><span class="uncovered0"><a name="line177"></a>177   end
-</span><span class="inferred1"><a name="line178"></a>178   
-</span><span class="inferred0"><a name="line179"></a>179   # Returns UL of mergable tokens
-</span><span class="inferred1"><a name="line180"></a>180   # FIXME Just a mock
-</span><span class="marked0"><a name="line181"></a>181   def list_mergable_tokens      
-</span><span class="uncovered1"><a name="line182"></a>182       out = &quot;&lt;ul&gt;&quot;
-</span><span class="uncovered0"><a name="line183"></a>183       for token in TOKENS do
-</span><span class="uncovered1"><a name="line184"></a>184         out &lt;&lt; content_tag(:li, token, :style =&gt; &quot;list-style-type: none&quot;)                        
-</span><span class="uncovered0"><a name="line185"></a>185       end
-</span><span class="uncovered1"><a name="line186"></a>186       out &lt;&lt; &quot;&lt;/ul&gt;&quot;                  
-</span><span class="uncovered0"><a name="line187"></a>187   end
-</span><span class="inferred1"><a name="line188"></a>188   
-</span><span class="marked0"><a name="line189"></a>189   def pagination_links_remote(paginator)
-</span><span class="uncovered1"><a name="line190"></a>190     page_options = {:window_size =&gt; 1}
-</span><span class="uncovered0"><a name="line191"></a>191     pagination_links_each(paginator, page_options) do |n|
-</span><span class="uncovered1"><a name="line192"></a>192       options = {
-</span><span class="uncovered0"><a name="line193"></a>193         :url =&gt; {:action =&gt; 'index', :params =&gt; params.merge({:page =&gt; n})},
-</span><span class="uncovered1"><a name="line194"></a>194         :update =&gt; 'table',
-</span><span class="uncovered0"><a name="line195"></a>195         :before =&gt; &quot;Element.show('spinner')&quot;,
-</span><span class="uncovered1"><a name="line196"></a>196         :success =&gt; &quot;Element.hide('spinner')&quot;
-</span><span class="uncovered0"><a name="line197"></a>197       }
-</span><span class="uncovered1"><a name="line198"></a>198       html_options = {:href =&gt; url_for(:action =&gt; 'index', :params =&gt; params.merge({:page =&gt; n}))}
-</span><span class="uncovered0"><a name="line199"></a>199       link_to_remote(n.to_s, options, html_options)
-</span><span class="uncovered1"><a name="line200"></a>200     end
-</span><span class="uncovered0"><a name="line201"></a>201   end
-</span><span class="inferred1"><a name="line202"></a>202   
-</span><span class="inferred0"><a name="line203"></a>203   #
-</span><span class="inferred1"><a name="line204"></a>204   # Adds contextual sorting class to tag
-</span><span class="inferred0"><a name="line205"></a>205   #
-</span><span class="marked1"><a name="line206"></a>206   def sort_th_class_helper(param)
-</span><span class="uncovered0"><a name="line207"></a>207     result = 'class=&quot;sortup&quot;' if params[:sort] == param
-</span><span class="uncovered1"><a name="line208"></a>208     result = 'class=&quot;sortdown&quot;' if params[:sort] == param + &quot;_reverse&quot;
-</span><span class="uncovered0"><a name="line209"></a>209     return result
-</span><span class="uncovered1"><a name="line210"></a>210   end
-</span><span class="inferred0"><a name="line211"></a>211   
-</span><span class="inferred1"><a name="line212"></a>212   #
-</span><span class="inferred0"><a name="line213"></a>213   # Generates link for sorting on provided text
-</span><span class="inferred1"><a name="line214"></a>214   #
-</span><span class="marked0"><a name="line215"></a>215   def sort_link_helper(text, param)
-</span><span class="uncovered1"><a name="line216"></a>216     key = param
-</span><span class="uncovered0"><a name="line217"></a>217     key += &quot;_reverse&quot; if params[:sort] == param
-</span><span class="uncovered1"><a name="line218"></a>218     options = {
-</span><span class="uncovered0"><a name="line219"></a>219         :url =&gt; {:action =&gt; 'index', :params =&gt; params.merge({:sort =&gt; key, :page =&gt; nil})},
-</span><span class="uncovered1"><a name="line220"></a>220         :update =&gt; 'table',
-</span><span class="uncovered0"><a name="line221"></a>221         :before =&gt; &quot;Element.show('spinner')&quot;,
-</span><span class="uncovered1"><a name="line222"></a>222         :success =&gt; &quot;Element.hide('spinner')&quot;
-</span><span class="uncovered0"><a name="line223"></a>223     }
-</span><span class="uncovered1"><a name="line224"></a>224     html_options = {
-</span><span class="uncovered0"><a name="line225"></a>225       :title =&gt; _(&quot;Sort by this field&quot;),
-</span><span class="uncovered1"><a name="line226"></a>226       :href =&gt; url_for(:action =&gt; 'index', :params =&gt; params.merge({:sort =&gt; key, :page =&gt; nil}))
-</span><span class="uncovered0"><a name="line227"></a>227     }
-</span><span class="uncovered1"><a name="line228"></a>228     link_to_remote(text, options, html_options)
-</span><span class="uncovered0"><a name="line229"></a>229   end
-</span><span class="uncovered1"><a name="line230"></a>230 
-</span><span class="uncovered0"><a name="line231"></a>231 end
+</span><span class="inferred1"><a name="line144"></a>144   # Renders links for views
+</span><span class="marked0"><a name="line145"></a>145   def link_to_extract
+</span><span class="uncovered1"><a name="line146"></a>146     link_to _(&quot;PDF&quot;), { :action =&gt; :extract, :id =&gt; params[:id], :format =&gt; :pdf }, :class =&gt; &quot;positive&quot;
+</span><span class="uncovered0"><a name="line147"></a>147   end
+</span><span class="inferred1"><a name="line148"></a>148 
+</span><span class="marked0"><a name="line149"></a>149   def link_to_edit
+</span><span class="uncovered1"><a name="line150"></a>150     link_to(_(&quot;Edit&quot;), self.send((&quot;edit_&quot;+controller.controller_name.singularize+ &quot;_path&quot;)), :class =&gt; &quot;positive&quot;)
+</span><span class="uncovered0"><a name="line151"></a>151   end
+</span><span class="inferred1"><a name="line152"></a>152 
+</span><span class="marked0"><a name="line153"></a>153   def link_to_destroy
+</span><span class="uncovered1"><a name="line154"></a>154     link_to(_(&quot;Destroy&quot;), self.send((controller.controller_name.singularize+ &quot;_path&quot;)), :class =&gt; &quot;negative&quot;, :confirm =&gt; (_(&quot;Really destroy %s?&quot;) % controller.controller_name.titleize), :method =&gt; :delete )
+</span><span class="uncovered0"><a name="line155"></a>155   end
+</span><span class="inferred1"><a name="line156"></a>156 
+</span><span class="inferred0"><a name="line157"></a>157   # Returns true if current contact_type evaluates true
+</span><span class="marked1"><a name="line158"></a>158   def current_contact_type_is(contact_type)
+</span><span class="uncovered0"><a name="line159"></a>159     params[:contact_type] == contact_type.to_s
+</span><span class="uncovered1"><a name="line160"></a>160   end
+</span><span class="inferred0"><a name="line161"></a>161 
+</span><span class="marked1"><a name="line162"></a>162   def current_announcements
+</span><span class="uncovered0"><a name="line163"></a>163     @current_announcements ||= Announcement.current_announcements(session[:announcement_hide_time])
+</span><span class="uncovered1"><a name="line164"></a>164   end
+</span><span class="inferred0"><a name="line165"></a>165 
+</span><span class="inferred1"><a name="line166"></a>166   # List available languages
+</span><span class="marked0"><a name="line167"></a>167   def language_options_for_select(blank=true)
+</span><span class="uncovered1"><a name="line168"></a>168     require 'yaml'
+</span><span class="uncovered0"><a name="line169"></a>169     language_select = []
+</span><span class="uncovered1"><a name="line170"></a>170     languages = YAML::load_file(&quot;#{RAILS_ROOT}/lib/rubycampus/system/languages.yml&quot;)
+</span><span class="uncovered0"><a name="line171"></a>171     available_locales.each do |v|
+</span><span class="uncovered1"><a name="line172"></a>172       n = languages[v] || _('Unknown Language')
+</span><span class="uncovered0"><a name="line173"></a>173       language_select &lt;&lt; [ n , v ]
+</span><span class="uncovered1"><a name="line174"></a>174     end
+</span><span class="uncovered0"><a name="line175"></a>175     language_select
+</span><span class="uncovered1"><a name="line176"></a>176   end
+</span><span class="inferred0"><a name="line177"></a>177 
+</span><span class="inferred1"><a name="line178"></a>178   # Renders hakozaki css class label requiring only the controller name
+</span><span class="inferred0"><a name="line179"></a>179   #
+</span><span class="inferred1"><a name="line180"></a>180   # Checks if user is authorized to edit lookup tables and optionally
+</span><span class="inferred0"><a name="line181"></a>181   # uses :example and :label.
+</span><span class="inferred1"><a name="line182"></a>182   #
+</span><span class="inferred0"><a name="line183"></a>183   # :label - overrides the default labeling scheme which uses the controllers name
+</span><span class="inferred1"><a name="line184"></a>184   # :example - renders a muted notation inline with the label
+</span><span class="inferred0"><a name="line185"></a>185   #
+</span><span class="inferred1"><a name="line186"></a>186   # Example:
+</span><span class="inferred0"><a name="line187"></a>187   #
+</span><span class="inferred1"><a name="line188"></a>188   # -&gt; label_with_lookup :controller =&gt; :name_prefix, :example =&gt; _(&quot;Fall 2009&quot;), :label =&gt; _(&quot;Prefix&quot;)
+</span><span class="marked0"><a name="line189"></a>189   def label_with_lookup(opts={})
+</span><span class="uncovered1"><a name="line190"></a>190     controller = opts[:controller]
+</span><span class="uncovered0"><a name="line191"></a>191     example = opts[:example] || ''
+</span><span class="uncovered1"><a name="line192"></a>192     label = opts[:label] || opts[:controller]
+</span><span class="uncovered0"><a name="line193"></a>193     content_tag(:span, (current_user_is_super_user_role &amp;&amp; @current_action !='show' ? (link_to _(label.to_s.titleize), self.send(controller.to_s.underscore.pluralize+&quot;_path&quot;)) : _(label.to_s.titleize)) + (content_tag(:span, ' ' + _(example), :class =&gt; &quot;example&quot;) unless example == nil) , :class =&gt; &quot;title&quot;)
+</span><span class="uncovered1"><a name="line194"></a>194   end
+</span><span class="inferred0"><a name="line195"></a>195 
+</span><span class="inferred1"><a name="line196"></a>196   # Returns true if current_user is_admin and/or has_role of administrator
+</span><span class="marked0"><a name="line197"></a>197   def current_user_is_super_user_role
+</span><span class="uncovered1"><a name="line198"></a>198     current_user.is_admin || current_user.has_role?('administrator')
+</span><span class="uncovered0"><a name="line199"></a>199   end
+</span><span class="inferred1"><a name="line200"></a>200 
+</span><span class="inferred0"><a name="line201"></a>201   # Returns UL of mergable tokens
+</span><span class="inferred1"><a name="line202"></a>202   # FIXME Just a mock
+</span><span class="marked0"><a name="line203"></a>203   def list_mergable_tokens
+</span><span class="uncovered1"><a name="line204"></a>204       out = &quot;&lt;ul&gt;&quot;
+</span><span class="uncovered0"><a name="line205"></a>205       for token in TOKENS do
+</span><span class="uncovered1"><a name="line206"></a>206         out &lt;&lt; content_tag(:li, token, :style =&gt; &quot;list-style-type: none&quot;)
+</span><span class="uncovered0"><a name="line207"></a>207       end
+</span><span class="uncovered1"><a name="line208"></a>208       out &lt;&lt; &quot;&lt;/ul&gt;&quot;
+</span><span class="uncovered0"><a name="line209"></a>209   end
+</span><span class="inferred1"><a name="line210"></a>210 
+</span><span class="marked0"><a name="line211"></a>211   def pagination_links_remote(paginator)
+</span><span class="uncovered1"><a name="line212"></a>212     page_options = {:window_size =&gt; 1}
+</span><span class="uncovered0"><a name="line213"></a>213     pagination_links_each(paginator, page_options) do |n|
+</span><span class="uncovered1"><a name="line214"></a>214       options = {
+</span><span class="uncovered0"><a name="line215"></a>215         :url =&gt; {:action =&gt; 'index', :params =&gt; params.merge({:page =&gt; n})},
+</span><span class="uncovered1"><a name="line216"></a>216         :update =&gt; 'table',
+</span><span class="uncovered0"><a name="line217"></a>217         :before =&gt; &quot;Element.show('spinner')&quot;,
+</span><span class="uncovered1"><a name="line218"></a>218         :success =&gt; &quot;Element.hide('spinner')&quot;
+</span><span class="uncovered0"><a name="line219"></a>219       }
+</span><span class="uncovered1"><a name="line220"></a>220       html_options = {:href =&gt; url_for(:action =&gt; 'index', :params =&gt; params.merge({:page =&gt; n}))}
+</span><span class="uncovered0"><a name="line221"></a>221       link_to_remote(n.to_s, options, html_options)
+</span><span class="uncovered1"><a name="line222"></a>222     end
+</span><span class="uncovered0"><a name="line223"></a>223   end
+</span><span class="inferred1"><a name="line224"></a>224 
+</span><span class="inferred0"><a name="line225"></a>225   #
+</span><span class="inferred1"><a name="line226"></a>226   # Adds contextual sorting class to tag
+</span><span class="inferred0"><a name="line227"></a>227   #
+</span><span class="marked1"><a name="line228"></a>228   def sort_th_class_helper(param)
+</span><span class="uncovered0"><a name="line229"></a>229     result = 'class=&quot;sortup&quot;' if params[:sort] == param
+</span><span class="uncovered1"><a name="line230"></a>230     result = 'class=&quot;sortdown&quot;' if params[:sort] == param + &quot;_reverse&quot;
+</span><span class="uncovered0"><a name="line231"></a>231     return result
+</span><span class="uncovered1"><a name="line232"></a>232   end
+</span><span class="inferred0"><a name="line233"></a>233 
+</span><span class="inferred1"><a name="line234"></a>234   #
+</span><span class="inferred0"><a name="line235"></a>235   # Generates link for sorting on provided text
+</span><span class="inferred1"><a name="line236"></a>236   #
+</span><span class="marked0"><a name="line237"></a>237   def sort_link_helper(text, param)
+</span><span class="uncovered1"><a name="line238"></a>238     key = param
+</span><span class="uncovered0"><a name="line239"></a>239     key += &quot;_reverse&quot; if params[:sort] == param
+</span><span class="uncovered1"><a name="line240"></a>240     options = {
+</span><span class="uncovered0"><a name="line241"></a>241         :url =&gt; {:action =&gt; 'index', :params =&gt; params.merge({:sort =&gt; key, :page =&gt; nil})},
+</span><span class="uncovered1"><a name="line242"></a>242         :update =&gt; 'table',
+</span><span class="uncovered0"><a name="line243"></a>243         :before =&gt; &quot;Element.show('spinner')&quot;,
+</span><span class="uncovered1"><a name="line244"></a>244         :success =&gt; &quot;Element.hide('spinner')&quot;
+</span><span class="uncovered0"><a name="line245"></a>245     }
+</span><span class="uncovered1"><a name="line246"></a>246     html_options = {
+</span><span class="uncovered0"><a name="line247"></a>247       :title =&gt; _(&quot;Sort by this field&quot;),
+</span><span class="uncovered1"><a name="line248"></a>248       :href =&gt; url_for(:action =&gt; 'index', :params =&gt; params.merge({:sort =&gt; key, :page =&gt; nil}))
+</span><span class="uncovered0"><a name="line249"></a>249     }
+</span><span class="uncovered1"><a name="line250"></a>250     link_to_remote(text, options, html_options)
+</span><span class="uncovered0"><a name="line251"></a>251   end
+</span><span class="uncovered1"><a name="line252"></a>252 
+</span><span class="uncovered0"><a name="line253"></a>253 end
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.3.</p>

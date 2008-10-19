@@ -1,0 +1,311 @@
+  <div id="C00000037">
+<div class='banner'>
+  <span class="file-title-prefix">Class</span><br />DashboardController<br/>
+  In:
+<a href="#" onclick="jsHref('files/app/controllers/dashboard_controller_rb.html');">app/controllers/dashboard_controller.rb</a>
+
+Parent:&nbsp;
+        <a href="#" onclick="jsHref('classes/ApplicationController.html');">
+ApplicationController
+         </a>
+</div>
+ <!-- banner header -->
+
+  <div id="bodyContent" >
+      <div id="content">
+
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="index.html?a=M000044&name=add_widget" >add_widget</a></li>
+  <li><a href="index.html?a=M000048&name=generate_graph" >generate_graph</a></li>
+  <li><a href="index.html?a=M000037&name=graph_contacts" >graph_contacts</a></li>
+  <li><a href="index.html?a=M000038&name=graph_individuals_by_ethnicity" >graph_individuals_by_ethnicity</a></li>
+  <li><a href="index.html?a=M000039&name=graph_individuals_by_marital_status" >graph_individuals_by_marital_status</a></li>
+  <li><a href="index.html?a=M000040&name=graph_stages" >graph_stages</a></li>
+  <li><a href="index.html?a=M000041&name=index" >index</a></li>
+  <li><a href="index.html?a=M000046&name=order_widgets" >order_widgets</a></li>
+  <li><a href="index.html?a=M000042&name=page" >page</a></li>
+  <li><a href="index.html?a=M000043&name=page_layout" >page_layout</a></li>
+  <li><a href="index.html?a=M000047&name=page_layout_save" >page_layout_save</a></li>
+  <li><a href="index.html?a=M000045&name=remove_widget" >remove_widget</a></li>
+  </ul>
+
+
+
+
+  <div class="sectiontitle">Constants</div>
+  <table border='0' cellpadding='5'>
+  <tr valign='top'>
+    <td class="attr-name">WIDGETS</td>
+    <td>=</td>
+    <td class="attr-value">{ 'activity' =&gt; _(&quot;Activity&quot;),               'document' =&gt; _(&quot;Document&quot;),               'graph_contacts' =&gt; _(&quot;Contacts by Type&quot;),               'graph_individuals_by_ethnicity' =&gt; _(&quot;Individuals by Ethnicity&quot;),               'graph_individuals_by_marital_status' =&gt; _(&quot;Individuals by Marital Status&quot;),               'graph_stages' =&gt; _(&quot;Individuals by Enrollment Stage&quot;),               'my_contacts' =&gt; _(&quot;My Contacts&quot;)</td>
+  </tr>
+  <tr valign='top'>
+    <td class="attr-name">DEFAULT_LAYOUT</td>
+    <td>=</td>
+    <td class="attr-value">{ 'top' =&gt; [''],                      'left' =&gt; ['graph_contacts', 'graph_individuals_by_ethnicity'],                      'right' =&gt; ['graph_stages', 'graph_individuals_by_marital_status']</td>
+  </tr>
+  </table>
+
+
+<div class="sectiontitle">Public Instance methods</div>
+<div id="M000044" class="method">
+  <div id="M000044_title" class="title">
+    <b>add_widget</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000044_source')" id="l_M000044_source">show source</a> ]</p>
+  <div id="M000044_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 118</span>
+118:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_widget</span>
+119:     <span class="ruby-identifier">widget</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:widget</span>]
+120:     <span class="ruby-identifier">render</span>(<span class="ruby-identifier">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">widget</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-constant">WIDGETS</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">widget</span>)
+121:     <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">current_user</span>
+122:     <span class="ruby-node">%w(top left right)</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>][<span class="ruby-identifier">f</span>] <span class="ruby-operator">||=</span> []).<span class="ruby-identifier">delete</span> <span class="ruby-identifier">widget</span> }
+123:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>][<span class="ruby-value str">'top'</span>].<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">widget</span>
+124:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;widget&quot;</span>, <span class="ruby-identifier">:locals</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:user</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@user</span>, <span class="ruby-identifier">:widget_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">widget</span>}
+125:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000037" class="method">
+  <div id="M000037_title" class="title">
+    <b>graph_contacts</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000037_source')" id="l_M000037_source">show source</a> ]</p>
+  <div id="M000037_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 55</span>
+55:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">graph_contacts</span>
+56:     <span class="ruby-identifier">generate_graph</span>(<span class="ruby-constant">WIDGETS</span>[<span class="ruby-value str">'graph_contacts'</span>])
+57:     <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">contact_type</span> <span class="ruby-keyword kw">in</span> <span class="ruby-constant">ContactType</span>.<span class="ruby-identifier">all_active</span>
+58:       <span class="ruby-ivar">@g</span>.<span class="ruby-identifier">data</span>(<span class="ruby-node">&quot;#{contact_type.name.titleize}&quot;</span>,<span class="ruby-constant">Contact</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;contact_type_id = ?&quot;</span>, <span class="ruby-identifier">contact_type</span>.<span class="ruby-identifier">id</span>]))
+59:     <span class="ruby-keyword kw">end</span>
+60:     <span class="ruby-identifier">send_data</span>(<span class="ruby-ivar">@g</span>.<span class="ruby-identifier">to_blob</span>,
+61:                 <span class="ruby-identifier">:disposition</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'inline'</span>,
+62:                 <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'image/png'</span>,
+63:                 <span class="ruby-identifier">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;graph_contacts.png&quot;</span>)
+64:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000038" class="method">
+  <div id="M000038_title" class="title">
+    <b>graph_individuals_by_ethnicity</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000038_source')" id="l_M000038_source">show source</a> ]</p>
+  <div id="M000038_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 66</span>
+66:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">graph_individuals_by_ethnicity</span>
+67:     <span class="ruby-identifier">generate_graph</span>(<span class="ruby-constant">WIDGETS</span>[<span class="ruby-value str">'graph_individuals_by_ethnicity'</span>])
+68:     <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">ethnicity</span> <span class="ruby-keyword kw">in</span> <span class="ruby-constant">Ethnicity</span>.<span class="ruby-identifier">all_active</span>
+69:       <span class="ruby-ivar">@g</span>.<span class="ruby-identifier">data</span>(<span class="ruby-node">&quot;#{ethnicity.name.titleize}&quot;</span>,<span class="ruby-constant">Contact</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;ethnicity_id = ?&quot;</span>, <span class="ruby-identifier">ethnicity</span>.<span class="ruby-identifier">id</span>]))
+70:     <span class="ruby-keyword kw">end</span>
+71:     <span class="ruby-identifier">send_data</span>(<span class="ruby-ivar">@g</span>.<span class="ruby-identifier">to_blob</span>,
+72:                 <span class="ruby-identifier">:disposition</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'inline'</span>,
+73:                 <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'image/png'</span>,
+74:                 <span class="ruby-identifier">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;graph_contacts.png&quot;</span>)
+75:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000039" class="method">
+  <div id="M000039_title" class="title">
+    <b>graph_individuals_by_marital_status</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000039_source')" id="l_M000039_source">show source</a> ]</p>
+  <div id="M000039_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 77</span>
+77:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">graph_individuals_by_marital_status</span>
+78:     <span class="ruby-identifier">generate_graph</span>(<span class="ruby-constant">WIDGETS</span>[<span class="ruby-value str">'graph_individuals_by_marital_status'</span>])
+79:     <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">marital_status</span> <span class="ruby-keyword kw">in</span> <span class="ruby-constant">MaritalStatus</span>.<span class="ruby-identifier">all_active</span>
+80:       <span class="ruby-ivar">@g</span>.<span class="ruby-identifier">data</span>(<span class="ruby-node">&quot;#{marital_status.name.titleize}&quot;</span>,<span class="ruby-constant">Contact</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;marital_status_id = ?&quot;</span>, <span class="ruby-identifier">marital_status</span>.<span class="ruby-identifier">id</span>]))
+81:     <span class="ruby-keyword kw">end</span>
+82:     <span class="ruby-identifier">send_data</span>(<span class="ruby-ivar">@g</span>.<span class="ruby-identifier">to_blob</span>,
+83:                 <span class="ruby-identifier">:disposition</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'inline'</span>,
+84:                 <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'image/png'</span>,
+85:                 <span class="ruby-identifier">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;graph_contacts.png&quot;</span>)
+86:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000040" class="method">
+  <div id="M000040_title" class="title">
+    <b>graph_stages</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000040_source')" id="l_M000040_source">show source</a> ]</p>
+  <div id="M000040_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 88</span>
+88:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">graph_stages</span>
+89:     <span class="ruby-identifier">generate_graph</span>(<span class="ruby-constant">WIDGETS</span>[<span class="ruby-value str">'graph_stages'</span>])
+90:     <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">stage</span> <span class="ruby-keyword kw">in</span> <span class="ruby-constant">Stage</span>.<span class="ruby-identifier">all_active</span>
+91:       <span class="ruby-ivar">@g</span>.<span class="ruby-identifier">data</span>(<span class="ruby-node">&quot;#{stage.name.titleize}&quot;</span>,<span class="ruby-constant">Contact</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;stage_id = ?&quot;</span>, <span class="ruby-identifier">stage</span>.<span class="ruby-identifier">id</span>]))
+92:     <span class="ruby-keyword kw">end</span>
+93:     <span class="ruby-identifier">send_data</span>(<span class="ruby-ivar">@g</span>.<span class="ruby-identifier">to_blob</span>,
+94:                 <span class="ruby-identifier">:disposition</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'inline'</span>,
+95:                 <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'image/png'</span>,
+96:                 <span class="ruby-identifier">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;graph_stages.png&quot;</span>)
+97:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000041" class="method">
+  <div id="M000041_title" class="title">
+    <b>index</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000041_source')" id="l_M000041_source">show source</a> ]</p>
+  <div id="M000041_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 99</span>
+ 99:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+100:     <span class="ruby-identifier">page</span>
+101:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'page'</span>
+102:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000046" class="method">
+  <div id="M000046_title" class="title">
+    <b>order_widgets</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000046_source')" id="l_M000046_source">show source</a> ]</p>
+  <div id="M000046_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 133</span>
+133:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">order_widgets</span>
+134:     <span class="ruby-identifier">group</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:group</span>]
+135:     <span class="ruby-identifier">group_items</span> = <span class="ruby-identifier">params</span>[<span class="ruby-node">&quot;list-#{group}&quot;</span>]
+136:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">group_items</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">group_items</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+137:       <span class="ruby-node">%w(top left right)</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+138:         <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>][<span class="ruby-identifier">f</span>] = (<span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>][<span class="ruby-identifier">f</span>] <span class="ruby-operator">||</span> []) <span class="ruby-operator">-</span> <span class="ruby-identifier">group_items</span>
+139:       }
+140:       <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>][<span class="ruby-identifier">group</span>] = <span class="ruby-identifier">group_items</span>
+141:     <span class="ruby-keyword kw">end</span>
+142:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+143:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000042" class="method">
+  <div id="M000042_title" class="title">
+    <b>page</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000042_source')" id="l_M000042_source">show source</a> ]</p>
+  <div id="M000042_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 104</span>
+104:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page</span>
+105:     <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">current_user</span>
+106:     <span class="ruby-ivar">@widgets</span> = <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">preference</span>[<span class="ruby-identifier">:my_page_layout</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">DEFAULT_LAYOUT</span>
+107:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000043" class="method">
+  <div id="M000043_title" class="title">
+    <b>page_layout</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000043_source')" id="l_M000043_source">show source</a> ]</p>
+  <div id="M000043_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 109</span>
+109:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page_layout</span>
+110:     <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">current_user</span>
+111:     <span class="ruby-ivar">@widgets</span> = <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">preference</span>[<span class="ruby-identifier">:my_page_layout</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">DEFAULT_LAYOUT</span>.<span class="ruby-identifier">dup</span>
+112:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>] = <span class="ruby-ivar">@widgets</span>
+113:     <span class="ruby-node">%w(top left right)</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>][<span class="ruby-identifier">f</span>] <span class="ruby-operator">||=</span> [] }
+114:     <span class="ruby-ivar">@widget_options</span> = []
+115:     <span class="ruby-constant">WIDGETS</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@widget_options</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">_</span>(<span class="ruby-identifier">v</span>), <span class="ruby-identifier">k</span>]}
+116:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000047" class="method">
+  <div id="M000047_title" class="title">
+    <b>page_layout_save</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000047_source')" id="l_M000047_source">show source</a> ]</p>
+  <div id="M000047_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 145</span>
+145:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page_layout_save</span>
+146:     <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">current_user</span>
+147:     <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">preference</span>[<span class="ruby-identifier">:my_page_layout</span>] = <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>]
+148:     <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">preference</span>.<span class="ruby-identifier">save</span>
+149:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>] = <span class="ruby-keyword kw">nil</span>
+150:     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'page'</span>
+151:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div id="M000045" class="method">
+  <div id="M000045_title" class="title">
+    <b>remove_widget</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000045_source')" id="l_M000045_source">show source</a> ]</p>
+  <div id="M000045_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 127</span>
+127:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remove_widget</span>
+128:     <span class="ruby-identifier">widget</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:widget</span>]
+129:     <span class="ruby-node">%w(top left right)</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">session</span>[<span class="ruby-identifier">:page_layout</span>][<span class="ruby-identifier">f</span>] <span class="ruby-operator">||=</span> []).<span class="ruby-identifier">delete</span> <span class="ruby-identifier">widget</span> }
+130:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+131:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="sectiontitle">Protected Instance methods</div>
+<div id="M000048" class="method">
+  <div id="M000048_title" class="title">
+    <b>generate_graph</b>(title,size=&quot;387x289&quot;)
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000048_source')" id="l_M000048_source">show source</a> ]</p>
+  <div id="M000048_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/dashboard_controller.rb, line 155</span>
+155:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">generate_graph</span>(<span class="ruby-identifier">title</span>,<span class="ruby-identifier">size</span>=<span class="ruby-value str">&quot;387x289&quot;</span>)
+156:     <span class="ruby-ivar">@g</span> = <span class="ruby-constant">Gruff</span><span class="ruby-operator">::</span><span class="ruby-constant">Pie</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">size</span>)
+157:     <span class="ruby-ivar">@g</span>.<span class="ruby-identifier">theme</span> = {<span class="ruby-identifier">:font_color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'white'</span>,
+158:                 <span class="ruby-identifier">:colors</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">%w(orange purple green pink red blue)</span>,
+159:                 <span class="ruby-identifier">:marker_color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'blue'</span>,
+160:                 <span class="ruby-identifier">:background_image</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'lib/rubycampus/assets/rubycampus_chart_background.png'</span>
+161:                }
+162:     <span class="ruby-ivar">@g</span>.<span class="ruby-identifier">font</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-value str">'lib/fonts/VerilySerifMono.otf'</span>, <span class="ruby-constant">RAILS_ROOT</span>)
+163:     <span class="ruby-ivar">@g</span>.<span class="ruby-identifier">title</span> = <span class="ruby-identifier">_</span>(<span class="ruby-identifier">title</span>)
+164:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>

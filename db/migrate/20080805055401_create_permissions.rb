@@ -52,8 +52,9 @@ class CreatePermissions < ActiveRecord::Migration
     user.login = "admin"
     user.email = "admin@rubycampus.local"
     user.name = "Administrator"
-    user.password = "password"
-    user.password_confirmation = "password"
+    user.password = "rubycampus"
+    user.password_confirmation = "rubycampus"
+    user.time_zone = "Tokyo"
     user.is_admin = true
     user.save(false)
     user.send(:activate!)

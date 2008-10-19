@@ -6,17 +6,17 @@
 #
 # This is free software. Please see the LICENSE and COPYING files for details.
 module Prawn
-  class Font #:nodoc:
+  class Font
     module Wrapping #:nodoc:                
       ruby_18 { $KCODE="U" }
       
       # TODO: Replace with TeX optimal algorithm
       def naive_wrap(string, line_width, font_size, options = {})
-        accumulated_width = 0
         scan_pattern = options[:mode] == :character ? /./ : /\S+|\s+/                                    
         
         output = ""                
-        string.lines.each do |line|         
+        string.lines.each do |line| 
+          accumulated_width = 0        
           segments = line.scan(scan_pattern)
                                         
           segments.each do |segment|    
@@ -24,7 +24,7 @@ module Prawn
               :kerning => options[:kerning]) 
       
             if (accumulated_width + segment_width).round > line_width.round
-              output = "#{output.rstrip}\n"
+              output = "#{output.sub(/[ \t]*\n?(\n*)\z/, "\n\\1")}"
               
               if segment =~ /\s/           
                 accumulated_width = 0

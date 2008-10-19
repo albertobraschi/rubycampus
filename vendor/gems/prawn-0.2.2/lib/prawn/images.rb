@@ -15,14 +15,14 @@ module Prawn
     # JPG and PNG files are supported.
     #
     # Arguments:
-    # <tt>filename</tt>:: the path to the file to be embedded
+    # <tt>file</tt>:: path to file or an object that responds to #read
     #
     # Options:
     # <tt>:at</tt>:: the location of the top left corner of the image.
     # <tt>:position</tt>::  One of (:left, :center, :right) or an x-offset
     # <tt>:height</tt>:: the height of the image [actual height of the image]
     # <tt>:width</tt>:: the width of the image [actual width of the image]
-    # <tt>:scale</tt>:: scale the dimensions of the image proportionally      
+    # <tt>:scale</tt>:: scale the dimensions of the image proportionally   
     # 
     #   Prawn::Document.generate("image2.pdf", :page_layout => :landscape) do     
     #     pigs = "#{Prawn::BASEDIR}/data/images/pigs.jpg" 
@@ -36,11 +36,29 @@ module Prawn
     # proportionally.  When both are provided, the image will be stretched to 
     # fit the dimensions without maintaining the aspect ratio.
     #
-    def image(filename, options={})     
+    # If instead of an explicit filename, an object with a read method is
+    # passed as +file+, you can embed images from IO objects and things
+    # that act like them (including Tempfiles and open-uri objects).
+    #
+    #   require "open-uri"
+    #
+    #   Prawn::Document.generate("remote_images.pdf") do 
+    #     image open("http://prawn.majesticseacreature.com/media/prawn_logo.png")
+    #   end
+    #
+    # This method returns an image info object which can be used to check the
+    # dimensions of an image object if needed. 
+    # (See also: Prawn::Images::PNG , Prawn::Images::JPG)
+    # 
+    def image(file, options={})     
       Prawn.verify_options [:at,:position, :height, :width, :scale], options
-      raise ArgumentError, "#{filename} not found" unless File.file?(filename)  
       
-      image_content =  File.read_binary(filename)
+      if file.respond_to?(:read)
+        image_content = file.read
+      else      
+        raise ArgumentError, "#{file} not found" unless File.file?(file)  
+        image_content =  File.read_binary(file)
+      end
       
       image_sha1 = Digest::SHA1.hexdigest(image_content)
 
@@ -83,6 +101,8 @@ module Prawn
       # add the image to the current page
       instruct = "\nq\n%.3f 0 0 %.3f %.3f %.3f cm\n/%s Do\nQ"
       add_content instruct % [ w, h, x, y - h, label ]
+      
+      return info
     end
 
     private   

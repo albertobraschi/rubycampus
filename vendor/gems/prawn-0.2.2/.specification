@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: prawn
 version: !ruby/object:Gem::Version 
-  version: 0.2.0
+  version: 0.2.2
 platform: ruby
 authors: 
 - Gregory Brown
@@ -9,7 +9,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2008-09-12 00:00:00 +09:00
+date: 2008-10-17 00:00:00 +09:00
 default_executable: 
 dependencies: []
 
@@ -47,12 +47,14 @@ files:
 - examples/page_geometry.rb
 - examples/png_types.rb
 - examples/polygons.rb
+- examples/remote_images.rb
 - examples/ruport_formatter.rb
 - examples/ruport_helpers.rb
 - examples/russian_boxes.rb
 - examples/simple_text.rb
 - examples/simple_text_ttf.rb
 - examples/sjis.rb
+- examples/span.rb
 - examples/table.rb
 - examples/text_flow.rb
 - examples/utf8.rb
@@ -62,6 +64,7 @@ files:
 - lib/prawn/document/bounding_box.rb
 - lib/prawn/document/internals.rb
 - lib/prawn/document/page_geometry.rb
+- lib/prawn/document/span.rb
 - lib/prawn/document/table.rb
 - lib/prawn/document/text.rb
 - lib/prawn/document.rb

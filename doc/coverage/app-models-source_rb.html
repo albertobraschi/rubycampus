@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3><a href=https://rubycampus.org><img src=../../public/images/rubycampus/logo.png></a></h3>
-    <p>RubyCampus C0 code coverage information generated on Sat Oct 11 03:52:22 +0900 2008.
+    <p>RubyCampus C0 code coverage information generated on Sun Oct 19 21:36:37 +0900 2008.
 
       </p>
     <hr/>
@@ -599,104 +599,104 @@ span.run100 {
       </tr>
     </tbody>
   </table>
-<pre><span class="inferred0"><a name="line1"></a> 1 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
-</span><span class="inferred1"><a name="line2"></a> 2 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line3"></a> 3 # | RubyCampus - Student &amp; Alumni Relationship Management Software                     |
-</span><span class="inferred1"><a name="line4"></a> 4 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line5"></a> 5 # | Copyright (C) 2008 Kevin Aleman, RubyCampus LLC - https://rubycampus.org           |
-</span><span class="inferred1"><a name="line6"></a> 6 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line7"></a> 7 # |                                                                                    |
-</span><span class="inferred1"><a name="line8"></a> 8 # | This program is free software; you can redistribute it and/or modify it under the  |
-</span><span class="inferred0"><a name="line9"></a> 9 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
-</span><span class="inferred1"><a name="line10"></a>10 # | Software Foundation with the addition of the following permission added to Section |
-</span><span class="inferred0"><a name="line11"></a>11 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
-</span><span class="inferred1"><a name="line12"></a>12 # | COPYRIGHT IS OWNED BY RUBYCAMPUS LLC, RUBYCAMPUS LLC DISCLAIMS THE WARRANTY OF NON |
-</span><span class="inferred0"><a name="line13"></a>13 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
-</span><span class="inferred1"><a name="line14"></a>14 # |                                                                                    |
-</span><span class="inferred0"><a name="line15"></a>15 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
-</span><span class="inferred1"><a name="line16"></a>16 # | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
-</span><span class="inferred0"><a name="line17"></a>17 # | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
-</span><span class="inferred1"><a name="line18"></a>18 # |                                                                                    |
-</span><span class="inferred0"><a name="line19"></a>19 # | You should have received a copy of the GNU Affero General Public License along     |
-</span><span class="inferred1"><a name="line20"></a>20 # | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
-</span><span class="inferred0"><a name="line21"></a>21 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
-</span><span class="inferred1"><a name="line22"></a>22 # | USA.                                                                               |
-</span><span class="inferred0"><a name="line23"></a>23 # |                                                                                    |
-</span><span class="inferred1"><a name="line24"></a>24 # | You can contact RubyCampus, LLC. at email address project@rubycampus.org.          |
-</span><span class="inferred0"><a name="line25"></a>25 # |                                                                                    |
-</span><span class="inferred1"><a name="line26"></a>26 # | The interactive user interfaces in modified source and object code versions of     |
-</span><span class="inferred0"><a name="line27"></a>27 # | this program must display Appropriate Legal Notices, as required under Section 5   |
-</span><span class="inferred1"><a name="line28"></a>28 # | of the GNU Affero General Public License version 3.                                |
-</span><span class="inferred0"><a name="line29"></a>29 # |                                                                                    |
-</span><span class="inferred1"><a name="line30"></a>30 # | In accordance with Section 7(b) of the GNU Affero General Public License version   |
-</span><span class="inferred0"><a name="line31"></a>31 # | 3, these Appropriate Legal Notices must retain the display of the &quot;Powered by      |
-</span><span class="inferred1"><a name="line32"></a>32 # | RubyCampus&quot; logo. If the display of the logo is not reasonably feasible for        |
-</span><span class="inferred0"><a name="line33"></a>33 # | technical reasons, the Appropriate Legal Notices must display the words &quot;Powered   |
-</span><span class="inferred1"><a name="line34"></a>34 # | by RubyCampus&quot;.                                                                    |
-</span><span class="inferred0"><a name="line35"></a>35 # +------------------------------------------------------------------------------------+
-</span><span class="inferred1"><a name="line36"></a>36 #++
-</span><span class="inferred0"><a name="line37"></a>37 
-</span><span class="marked1"><a name="line38"></a>38 class Source &lt; ActiveRecord::Base 
-</span><span class="inferred0"><a name="line39"></a>39   # Excludes model from being included in PO template
-</span><span class="marked1"><a name="line40"></a>40   require 'gettext/rails'
-</span><span class="marked0"><a name="line41"></a>41   untranslate_all
-</span><span class="inferred1"><a name="line42"></a>42    
-</span><span class="marked0"><a name="line43"></a>43   has_many :contacts
-</span><span class="inferred1"><a name="line44"></a>44   
-</span><span class="marked0"><a name="line45"></a>45   acts_as_revisable do
-</span><span class="marked1"><a name="line46"></a>46     revision_class_name &quot;SourceRevision&quot;
-</span><span class="inferred0"><a name="line47"></a>47   end
-</span><span class="inferred1"><a name="line48"></a>48   
-</span><span class="inferred0"><a name="line49"></a>49   # begin Validations
-</span><span class="marked1"><a name="line50"></a>50     validates_presence_of :name
-</span><span class="inferred0"><a name="line51"></a>51   # ends Validations
-</span><span class="inferred1"><a name="line52"></a>52   
-</span><span class="inferred0"><a name="line53"></a>53   # Searchable attributes
-</span><span class="marked1"><a name="line54"></a>54   searchable_by :name
-</span><span class="inferred0"><a name="line55"></a>55   
-</span><span class="inferred1"><a name="line56"></a>56   # Fetches all sources with pagination
-</span><span class="marked0"><a name="line57"></a>57   def self.search_for_all_and_paginate(locate, page)
-</span><span class="uncovered1"><a name="line58"></a>58     search(locate).paginate( :page =&gt; page, :per_page =&gt; AppConfig.rows_per_page, :order =&gt; 'updated_at ASC' )
-</span><span class="uncovered0"><a name="line59"></a>59   end         
-</span><span class="inferred1"><a name="line60"></a>60   
-</span><span class="inferred0"><a name="line61"></a>61   # Lists qualifying model attributes for use by auto completion in forms
-</span><span class="marked1"><a name="line62"></a>62   def self.find_for_auto_complete_lookup(search)
-</span><span class="inferred0"><a name="line63"></a>63     find(:all, :conditions =&gt; ['name LIKE ?', &quot;%#{search}%&quot;], :order =&gt; &quot;position ASC&quot; )  
-</span><span class="inferred1"><a name="line64"></a>64   end
-</span><span class="inferred0"><a name="line65"></a>65 
-</span><span class="marked1"><a name="line66"></a>66   NAMES_KEYS = self.find(:all).map do |s| 
-</span><span class="marked0"><a name="line67"></a>67   [s.name, s.id] 
-</span><span class="inferred1"><a name="line68"></a>68   end
-</span><span class="inferred0"><a name="line69"></a>69 end
-</span><span class="marked1"><a name="line70"></a>70 class SourceRevision &lt; ActiveRecord::Base
-</span><span class="marked0"><a name="line71"></a>71   acts_as_revision :revisable_class_name =&gt; &quot;Source&quot;
-</span><span class="inferred1"><a name="line72"></a>72 end
-</span><span class="inferred0"><a name="line73"></a>73 
-</span><span class="inferred1"><a name="line74"></a>74 
-</span><span class="inferred0"><a name="line75"></a>75 # == Schema Information
-</span><span class="inferred1"><a name="line76"></a>76 # Schema version: 20081006092209
-</span><span class="inferred0"><a name="line77"></a>77 #
-</span><span class="inferred1"><a name="line78"></a>78 # Table name: rubycampus_sources
-</span><span class="inferred0"><a name="line79"></a>79 #
-</span><span class="inferred1"><a name="line80"></a>80 #  id                         :integer(4)      not null, primary key
-</span><span class="inferred0"><a name="line81"></a>81 #  name                       :string(255)     not null
-</span><span class="inferred1"><a name="line82"></a>82 #  position                   :integer(4)
-</span><span class="inferred0"><a name="line83"></a>83 #  is_default                 :boolean(1)
-</span><span class="inferred1"><a name="line84"></a>84 #  is_reserved                :boolean(1)
-</span><span class="inferred0"><a name="line85"></a>85 #  is_enabled                 :boolean(1)      default(TRUE)
-</span><span class="inferred1"><a name="line86"></a>86 #  revisable_original_id      :integer(4)
-</span><span class="inferred0"><a name="line87"></a>87 #  revisable_branched_from_id :integer(4)
-</span><span class="inferred1"><a name="line88"></a>88 #  revisable_number           :integer(4)
-</span><span class="inferred0"><a name="line89"></a>89 #  revisable_name             :string(255)
-</span><span class="inferred1"><a name="line90"></a>90 #  revisable_type             :string(255)
-</span><span class="inferred0"><a name="line91"></a>91 #  revisable_current_at       :datetime
-</span><span class="inferred1"><a name="line92"></a>92 #  revisable_revised_at       :datetime
-</span><span class="inferred0"><a name="line93"></a>93 #  revisable_deleted_at       :datetime
-</span><span class="inferred1"><a name="line94"></a>94 #  revisable_is_current       :boolean(1)
-</span><span class="inferred0"><a name="line95"></a>95 #  created_at                 :datetime
-</span><span class="inferred1"><a name="line96"></a>96 #  updated_at                 :datetime
-</span><span class="inferred0"><a name="line97"></a>97 #
-</span><span class="inferred1"><a name="line98"></a>98 
+<pre><span class="inferred1"><a name="line1"></a> 1 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
+</span><span class="inferred0"><a name="line2"></a> 2 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line3"></a> 3 # | RubyCampus - Student &amp; Alumni Relationship Management Software                     |
+</span><span class="inferred0"><a name="line4"></a> 4 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line5"></a> 5 # | Copyright (C) 2008 Kevin Aleman, RubyCampus LLC - https://rubycampus.org           |
+</span><span class="inferred0"><a name="line6"></a> 6 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line7"></a> 7 # |                                                                                    |
+</span><span class="inferred0"><a name="line8"></a> 8 # | This program is free software; you can redistribute it and/or modify it under the  |
+</span><span class="inferred1"><a name="line9"></a> 9 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
+</span><span class="inferred0"><a name="line10"></a>10 # | Software Foundation with the addition of the following permission added to Section |
+</span><span class="inferred1"><a name="line11"></a>11 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
+</span><span class="inferred0"><a name="line12"></a>12 # | COPYRIGHT IS OWNED BY RUBYCAMPUS LLC, RUBYCAMPUS LLC DISCLAIMS THE WARRANTY OF NON |
+</span><span class="inferred1"><a name="line13"></a>13 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
+</span><span class="inferred0"><a name="line14"></a>14 # |                                                                                    |
+</span><span class="inferred1"><a name="line15"></a>15 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
+</span><span class="inferred0"><a name="line16"></a>16 # | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
+</span><span class="inferred1"><a name="line17"></a>17 # | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
+</span><span class="inferred0"><a name="line18"></a>18 # |                                                                                    |
+</span><span class="inferred1"><a name="line19"></a>19 # | You should have received a copy of the GNU Affero General Public License along     |
+</span><span class="inferred0"><a name="line20"></a>20 # | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
+</span><span class="inferred1"><a name="line21"></a>21 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
+</span><span class="inferred0"><a name="line22"></a>22 # | USA.                                                                               |
+</span><span class="inferred1"><a name="line23"></a>23 # |                                                                                    |
+</span><span class="inferred0"><a name="line24"></a>24 # | You can contact RubyCampus, LLC. at email address project@rubycampus.org.          |
+</span><span class="inferred1"><a name="line25"></a>25 # |                                                                                    |
+</span><span class="inferred0"><a name="line26"></a>26 # | The interactive user interfaces in modified source and object code versions of     |
+</span><span class="inferred1"><a name="line27"></a>27 # | this program must display Appropriate Legal Notices, as required under Section 5   |
+</span><span class="inferred0"><a name="line28"></a>28 # | of the GNU Affero General Public License version 3.                                |
+</span><span class="inferred1"><a name="line29"></a>29 # |                                                                                    |
+</span><span class="inferred0"><a name="line30"></a>30 # | In accordance with Section 7(b) of the GNU Affero General Public License version   |
+</span><span class="inferred1"><a name="line31"></a>31 # | 3, these Appropriate Legal Notices must retain the display of the &quot;Powered by      |
+</span><span class="inferred0"><a name="line32"></a>32 # | RubyCampus&quot; logo. If the display of the logo is not reasonably feasible for        |
+</span><span class="inferred1"><a name="line33"></a>33 # | technical reasons, the Appropriate Legal Notices must display the words &quot;Powered   |
+</span><span class="inferred0"><a name="line34"></a>34 # | by RubyCampus&quot;.                                                                    |
+</span><span class="inferred1"><a name="line35"></a>35 # +------------------------------------------------------------------------------------+
+</span><span class="inferred0"><a name="line36"></a>36 #++
+</span><span class="inferred1"><a name="line37"></a>37 
+</span><span class="marked0"><a name="line38"></a>38 class Source &lt; ActiveRecord::Base 
+</span><span class="inferred1"><a name="line39"></a>39   # Excludes model from being included in PO template
+</span><span class="marked0"><a name="line40"></a>40   require 'gettext/rails'
+</span><span class="marked1"><a name="line41"></a>41   untranslate_all
+</span><span class="inferred0"><a name="line42"></a>42    
+</span><span class="marked1"><a name="line43"></a>43   has_many :contacts
+</span><span class="inferred0"><a name="line44"></a>44   
+</span><span class="marked1"><a name="line45"></a>45   acts_as_revisable do
+</span><span class="marked0"><a name="line46"></a>46     revision_class_name &quot;SourceRevision&quot;
+</span><span class="inferred1"><a name="line47"></a>47   end
+</span><span class="inferred0"><a name="line48"></a>48   
+</span><span class="inferred1"><a name="line49"></a>49   # begin Validations
+</span><span class="marked0"><a name="line50"></a>50     validates_presence_of :name
+</span><span class="inferred1"><a name="line51"></a>51   # ends Validations
+</span><span class="inferred0"><a name="line52"></a>52   
+</span><span class="inferred1"><a name="line53"></a>53   # Searchable attributes
+</span><span class="marked0"><a name="line54"></a>54   searchable_by :name
+</span><span class="inferred1"><a name="line55"></a>55   
+</span><span class="inferred0"><a name="line56"></a>56   # Fetches all sources with pagination
+</span><span class="marked1"><a name="line57"></a>57   def self.search_for_all_and_paginate(locate, page)
+</span><span class="uncovered0"><a name="line58"></a>58     search(locate).paginate( :page =&gt; page, :per_page =&gt; AppConfig.rows_per_page, :order =&gt; 'updated_at ASC' )
+</span><span class="uncovered1"><a name="line59"></a>59   end         
+</span><span class="inferred0"><a name="line60"></a>60   
+</span><span class="inferred1"><a name="line61"></a>61   # Lists qualifying model attributes for use by auto completion in forms
+</span><span class="marked0"><a name="line62"></a>62   def self.find_for_auto_complete_lookup(search)
+</span><span class="inferred1"><a name="line63"></a>63     find(:all, :conditions =&gt; ['name LIKE ?', &quot;%#{search}%&quot;], :order =&gt; &quot;position ASC&quot; )  
+</span><span class="inferred0"><a name="line64"></a>64   end
+</span><span class="inferred1"><a name="line65"></a>65 
+</span><span class="marked0"><a name="line66"></a>66   NAMES_KEYS = self.find(:all).map do |s| 
+</span><span class="marked1"><a name="line67"></a>67   [s.name, s.id] 
+</span><span class="inferred0"><a name="line68"></a>68   end
+</span><span class="inferred1"><a name="line69"></a>69 end
+</span><span class="marked0"><a name="line70"></a>70 class SourceRevision &lt; ActiveRecord::Base
+</span><span class="marked1"><a name="line71"></a>71   acts_as_revision :revisable_class_name =&gt; &quot;Source&quot;
+</span><span class="inferred0"><a name="line72"></a>72 end
+</span><span class="inferred1"><a name="line73"></a>73 
+</span><span class="inferred0"><a name="line74"></a>74 
+</span><span class="inferred1"><a name="line75"></a>75 # == Schema Information
+</span><span class="inferred0"><a name="line76"></a>76 # Schema version: 20081006092209
+</span><span class="inferred1"><a name="line77"></a>77 #
+</span><span class="inferred0"><a name="line78"></a>78 # Table name: rubycampus_sources
+</span><span class="inferred1"><a name="line79"></a>79 #
+</span><span class="inferred0"><a name="line80"></a>80 #  id                         :integer(4)      not null, primary key
+</span><span class="inferred1"><a name="line81"></a>81 #  name                       :string(255)     not null
+</span><span class="inferred0"><a name="line82"></a>82 #  position                   :integer(4)
+</span><span class="inferred1"><a name="line83"></a>83 #  is_default                 :boolean(1)
+</span><span class="inferred0"><a name="line84"></a>84 #  is_reserved                :boolean(1)
+</span><span class="inferred1"><a name="line85"></a>85 #  is_enabled                 :boolean(1)      default(TRUE)
+</span><span class="inferred0"><a name="line86"></a>86 #  revisable_original_id      :integer(4)
+</span><span class="inferred1"><a name="line87"></a>87 #  revisable_branched_from_id :integer(4)
+</span><span class="inferred0"><a name="line88"></a>88 #  revisable_number           :integer(4)
+</span><span class="inferred1"><a name="line89"></a>89 #  revisable_name             :string(255)
+</span><span class="inferred0"><a name="line90"></a>90 #  revisable_type             :string(255)
+</span><span class="inferred1"><a name="line91"></a>91 #  revisable_current_at       :datetime
+</span><span class="inferred0"><a name="line92"></a>92 #  revisable_revised_at       :datetime
+</span><span class="inferred1"><a name="line93"></a>93 #  revisable_deleted_at       :datetime
+</span><span class="inferred0"><a name="line94"></a>94 #  revisable_is_current       :boolean(1)
+</span><span class="inferred1"><a name="line95"></a>95 #  created_at                 :datetime
+</span><span class="inferred0"><a name="line96"></a>96 #  updated_at                 :datetime
+</span><span class="inferred1"><a name="line97"></a>97 #
+</span><span class="inferred0"><a name="line98"></a>98 
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.3.</p>

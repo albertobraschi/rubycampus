@@ -1,0 +1,45 @@
+  <div id="C00000113">
+<div class='banner'>
+  <span class="file-title-prefix">Module</span><br />DashboardHelper<br/>
+  In:
+<a href="#" onclick="jsHref('files/app/helpers/dashboard_helper_rb.html');">app/helpers/dashboard_helper.rb</a>
+
+</div>
+ <!-- banner header -->
+
+  <div id="bodyContent" >
+      <div id="content">
+
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="index.html?a=M000127&name=widget_javascript" >widget_javascript</a></li>
+  </ul>
+
+
+
+
+
+
+<div class="sectiontitle">Public Instance methods</div>
+<div id="M000127" class="method">
+  <div id="M000127_title" class="title">
+    <b>widget_javascript</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000127_source')" id="l_M000127_source">show source</a> ]</p>
+  <div id="M000127_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/dashboard_helper.rb, line 39</span>
+39:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">widget_javascript</span>
+40:     <span class="ruby-value str">&quot;&lt;script language=\&quot;JavaScript\&quot;&gt;\n//&lt;![CDATA[\nfunction recreateSortables() {\nSortable.destroy('list-top');\nSortable.destroy('list-left');\nSortable.destroy('list-right');\n\nSortable.create(\&quot;list-top\&quot;, {constraint:false, containment:['list-top','list-left','list-right'], dropOnEmpty:true, handle:'handle', onUpdate:function(){new Ajax.Request('/dashboard/order_widgets?group=top', {asynchronous:true, evalScripts:true, parameters:Sortable.serialize(\&quot;list-top\&quot;)})}, only:'dashboard-box', tag:'div'})\nSortable.create(\&quot;list-left\&quot;, {constraint:false, containment:['list-top','list-left','list-right'], dropOnEmpty:true, handle:'handle', onUpdate:function(){new Ajax.Request('/dashboard/order_widgets?group=left', {asynchronous:true, evalScripts:true, parameters:Sortable.serialize(\&quot;list-left\&quot;)})}, only:'dashboard-box', tag:'div'})\nSortable.create(\&quot;list-right\&quot;, {constraint:false, containment:['list-top','list-left','list-right'], dropOnEmpty:true, handle:'handle', onUpdate:function(){new Ajax.Request('/dashboard/order_widgets?group=right', {asynchronous:true, evalScripts:true, parameters:Sortable.serialize(\&quot;list-right\&quot;)})}, only:'dashboard-box', tag:'div'})\n}\n\nfunction updateSelect() {\ns = $('widget-select')\nfor (var i = 0; i &lt; s.options.length; i++) {\nif ($('widget_' + s.options[i].value)) {\ns.options[i].disabled = true;\n} else {\ns.options[i].disabled = false;\n}\n}\ns.options[0].selected = true;\n}\n\nfunction afterAddBlock() {\nrecreateSortables();\nupdateSelect();\n}\n\nfunction removeBlock(widget) {\nEffect.DropOut(widget);\nupdateSelect();\n}\n//]]&gt;\n&lt;/script&gt;\n&quot;</span>
+41:   <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>

@@ -12,6 +12,7 @@ require "prawn/document/bounding_box"
 require "prawn/document/text"      
 require "prawn/document/table"
 require "prawn/document/internals"
+require "prawn/document/span"
 
 module Prawn
   class Document  
@@ -78,7 +79,7 @@ module Prawn
     def initialize(options={},&block)   
        Prawn.verify_options [:page_size, :page_layout, :on_page_start,
          :on_page_stop, :left_margin, :right_margin, :top_margin,
-         :bottom_margin, :skip_page_creation, :compress ], options
+         :bottom_margin, :skip_page_creation, :compress, :skip_encoding, :text_options ], options
          
        @objects = []
        @info    = ref(:Creator => "Prawn", :Producer => "Prawn")
