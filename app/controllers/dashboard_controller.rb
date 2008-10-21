@@ -154,7 +154,7 @@ class DashboardController < ApplicationController
 
   def generate_graph(title,size="387x289")
     @g = Gruff::Pie.new(size)
-    @g.theme = {:font_color => 'white',
+    @g.theme = {:font_color => 'black',
                 :colors => %w(orange purple green pink red blue),
                 :marker_color => 'blue',
                 :background_image => 'lib/rubycampus/assets/rubycampus_chart_background.png'
