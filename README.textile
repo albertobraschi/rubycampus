@@ -6,7 +6,7 @@ h2. Overview
 
 "RubyCampus":https://rubycampus.org is a *relationship management system* for *admissions, strategic enrollment management* and *alumni development*. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in student recruitment, increasing enrollment yields while refining communications and improving overall campus diversity and student retention rates. It can also be used in conjunction with one or more e-Learning platforms such as *Moodle* and *Sakai* with built in synchronization features and tools. It is written in Ruby, "internationalized":https://rubycampus.org/wiki/rubycampus/Translations and is easy to install and use on *Linux, Windows, Mac OS X, SunOS* and *BSD*. Offering a free and fully transparent open source alternative to commercial software for student recruitment and alumni development.
 
-_A working demo of RubyCampus is accessible at "demo.rubycampus.org":https://demo.rubycampus.org; you can view an "online presentation":https://rubycampus.org/wiki/rubycampus/Keynote and see "screenshots":https://rubycampus.org/wiki/rubycampus/Walk_Through of the project on its "official website":https://rubycampus.org ._
+_A working demo of RubyCampus is accessible at "demo.rubycampus.org":https://demo.rubycampus.org ; you can view an "online presentation":https://rubycampus.org/wiki/rubycampus/Keynote and see "screenshots":https://rubycampus.org/wiki/rubycampus/Walk_Through of the project on its "official website":https://rubycampus.org ._
 
 bq. The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.
 
