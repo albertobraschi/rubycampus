@@ -6,11 +6,11 @@ h2. Overview
 
 "RubyCampus":https://rubycampus.org is a *relationship management system* for *admissions, strategic enrollment management* and *alumni development*. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in student recruitment, increasing enrollment yields while refining communications and improving overall campus diversity and student retention rates. It can also be used in conjunction with one or more e-Learning platforms such as *Moodle* and *Sakai* with built in synchronization features and tools. It is written in Ruby, "internationalized":https://rubycampus.org/wiki/rubycampus/Translations and is easy to install and use on *Linux, Windows, Mac OS X, SunOS* and *BSD*. Offering a free and fully transparent open source alternative to commercial software for student recruitment and alumni development.
 
-_A working demo of RubyCampus can be accessed at "demo.rubycampus.org":https://demo.rubycampus.org or you can view our "online presentation":https://rubycampus.org/wiki/rubycampus/Keynote ._
+_A working demo of RubyCampus is accessible at "demo.rubycampus.org":https://demo.rubycampus.org; you can view an "online presentation":https://rubycampus.org/wiki/rubycampus/Keynote and see "screenshots":https://rubycampus.org/wiki/rubycampus/Walk_Through of the project on its "official website":https://rubycampus.org._
 
 bq. The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.
 
-bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our official repository at *git://rubycampus.org/rubycampus.git* or a trusted mirror we strongly recommend that you clone and use only source from these sources. This will ensure your organization is receiving updates directly from the authors.
+bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our official repository hosted at *git://rubycampus.org/rubycampus.git* or from a "trusted mirror":https://rubycampus.org/wiki/rubycampus/Trusted_Mirrors, we strongly recommend that you clone and use only source code from official sources. This will ensure your organization is receiving updates directly from the authors.
 
 h2. Official Repository
 
@@ -20,7 +20,7 @@ h2. Official Repository
 
 h2. Minimal Requirements
 
-RubyCampus is developed with POSIX-oriented operating systems in mind such as Linux, Mac OS X, SunOS and BSD/OS. While it is entirely possible to use Windows we recommend you use a POSIX-compliant operating system particularly in production environments.   
+RubyCampus is developed with POSIX-oriented operating systems in mind such as Linux, Mac OS X, SunOS and BSD/OS. While it is possible to use Windows we recommend you use a POSIX-compliant operating system particularly in production environments.   
 
 h3. Recommended
 
@@ -31,9 +31,9 @@ h3. Recommended
 
 h3. Required
 
-* Ruby 1.8.6 (Phusion Passenger's Ruby Enterprise Edition build if running Passenger)
-* Gem 1.2.0
-* Rails 2.1.1 (Included)
+* Ruby 1.8.6 or better
+* Gem 1.2.0 or better
+* Rails 2.1.2 (included)
 * imagemagick & libmagick9-dev (You must compile this yourself)
 * rmagick gem
 
