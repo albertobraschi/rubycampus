@@ -69,7 +69,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :ethnicities, :collection => { :lookup => :get, :index => :get }
   map.resources :genders, :collection => { :lookup => :get, :index => :get }
   map.resources :greetings, :collection => { :lookup => :get, :index => :get }
-  map.resources :groups, :collection => { :lookup => :get, :index => :get }
+  map.resources :groups, :collection => { :lookup => :get, :index => :get },
+                         :member => { :enable => :put, :disable => :put, :members => :get }
   map.resources :head_of_households, :collection => { :lookup => :get }
   map.resources :location_types, :collection => { :lookup => :get, :index => :get }
   map.resources :marital_statuses, :collection => { :lookup => :get, :index => :get }

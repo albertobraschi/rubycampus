@@ -135,15 +135,48 @@ class GroupsController < ApplicationController
   def destroy #:nodoc:
     @group = Group.find(params[:id])
     @group.destroy
-
+  
     respond_to do |format|
       format.html { redirect_to groups_url }
       # format.xml  { head :ok }
     end
+  end  
+    
+  def lookup #:nodoc:
+    @groups = Group.find_for_auto_complete_lookup(params[:search])
   end
   
-  def lookup #:nodoc:
-    @groups = Group.find_for_auto_complete_lookup(params[:search])                            
+  # PUT rubycampus.local/groups/1/enable
+  def enable #:nodoc:
+    @group = Group.find(params[:id])
+    if @group.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Group") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("group") }
+    end
+    redirect_to groups_url
+  end
+  
+  # PUT rubycampus.local/groups/1/disable
+  def disable #:nodoc:
+    @group = Group.find(params[:id])
+    if @group.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Group") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("group") }
+    end
+    redirect_to groups_url
+  end
+  
+  # GET rubycampus.local/groups/1/members
+  def members #:nodoc:
+    @group = Group.find(params[:id])
+    @contacts_total = @group.contacts.count
+    @contacts = @group.contacts.search_for_all_and_paginate(params[:search], params[:page], params[:contact_type], params[:stage])
+    
+    respond_to do |format|
+      format.html
+    end
   end
 
 end
