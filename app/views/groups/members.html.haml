@@ -1,0 +1,18 @@
+- title(_("%{group} Members") % { :group => @group.name.titleize }) 
+.standard_box
+  .hako
+    %h2= yield(:title)
+    %h3= context_help((_("The following contacts are members of the of the %{group} group. You may add new members or remove existing ones.") % { :group => @group.name.downcase }))
+  - if @contacts_total == 0
+    .no_data{:style=>"text-align:center;"}= _("No %{collection} Found") % { :collection => _("Members") }
+  - else
+    %table
+      %tr
+        %th.small= _("Name")
+        = content_tag(:th, _("Entry Term"), :class => "small" ) unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id  
+        = content_tag(:th, _("Program"), :class => "small" ) unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id
+        %th.small= _("Contact")
+        %th.small= _("Last Updated") 
+        %th    
+      = render :partial => 'contacts/contact', :collection => @contacts
+    %div.pagination= will_paginate @contacts  

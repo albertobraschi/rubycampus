@@ -1,0 +1,5 @@
+.action_buttons[group]
+  = link_to _("Destroy"), group_path(group), :class => "negative", :confirm => (_("Really destroy %s record?") % _("Group")), :method => :delete
+  = group.is_enabled ? link_to(_("Disable"), disable_group_path(group), :method => :put) : link_to(_("Enable"), enable_group_path(group), :method => :put)
+  = link_to _("Settings"), edit_group_path(group), :class => "positive"
+  = link_to_if(group.is_enabled, _("Members"), members_group_path(group), :method => :get, :class => "positive") 
