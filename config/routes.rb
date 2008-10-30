@@ -62,7 +62,8 @@ ActionController::Routing::Routes.draw do |map|
   # end RubyCampus Mailings
 
   # begin RubyCampus RESTful Code Tables
-  map.resources :academic_levels, :collection => { :lookup => :get, :index => :get }
+  map.resources :academic_levels, :collection => { :lookup => :get, :index => :get },
+                                  :member => { :enable => :put, :disable => :put }
   map.resources :activity_types, :collection => { :lookup => :get, :index => :get }
   map.resources :countries, :collection => { :lookup => :get }
   map.resources :education_levels, :collection => { :lookup => :get, :index => :get }
