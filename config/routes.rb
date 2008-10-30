@@ -56,7 +56,8 @@ ActionController::Routing::Routes.draw do |map|
   # end RubyCampus Constituents
 
   # begin RubyCampus Mailings
-  map.resources :mailing_mixins, :collection => { :lookup => :get, :index => :get }
+  map.resources :mailing_mixins, :collection => { :lookup => :get, :index => :get },
+                                 :member => { :enable => :put, :disable => :put }
   map.resources :mailing_mixin_types, :collection => { :lookup => :get, :index => :get }
   # end RubyCampus Mailings
 
