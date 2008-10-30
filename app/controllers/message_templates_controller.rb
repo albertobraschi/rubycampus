@@ -141,5 +141,27 @@ class MessageTemplatesController < ApplicationController
   def lookup #:nodoc:
     @message_templates = MessageTemplate.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/message_templates/1/enable
+  def enable #:nodoc:
+    @message_template = MessageTemplate.find(params[:id])
+    if @message_template.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Message Template") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("message template") }
+    end
+    redirect_to message_templates_url
+  end
+  
+  # PUT rubycampus.local/message_templates/1/disable
+  def disable #:nodoc:
+    @message_template = MessageTemplate.find(params[:id])
+    if @message_template.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Message Template") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("message template") }
+    end
+    redirect_to message_templates_url
+  end
 
 end
