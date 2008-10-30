@@ -45,7 +45,10 @@ module Rubycampus
         "<a href=\"#{RUBYCAMPUS_ORG_BASE_URL}\" title=\"Powered by RubyCampus\"><img src=\"/images/powered_by_rubycampus.png\" alt=\"Powered by RubyCampus\"></a>"
       end
       def impressum
-        val = "© 2008 <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}\">RubyCampus LLC</a> All Rights Reserved.<br/>Powered by #{RUBYCAMPUS_EDITION} #{Rubycampus::Build::version[:string]}<br/><a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/download\">Download</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}projects/#{RUBYCAMPUS}/issues\">Issue Tracker</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}\">Wiki</a><br/><br/>#{Rubycampus::Info::powered_by}"
+        val = "<small>Copyright © 2008 <a href=\"https://rubycampus.org/wiki/rubycampus/Licensing\">Kevin R. Aleman</a>, RubyCampus LLC. The Program is provided AS IS, without warranty. Licensed under <a 
+        href=\"/license\">AGPLv3</a>.<br/>This program is free software; you can redistribute it and/or modify it under the terms 
+        of the <a href=\"/license\">GNU Affero General Public License version 3</a> as published by the<br/>Free Software Foundation 
+        including the additional permission set forth in the source code header. <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/download\">Download</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}projects/#{RUBYCAMPUS}/issues\">Support</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}\">Documentation</a><br/>#{Rubycampus::Info::powered_by}</small>"
         if Setting.demo?
           val << <<-EOF
             <br/><blockquote>Constituent records for this demo though realistic are<br/>
@@ -70,7 +73,7 @@ module Rubycampus
           <h2>RubyCampus Community Edition</h2>
           <h4>Version #{Rubycampus::Build::version[:string]}</h4>
           <p>
-          Copyright © 2008 Kevin R. Aleman, RubyCampus LLC. The Program is provided AS IS, without warranty. Licensed under <a 
+          Copyright © 2008 <a href="https://rubycampus.org/wiki/rubycampus/Licensing">Kevin R. Aleman</a>, RubyCampus LLC. The Program is provided AS IS, without warranty. Licensed under <a 
           href="/license">AGPLv3</a>. This program is free software; you can redistribute it and/or modify it under the terms 
           of the <a href="/license">GNU Affero General Public License version 3</a> as published by the Free Software Foundation 
           including the additional permission set forth in the source code header.
@@ -86,14 +89,14 @@ module Rubycampus
           Notices
           must display the words "Powered by RubyCampus".
           <br/><br/>
-          RubyCampus™, RubyCampus Community Edition™ are <a href="https://rubycampus.org/wiki/rubycampus/Licensing"
+          RubyCampus™, RubyCampus Community License™, RubyCampus Commercial License™ are <a href="https://rubycampus.org/wiki/rubycampus/Licensing"
            title="trademarks">trademarks</a> of Kevin R. Aleman and are governed by guidelines set forth in the <a 
           href="https://rubycampus.org/wiki/rubycampus/Licensing" title="trademarks">trademarks and licensing</a> wiki page.
           </p>
           <h3>RubyCampus Community Resources</h3>
           <p>Visit our <a href="#{RUBYCAMPUS_ORG_BASE_URL}">forge and community</a> and find out which individuals and organizations 
           actively <a href="https://rubycampus.org/wiki/rubycampus/Community_Contributors">contribute</a> to the advancement of
-          RubyCampus.
+          RubyCampus. An open source software designed for enrollment management and the advancement needs of higher education. Use RubyCampus for student recruitment, managing enrollments, increasing retention, for alumni development and campus fundraising.
           </p>
         EOF
       end

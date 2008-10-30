@@ -14,7 +14,7 @@
       %th{ :class => (sort_th_class_helper "is_default") }
         = sort_link_helper _("Is Default"), "is_default"
       %th{ :class => (sort_th_class_helper "is_enabled") }
-        = sort_link_helper _("Is Enabled"), "is_enabled"
+        = sort_link_helper _("Enabled"), 'is_enabled'
       %th
     - @entry_terms.each do |entry_term|
       %tr{:class => cycle("even","odd")}
