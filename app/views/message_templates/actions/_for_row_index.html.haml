@@ -1,0 +1,4 @@
+.action_buttons[message_template]
+  = message_template.is_enabled ? link_to(_("Disable"), disable_message_template_path(message_template), :method => :put) : link_to(_("Enable"), enable_message_template_path(message_template), :method => :put)
+  = link_to _("Edit"), edit_message_template_path(message_template), :class => "positive"
+  = link_to _("Destroy"), message_template_path(message_template), :class => "negative", :confirm => (_("Really destroy %s record?") % _("Message Template")), :method => :delete
