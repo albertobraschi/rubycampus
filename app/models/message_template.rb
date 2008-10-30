@@ -48,7 +48,8 @@ class MessageTemplate < ActiveRecord::Base
   # ends Validations
   
   acts_as_revisable do
-    revision_class_name "MessageTemplateRivision"
+    revision_class_name "MessageTemplateRevision"
+    except :is_enabled
   end
   
   # Searchable attributes
@@ -68,9 +69,6 @@ end
 class MessageTemplateRevision < ActiveRecord::Base
   acts_as_revision :revisable_class_name => "MessageTemplate"
 end
-
-
-
 # == Schema Information
 # Schema version: 20081006092209
 #
