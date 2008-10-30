@@ -149,5 +149,27 @@ class MailingMixinsController < ApplicationController
   def lookup #:nodoc:
     @mailing_mixins = MailingMixin.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/mailing_mixins/1/enable
+  def enable #:nodoc:
+    @mailing_mixin = MailingMixin.find(params[:id])
+    if @mailing_mixin.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Mailing Mixin") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("mailing mixin") }
+    end
+    redirect_to mailing_mixins_url
+  end
+  
+  # PUT rubycampus.local/mailing_mixins/1/disable
+  def disable #:nodoc:
+    @mailing_mixin = MailingMixin.find(params[:id])
+    if @mailing_mixin.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Mailing Mixin") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("mailing mixin") }
+    end
+    redirect_to mailing_mixins_url
+  end
 
 end
