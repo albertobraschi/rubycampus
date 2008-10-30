@@ -13,13 +13,13 @@
         = sort_link_helper _("Last Updated"), "updated_at"
       %th
     - @message_templates.each do |message_template|
-      %tr{:class => cycle("even","odd")}
+      %tr{:class => cycle('even','odd'), :style => "#{'color: #f80a12;' unless message_template.is_enabled}"}
         %td=h message_template.name
         %td=h message_template.subject
         %td=h message_template.is_enabled ? _('Yes') : _('No')
         %td{:style => "vertical-align:top;"}
           = h (_("%s ago") % distance_of_time_in_words(Time.now, (message_template.updated_at))) rescue nil
-        %td= render :partial => "common/actions/for_row_index", :locals => { :local => message_template }
+        %td= render :partial => "message_templates/actions/for_row_index", :locals => { :message_template => message_template }
   - if @message_templates_pages.page_count > 1
     %div.pagination
       = pagination_links_remote @message_templates_pages
