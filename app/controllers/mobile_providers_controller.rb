@@ -141,5 +141,27 @@ class MobileProvidersController < ApplicationController
   def lookup #:nodoc:
     @mobile_providers = MobileProvider.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/mobile_providers/1/enable
+  def enable #:nodoc:
+    @mobile_provider = MobileProvider.find(params[:id])
+    if @mobile_provider.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Mobile Provider") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("mobile provider") }
+    end
+    redirect_to mobile_providers_url
+  end
+
+  # PUT rubycampus.local/mobile_providers/1/disable
+  def disable #:nodoc:
+    @mobile_provider = MobileProvider.find(params[:id])
+    if @mobile_provider.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Mobile Provider") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("mobile provider") }
+    end
+    redirect_to mobile_providers_url
+  end
 
 end
