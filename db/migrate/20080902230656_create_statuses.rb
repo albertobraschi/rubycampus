@@ -39,6 +39,7 @@ class CreateStatuses < ActiveRecord::Migration
   def self.up
     create_table :statuses do |t|
       t.string     :name, :null => false
+      t.string     :description
       t.integer    :position
       t.boolean    :is_default, :default => false
       t.boolean    :is_reserved, :default => false
