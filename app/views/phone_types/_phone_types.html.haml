@@ -5,16 +5,22 @@
     %tr
       %th{ :class => (sort_th_class_helper 'name') }
         = sort_link_helper _("Name"), 'name'
+      %th{ :class => (sort_th_class_helper 'description') }
+        = sort_link_helper _("Description"), 'description'
       %th{ :class => (sort_th_class_helper 'is_default') }
         = sort_link_helper _("Default"), 'is_default'
       %th{ :class => (sort_th_class_helper 'is_enabled') }
         = sort_link_helper _("Enabled"), 'is_enabled'
+      %th{ :class => (sort_th_class_helper 'is_reserved') }
+        = sort_link_helper _("Reserved"), 'is_reserved'
       %th
     - @phone_types.each do |phone_type|
       %tr{:class => cycle('even','odd'), :style => "#{'color: #f80a12;' unless phone_type.is_enabled}"}
         %td=h phone_type.name
+        %td=h phone_type.description
         %td=h phone_type.is_default ? _('Yes') : _('No')
         %td=h phone_type.is_enabled ? _('Yes') : _('No')
+        %td=h phone_type.is_reserved ? _('Yes') : _('No')
         %td= render :partial => "common/actions/for_row_index_toggle_lookup", :locals => { :local => phone_type }
   - if @phone_types_pages.page_count > 1
     %div.pagination
