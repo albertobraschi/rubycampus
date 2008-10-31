@@ -141,5 +141,27 @@ class StagesController < ApplicationController
   def lookup #:nodoc:
     @stages = Stage.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/stages/1/enable
+  def enable #:nodoc:
+    @stage = Stage.find(params[:id])
+    if @stage.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Stage") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("stage") }
+    end
+    redirect_to stages_url
+  end
+
+  # PUT rubycampus.local/stages/1/disable
+  def disable #:nodoc:
+    @stage = Stage.find(params[:id])
+    if @stage.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Stage") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("stage") }
+    end
+    redirect_to stages_url
+  end
 
 end
