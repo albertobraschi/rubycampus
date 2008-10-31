@@ -141,5 +141,27 @@ class EducationLevelsController < ApplicationController
   def lookup #:nodoc:
     @education_levels = EducationLevel.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/education_levels/1/enable
+  def enable #:nodoc:
+    @education_level = EducationLevel.find(params[:id])
+    if @education_level.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Education Level") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("education level") }
+    end
+    redirect_to education_levels_url
+  end
+
+  # PUT rubycampus.local/education_levels/1/disable
+  def disable #:nodoc:
+    @education_level = EducationLevel.find(params[:id])
+    if @education_level.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Education Level") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("education level") }
+    end
+    redirect_to education_levels_url
+  end
 
 end
