@@ -39,6 +39,7 @@ class CreatePrograms < ActiveRecord::Migration
   def self.up
     create_table :programs do |t|
       t.string     :name, :null => false
+      t.string     :description
       t.string     :external_identifier
       t.string     :description
       t.integer    :position
