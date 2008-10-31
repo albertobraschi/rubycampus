@@ -48,7 +48,6 @@ class Stage < ActiveRecord::Base
   N_('Enrolled')
   N_('Canceled')
 
-  caches_constants
   has_many :contacts
   
   acts_as_revisable do
