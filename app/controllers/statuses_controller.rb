@@ -141,5 +141,27 @@ class StatusesController < ApplicationController
   def lookup #:nodoc:
     @statuses = Status.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/statuses/1/enable
+  def enable #:nodoc:
+    @status = Status.find(params[:id])
+    if @status.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Status") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("status") }
+    end
+    redirect_to statuses_url
+  end
+
+  # PUT rubycampus.local/statuses/1/disable
+  def disable #:nodoc:
+    @status = Status.find(params[:id])
+    if @status.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Status") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("status") }
+    end
+    redirect_to statuses_url
+  end
 
 end
