@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3><a href=https://rubycampus.org><img src=../../public/images/rubycampus/logo.png></a></h3>
-    <p>RubyCampus C0 code coverage information generated on Sun Oct 19 21:36:35 +0900 2008.
+    <p>RubyCampus C0 code coverage information generated on Fri Oct 31 15:34:38 +0900 2008.
 
       </p>
     <hr/>
@@ -574,7 +574,7 @@ span.run100 {
         </td>
       <td class='lines_total'><tt>98</tt>
         </td>
-      <td class='lines_code'><tt>21</tt>
+      <td class='lines_code'><tt>22</tt>
         </td>
       <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_total'>98.0%</tt>
               &nbsp;</td>
@@ -586,10 +586,10 @@ span.run100 {
             </tr>
           </table>
         </td>
-      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_code'>90.5%</tt>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_code'>90.9%</tt>
               &nbsp;</td>
-            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='90'/>
-                  <td class='uncovered' width='10'/>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='91'/>
+                  <td class='uncovered' width='9'/>
                   </tr>
                 </table>
               </td>
@@ -649,41 +649,41 @@ span.run100 {
 </span><span class="inferred1"><a name="line48"></a>48   # ends Validations
 </span><span class="inferred0"><a name="line49"></a>49   
 </span><span class="marked1"><a name="line50"></a>50   acts_as_revisable do
-</span><span class="marked0"><a name="line51"></a>51     revision_class_name &quot;MessageTemplateRivision&quot;
-</span><span class="inferred1"><a name="line52"></a>52   end
-</span><span class="inferred0"><a name="line53"></a>53   
-</span><span class="inferred1"><a name="line54"></a>54   # Searchable attributes
-</span><span class="marked0"><a name="line55"></a>55   searchable_by :name
-</span><span class="inferred1"><a name="line56"></a>56   
-</span><span class="inferred0"><a name="line57"></a>57   # Fetches all message_templates with pagination
-</span><span class="marked1"><a name="line58"></a>58   def self.search_for_all_and_paginate(locate, page)
-</span><span class="uncovered0"><a name="line59"></a>59     search(locate).paginate( :page =&gt; page, :per_page =&gt; AppConfig.rows_per_page, :order =&gt; 'updated_at ASC' )
-</span><span class="uncovered1"><a name="line60"></a>60   end         
-</span><span class="inferred0"><a name="line61"></a>61   
-</span><span class="inferred1"><a name="line62"></a>62   # Lists qualifying model attributes for use by auto completion in forms
-</span><span class="marked0"><a name="line63"></a>63   def self.find_for_auto_complete_lookup(search)
-</span><span class="inferred1"><a name="line64"></a>64     find(:all, :conditions =&gt; ['name LIKE ?', &quot;%#{search}%&quot;], :order =&gt; &quot;name ASC&quot; )  
-</span><span class="inferred0"><a name="line65"></a>65   end
-</span><span class="inferred1"><a name="line66"></a>66 
-</span><span class="inferred0"><a name="line67"></a>67 end
-</span><span class="marked1"><a name="line68"></a>68 class MessageTemplateRevision &lt; ActiveRecord::Base
-</span><span class="marked0"><a name="line69"></a>69   acts_as_revision :revisable_class_name =&gt; &quot;MessageTemplate&quot;
-</span><span class="inferred1"><a name="line70"></a>70 end
-</span><span class="inferred0"><a name="line71"></a>71 
+</span><span class="marked0"><a name="line51"></a>51     revision_class_name &quot;MessageTemplateRevision&quot;
+</span><span class="marked1"><a name="line52"></a>52     except :is_enabled
+</span><span class="inferred0"><a name="line53"></a>53   end
+</span><span class="inferred1"><a name="line54"></a>54   
+</span><span class="inferred0"><a name="line55"></a>55   # Searchable attributes
+</span><span class="marked1"><a name="line56"></a>56   searchable_by :name
+</span><span class="inferred0"><a name="line57"></a>57   
+</span><span class="inferred1"><a name="line58"></a>58   # Fetches all message_templates with pagination
+</span><span class="marked0"><a name="line59"></a>59   def self.search_for_all_and_paginate(locate, page)
+</span><span class="uncovered1"><a name="line60"></a>60     search(locate).paginate( :page =&gt; page, :per_page =&gt; AppConfig.rows_per_page, :order =&gt; 'updated_at ASC' )
+</span><span class="uncovered0"><a name="line61"></a>61   end         
+</span><span class="inferred1"><a name="line62"></a>62   
+</span><span class="inferred0"><a name="line63"></a>63   # Lists qualifying model attributes for use by auto completion in forms
+</span><span class="marked1"><a name="line64"></a>64   def self.find_for_auto_complete_lookup(search)
+</span><span class="inferred0"><a name="line65"></a>65     find(:all, :conditions =&gt; ['name LIKE ?', &quot;%#{search}%&quot;], :order =&gt; &quot;name ASC&quot; )  
+</span><span class="inferred1"><a name="line66"></a>66   end
+</span><span class="inferred0"><a name="line67"></a>67 
+</span><span class="inferred1"><a name="line68"></a>68 end
+</span><span class="marked0"><a name="line69"></a>69 class MessageTemplateRevision &lt; ActiveRecord::Base
+</span><span class="marked1"><a name="line70"></a>70   acts_as_revision :revisable_class_name =&gt; &quot;MessageTemplate&quot;
+</span><span class="inferred0"><a name="line71"></a>71 end
 </span><span class="inferred1"><a name="line72"></a>72 
-</span><span class="inferred0"><a name="line73"></a>73 
-</span><span class="inferred1"><a name="line74"></a>74 # == Schema Information
-</span><span class="inferred0"><a name="line75"></a>75 # Schema version: 20081006092209
-</span><span class="inferred1"><a name="line76"></a>76 #
-</span><span class="inferred0"><a name="line77"></a>77 # Table name: rubycampus_message_templates
-</span><span class="inferred1"><a name="line78"></a>78 #
-</span><span class="inferred0"><a name="line79"></a>79 #  id                         :integer(4)      not null, primary key
-</span><span class="inferred1"><a name="line80"></a>80 #  domain_id                  :integer(4)      default(1), not null
-</span><span class="inferred0"><a name="line81"></a>81 #  name                       :string(255)     not null
-</span><span class="inferred1"><a name="line82"></a>82 #  subject                    :string(255)     not null
-</span><span class="inferred0"><a name="line83"></a>83 #  html                       :text
-</span><span class="inferred1"><a name="line84"></a>84 #  text                       :text            not null
-</span><span class="inferred0"><a name="line85"></a>85 #  is_enabled                 :boolean(1)      default(TRUE)
+</span><span class="inferred0"><a name="line73"></a>73 # == Schema Information
+</span><span class="inferred1"><a name="line74"></a>74 # Schema version: 20081015011538
+</span><span class="inferred0"><a name="line75"></a>75 #
+</span><span class="inferred1"><a name="line76"></a>76 # Table name: rubycampus_message_templates
+</span><span class="inferred0"><a name="line77"></a>77 #
+</span><span class="inferred1"><a name="line78"></a>78 #  id                         :integer(4)      not null, primary key
+</span><span class="inferred0"><a name="line79"></a>79 #  domain_id                  :integer(4)      default(1), not null
+</span><span class="inferred1"><a name="line80"></a>80 #  name                       :string(255)     not null
+</span><span class="inferred0"><a name="line81"></a>81 #  subject                    :string(255)     not null
+</span><span class="inferred1"><a name="line82"></a>82 #  html                       :text
+</span><span class="inferred0"><a name="line83"></a>83 #  text                       :text            not null
+</span><span class="inferred1"><a name="line84"></a>84 #  is_enabled                 :boolean(1)      default(TRUE)
+</span><span class="inferred0"><a name="line85"></a>85 #  is_reserved                :boolean(1)
 </span><span class="inferred1"><a name="line86"></a>86 #  revisable_original_id      :integer(4)
 </span><span class="inferred0"><a name="line87"></a>87 #  revisable_branched_from_id :integer(4)
 </span><span class="inferred1"><a name="line88"></a>88 #  revisable_number           :integer(4)

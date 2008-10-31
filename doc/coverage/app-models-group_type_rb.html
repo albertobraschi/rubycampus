@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3><a href=https://rubycampus.org><img src=../../public/images/rubycampus/logo.png></a></h3>
-    <p>RubyCampus C0 code coverage information generated on Sun Oct 19 21:36:34 +0900 2008.
+    <p>RubyCampus C0 code coverage information generated on Fri Oct 31 15:34:37 +0900 2008.
 
       </p>
     <hr/>
@@ -572,7 +572,7 @@ span.run100 {
     </thead>
   <tbody><tr class='light'><td><a href='app-models-group_type_rb.html'>app/models/group_type.rb</a>
         </td>
-      <td class='lines_total'><tt>68</tt>
+      <td class='lines_total'><tt>71</tt>
         </td>
       <td class='lines_code'><tt>11</tt>
         </td>
@@ -656,17 +656,20 @@ span.run100 {
 </span><span class="inferred1"><a name="line55"></a>55   end
 </span><span class="inferred0"><a name="line56"></a>56 end
 </span><span class="inferred1"><a name="line57"></a>57 
-</span><span class="inferred0"><a name="line58"></a>58 # == Schema Information
-</span><span class="inferred1"><a name="line59"></a>59 # Schema version: 20081006092209
-</span><span class="inferred0"><a name="line60"></a>60 #
-</span><span class="inferred1"><a name="line61"></a>61 # Table name: rubycampus_group_types
-</span><span class="inferred0"><a name="line62"></a>62 #
-</span><span class="inferred1"><a name="line63"></a>63 #  id         :integer(4)      not null, primary key
-</span><span class="inferred0"><a name="line64"></a>64 #  name       :string(255)     not null
-</span><span class="inferred1"><a name="line65"></a>65 #  created_at :datetime
-</span><span class="inferred0"><a name="line66"></a>66 #  updated_at :datetime
-</span><span class="inferred1"><a name="line67"></a>67 #
-</span><span class="inferred0"><a name="line68"></a>68 
+</span><span class="inferred0"><a name="line58"></a>58 
+</span><span class="inferred1"><a name="line59"></a>59 # == Schema Information
+</span><span class="inferred0"><a name="line60"></a>60 # Schema version: 20081015011538
+</span><span class="inferred1"><a name="line61"></a>61 #
+</span><span class="inferred0"><a name="line62"></a>62 # Table name: rubycampus_group_types
+</span><span class="inferred1"><a name="line63"></a>63 #
+</span><span class="inferred0"><a name="line64"></a>64 #  id          :integer(4)      not null, primary key
+</span><span class="inferred1"><a name="line65"></a>65 #  name        :string(255)     not null
+</span><span class="inferred0"><a name="line66"></a>66 #  is_enabled  :boolean(1)      default(TRUE)
+</span><span class="inferred1"><a name="line67"></a>67 #  is_reserved :boolean(1)
+</span><span class="inferred0"><a name="line68"></a>68 #  created_at  :datetime
+</span><span class="inferred1"><a name="line69"></a>69 #  updated_at  :datetime
+</span><span class="inferred0"><a name="line70"></a>70 #
+</span><span class="inferred1"><a name="line71"></a>71 
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.3.</p>
