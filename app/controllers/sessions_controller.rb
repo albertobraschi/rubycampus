@@ -91,7 +91,7 @@ class SessionsController < ApplicationController
     flash[:notice] = _("Logged in successfully")
     return_to = session[:return_to]
     if return_to.nil?
-    redirect_to :controller => 'dashboard' #contacts_path(:contact_type => ContactType::INDIVIDUAL.id, :stage => Stage::INQUIRY.id)
+    redirect_to :controller => 'dashboard'
     else
     redirect_to return_to
     end
