@@ -141,5 +141,27 @@ class ActivityTypesController < ApplicationController
   def lookup #:nodoc:
     @activity_types = ActivityType.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/activity_types/1/enable
+  def enable #:nodoc:
+    @activity_type = ActivityType.find(params[:id])
+    if @activity_type.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Activity Type") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("activity type") }
+    end
+    redirect_to activity_types_url
+  end
+
+  # PUT rubycampus.local/activity_types/1/disable
+  def disable #:nodoc:
+    @activity_type = ActivityType.find(params[:id])
+    if @activity_type.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Activity Type") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("activity type") }
+    end
+    redirect_to activity_types_url
+  end
 
 end
