@@ -38,8 +38,48 @@
 rubycampus_groups_001:
   id: 1
   domain_id: 1
+  name: Prospects
+  title: Prospects Title
+  description: Prospects Description
+  is_enabled: false
+  group_type_id: 1
+rubycampus_groups_002:
+  id: 2
+  domain_id: 1
   name: Inquiries
   title: Inquiries Title
   description: Inquiries Description
   is_enabled: true
   group_type_id: 1
+rubycampus_groups_003:
+  id: 3
+  domain_id: 1
+  name: Applicants
+  title: Applicants Title
+  description: Applicants Description
+  is_enabled: true
+  group_type_id: 1
+rubycampus_groups_004:
+  id: 4
+  domain_id: 1
+  name: Confirmed
+  title: Confirmed Title
+  description: Confirmed Description
+  is_enabled: true
+  group_type_id: 1
+rubycampus_groups_005:
+  id: 5
+  domain_id: 1
+  name: Enrolled
+  title: Enrolled Title
+  description: Enrolled Description
+  is_enabled: true
+  group_type_id: 1
+rubycampus_groups_006:
+  id: 6
+  domain_id: 1
+  name: Canceled    
+  title: Canceled Title
+  description: Canceled Description
+  is_enabled: true
+  group_type_id: 1   
