@@ -147,5 +147,27 @@ class EntryTermsController < ApplicationController
   def lookup #:nodoc:
     @entry_terms = EntryTerm.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/entry_terms/1/enable
+  def enable #:nodoc:
+    @entry_term = EntryTerm.find(params[:id])
+    if @entry_term.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Entry Term") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("entry term") }
+    end
+    redirect_to entry_terms_url
+  end
+
+  # PUT rubycampus.local/entry_terms/1/disable
+  def disable #:nodoc:
+    @entry_term = EntryTerm.find(params[:id])
+    if @entry_term.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Entry Term") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("entry term") }
+    end
+    redirect_to entry_terms_url
+  end
 
 end
