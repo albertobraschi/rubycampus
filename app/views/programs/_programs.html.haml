@@ -13,6 +13,8 @@
         = sort_link_helper _("Default"), 'is_default'
       %th{ :class => (sort_th_class_helper 'is_enabled') }
         = sort_link_helper _("Enabled"), 'is_enabled'
+      %th{ :class => (sort_th_class_helper 'is_reserved') }
+        = sort_link_helper _("Reserved"), 'is_reserved'
       %th
     - @programs.each do |program|
       %tr{:class => cycle('even','odd'), :style => "#{'color: #f80a12;' unless program.is_enabled}"}
@@ -21,6 +23,7 @@
         %td=h program.description                
         %td=h program.is_default ? _('Yes') : _('No')
         %td=h program.is_enabled ? _('Yes') : _('No')
+        %td=h program.is_reserved ? _('Yes') : _('No')
         %td= render :partial => "common/actions/for_row_index_toggle_lookup", :locals => { :local => program }
   - if @programs_pages.page_count > 1
     %div.pagination
