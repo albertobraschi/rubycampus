@@ -41,9 +41,11 @@ class ActivityType < ActiveRecord::Base
   untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Phone Call')
+  N_('Email')
   N_('Interview')
   N_('Meeting')
+  N_('Phone Call')
+  N_('Text Message (SMS)')
 
   has_many :contacts
   
