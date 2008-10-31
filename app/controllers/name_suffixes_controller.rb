@@ -49,6 +49,10 @@ class NameSuffixesController < ApplicationController
            when "is_default_reverse"  then "is_default DESC"
            when "is_enabled"  then "is_default"
            when "is_enabled_reverse"  then "is_enabled DESC"
+           when "is_reserved"  then "is_reserved"
+           when "is_reserved_reverse"  then "is_reserved DESC"
+           when "description"  then "description"
+           when "description_reverse"  then "description DESC"
            end
 
     conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
