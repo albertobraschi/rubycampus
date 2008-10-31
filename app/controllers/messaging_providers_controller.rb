@@ -141,5 +141,27 @@ class MessagingProvidersController < ApplicationController
   def lookup #:nodoc:
     @messaging_providers = MessagingProvider.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/messaging_providers/1/enable
+  def enable #:nodoc:
+    @messaging_provider = MessagingProvider.find(params[:id])
+    if @messaging_provider.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Messaging Provider") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("messaging provider") }
+    end
+    redirect_to messaging_providers_url
+  end
+
+  # PUT rubycampus.local/messaging_providers/1/disable
+  def disable #:nodoc:
+    @messaging_provider = MessagingProvider.find(params[:id])
+    if @messaging_provider.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Messaging Provider") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("messaging provider") }
+    end
+    redirect_to messaging_providers_url
+  end
 
 end
