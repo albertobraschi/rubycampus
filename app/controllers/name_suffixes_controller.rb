@@ -141,5 +141,27 @@ class NameSuffixesController < ApplicationController
   def lookup #:nodoc:
     @name_suffixes = NameSuffix.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/name_suffixes/1/enable
+  def enable #:nodoc:
+    @name_suffix = NameSuffix.find(params[:id])
+    if @name_suffix.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Name Suffix") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("name suffix") }
+    end
+    redirect_to name_suffixes_url
+  end
+
+  # PUT rubycampus.local/name_suffixes/1/disable
+  def disable #:nodoc:
+    @name_suffix = NameSuffix.find(params[:id])
+    if @name_suffix.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Name Suffix") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("name suffix") }
+    end
+    redirect_to name_suffixes_url
+  end
 
 end
