@@ -5,6 +5,8 @@
     %tr
       %th{ :class => (sort_th_class_helper 'name') }
         = sort_link_helper _("Name"), 'name'
+      %th{ :class => (sort_th_class_helper 'description') }
+        = sort_link_helper _("Description"), 'description'
       %th{ :class => (sort_th_class_helper "code") }
         = sort_link_helper _("Code"), "code"
       %th{ :class => (sort_th_class_helper "start_date") }
@@ -15,15 +17,19 @@
         = sort_link_helper _("Default"), 'is_default'
       %th{ :class => (sort_th_class_helper 'is_enabled') }
         = sort_link_helper _("Enabled"), 'is_enabled'
+      %th{ :class => (sort_th_class_helper 'is_reserved') }
+        = sort_link_helper _("Reserved"), 'is_reserved'
       %th
     - @entry_terms.each do |entry_term|
       %tr{:class => cycle('even','odd'), :style => "#{'color: #f80a12;' unless entry_term.is_enabled}"}
         %td=h entry_term.name
+        %td=h entry_term.description
         %td=h entry_term.code
         %td=h entry_term.start_date
         %td=h entry_term.end_date                        
         %td=h entry_term.is_default ? _('Yes') : _('No')
         %td=h entry_term.is_enabled ? _('Yes') : _('No')
+        %td=h entry_term.is_reserved ? _('Yes') : _('No')
         %td= render :partial => "common/actions/for_row_index_toggle_lookup", :locals => { :local => entry_term }
   - if @entry_terms_pages.page_count > 1
     %div.pagination
