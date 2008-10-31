@@ -17,14 +17,14 @@
         = sort_link_helper _("Enabled"), 'is_enabled'
       %th
     - @entry_terms.each do |entry_term|
-      %tr{:class => cycle('even','odd')}
+      %tr{:class => cycle('even','odd'), :style => "#{'color: #f80a12;' unless entry_term.is_enabled}"}
         %td=h entry_term.name
         %td=h entry_term.code
         %td=h entry_term.start_date
         %td=h entry_term.end_date                        
         %td=h entry_term.is_default ? _('Yes') : _('No')
         %td=h entry_term.is_enabled ? _('Yes') : _('No')
-        %td= render :partial => "common/actions/for_row_index_no_show", :locals => { :local => entry_term }
+        %td= render :partial => "common/actions/for_row_index_toggle_lookup", :locals => { :local => entry_term }
   - if @entry_terms_pages.page_count > 1
     %div.pagination
       = pagination_links_remote @entry_terms_pages
