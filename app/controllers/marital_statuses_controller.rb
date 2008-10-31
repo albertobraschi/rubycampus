@@ -141,5 +141,27 @@ class MaritalStatusesController < ApplicationController
   def lookup #:nodoc:
     @marital_statuses = MaritalStatus.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/marital_statuses/1/enable
+  def enable #:nodoc:
+    @marital_status = MaritalStatus.find(params[:id])
+    if @marital_status.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Marital Status") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("marital status") }
+    end
+    redirect_to marital_statuses_url
+  end
+
+  # PUT rubycampus.local/marital_statuses/1/disable
+  def disable #:nodoc:
+    @marital_status = MaritalStatus.find(params[:id])
+    if @marital_status.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Marital Status") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("marital status") }
+    end
+    redirect_to marital_statuses_url
+  end
 
 end
