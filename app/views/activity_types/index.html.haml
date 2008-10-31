@@ -3,6 +3,7 @@
   .hako
     = render :partial => "common/actions/for_form_index"
     %h2= yield(:title)
+    %h3= context_help(_("Activities are interactions with contacts that you want to record and track. RubyCampus has several reserved activity types, e.g., emails, text messages, meetings and phone calls. Create new 'activity types' to record and track additional activities. %{learn_more}"))
     %p
       %form{ :name => "rubycampus", :action => "", :class => "hakozaki", :autocomplete => :off }
         %label{ :for => "activity_type_name", :class => "w35 inputselect"}
