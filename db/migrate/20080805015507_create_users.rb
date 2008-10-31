@@ -50,7 +50,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string     :password_reset_code, :limit => 40
       t.boolean    :enabled, :default => true   
       t.string     :state, :null => :no, :default => 'passive'
-      t.boolean    :is_admin, :default => false     
+      t.boolean    :is_admin, :default => false
+      t.boolean    :is_reserved, :default => false     
       t.string     :time_zone
       t.string     :language, :limit => 5,  :default => 'en', :null => false
       t.integer    :updated_by

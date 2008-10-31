@@ -43,7 +43,8 @@ class CreateMessageTemplates < ActiveRecord::Migration
       t.string     :subject, :null => false
       t.text       :html
       t.text       :text, :null => false
-      t.boolean    :is_enabled, :default => true 
+      t.boolean    :is_enabled, :default => true
+      t.boolean    :is_reserved, :default => false
       t.integer    :revisable_original_id
       t.integer    :revisable_branched_from_id
       t.integer    :revisable_number

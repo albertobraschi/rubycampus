@@ -45,6 +45,7 @@ class CreateMailingMixins < ActiveRecord::Migration
       t.text       :text, :null => false
       t.integer    :mailing_mixin_type_id, :null => false
       t.boolean    :is_default, :default => false
+      t.boolean    :is_reserved, :default => false
       t.boolean    :is_enabled, :default => true
       t.integer    :revisable_original_id
       t.integer    :revisable_branched_from_id

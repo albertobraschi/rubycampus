@@ -40,6 +40,7 @@ class CreateRoles < ActiveRecord::Migration
     create_table :roles do |t|
     t.string       :name
     t.integer      :updated_by
+    t.boolean      :is_reserved, :default => false
     t.timestamps
     end
   end

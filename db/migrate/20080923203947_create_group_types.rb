@@ -39,6 +39,8 @@ class CreateGroupTypes < ActiveRecord::Migration
   def self.up
     create_table :group_types do |t|
       t.string     :name, :null => false
+      t.boolean    :is_enabled, :default => true
+      t.boolean    :is_reserved, :default => false
       t.timestamps
     end
     require 'active_record/fixtures'

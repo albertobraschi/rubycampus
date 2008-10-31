@@ -41,6 +41,7 @@ class CreatePermissions < ActiveRecord::Migration
     t.integer      :user_id, :null => false
     t.integer      :role_id, :null => false
     t.integer      :updated_by
+    t.boolean      :is_reserved, :default => false
     t.timestamps
     end
 

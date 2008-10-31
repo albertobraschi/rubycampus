@@ -48,6 +48,7 @@ class CreateGroups < ActiveRecord::Migration
       t.text       :where_tables
       t.integer    :group_type_id, :null => false
       t.boolean    :is_enabled, :default => true
+      t.boolean    :is_reserved, :default => false
       t.timestamps
     end
     require 'active_record/fixtures'
