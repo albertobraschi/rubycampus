@@ -141,5 +141,27 @@ class PhoneTypesController < ApplicationController
   def lookup #:nodoc:
     @phone_types = PhoneType.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/phone_types/1/enable
+  def enable #:nodoc:
+    @phone_type = PhoneType.find(params[:id])
+    if @phone_type.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Phone Type") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("phone type") }
+    end
+    redirect_to phone_types_url
+  end
+
+  # PUT rubycampus.local/phone_types/1/disable
+  def disable #:nodoc:
+    @phone_type = PhoneType.find(params[:id])
+    if @phone_type.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Phone Type") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("phone type") }
+    end
+    redirect_to phone_types_url
+  end
 
 end
