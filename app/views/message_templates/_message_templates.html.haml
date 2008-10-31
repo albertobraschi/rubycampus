@@ -19,7 +19,7 @@
         %td=h message_template.is_enabled ? _('Yes') : _('No')
         %td{:style => "vertical-align:top;"}
           = h (_("%s ago") % distance_of_time_in_words(Time.now, (message_template.updated_at))) rescue nil
-        %td= render :partial => "common/actions/for_row_index_toggle", :locals => { :local => message_template }
+        %td= render :partial => "common/actions/for_row_index_toggle_lookup", :locals => { :local => message_template }
   - if @message_templates_pages.page_count > 1
     %div.pagination
       = pagination_links_remote @message_templates_pages
