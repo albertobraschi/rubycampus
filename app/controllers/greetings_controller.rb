@@ -141,5 +141,27 @@ class GreetingsController < ApplicationController
   def lookup #:nodoc:
     @greetings = Greeting.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/greetings/1/enable
+  def enable #:nodoc:
+    @greeting = Greeting.find(params[:id])
+    if @greeting.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Greeting") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("greeting") }
+    end
+    redirect_to greetings_url
+  end
+
+  # PUT rubycampus.local/greetings/1/disable
+  def disable #:nodoc:
+    @greeting = Greeting.find(params[:id])
+    if @greeting.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Greeting") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("greeting") }
+    end
+    redirect_to greetings_url
+  end
 
 end
