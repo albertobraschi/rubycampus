@@ -74,14 +74,17 @@ class MailingMixinType < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
-# Schema version: 20081006092209
+# Schema version: 20081015011538
 #
 # Table name: rubycampus_mailing_mixin_types
 #
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)     not null
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer(4)      not null, primary key
+#  name        :string(255)     not null
+#  is_enabled  :boolean(1)      default(TRUE)
+#  is_reserved :boolean(1)
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 

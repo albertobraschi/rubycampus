@@ -45,15 +45,17 @@ class Role < ActiveRecord::Base
   
 end
 
+
 # == Schema Information
-# Schema version: 20081006092209
+# Schema version: 20081015011538
 #
 # Table name: rubycampus_roles
 #
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  updated_by :integer(4)
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer(4)      not null, primary key
+#  name        :string(255)
+#  updated_by  :integer(4)
+#  is_reserved :boolean(1)
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 

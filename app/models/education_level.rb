@@ -72,8 +72,9 @@ class EducationLevelRevision < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
-# Schema version: 20081006092209
+# Schema version: 20081015011538
 #
 # Table name: rubycampus_education_levels
 #
@@ -81,6 +82,7 @@ end
 #  name                       :string(255)     not null
 #  position                   :integer(4)
 #  is_default                 :boolean(1)
+#  is_reserved                :boolean(1)
 #  is_enabled                 :boolean(1)      default(TRUE)
 #  revisable_original_id      :integer(4)
 #  revisable_branched_from_id :integer(4)

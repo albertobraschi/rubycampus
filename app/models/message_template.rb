@@ -69,8 +69,9 @@ end
 class MessageTemplateRevision < ActiveRecord::Base
   acts_as_revision :revisable_class_name => "MessageTemplate"
 end
+
 # == Schema Information
-# Schema version: 20081006092209
+# Schema version: 20081015011538
 #
 # Table name: rubycampus_message_templates
 #
@@ -81,6 +82,7 @@ end
 #  html                       :text
 #  text                       :text            not null
 #  is_enabled                 :boolean(1)      default(TRUE)
+#  is_reserved                :boolean(1)
 #  revisable_original_id      :integer(4)
 #  revisable_branched_from_id :integer(4)
 #  revisable_number           :integer(4)

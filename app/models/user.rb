@@ -220,8 +220,9 @@ end
 
 end
 
+
 # == Schema Information
-# Schema version: 20081006092209
+# Schema version: 20081015011538
 #
 # Table name: rubycampus_users
 #
@@ -239,6 +240,7 @@ end
 #  enabled                   :boolean(1)      default(TRUE)
 #  state                     :string(255)     default("passive")
 #  is_admin                  :boolean(1)
+#  is_reserved               :boolean(1)
 #  time_zone                 :string(255)
 #  language                  :string(5)       default("en"), not null
 #  updated_by                :integer(4)

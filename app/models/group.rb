@@ -68,8 +68,9 @@ class Group < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
-# Schema version: 20081006092209
+# Schema version: 20081015011538
 #
 # Table name: rubycampus_groups
 #
@@ -84,6 +85,7 @@ end
 #  where_tables    :text
 #  group_type_id   :integer(4)      not null
 #  is_enabled      :boolean(1)      default(TRUE)
+#  is_reserved     :boolean(1)
 #  created_at      :datetime
 #  updated_at      :datetime
 #
