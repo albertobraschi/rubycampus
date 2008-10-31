@@ -141,5 +141,27 @@ class SourcesController < ApplicationController
   def lookup #:nodoc:
     @sources = Source.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/sources/1/enable
+  def enable #:nodoc:
+    @source = Source.find(params[:id])
+    if @source.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Source") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("source") }
+    end
+    redirect_to sources_url
+  end
+
+  # PUT rubycampus.local/sources/1/disable
+  def disable #:nodoc:
+    @source = Source.find(params[:id])
+    if @source.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Source") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("source") }
+    end
+    redirect_to sources_url
+  end
 
 end
