@@ -145,5 +145,27 @@ class ProgramsController < ApplicationController
   def lookup #:nodoc:
     @programs = Program.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/programs/1/enable
+  def enable #:nodoc:
+    @program = Program.find(params[:id])
+    if @program.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Program") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("program") }
+    end
+    redirect_to programs_url
+  end
+
+  # PUT rubycampus.local/programs/1/disable
+  def disable #:nodoc:
+    @program = Program.find(params[:id])
+    if @program.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Program") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("program") }
+    end
+    redirect_to programs_url
+  end
 
 end
