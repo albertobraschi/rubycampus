@@ -41,54 +41,101 @@ ActionController::Routing::Routes.draw do |map|
 
   # begin RubyCampus Administration
   map.resources :administers
-  map.resources :announcements, :collection => { :index => :get}
+  map.resources :announcements,
+                  :collection => { :index => :get}
   # end RubyCampus Administration
 
   # begin RubyCampus Processors
-  map.resources :activities, :collection => { :index => :get}
+  map.resources :activities,
+                  :collection => { :index => :get}
   # end RubyCampus Processors
 
   # begin RubyCampus Constituents
-  map.resources :contacts, :collection => { :lookup => :get }
-  map.resources :individuals, :collection => { :index => :get }
-  map.resources :organizations, :collection => { :index => :get }
-  map.resources :households, :collection => { :index => :get }
+  map.resources :contacts,
+                  :collection => { :lookup => :get }
+  map.resources :individuals,
+                  :collection => { :index => :get }
+  map.resources :organizations,
+                  :collection => { :index => :get }
+  map.resources :households,
+                  :collection => { :index => :get }
   # end RubyCampus Constituents
 
   # begin RubyCampus Mailings
-  map.resources :mailing_mixins, :collection => { :lookup => :get, :index => :get },
-                                 :member => { :enable => :put, :disable => :put }
-  map.resources :mailing_mixin_types, :collection => { :lookup => :get, :index => :get }
+  map.resources :mailing_mixins,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :mailing_mixin_types,
+                  :collection => { :lookup => :get, :index => :get }
   # end RubyCampus Mailings
 
   # begin RubyCampus RESTful Code Tables
-  map.resources :academic_levels, :collection => { :lookup => :get, :index => :get },
-                                  :member => { :enable => :put, :disable => :put }
-  map.resources :activity_types, :collection => { :lookup => :get, :index => :get },
-                                 :member => { :enable => :put, :disable => :put }
-  map.resources :countries, :collection => { :lookup => :get }
-  map.resources :education_levels, :collection => { :lookup => :get, :index => :get }
-  map.resources :entry_terms, :collection => { :lookup => :get, :index => :get }
-  map.resources :ethnicities, :collection => { :lookup => :get, :index => :get }
-  map.resources :genders, :collection => { :lookup => :get, :index => :get }
-  map.resources :greetings, :collection => { :lookup => :get, :index => :get }
-  map.resources :groups, :collection => { :lookup => :get, :index => :get },
-                         :member => { :enable => :put, :disable => :put, :members => :get }
-  map.resources :head_of_households, :collection => { :lookup => :get }
-  map.resources :location_types, :collection => { :lookup => :get, :index => :get }
-  map.resources :marital_statuses, :collection => { :lookup => :get, :index => :get }
-  map.resources :message_templates, :collection => { :lookup => :get, :index => :get },
-                                    :member => { :enable => :put, :disable => :put }
-  map.resources :messaging_providers, :collection => { :lookup => :get, :index => :get }
-  map.resources :mobile_providers, :collection => { :lookup => :get, :index => :get }
-  map.resources :name_prefixes, :collection => { :lookup => :get, :index => :get }
-  map.resources :name_suffixes, :collection => { :lookup => :get, :index => :get }
-  map.resources :phone_types, :collection => { :lookup => :get, :index => :get }
-  map.resources :programs, :collection => { :lookup => :get, :index => :get }
-  map.resources :regions, :collection => { :lookup => :get }
-  map.resources :sources, :collection => { :lookup => :get, :index => :get }
-  map.resources :stages, :collection => { :lookup => :get, :index => :get }
-  map.resources :statuses, :collection => { :lookup => :get, :index => :get }
+  map.resources :academic_levels,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :activity_types,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :countries,
+                  :collection => { :lookup => :get }
+  map.resources :education_levels,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :entry_terms,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :ethnicities,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :genders,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :greetings,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :groups,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put, :members => :get }
+  map.resources :head_of_households,
+                  :collection => { :lookup => :get }
+  map.resources :location_types,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :marital_statuses,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :message_templates,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :messaging_providers,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :mobile_providers,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :name_prefixes,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :name_suffixes,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :phone_types,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :programs,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :regions,
+                  :collection => { :lookup => :get }
+  map.resources :sources,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :stages,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
+  map.resources :statuses,
+                  :collection => { :lookup => :get, :index => :get },
+                  :member => { :enable => :put, :disable => :put }
   # end RubyCampus RESTful Code Tables
 
   # begin RESTful_authentication routes
