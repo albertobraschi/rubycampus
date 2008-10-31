@@ -141,5 +141,27 @@ class GendersController < ApplicationController
   def lookup #:nodoc:
     @genders = Gender.find_for_auto_complete_lookup(params[:search])                            
   end
+  
+  # PUT rubycampus.local/genders/1/enable
+  def enable #:nodoc:
+    @gender = Gender.find(params[:id])
+    if @gender.update_attribute(:is_enabled, true)
+    flash[:notice] = _("%{name} enabled.") % { :name => _("Gender") }
+    else
+    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("gender") }
+    end
+    redirect_to genders_url
+  end
+
+  # PUT rubycampus.local/genders/1/disable
+  def disable #:nodoc:
+    @gender = Gender.find(params[:id])
+    if @gender.update_attribute(:is_enabled, false)
+    flash[:notice] = _("%{name} disabled.") % { :name => _("Gender") }
+    else
+    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("gender") }
+    end
+    redirect_to genders_url
+  end
 
 end
