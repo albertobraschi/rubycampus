@@ -3,15 +3,15 @@
 - else
   %table
     %tr
-      %th{ :class => (sort_th_class_helper "name") }
-        = sort_link_helper _("Name"), "name"
-      %th{ :class => (sort_th_class_helper "is_default") }
-        = sort_link_helper _("Is Default"), "is_default"
-      %th{ :class => (sort_th_class_helper "is_enabled") }
+      %th{ :class => (sort_th_class_helper 'name') }
+        = sort_link_helper _("Name"), 'name'
+      %th{ :class => (sort_th_class_helper 'is_default') }
+        = sort_link_helper _("Default"), 'is_default'
+      %th{ :class => (sort_th_class_helper 'is_enabled') }
         = sort_link_helper _("Enabled"), 'is_enabled'
       %th
     - @activity_types.each do |activity_type|
-      %tr{:class => cycle("even","odd")}
+      %tr{:class => cycle('even','odd')}
         %td=h activity_type.name
         %td=h activity_type.is_default ? _('Yes') : _('No')
         %td=h activity_type.is_enabled ? _('Yes') : _('No')

@@ -3,17 +3,17 @@
 - else
   %table
     %tr
-      %th{ :class => (sort_th_class_helper "name") }
-        = sort_link_helper _("Name"), "name"  
+      %th{ :class => (sort_th_class_helper 'name') }
+        = sort_link_helper _("Name"), 'name'  
       %th{ :class => (sort_th_class_helper "mailing_mixin_type_id") }
         = sort_link_helper _("Type"), "mailing_mixin_type_id"  
       %th{ :class => (sort_th_class_helper "subject") }
         = sort_link_helper _("Subject"), "subject"    
       %th{ :class => (sort_th_class_helper "text") }
         = sort_link_helper _("Text"), "text"  
-      %th{ :class => (sort_th_class_helper "is_default") }
+      %th{ :class => (sort_th_class_helper 'is_default') }
         = sort_link_helper _("Default"), "is_default"  
-      %th{ :class => (sort_th_class_helper "is_enabled") }
+      %th{ :class => (sort_th_class_helper 'is_enabled') }
         = sort_link_helper _("Enabled"), "is_enabled"  
       %th 
     - @mailing_mixins.each do |mailing_mixin|
@@ -24,7 +24,7 @@
         %td=h mailing_mixin.text 
         %td=h mailing_mixin.is_default ? _('Yes') : _('No') 
         %td=h mailing_mixin.is_enabled ? _('Yes') : _('No')      
-        %td= render :partial => "mailing_mixins/actions/for_row_index", :locals => { :mailing_mixin => mailing_mixin }
+        %td= render :partial => "common/actions/for_row_index_toggle_and_edit", :locals => { :local => mailing_mixin }
   - if @mailing_mixins_pages.page_count > 1
     %div.pagination
       = pagination_links_remote @mailing_mixins_pages

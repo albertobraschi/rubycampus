@@ -13,7 +13,7 @@
         = sort_link_helper _("Last Updated"), "updated_at"
       %th
     - @announcements.each do |announcement|
-      %tr{:class => cycle("even","odd")}
+      %tr{:class => cycle('even','odd')}
         %td=h announcement.message
         %td=h announcement.starts_at
         %td=h announcement.ends_at

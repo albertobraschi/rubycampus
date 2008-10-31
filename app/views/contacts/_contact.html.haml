@@ -1,4 +1,4 @@
-%tr[contact]{:class => cycle("even","odd")}
+%tr[contact]{:class => cycle('even','odd')}
   %td{:style => "vertical-align:top;"}
     %span{:class => "icons %s" % (contact.contact_type.name.downcase rescue nil) }
       = "#{h contact.last_name}, #{h contact.first_name}" rescue nil

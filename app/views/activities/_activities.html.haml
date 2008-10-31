@@ -13,7 +13,7 @@
         = sort_link_helper _("Last Updated"), "updated_at"
       %th
     - @activities.each do |activity|
-      %tr{:class => cycle("even","odd")}
+      %tr{:class => cycle('even','odd')}
         %td=h activity.activity_type.name
         %td=h activity.subject
         %td=h "#{activity.contact.last_name}, #{activity.contact.first_name}"

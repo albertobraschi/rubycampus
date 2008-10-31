@@ -3,11 +3,11 @@
 - else
   %table
     %tr
-      %th{ :class => (sort_th_class_helper "name") }
-        = sort_link_helper _("Name"), "name"
+      %th{ :class => (sort_th_class_helper 'name') }
+        = sort_link_helper _("Name"), 'name'
       %th{ :class => (sort_th_class_helper "subject") }
         = sort_link_helper _("Subject"), "subject"
-      %th{ :class => (sort_th_class_helper "is_enabled") }
+      %th{ :class => (sort_th_class_helper 'is_enabled') }
         = sort_link_helper _("Enabled"), 'is_enabled'
       %th{ :class => (sort_th_class_helper "updated_at") }
         = sort_link_helper _("Last Updated"), "updated_at"
@@ -19,7 +19,7 @@
         %td=h message_template.is_enabled ? _('Yes') : _('No')
         %td{:style => "vertical-align:top;"}
           = h (_("%s ago") % distance_of_time_in_words(Time.now, (message_template.updated_at))) rescue nil
-        %td= render :partial => "message_templates/actions/for_row_index", :locals => { :message_template => message_template }
+        %td= render :partial => "common/actions/for_row_index_toggle", :locals => { :local => message_template }
   - if @message_templates_pages.page_count > 1
     %div.pagination
       = pagination_links_remote @message_templates_pages

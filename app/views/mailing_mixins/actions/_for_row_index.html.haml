@@ -1,3 +1,0 @@
-.action_buttons[mailing_mixin]
-  = mailing_mixin.is_enabled ? link_to(_("Disable"), disable_mailing_mixin_path(mailing_mixin), :method => :put) : link_to(_("Enable"), enable_mailing_mixin_path(mailing_mixin), :method => :put)
-  = link_to _("Edit"), edit_mailing_mixin_path(mailing_mixin), :class => "positive"

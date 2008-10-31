@@ -1,0 +1,3 @@
+.action_buttons[local]
+  = link_to(_("Edit"), self.send(("edit_"+controller.controller_name.singularize+"_path"), local), :class => "positive")
+  = local.is_enabled ? link_to(_("Disable"), self.send(("disable_"+controller.controller_name.singularize+"_path"), local), :method => :put) : link_to(_("Enable"), self.send(("enable_"+controller.controller_name.singularize+"_path"), local), :method => :put)  

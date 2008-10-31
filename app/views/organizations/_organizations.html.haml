@@ -10,7 +10,7 @@
         = sort_link_helper _("Last Updated"), "updated_at"
       %th
     - @contacts.each do |contact|
-      %tr{:class => cycle("even","odd")}
+      %tr{:class => cycle('even','odd')}
         %td=h contact.organization_name
         %td{:style => "vertical-align:top;"}
           - for address in contact.addresses do

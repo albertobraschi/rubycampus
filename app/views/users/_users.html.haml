@@ -13,7 +13,7 @@
         = sort_link_helper _("Last Updated"), "updated_at"
       %th
     - @users.each do |user|
-      %tr{:class => cycle("even","odd")}
+      %tr{:class => cycle('even','odd')}
         %td=h user.login
         %td= content_tag(:span, (mail_to h(user.email)), :class => "icons email")
         %td

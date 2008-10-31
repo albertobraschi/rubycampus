@@ -3,13 +3,13 @@
 - else
   %table
     %tr
-      %th{ :class => (sort_th_class_helper "name") }
-        = sort_link_helper _("Name"), "name"
+      %th{ :class => (sort_th_class_helper 'name') }
+        = sort_link_helper _("Name"), 'name'
       %th{ :class => (sort_th_class_helper "id") }
         = sort_link_helper _("ID"), "id"
       %th{ :class => (sort_th_class_helper "description") }
         = sort_link_helper _("Description"), "description"
-      %th{ :class => (sort_th_class_helper "is_enabled") }
+      %th{ :class => (sort_th_class_helper 'is_enabled') }
         = sort_link_helper _("Enabled"), "is_enabled"
       %th{ :class => (sort_th_class_helper "group_type_id") }
         = sort_link_helper _("Group Type"), "group_type_id" 

@@ -3,21 +3,21 @@
 - else
   %table
     %tr
-      %th{ :class => (sort_th_class_helper "name") }
-        = sort_link_helper _("Name"), "name"
+      %th{ :class => (sort_th_class_helper 'name') }
+        = sort_link_helper _("Name"), 'name'
       %th{ :class => (sort_th_class_helper "code") }
         = sort_link_helper _("Code"), "code"
       %th{ :class => (sort_th_class_helper "start_date") }
         = sort_link_helper _("Start Date"), "start_date"
       %th{ :class => (sort_th_class_helper "end_date") }
         = sort_link_helper _("End Date"), "end_date"                
-      %th{ :class => (sort_th_class_helper "is_default") }
-        = sort_link_helper _("Is Default"), "is_default"
-      %th{ :class => (sort_th_class_helper "is_enabled") }
+      %th{ :class => (sort_th_class_helper 'is_default') }
+        = sort_link_helper _("Default"), 'is_default'
+      %th{ :class => (sort_th_class_helper 'is_enabled') }
         = sort_link_helper _("Enabled"), 'is_enabled'
       %th
     - @entry_terms.each do |entry_term|
-      %tr{:class => cycle("even","odd")}
+      %tr{:class => cycle('even','odd')}
         %td=h entry_term.name
         %td=h entry_term.code
         %td=h entry_term.start_date
