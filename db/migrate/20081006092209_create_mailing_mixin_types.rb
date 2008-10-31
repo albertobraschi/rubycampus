@@ -39,6 +39,7 @@ class CreateMailingMixinTypes < ActiveRecord::Migration
   def self.up
     create_table :mailing_mixin_types do |t|
       t.string     :name, :null => false
+      t.string     :description
       t.boolean    :is_enabled, :default => true
       t.boolean    :is_reserved, :default => false
       t.timestamps
