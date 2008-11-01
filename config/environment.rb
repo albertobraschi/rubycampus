@@ -55,7 +55,7 @@ Rails::Initializer.run do |config|
                                          # environments.
   config.gem 'gettext',                  :version => '1.93.0',
                                          :lib => 'gettext/rails'
-  config.gem 'haml',                     :version => '2.0.3',
+  config.gem 'haml',                     :version => '2.0.4',
                                          :lib => 'haml'
   config.gem 'mislav-will_paginate',     :version => '2.3.4',
                                          :lib => 'will_paginate',
