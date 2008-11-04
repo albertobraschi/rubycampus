@@ -35,39 +35,37 @@
 # +------------------------------------------------------------------------------------+
 #++
 
-class Group < ActiveRecord::Base 
+class Group < ActiveRecord::Base
   # Excludes model from being included in PO template
   require 'gettext/rails'
   untranslate_all
-  
+
   # start Associations
-    belongs_to :group_type 
-    
+    belongs_to :group_type
+
     has_and_belongs_to_many :contacts
   # end Associations
-  
+
   # begin Validations
-    validates_presence_of :name 
-    validates_presence_of :description 
+    validates_presence_of :name
+    validates_presence_of :description
     validates_presence_of :group_type_id
   # ends Validations
-  
+
   # Searchable attributes
   searchable_by :name
-  
+
   # Fetches all groups with pagination
   def self.search_for_all_and_paginate(locate, page)
     search(locate).paginate( :page => page, :per_page => AppConfig.rows_per_page, :order => 'updated_at ASC' )
-  end         
-  
+  end
+
   # Lists qualifying model attributes for use by auto completion in forms
   def self.find_for_auto_complete_lookup(search)
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "name ASC" )  
+    find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "name ASC" )
   end
 
 end
-
-
 
 # == Schema Information
 # Schema version: 20081015011538
