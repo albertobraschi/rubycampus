@@ -1,6 +1,7 @@
 %tr[contact]{:class => cycle('even','odd')}
   %td{:style => "vertical-align:top;"}
     %span{:class => "icons %s" % (contact.contact_type.name.downcase rescue nil) }
+      = check_box_tag "contact_ids[]", contact.id, contact.group_ids.include?(params[:id].to_i) if @current_action == "search"
       = "#{h contact.last_name}, #{h contact.first_name}" rescue nil
       = h contact.organization_name rescue nil
       = h contact.household_name rescue nil
