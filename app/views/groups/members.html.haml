@@ -2,7 +2,9 @@
 .standard_box
   .hako
     %h2= yield(:title)
-    %h3= context_help((_("The following contacts are members of the of the %{group} group. You may add new members or remove existing ones.") % { :group => @group.name.downcase }))
+    %h3.quiet= _("The following contacts are members of the of the %{group} group. There are currently %{total_or_no} contacts assigned to %{group}. You may add new members or remove existing ones.") % { :group => @group.name.downcase, :total_or_no => (@contacts_total > 1 ? @contacts_total : _("no")) }
+    %span.icons.add= link_to(_("Add Members to %{group}") % { :group => @group.name.titleize }, search_groups_path(:id => params[:id], :contact_type => ContactType::INDIVIDUAL.id))
+    %hr/
   - if @contacts_total == 0
     .no_data{:style=>"text-align:center;"}= _("No %{collection} Found") % { :collection => _("Members") }
   - else
