@@ -94,7 +94,7 @@ ActionController::Routing::Routes.draw do |map|
                   :collection => { :lookup => :get, :index => :get },
                   :member => { :enable => :put, :disable => :put }
   map.resources :groups,
-                  :collection => { :lookup => :get, :index => :get },
+                  :collection => { :lookup => :get, :index => :get, :add => :put, :search => :get },
                   :member => { :enable => :put, :disable => :put, :members => :get }
   map.resources :head_of_households,
                   :collection => { :lookup => :get }
