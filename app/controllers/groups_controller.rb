@@ -38,7 +38,7 @@
 class GroupsController < ApplicationController
   before_filter :login_required, :except => [ :lookup ]
   before_filter :check_super_user_role, :except => [ :lookup ]
-  
+
   def index #:nodoc:
     sort = case params['sort']
            when "name"  then "name"
@@ -120,7 +120,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.update_attributes(params[:group])
-        flash[:notice] = _("%s was successfully updated.") % _("Group") 
+        flash[:notice] = _("%s was successfully updated.") % _("Group")
         format.html { redirect_to groups_url }
         # format.xml  { head :ok }
       else
@@ -135,17 +135,17 @@ class GroupsController < ApplicationController
   def destroy #:nodoc:
     @group = Group.find(params[:id])
     @group.destroy
-  
+
     respond_to do |format|
       format.html { redirect_to groups_url }
       # format.xml  { head :ok }
     end
-  end  
-    
+  end
+
   def lookup #:nodoc:
     @groups = Group.find_for_auto_complete_lookup(params[:search])
   end
-  
+
   # PUT rubycampus.local/groups/1/enable
   def enable #:nodoc:
     @group = Group.find(params[:id])
@@ -156,7 +156,7 @@ class GroupsController < ApplicationController
     end
     redirect_to groups_url
   end
-  
+
   # PUT rubycampus.local/groups/1/disable
   def disable #:nodoc:
     @group = Group.find(params[:id])
@@ -167,15 +167,38 @@ class GroupsController < ApplicationController
     end
     redirect_to groups_url
   end
-  
+
   # GET rubycampus.local/groups/1/members
   def members #:nodoc:
     @group = Group.find(params[:id])
     @contacts_total = @group.contacts.count
     @contacts = @group.contacts.search_for_all_and_paginate(params[:search], params[:page], params[:contact_type], params[:stage])
-    
+
     respond_to do |format|
       format.html
+    end
+  end
+
+  # GET rubycampus.local/groups/search
+  def search #:nodoc:
+    @group = Group.find(params[:id])
+    @contacts = Contact.search_for_all_and_paginate(params[:search], params[:page], params[:contact_type], params[:stage])
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def add #:nodoc:
+    @group = Group.find(params[:id])
+
+    respond_to do |format|
+      if @group.update_attributes(:contact_ids => params[:contact_ids])
+        flash[:notice] = _("%s members successfully updated.") % _("Group")
+        format.html { redirect_to members_group_url(params[:id]) }
+      else
+        format.html { redirect_to groups_url }
+      end
     end
   end
 
