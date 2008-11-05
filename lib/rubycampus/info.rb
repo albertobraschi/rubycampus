@@ -2,14 +2,14 @@
 # +------------------------------------------------------------------------------------+
 # | RubyCampus - Student & Alumni Relationship Management Software                     |
 # +------------------------------------------------------------------------------------+
-# | Copyright (C) 2008 Kevin Aleman, RubyCampus LLC - https://rubycampus.org           |
+# | Copyright © 2008-2009 Kevin R. Aleman. Fukuoka, Japan. All Rights Reserved.        |
 # +------------------------------------------------------------------------------------+
 # |                                                                                    |
 # | This program is free software; you can redistribute it and/or modify it under the  |
 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
 # | Software Foundation with the addition of the following permission added to Section |
 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
-# | COPYRIGHT IS OWNED BY RUBYCAMPUS LLC, RUBYCAMPUS LLC DISCLAIMS THE WARRANTY OF NON |
+# | COPYRIGHT IS OWNED BY KEVIN R ALEMAN, KEVIN R ALEMAN DISCLAIMS THE WARRANTY OF NON |
 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
 # |                                                                                    |
 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
@@ -21,7 +21,8 @@
 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
 # | USA.                                                                               |
 # |                                                                                    |
-# | You can contact RubyCampus, LLC. at email address project@rubycampus.org.          |
+# | You can contact the author Kevin R. Aleman by email at kaleman@rubycampus.org. The |
+# | official RubyCampus website can be found at https://rubycampus.org.                |
 # |                                                                                    |
 # | The interactive user interfaces in modified source and object code versions of     |
 # | this program must display Appropriate Legal Notices, as required under Section 5   |
@@ -45,7 +46,7 @@ module Rubycampus
         "<a href=\"#{RUBYCAMPUS_ORG_BASE_URL}\" title=\"Powered by RubyCampus\"><img src=\"/images/powered_by_rubycampus.png\" alt=\"Powered by RubyCampus\"></a>"
       end
       def impressum
-        val = "<small>Copyright © 2008 <a href=\"https://rubycampus.org/wiki/rubycampus/Licensing\">Kevin R. Aleman</a>, RubyCampus LLC. The Program is provided AS IS, without warranty. Licensed under <a 
+        val = "<small>Copyright © 2008-2009 <a href=\"https://rubycampus.org/wiki/rubycampus/Licensing\">Kevin R. Aleman</a>. The Program is provided AS IS, without warranty. Licensed under <a 
         href=\"/license\">AGPLv3</a>.<br/>This program is free software; you can redistribute it and/or modify it under the terms 
         of the <a href=\"/license\">GNU Affero General Public License version 3</a> as published by the<br/>Free Software Foundation 
         including the additional permission set forth in the source code header. <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}/download\">Download</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}projects/#{RUBYCAMPUS}/issues\">Support</a> | <a href=\"#{RUBYCAMPUS_ORG_BASE_URL}wiki/#{RUBYCAMPUS}\">Documentation</a><br/>#{Rubycampus::Info::powered_by}</small>"
@@ -73,7 +74,7 @@ module Rubycampus
           <h2>RubyCampus Community Edition</h2>
           <h4>Version #{Rubycampus::Build::version[:string]}</h4>
           <p>
-          Copyright © 2008 <a href="https://rubycampus.org/wiki/rubycampus/Licensing">Kevin R. Aleman</a>, RubyCampus LLC. The Program is provided AS IS, without warranty. Licensed under <a 
+          Copyright © 2008-2009 <a href="https://rubycampus.org/wiki/rubycampus/Licensing">Kevin R. Aleman</a>. Fukuoka, Japan. All Rights Reserved. The Program is provided AS IS, without warranty. Licensed under <a 
           href="/license">AGPLv3</a>. This program is free software; you can redistribute it and/or modify it under the terms 
           of the <a href="/license">GNU Affero General Public License version 3</a> as published by the Free Software Foundation 
           including the additional permission set forth in the source code header.
