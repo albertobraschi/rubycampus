@@ -42,7 +42,7 @@ Lists qualifying model attributes for use by auto completion in forms
 <pre>
     <span class="ruby-comment cmt"># File app/models/group.rb, line 64</span>
 64:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_for_auto_complete_lookup</span>(<span class="ruby-identifier">search</span>)
-65:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;name ASC&quot;</span> )  
+65:     <span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'name LIKE ?'</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>], <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;name ASC&quot;</span> )
 66:   <span class="ruby-keyword kw">end</span>
 </pre>
   </div>

@@ -75,6 +75,7 @@ class MailingMixinType < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 # Schema version: 20081015011538
 #
@@ -82,6 +83,7 @@ end
 #
 #  id          :integer(4)      not null, primary key
 #  name        :string(255)     not null
+#  description :string(255)
 #  is_enabled  :boolean(1)      default(TRUE)
 #  is_reserved :boolean(1)
 #  created_at  :datetime
