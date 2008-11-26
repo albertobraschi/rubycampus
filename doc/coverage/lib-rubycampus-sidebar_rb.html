@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3><a href=https://rubycampus.org><img src=../../public/images/rubycampus/logo.png></a></h3>
-    <p>RubyCampus C0 code coverage information generated on Mon Nov 10 00:10:21 +0900 2008.
+    <p>RubyCampus C0 code coverage information generated on Wed Nov 26 16:18:27 +0900 2008.
 
       </p>
     <hr/>
@@ -599,100 +599,100 @@ span.run100 {
       </tr>
     </tbody>
   </table>
-<pre><span class="inferred0"><a name="line1"></a> 1 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
-</span><span class="inferred1"><a name="line2"></a> 2 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line3"></a> 3 # | RubyCampus - Student &amp; Alumni Relationship Management Software                     |
-</span><span class="inferred1"><a name="line4"></a> 4 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line5"></a> 5 # | Copyright © 2008-2009 Kevin R. Aleman. Fukuoka, Japan. All Rights Reserved.        |
-</span><span class="inferred1"><a name="line6"></a> 6 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line7"></a> 7 # |                                                                                    |
-</span><span class="inferred1"><a name="line8"></a> 8 # | This program is free software; you can redistribute it and/or modify it under the  |
-</span><span class="inferred0"><a name="line9"></a> 9 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
-</span><span class="inferred1"><a name="line10"></a>10 # | Software Foundation with the addition of the following permission added to Section |
-</span><span class="inferred0"><a name="line11"></a>11 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
-</span><span class="inferred1"><a name="line12"></a>12 # | COPYRIGHT IS OWNED BY KEVIN R ALEMAN, KEVIN R ALEMAN DISCLAIMS THE WARRANTY OF NON |
-</span><span class="inferred0"><a name="line13"></a>13 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
-</span><span class="inferred1"><a name="line14"></a>14 # |                                                                                    |
-</span><span class="inferred0"><a name="line15"></a>15 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
-</span><span class="inferred1"><a name="line16"></a>16 # | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
-</span><span class="inferred0"><a name="line17"></a>17 # | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
-</span><span class="inferred1"><a name="line18"></a>18 # |                                                                                    |
-</span><span class="inferred0"><a name="line19"></a>19 # | You should have received a copy of the GNU Affero General Public License along     |
-</span><span class="inferred1"><a name="line20"></a>20 # | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
-</span><span class="inferred0"><a name="line21"></a>21 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
-</span><span class="inferred1"><a name="line22"></a>22 # | USA.                                                                               |
-</span><span class="inferred0"><a name="line23"></a>23 # |                                                                                    |
-</span><span class="inferred1"><a name="line24"></a>24 # | You can contact the author Kevin R. Aleman by email at KALEMAN@RUBYCAMPUS.ORG. The |
-</span><span class="inferred0"><a name="line25"></a>25 # |                                                                                    |
-</span><span class="inferred1"><a name="line26"></a>26 # | The interactive user interfaces in modified source and object code versions of     |
-</span><span class="inferred0"><a name="line27"></a>27 # | this program must display Appropriate Legal Notices, as required under Section 5   |
-</span><span class="inferred1"><a name="line28"></a>28 # | of the GNU Affero General Public License version 3.                                |
-</span><span class="inferred0"><a name="line29"></a>29 # |                                                                                    |
-</span><span class="inferred1"><a name="line30"></a>30 # | In accordance with Section 7(b) of the GNU Affero General Public License version   |
-</span><span class="inferred0"><a name="line31"></a>31 # | 3, these Appropriate Legal Notices must retain the display of the &quot;Powered by      |
-</span><span class="inferred1"><a name="line32"></a>32 # | RubyCampus&quot; logo. If the display of the logo is not reasonably feasible for        |
-</span><span class="inferred0"><a name="line33"></a>33 # | technical reasons, the Appropriate Legal Notices must display the words &quot;Powered   |
-</span><span class="inferred1"><a name="line34"></a>34 # | by RubyCampus&quot;.                                                                    |
-</span><span class="inferred0"><a name="line35"></a>35 # +------------------------------------------------------------------------------------+
-</span><span class="inferred1"><a name="line36"></a>36 #++
-</span><span class="inferred0"><a name="line37"></a>37 
-</span><span class="marked1"><a name="line38"></a>38 module Rubycampus
-</span><span class="marked0"><a name="line39"></a>39   module Sidebar
-</span><span class="inferred1"><a name="line40"></a>40     
-</span><span class="inferred0"><a name="line41"></a>41     # generate your sidebars directory with the following task:
-</span><span class="inferred1"><a name="line42"></a>42     # rake sidebar:install
-</span><span class="inferred0"><a name="line43"></a>43     # == display_sidebar
-</span><span class="inferred1"><a name="line44"></a>44     # displays a sidebar, it will search for sidebar partial files in the following areas:
-</span><span class="inferred0"><a name="line45"></a>45     # 1. views/sidebars/[:controller]/[:action] # =&gt; action specific sidebar
-</span><span class="inferred1"><a name="line46"></a>46     # 2. views/sidebars/[:controller]/global # =&gt; controller specific sidebar
-</span><span class="inferred0"><a name="line47"></a>47     # 3. views/sidebars/global # =&gt; app wide specific sidebar
-</span><span class="inferred1"><a name="line48"></a>48     # to generate a sidebar skeleton dir, use the following rake task
-</span><span class="inferred0"><a name="line49"></a>49     # rake sidebar:generate FOR='controller/action'
-</span><span class="inferred1"><a name="line50"></a>50     # you can set the message to display by passing it in the block
-</span><span class="inferred0"><a name="line51"></a>51     # display_sidebar { &quot;Nothing to see&quot; } # =&gt; will display &quot;Nothing to see&quot; if sidebar isn't 
-</span><span class="inferred1"><a name="line52"></a>52     #                                           found
-</span><span class="inferred0"><a name="line53"></a>53     # you can specify a wrapping element by using the following syntax
-</span><span class="inferred1"><a name="line54"></a>54     # display_sidebar :inside =&gt; '&lt;div id=&quot;sidebars&quot;&gt;yield&lt;/div&gt;'
-</span><span class="inferred0"><a name="line55"></a>55     #         - yield will be substituted with the sidebar
-</span><span class="inferred1"><a name="line56"></a>56     # 
-</span><span class="marked0"><a name="line57"></a>57     def display_sidebar(options={}, &amp;block)
-</span><span class="uncovered1"><a name="line58"></a>58       options[:inside] ||= &quot;&quot;
-</span><span class="uncovered0"><a name="line59"></a>59       sidebar_partial = &quot;sidebars/#{params[:controller]}/#{params[:action]}&quot;
-</span><span class="uncovered1"><a name="line60"></a>60       sidebar_file = File.join(RAILS_ROOT, &quot;app/views/sidebars&quot;, params[:controller], 
-</span><span class="uncovered0"><a name="line61"></a>61                               &quot;_#{params[:action]}.html.haml&quot;)
-</span><span class="uncovered1"><a name="line62"></a>62 
-</span><span class="uncovered0"><a name="line63"></a>63       controller_sidebar_partial = &quot;sidebars/#{params[:controller]}/global&quot;                        
-</span><span class="uncovered1"><a name="line64"></a>64       controller_sidebar_file = File.join(RAILS_ROOT, &quot;app/views/sidebars/#{params[:controller]}/_global.html.haml&quot;)
-</span><span class="uncovered0"><a name="line65"></a>65 
-</span><span class="uncovered1"><a name="line66"></a>66       global_sidebar_file = &quot;#{RAILS_ROOT}/app/views/sidebars/_global.html.haml&quot;
-</span><span class="uncovered0"><a name="line67"></a>67       global_sidebar_partial = &quot;sidebars/global&quot;
-</span><span class="uncovered1"><a name="line68"></a>68 
-</span><span class="uncovered0"><a name="line69"></a>69       if File.exists?(sidebar_file)
-</span><span class="uncovered1"><a name="line70"></a>70         side_bar = render(:partial =&gt; sidebar_partial) 
-</span><span class="uncovered0"><a name="line71"></a>71         options[:inside].blank? ? side_bar : options[:inside].gsub(&quot;yield&quot;,side_bar)
-</span><span class="uncovered1"><a name="line72"></a>72       elsif File.exists?(controller_sidebar_file)
-</span><span class="uncovered0"><a name="line73"></a>73         side_bar = render :partial =&gt; controller_sidebar_partial
-</span><span class="uncovered1"><a name="line74"></a>74         options[:inside].blank? ? side_bar : options[:inside].gsub(&quot;yield&quot;,side_bar)
-</span><span class="uncovered0"><a name="line75"></a>75       else
-</span><span class="uncovered1"><a name="line76"></a>76         content = &quot;&quot; || yield
-</span><span class="uncovered0"><a name="line77"></a>77         File.exists?(global_sidebar_file) ? render(:partial =&gt; global_sidebar_partial) : content
-</span><span class="uncovered1"><a name="line78"></a>78       end
-</span><span class="uncovered0"><a name="line79"></a>79     end
-</span><span class="inferred1"><a name="line80"></a>80     
-</span><span class="inferred0"><a name="line81"></a>81     # if you need to quickly copy a sidebar from another within the same
-</span><span class="inferred1"><a name="line82"></a>82     # controller, here's the easy way :
-</span><span class="inferred0"><a name="line83"></a>83     # copy_from :name_of_sidebar
-</span><span class="inferred1"><a name="line84"></a>84     #   # =&gt; render :partial =&gt; 'sidebars/#{params[:controller]}/#{sidebar}'
-</span><span class="inferred0"><a name="line85"></a>85     # you can also copy a sidebar from another controller by passing the controller hash
-</span><span class="inferred1"><a name="line86"></a>86     # copy_from :index, :controller =&gt; &quot;home&quot;
-</span><span class="inferred0"><a name="line87"></a>87     #   # =&gt; render :partial =&gt; 'sidebars/home/index.html.haml'
-</span><span class="marked1"><a name="line88"></a>88     def copy_from(sidebar, options={})
-</span><span class="uncovered0"><a name="line89"></a>89       options[:controller] ||= params[:controller] 
-</span><span class="uncovered1"><a name="line90"></a>90       render :partial =&gt; &quot;sidebars/#{options[:controller]}/#{sidebar.to_s}&quot; 
-</span><span class="uncovered0"><a name="line91"></a>91     end
-</span><span class="uncovered1"><a name="line92"></a>92     
-</span><span class="uncovered0"><a name="line93"></a>93   end
-</span><span class="uncovered1"><a name="line94"></a>94 end
+<pre><span class="inferred1"><a name="line1"></a> 1 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
+</span><span class="inferred0"><a name="line2"></a> 2 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line3"></a> 3 # | RubyCampus - Student &amp; Alumni Relationship Management Software                     |
+</span><span class="inferred0"><a name="line4"></a> 4 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line5"></a> 5 # | Copyright © 2008-2009 Kevin R. Aleman. Fukuoka, Japan. All Rights Reserved.        |
+</span><span class="inferred0"><a name="line6"></a> 6 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line7"></a> 7 # |                                                                                    |
+</span><span class="inferred0"><a name="line8"></a> 8 # | This program is free software; you can redistribute it and/or modify it under the  |
+</span><span class="inferred1"><a name="line9"></a> 9 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
+</span><span class="inferred0"><a name="line10"></a>10 # | Software Foundation with the addition of the following permission added to Section |
+</span><span class="inferred1"><a name="line11"></a>11 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
+</span><span class="inferred0"><a name="line12"></a>12 # | COPYRIGHT IS OWNED BY KEVIN R ALEMAN, KEVIN R ALEMAN DISCLAIMS THE WARRANTY OF NON |
+</span><span class="inferred1"><a name="line13"></a>13 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
+</span><span class="inferred0"><a name="line14"></a>14 # |                                                                                    |
+</span><span class="inferred1"><a name="line15"></a>15 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
+</span><span class="inferred0"><a name="line16"></a>16 # | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
+</span><span class="inferred1"><a name="line17"></a>17 # | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
+</span><span class="inferred0"><a name="line18"></a>18 # |                                                                                    |
+</span><span class="inferred1"><a name="line19"></a>19 # | You should have received a copy of the GNU Affero General Public License along     |
+</span><span class="inferred0"><a name="line20"></a>20 # | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
+</span><span class="inferred1"><a name="line21"></a>21 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
+</span><span class="inferred0"><a name="line22"></a>22 # | USA.                                                                               |
+</span><span class="inferred1"><a name="line23"></a>23 # |                                                                                    |
+</span><span class="inferred0"><a name="line24"></a>24 # | You can contact the author Kevin R. Aleman by email at KALEMAN@RUBYCAMPUS.ORG. The |
+</span><span class="inferred1"><a name="line25"></a>25 # |                                                                                    |
+</span><span class="inferred0"><a name="line26"></a>26 # | The interactive user interfaces in modified source and object code versions of     |
+</span><span class="inferred1"><a name="line27"></a>27 # | this program must display Appropriate Legal Notices, as required under Section 5   |
+</span><span class="inferred0"><a name="line28"></a>28 # | of the GNU Affero General Public License version 3.                                |
+</span><span class="inferred1"><a name="line29"></a>29 # |                                                                                    |
+</span><span class="inferred0"><a name="line30"></a>30 # | In accordance with Section 7(b) of the GNU Affero General Public License version   |
+</span><span class="inferred1"><a name="line31"></a>31 # | 3, these Appropriate Legal Notices must retain the display of the &quot;Powered by      |
+</span><span class="inferred0"><a name="line32"></a>32 # | RubyCampus&quot; logo. If the display of the logo is not reasonably feasible for        |
+</span><span class="inferred1"><a name="line33"></a>33 # | technical reasons, the Appropriate Legal Notices must display the words &quot;Powered   |
+</span><span class="inferred0"><a name="line34"></a>34 # | by RubyCampus&quot;.                                                                    |
+</span><span class="inferred1"><a name="line35"></a>35 # +------------------------------------------------------------------------------------+
+</span><span class="inferred0"><a name="line36"></a>36 #++
+</span><span class="inferred1"><a name="line37"></a>37 
+</span><span class="marked0"><a name="line38"></a>38 module Rubycampus
+</span><span class="marked1"><a name="line39"></a>39   module Sidebar
+</span><span class="inferred0"><a name="line40"></a>40     
+</span><span class="inferred1"><a name="line41"></a>41     # generate your sidebars directory with the following task:
+</span><span class="inferred0"><a name="line42"></a>42     # rake sidebar:install
+</span><span class="inferred1"><a name="line43"></a>43     # == display_sidebar
+</span><span class="inferred0"><a name="line44"></a>44     # displays a sidebar, it will search for sidebar partial files in the following areas:
+</span><span class="inferred1"><a name="line45"></a>45     # 1. views/sidebars/[:controller]/[:action] # =&gt; action specific sidebar
+</span><span class="inferred0"><a name="line46"></a>46     # 2. views/sidebars/[:controller]/global # =&gt; controller specific sidebar
+</span><span class="inferred1"><a name="line47"></a>47     # 3. views/sidebars/global # =&gt; app wide specific sidebar
+</span><span class="inferred0"><a name="line48"></a>48     # to generate a sidebar skeleton dir, use the following rake task
+</span><span class="inferred1"><a name="line49"></a>49     # rake sidebar:generate FOR='controller/action'
+</span><span class="inferred0"><a name="line50"></a>50     # you can set the message to display by passing it in the block
+</span><span class="inferred1"><a name="line51"></a>51     # display_sidebar { &quot;Nothing to see&quot; } # =&gt; will display &quot;Nothing to see&quot; if sidebar isn't 
+</span><span class="inferred0"><a name="line52"></a>52     #                                           found
+</span><span class="inferred1"><a name="line53"></a>53     # you can specify a wrapping element by using the following syntax
+</span><span class="inferred0"><a name="line54"></a>54     # display_sidebar :inside =&gt; '&lt;div id=&quot;sidebars&quot;&gt;yield&lt;/div&gt;'
+</span><span class="inferred1"><a name="line55"></a>55     #         - yield will be substituted with the sidebar
+</span><span class="inferred0"><a name="line56"></a>56     # 
+</span><span class="marked1"><a name="line57"></a>57     def display_sidebar(options={}, &amp;block)
+</span><span class="uncovered0"><a name="line58"></a>58       options[:inside] ||= &quot;&quot;
+</span><span class="uncovered1"><a name="line59"></a>59       sidebar_partial = &quot;sidebars/#{params[:controller]}/#{params[:action]}&quot;
+</span><span class="uncovered0"><a name="line60"></a>60       sidebar_file = File.join(RAILS_ROOT, &quot;app/views/sidebars&quot;, params[:controller], 
+</span><span class="uncovered1"><a name="line61"></a>61                               &quot;_#{params[:action]}.html.haml&quot;)
+</span><span class="uncovered0"><a name="line62"></a>62 
+</span><span class="uncovered1"><a name="line63"></a>63       controller_sidebar_partial = &quot;sidebars/#{params[:controller]}/global&quot;                        
+</span><span class="uncovered0"><a name="line64"></a>64       controller_sidebar_file = File.join(RAILS_ROOT, &quot;app/views/sidebars/#{params[:controller]}/_global.html.haml&quot;)
+</span><span class="uncovered1"><a name="line65"></a>65 
+</span><span class="uncovered0"><a name="line66"></a>66       global_sidebar_file = &quot;#{RAILS_ROOT}/app/views/sidebars/_global.html.haml&quot;
+</span><span class="uncovered1"><a name="line67"></a>67       global_sidebar_partial = &quot;sidebars/global&quot;
+</span><span class="uncovered0"><a name="line68"></a>68 
+</span><span class="uncovered1"><a name="line69"></a>69       if File.exists?(sidebar_file)
+</span><span class="uncovered0"><a name="line70"></a>70         side_bar = render(:partial =&gt; sidebar_partial) 
+</span><span class="uncovered1"><a name="line71"></a>71         options[:inside].blank? ? side_bar : options[:inside].gsub(&quot;yield&quot;,side_bar)
+</span><span class="uncovered0"><a name="line72"></a>72       elsif File.exists?(controller_sidebar_file)
+</span><span class="uncovered1"><a name="line73"></a>73         side_bar = render :partial =&gt; controller_sidebar_partial
+</span><span class="uncovered0"><a name="line74"></a>74         options[:inside].blank? ? side_bar : options[:inside].gsub(&quot;yield&quot;,side_bar)
+</span><span class="uncovered1"><a name="line75"></a>75       else
+</span><span class="uncovered0"><a name="line76"></a>76         content = &quot;&quot; || yield
+</span><span class="uncovered1"><a name="line77"></a>77         File.exists?(global_sidebar_file) ? render(:partial =&gt; global_sidebar_partial) : content
+</span><span class="uncovered0"><a name="line78"></a>78       end
+</span><span class="uncovered1"><a name="line79"></a>79     end
+</span><span class="inferred0"><a name="line80"></a>80     
+</span><span class="inferred1"><a name="line81"></a>81     # if you need to quickly copy a sidebar from another within the same
+</span><span class="inferred0"><a name="line82"></a>82     # controller, here's the easy way :
+</span><span class="inferred1"><a name="line83"></a>83     # copy_from :name_of_sidebar
+</span><span class="inferred0"><a name="line84"></a>84     #   # =&gt; render :partial =&gt; 'sidebars/#{params[:controller]}/#{sidebar}'
+</span><span class="inferred1"><a name="line85"></a>85     # you can also copy a sidebar from another controller by passing the controller hash
+</span><span class="inferred0"><a name="line86"></a>86     # copy_from :index, :controller =&gt; &quot;home&quot;
+</span><span class="inferred1"><a name="line87"></a>87     #   # =&gt; render :partial =&gt; 'sidebars/home/index.html.haml'
+</span><span class="marked0"><a name="line88"></a>88     def copy_from(sidebar, options={})
+</span><span class="uncovered1"><a name="line89"></a>89       options[:controller] ||= params[:controller] 
+</span><span class="uncovered0"><a name="line90"></a>90       render :partial =&gt; &quot;sidebars/#{options[:controller]}/#{sidebar.to_s}&quot; 
+</span><span class="uncovered1"><a name="line91"></a>91     end
+</span><span class="uncovered0"><a name="line92"></a>92     
+</span><span class="uncovered1"><a name="line93"></a>93   end
+</span><span class="uncovered0"><a name="line94"></a>94 end
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.3.</p>

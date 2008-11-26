@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3><a href=https://rubycampus.org><img src=../../public/images/rubycampus/logo.png></a></h3>
-    <p>RubyCampus C0 code coverage information generated on Mon Nov 10 00:10:18 +0900 2008.
+    <p>RubyCampus C0 code coverage information generated on Wed Nov 26 16:18:23 +0900 2008.
 
       </p>
     <hr/>
@@ -572,7 +572,7 @@ span.run100 {
     </thead>
   <tbody><tr class='light'><td><a href='app-models-name_suffix_rb.html'>app/models/name_suffix.rb</a>
         </td>
-      <td class='lines_total'><tt>104</tt>
+      <td class='lines_total'><tt>106</tt>
         </td>
       <td class='lines_code'><tt>26</tt>
         </td>
@@ -679,30 +679,32 @@ span.run100 {
 </span><span class="inferred1"><a name="line78"></a> 78 end
 </span><span class="inferred0"><a name="line79"></a> 79 
 </span><span class="inferred1"><a name="line80"></a> 80 
-</span><span class="inferred0"><a name="line81"></a> 81 # == Schema Information
-</span><span class="inferred1"><a name="line82"></a> 82 # Schema version: 20081006092209
-</span><span class="inferred0"><a name="line83"></a> 83 #
-</span><span class="inferred1"><a name="line84"></a> 84 # Table name: rubycampus_name_suffixes
-</span><span class="inferred0"><a name="line85"></a> 85 #
-</span><span class="inferred1"><a name="line86"></a> 86 #  id                         :integer(4)      not null, primary key
-</span><span class="inferred0"><a name="line87"></a> 87 #  name                       :string(255)     not null
-</span><span class="inferred1"><a name="line88"></a> 88 #  position                   :integer(4)
-</span><span class="inferred0"><a name="line89"></a> 89 #  is_default                 :boolean(1)
-</span><span class="inferred1"><a name="line90"></a> 90 #  is_reserved                :boolean(1)
-</span><span class="inferred0"><a name="line91"></a> 91 #  is_enabled                 :boolean(1)      default(TRUE)
-</span><span class="inferred1"><a name="line92"></a> 92 #  revisable_original_id      :integer(4)
-</span><span class="inferred0"><a name="line93"></a> 93 #  revisable_branched_from_id :integer(4)
-</span><span class="inferred1"><a name="line94"></a> 94 #  revisable_number           :integer(4)
-</span><span class="inferred0"><a name="line95"></a> 95 #  revisable_name             :string(255)
-</span><span class="inferred1"><a name="line96"></a> 96 #  revisable_type             :string(255)
-</span><span class="inferred0"><a name="line97"></a> 97 #  revisable_current_at       :datetime
-</span><span class="inferred1"><a name="line98"></a> 98 #  revisable_revised_at       :datetime
-</span><span class="inferred0"><a name="line99"></a> 99 #  revisable_deleted_at       :datetime
-</span><span class="inferred1"><a name="line100"></a>100 #  revisable_is_current       :boolean(1)
-</span><span class="inferred0"><a name="line101"></a>101 #  created_at                 :datetime
-</span><span class="inferred1"><a name="line102"></a>102 #  updated_at                 :datetime
-</span><span class="inferred0"><a name="line103"></a>103 #
-</span><span class="inferred1"><a name="line104"></a>104 
+</span><span class="inferred0"><a name="line81"></a> 81 
+</span><span class="inferred1"><a name="line82"></a> 82 # == Schema Information
+</span><span class="inferred0"><a name="line83"></a> 83 # Schema version: 20081015011538
+</span><span class="inferred1"><a name="line84"></a> 84 #
+</span><span class="inferred0"><a name="line85"></a> 85 # Table name: rubycampus_name_suffixes
+</span><span class="inferred1"><a name="line86"></a> 86 #
+</span><span class="inferred0"><a name="line87"></a> 87 #  id                         :integer(4)      not null, primary key
+</span><span class="inferred1"><a name="line88"></a> 88 #  name                       :string(255)     not null
+</span><span class="inferred0"><a name="line89"></a> 89 #  description                :string(255)
+</span><span class="inferred1"><a name="line90"></a> 90 #  position                   :integer(4)
+</span><span class="inferred0"><a name="line91"></a> 91 #  is_default                 :boolean(1)
+</span><span class="inferred1"><a name="line92"></a> 92 #  is_reserved                :boolean(1)
+</span><span class="inferred0"><a name="line93"></a> 93 #  is_enabled                 :boolean(1)      default(TRUE)
+</span><span class="inferred1"><a name="line94"></a> 94 #  revisable_original_id      :integer(4)
+</span><span class="inferred0"><a name="line95"></a> 95 #  revisable_branched_from_id :integer(4)
+</span><span class="inferred1"><a name="line96"></a> 96 #  revisable_number           :integer(4)
+</span><span class="inferred0"><a name="line97"></a> 97 #  revisable_name             :string(255)
+</span><span class="inferred1"><a name="line98"></a> 98 #  revisable_type             :string(255)
+</span><span class="inferred0"><a name="line99"></a> 99 #  revisable_current_at       :datetime
+</span><span class="inferred1"><a name="line100"></a>100 #  revisable_revised_at       :datetime
+</span><span class="inferred0"><a name="line101"></a>101 #  revisable_deleted_at       :datetime
+</span><span class="inferred1"><a name="line102"></a>102 #  revisable_is_current       :boolean(1)
+</span><span class="inferred0"><a name="line103"></a>103 #  created_at                 :datetime
+</span><span class="inferred1"><a name="line104"></a>104 #  updated_at                 :datetime
+</span><span class="inferred0"><a name="line105"></a>105 #
+</span><span class="inferred1"><a name="line106"></a>106 
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.3.</p>

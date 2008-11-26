@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3><a href=https://rubycampus.org><img src=../../public/images/rubycampus/logo.png></a></h3>
-    <p>RubyCampus C0 code coverage information generated on Mon Nov 10 00:10:20 +0900 2008.
+    <p>RubyCampus C0 code coverage information generated on Wed Nov 26 16:18:26 +0900 2008.
 
       </p>
     <hr/>
@@ -599,56 +599,56 @@ span.run100 {
       </tr>
     </tbody>
   </table>
-<pre><span class="inferred1"><a name="line1"></a> 1 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
-</span><span class="inferred0"><a name="line2"></a> 2 # +------------------------------------------------------------------------------------+
-</span><span class="inferred1"><a name="line3"></a> 3 # | RubyCampus - Student &amp; Alumni Relationship Management Software                     |
-</span><span class="inferred0"><a name="line4"></a> 4 # +------------------------------------------------------------------------------------+
-</span><span class="inferred1"><a name="line5"></a> 5 # | Copyright © 2008-2009 Kevin R. Aleman. Fukuoka, Japan. All Rights Reserved.        |
-</span><span class="inferred0"><a name="line6"></a> 6 # +------------------------------------------------------------------------------------+
-</span><span class="inferred1"><a name="line7"></a> 7 # |                                                                                    |
-</span><span class="inferred0"><a name="line8"></a> 8 # | This program is free software; you can redistribute it and/or modify it under the  |
-</span><span class="inferred1"><a name="line9"></a> 9 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
-</span><span class="inferred0"><a name="line10"></a>10 # | Software Foundation with the addition of the following permission added to Section |
-</span><span class="inferred1"><a name="line11"></a>11 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
-</span><span class="inferred0"><a name="line12"></a>12 # | COPYRIGHT IS OWNED BY KEVIN R ALEMAN, KEVIN R ALEMAN DISCLAIMS THE WARRANTY OF NON |
-</span><span class="inferred1"><a name="line13"></a>13 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
-</span><span class="inferred0"><a name="line14"></a>14 # |                                                                                    |
-</span><span class="inferred1"><a name="line15"></a>15 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
-</span><span class="inferred0"><a name="line16"></a>16 # | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
-</span><span class="inferred1"><a name="line17"></a>17 # | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
-</span><span class="inferred0"><a name="line18"></a>18 # |                                                                                    |
-</span><span class="inferred1"><a name="line19"></a>19 # | You should have received a copy of the GNU Affero General Public License along     |
-</span><span class="inferred0"><a name="line20"></a>20 # | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
-</span><span class="inferred1"><a name="line21"></a>21 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
-</span><span class="inferred0"><a name="line22"></a>22 # | USA.                                                                               |
-</span><span class="inferred1"><a name="line23"></a>23 # |                                                                                    |
-</span><span class="inferred0"><a name="line24"></a>24 # | You can contact the author Kevin R. Aleman by email at KALEMAN@RUBYCAMPUS.ORG. The |
-</span><span class="inferred1"><a name="line25"></a>25 # |                                                                                    |
-</span><span class="inferred0"><a name="line26"></a>26 # | The interactive user interfaces in modified source and object code versions of     |
-</span><span class="inferred1"><a name="line27"></a>27 # | this program must display Appropriate Legal Notices, as required under Section 5   |
-</span><span class="inferred0"><a name="line28"></a>28 # | of the GNU Affero General Public License version 3.                                |
-</span><span class="inferred1"><a name="line29"></a>29 # |                                                                                    |
-</span><span class="inferred0"><a name="line30"></a>30 # | In accordance with Section 7(b) of the GNU Affero General Public License version   |
-</span><span class="inferred1"><a name="line31"></a>31 # | 3, these Appropriate Legal Notices must retain the display of the &quot;Powered by      |
-</span><span class="inferred0"><a name="line32"></a>32 # | RubyCampus&quot; logo. If the display of the logo is not reasonably feasible for        |
-</span><span class="inferred1"><a name="line33"></a>33 # | technical reasons, the Appropriate Legal Notices must display the words &quot;Powered   |
-</span><span class="inferred0"><a name="line34"></a>34 # | by RubyCampus&quot;.                                                                    |
-</span><span class="inferred1"><a name="line35"></a>35 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line36"></a>36 #++
-</span><span class="inferred1"><a name="line37"></a>37 
-</span><span class="marked0"><a name="line38"></a>38 class UserObserver &lt; ActiveRecord::Observer
-</span><span class="inferred1"><a name="line39"></a>39 
-</span><span class="marked0"><a name="line40"></a>40   def after_create(user)
-</span><span class="uncovered1"><a name="line41"></a>41     UserMailer.deliver_new_user_notification(user)
-</span><span class="uncovered0"><a name="line42"></a>42   end
-</span><span class="inferred1"><a name="line43"></a>43 
-</span><span class="marked0"><a name="line44"></a>44   def after_save(user)
-</span><span class="uncovered1"><a name="line45"></a>45     UserMailer.deliver_activation(user) if user.pending?
-</span><span class="uncovered0"><a name="line46"></a>46     UserMailer.deliver_forgot_password(user) if user.recently_forgot_password?
-</span><span class="uncovered1"><a name="line47"></a>47     UserMailer.deliver_reset_password(user) if user.recently_reset_password?
-</span><span class="uncovered0"><a name="line48"></a>48   end
-</span><span class="inferred1"><a name="line49"></a>49 
-</span><span class="marked0"><a name="line50"></a>50 end
+<pre><span class="inferred0"><a name="line1"></a> 1 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
+</span><span class="inferred1"><a name="line2"></a> 2 # +------------------------------------------------------------------------------------+
+</span><span class="inferred0"><a name="line3"></a> 3 # | RubyCampus - Student &amp; Alumni Relationship Management Software                     |
+</span><span class="inferred1"><a name="line4"></a> 4 # +------------------------------------------------------------------------------------+
+</span><span class="inferred0"><a name="line5"></a> 5 # | Copyright © 2008-2009 Kevin R. Aleman. Fukuoka, Japan. All Rights Reserved.        |
+</span><span class="inferred1"><a name="line6"></a> 6 # +------------------------------------------------------------------------------------+
+</span><span class="inferred0"><a name="line7"></a> 7 # |                                                                                    |
+</span><span class="inferred1"><a name="line8"></a> 8 # | This program is free software; you can redistribute it and/or modify it under the  |
+</span><span class="inferred0"><a name="line9"></a> 9 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
+</span><span class="inferred1"><a name="line10"></a>10 # | Software Foundation with the addition of the following permission added to Section |
+</span><span class="inferred0"><a name="line11"></a>11 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
+</span><span class="inferred1"><a name="line12"></a>12 # | COPYRIGHT IS OWNED BY KEVIN R ALEMAN, KEVIN R ALEMAN DISCLAIMS THE WARRANTY OF NON |
+</span><span class="inferred0"><a name="line13"></a>13 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
+</span><span class="inferred1"><a name="line14"></a>14 # |                                                                                    |
+</span><span class="inferred0"><a name="line15"></a>15 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
+</span><span class="inferred1"><a name="line16"></a>16 # | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
+</span><span class="inferred0"><a name="line17"></a>17 # | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
+</span><span class="inferred1"><a name="line18"></a>18 # |                                                                                    |
+</span><span class="inferred0"><a name="line19"></a>19 # | You should have received a copy of the GNU Affero General Public License along     |
+</span><span class="inferred1"><a name="line20"></a>20 # | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
+</span><span class="inferred0"><a name="line21"></a>21 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
+</span><span class="inferred1"><a name="line22"></a>22 # | USA.                                                                               |
+</span><span class="inferred0"><a name="line23"></a>23 # |                                                                                    |
+</span><span class="inferred1"><a name="line24"></a>24 # | You can contact the author Kevin R. Aleman by email at KALEMAN@RUBYCAMPUS.ORG. The |
+</span><span class="inferred0"><a name="line25"></a>25 # |                                                                                    |
+</span><span class="inferred1"><a name="line26"></a>26 # | The interactive user interfaces in modified source and object code versions of     |
+</span><span class="inferred0"><a name="line27"></a>27 # | this program must display Appropriate Legal Notices, as required under Section 5   |
+</span><span class="inferred1"><a name="line28"></a>28 # | of the GNU Affero General Public License version 3.                                |
+</span><span class="inferred0"><a name="line29"></a>29 # |                                                                                    |
+</span><span class="inferred1"><a name="line30"></a>30 # | In accordance with Section 7(b) of the GNU Affero General Public License version   |
+</span><span class="inferred0"><a name="line31"></a>31 # | 3, these Appropriate Legal Notices must retain the display of the &quot;Powered by      |
+</span><span class="inferred1"><a name="line32"></a>32 # | RubyCampus&quot; logo. If the display of the logo is not reasonably feasible for        |
+</span><span class="inferred0"><a name="line33"></a>33 # | technical reasons, the Appropriate Legal Notices must display the words &quot;Powered   |
+</span><span class="inferred1"><a name="line34"></a>34 # | by RubyCampus&quot;.                                                                    |
+</span><span class="inferred0"><a name="line35"></a>35 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line36"></a>36 #++
+</span><span class="inferred0"><a name="line37"></a>37 
+</span><span class="marked1"><a name="line38"></a>38 class UserObserver &lt; ActiveRecord::Observer
+</span><span class="inferred0"><a name="line39"></a>39 
+</span><span class="marked1"><a name="line40"></a>40   def after_create(user)
+</span><span class="uncovered0"><a name="line41"></a>41     UserMailer.deliver_new_user_notification(user)
+</span><span class="uncovered1"><a name="line42"></a>42   end
+</span><span class="inferred0"><a name="line43"></a>43 
+</span><span class="marked1"><a name="line44"></a>44   def after_save(user)
+</span><span class="uncovered0"><a name="line45"></a>45     UserMailer.deliver_activation(user) if user.pending?
+</span><span class="uncovered1"><a name="line46"></a>46     UserMailer.deliver_forgot_password(user) if user.recently_forgot_password?
+</span><span class="uncovered0"><a name="line47"></a>47     UserMailer.deliver_reset_password(user) if user.recently_reset_password?
+</span><span class="uncovered1"><a name="line48"></a>48   end
+</span><span class="inferred0"><a name="line49"></a>49 
+</span><span class="marked1"><a name="line50"></a>50 end
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.3.</p>

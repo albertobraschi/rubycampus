@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3><a href=https://rubycampus.org><img src=../../public/images/rubycampus/logo.png></a></h3>
-    <p>RubyCampus C0 code coverage information generated on Mon Nov 10 00:10:20 +0900 2008.
+    <p>RubyCampus C0 code coverage information generated on Wed Nov 26 16:18:26 +0900 2008.
 
       </p>
     <hr/>
@@ -599,258 +599,258 @@ span.run100 {
       </tr>
     </tbody>
   </table>
-<pre><span class="inferred1"><a name="line1"></a>  1 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
-</span><span class="inferred0"><a name="line2"></a>  2 # +------------------------------------------------------------------------------------+
-</span><span class="inferred1"><a name="line3"></a>  3 # | RubyCampus - Student &amp; Alumni Relationship Management Software                     |
-</span><span class="inferred0"><a name="line4"></a>  4 # +------------------------------------------------------------------------------------+
-</span><span class="inferred1"><a name="line5"></a>  5 # | Copyright © 2008-2009 Kevin R. Aleman. Fukuoka, Japan. All Rights Reserved.        |
-</span><span class="inferred0"><a name="line6"></a>  6 # +------------------------------------------------------------------------------------+
-</span><span class="inferred1"><a name="line7"></a>  7 # |                                                                                    |
-</span><span class="inferred0"><a name="line8"></a>  8 # | This program is free software; you can redistribute it and/or modify it under the  |
-</span><span class="inferred1"><a name="line9"></a>  9 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
-</span><span class="inferred0"><a name="line10"></a> 10 # | Software Foundation with the addition of the following permission added to Section |
-</span><span class="inferred1"><a name="line11"></a> 11 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
-</span><span class="inferred0"><a name="line12"></a> 12 # | COPYRIGHT IS OWNED BY KEVIN R ALEMAN, KEVIN R ALEMAN DISCLAIMS THE WARRANTY OF NON |
-</span><span class="inferred1"><a name="line13"></a> 13 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
-</span><span class="inferred0"><a name="line14"></a> 14 # |                                                                                    |
-</span><span class="inferred1"><a name="line15"></a> 15 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
-</span><span class="inferred0"><a name="line16"></a> 16 # | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
-</span><span class="inferred1"><a name="line17"></a> 17 # | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
-</span><span class="inferred0"><a name="line18"></a> 18 # |                                                                                    |
-</span><span class="inferred1"><a name="line19"></a> 19 # | You should have received a copy of the GNU Affero General Public License along     |
-</span><span class="inferred0"><a name="line20"></a> 20 # | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
-</span><span class="inferred1"><a name="line21"></a> 21 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
-</span><span class="inferred0"><a name="line22"></a> 22 # | USA.                                                                               |
-</span><span class="inferred1"><a name="line23"></a> 23 # |                                                                                    |
-</span><span class="inferred0"><a name="line24"></a> 24 # | You can contact the author Kevin R. Aleman by email at KALEMAN@RUBYCAMPUS.ORG. The |
-</span><span class="inferred1"><a name="line25"></a> 25 # |                                                                                    |
-</span><span class="inferred0"><a name="line26"></a> 26 # | The interactive user interfaces in modified source and object code versions of     |
-</span><span class="inferred1"><a name="line27"></a> 27 # | this program must display Appropriate Legal Notices, as required under Section 5   |
-</span><span class="inferred0"><a name="line28"></a> 28 # | of the GNU Affero General Public License version 3.                                |
-</span><span class="inferred1"><a name="line29"></a> 29 # |                                                                                    |
-</span><span class="inferred0"><a name="line30"></a> 30 # | In accordance with Section 7(b) of the GNU Affero General Public License version   |
-</span><span class="inferred1"><a name="line31"></a> 31 # | 3, these Appropriate Legal Notices must retain the display of the &quot;Powered by      |
-</span><span class="inferred0"><a name="line32"></a> 32 # | RubyCampus&quot; logo. If the display of the logo is not reasonably feasible for        |
-</span><span class="inferred1"><a name="line33"></a> 33 # | technical reasons, the Appropriate Legal Notices must display the words &quot;Powered   |
-</span><span class="inferred0"><a name="line34"></a> 34 # | by RubyCampus&quot;.                                                                    |
-</span><span class="inferred1"><a name="line35"></a> 35 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line36"></a> 36 #++
-</span><span class="inferred1"><a name="line37"></a> 37 
-</span><span class="marked0"><a name="line38"></a> 38 require 'digest/sha1'
-</span><span class="inferred1"><a name="line39"></a> 39 
-</span><span class="marked0"><a name="line40"></a> 40 class User &lt; ActiveRecord::Base
-</span><span class="inferred1"><a name="line41"></a> 41   # Excludes model from being included in PO template
-</span><span class="marked0"><a name="line42"></a> 42   require 'gettext/rails'
-</span><span class="marked1"><a name="line43"></a> 43   untranslate_all
-</span><span class="inferred0"><a name="line44"></a> 44 
-</span><span class="inferred1"><a name="line45"></a> 45   # Virtual attribute for the unencrypted password
-</span><span class="marked0"><a name="line46"></a> 46   attr_accessor :password
-</span><span class="inferred1"><a name="line47"></a> 47 
-</span><span class="marked0"><a name="line48"></a> 48   validates_presence_of     :login, :email, :name
-</span><span class="marked1"><a name="line49"></a> 49   validates_presence_of     :password,                   :if =&gt; :password_required?
-</span><span class="marked0"><a name="line50"></a> 50   validates_presence_of     :password_confirmation,      :if =&gt; :password_required?
-</span><span class="marked1"><a name="line51"></a> 51   validates_length_of       :password, :within =&gt; 4..40, :if =&gt; :password_required?
-</span><span class="marked0"><a name="line52"></a> 52   validates_confirmation_of :password,                   :if =&gt; :password_required?
-</span><span class="marked1"><a name="line53"></a> 53   validates_length_of       :login,    :within =&gt; 3..40
-</span><span class="marked0"><a name="line54"></a> 54   validates_length_of       :name,     :within =&gt; 3..40
-</span><span class="marked1"><a name="line55"></a> 55   validates_length_of       :email,    :within =&gt; 3..100
-</span><span class="marked0"><a name="line56"></a> 56   validates_uniqueness_of   :login, :email, :case_sensitive =&gt; false
-</span><span class="marked1"><a name="line57"></a> 57   validates_format_of       :email, :with =&gt; /(^([^@\s]+)@((?:[-_a-z0-9]+\.)+[a-z]{2,})$)|(^$)/i
-</span><span class="inferred0"><a name="line58"></a> 58 
-</span><span class="marked1"><a name="line59"></a> 59   has_many :permissions
-</span><span class="marked0"><a name="line60"></a> 60   has_many :roles, :through =&gt; :permissions
-</span><span class="marked1"><a name="line61"></a> 61   has_one :user_preference, :dependent =&gt; :destroy
-</span><span class="inferred0"><a name="line62"></a> 62   #has_one :preference, :dependent =&gt; :destroy, :class_name =&gt; 'UserPreference'
-</span><span class="inferred1"><a name="line63"></a> 63 
-</span><span class="inferred0"><a name="line64"></a> 64   # TODO allow auto_complete of assignable users
-</span><span class="inferred1"><a name="line65"></a> 65   # has_many :contacts, :class_name =&gt; &quot;contact&quot;, :foreign_key =&gt; &quot;assigned_to_user_id&quot;
-</span><span class="inferred0"><a name="line66"></a> 66 
-</span><span class="marked1"><a name="line67"></a> 67   before_save :encrypt_password
-</span><span class="marked0"><a name="line68"></a> 68   before_create :make_activation_code
-</span><span class="inferred1"><a name="line69"></a> 69 
-</span><span class="inferred0"><a name="line70"></a> 70   # prevents a user from submitting a crafted form that bypasses activation
-</span><span class="inferred1"><a name="line71"></a> 71   # anything else a RubyCampus user can change should be added here.
-</span><span class="marked0"><a name="line72"></a> 72   attr_accessible :login, :email, :password, :password_confirmation, :time_zone, :name, :language
-</span><span class="inferred1"><a name="line73"></a> 73 
-</span><span class="inferred0"><a name="line74"></a> 74   # Queries from Controller
-</span><span class="inferred1"><a name="line75"></a> 75   # Action Index
-</span><span class="marked0"><a name="line76"></a> 76   def self.search(search, page)
-</span><span class="inferred1"><a name="line77"></a> 77     paginate :page =&gt; page,
-</span><span class="inferred0"><a name="line78"></a> 78              :conditions =&gt; ['name like ?', &quot;%#{search}%&quot;],
-</span><span class="inferred1"><a name="line79"></a> 79              :order =&gt; 'name'
-</span><span class="inferred0"><a name="line80"></a> 80   end
-</span><span class="inferred1"><a name="line81"></a> 81 
-</span><span class="marked0"><a name="line82"></a> 82 class ActivationCodeNotFound &lt; StandardError; end
-</span><span class="marked1"><a name="line83"></a> 83 class AlreadyActivated &lt; StandardError
-</span><span class="marked0"><a name="line84"></a> 84   attr_reader :user, :message;
-</span><span class="marked1"><a name="line85"></a> 85   def initialize(user, message=nil)
-</span><span class="inferred0"><a name="line86"></a> 86     @message, @user = message, user
-</span><span class="inferred1"><a name="line87"></a> 87   end
-</span><span class="inferred0"><a name="line88"></a> 88 end
-</span><span class="inferred1"><a name="line89"></a> 89 
-</span><span class="inferred0"><a name="line90"></a> 90   # Finds the user with the corresponding activation code, activates their account and returns the user.
-</span><span class="inferred1"><a name="line91"></a> 91   #
-</span><span class="inferred0"><a name="line92"></a> 92   # Raises:
-</span><span class="inferred1"><a name="line93"></a> 93   #  +User::ActivationCodeNotFound+ if there is no user with the corresponding activation code
-</span><span class="inferred0"><a name="line94"></a> 94   #  +User::AlreadyActivated+ if the user with the corresponding activation code has already activated their account
-</span><span class="marked1"><a name="line95"></a> 95   def self.find_and_activate!(activation_code)
-</span><span class="uncovered0"><a name="line96"></a> 96     raise ArgumentError if activation_code.nil?
-</span><span class="uncovered1"><a name="line97"></a> 97     user = find_by_activation_code(activation_code)
-</span><span class="uncovered0"><a name="line98"></a> 98     raise ActivationCodeNotFound if !user
-</span><span class="uncovered1"><a name="line99"></a> 99     raise AlreadyActivated.new(user) if user.active?
-</span><span class="uncovered0"><a name="line100"></a>100     user.send(:activate!)
-</span><span class="uncovered1"><a name="line101"></a>101     user
-</span><span class="uncovered0"><a name="line102"></a>102   end
-</span><span class="inferred1"><a name="line103"></a>103 
-</span><span class="marked0"><a name="line104"></a>104   def active?
-</span><span class="uncovered1"><a name="line105"></a>105     # the presence of an activation date means they have activated
-</span><span class="uncovered0"><a name="line106"></a>106     !activated_at.nil?
-</span><span class="uncovered1"><a name="line107"></a>107   end
-</span><span class="inferred0"><a name="line108"></a>108 
-</span><span class="inferred1"><a name="line109"></a>109   # Returns true if the user has just been activated.
-</span><span class="marked0"><a name="line110"></a>110   def pending?
-</span><span class="uncovered1"><a name="line111"></a>111     @activated
-</span><span class="uncovered0"><a name="line112"></a>112   end
-</span><span class="inferred1"><a name="line113"></a>113 
-</span><span class="inferred0"><a name="line114"></a>114   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
-</span><span class="marked1"><a name="line115"></a>115   def self.authenticate(login, password)
-</span><span class="uncovered0"><a name="line116"></a>116     u = find :first, :conditions =&gt; ['login = ?', login] # need to get the salt
-</span><span class="uncovered1"><a name="line117"></a>117     u &amp;&amp; u.authenticated?(password) ? u : nil
-</span><span class="uncovered0"><a name="line118"></a>118   end
-</span><span class="inferred1"><a name="line119"></a>119 
-</span><span class="inferred0"><a name="line120"></a>120   # Encrypts some data with the salt.
-</span><span class="marked1"><a name="line121"></a>121   def self.encrypt(password, salt)
-</span><span class="uncovered0"><a name="line122"></a>122     Digest::SHA1.hexdigest(&quot;–#{salt}–#{password}–&quot;)
-</span><span class="uncovered1"><a name="line123"></a>123   end
-</span><span class="inferred0"><a name="line124"></a>124 
-</span><span class="inferred1"><a name="line125"></a>125   # Encrypts the password with the user salt
-</span><span class="marked0"><a name="line126"></a>126   def encrypt(password)
-</span><span class="uncovered1"><a name="line127"></a>127     self.class.encrypt(password, salt)
-</span><span class="uncovered0"><a name="line128"></a>128   end
-</span><span class="inferred1"><a name="line129"></a>129 
-</span><span class="marked0"><a name="line130"></a>130   def authenticated?(password)
-</span><span class="uncovered1"><a name="line131"></a>131     crypted_password == encrypt(password)
-</span><span class="uncovered0"><a name="line132"></a>132   end
-</span><span class="inferred1"><a name="line133"></a>133 
-</span><span class="marked0"><a name="line134"></a>134   def remember_token?
-</span><span class="uncovered1"><a name="line135"></a>135     remember_token_expires_at &amp;&amp; Time.now.utc &lt; remember_token_expires_at
-</span><span class="uncovered0"><a name="line136"></a>136   end
-</span><span class="inferred1"><a name="line137"></a>137 
-</span><span class="inferred0"><a name="line138"></a>138   # These create and unset the fields required for remembering users between browser closes
-</span><span class="marked1"><a name="line139"></a>139   def remember_me
-</span><span class="uncovered0"><a name="line140"></a>140     remember_me_for 2.weeks
-</span><span class="uncovered1"><a name="line141"></a>141   end
-</span><span class="inferred0"><a name="line142"></a>142 
-</span><span class="marked1"><a name="line143"></a>143   def remember_me_for(time)
-</span><span class="uncovered0"><a name="line144"></a>144     remember_me_until time.from_now.utc
-</span><span class="uncovered1"><a name="line145"></a>145   end
-</span><span class="inferred0"><a name="line146"></a>146 
-</span><span class="marked1"><a name="line147"></a>147   def remember_me_until(time)
-</span><span class="uncovered0"><a name="line148"></a>148     self.remember_token_expires_at = time
-</span><span class="uncovered1"><a name="line149"></a>149     self.remember_token            = encrypt(&quot;#{email}–#{remember_token_expires_at}&quot;)
-</span><span class="uncovered0"><a name="line150"></a>150     save(false)
-</span><span class="uncovered1"><a name="line151"></a>151   end
-</span><span class="inferred0"><a name="line152"></a>152 
-</span><span class="marked1"><a name="line153"></a>153   def forget_me
-</span><span class="uncovered0"><a name="line154"></a>154     self.remember_token_expires_at = nil
-</span><span class="uncovered1"><a name="line155"></a>155     self.remember_token            = nil
-</span><span class="uncovered0"><a name="line156"></a>156     save(false)
-</span><span class="uncovered1"><a name="line157"></a>157   end
-</span><span class="inferred0"><a name="line158"></a>158 
-</span><span class="marked1"><a name="line159"></a>159   def forgot_password
-</span><span class="uncovered0"><a name="line160"></a>160     @forgotten_password = true
-</span><span class="uncovered1"><a name="line161"></a>161     self.make_password_reset_code
-</span><span class="uncovered0"><a name="line162"></a>162   end
-</span><span class="inferred1"><a name="line163"></a>163 
-</span><span class="marked0"><a name="line164"></a>164   def reset_password
-</span><span class="uncovered1"><a name="line165"></a>165     # First update the password_reset_code before setting the
-</span><span class="uncovered0"><a name="line166"></a>166     # reset_password flag to avoid duplicate email notifications.
-</span><span class="uncovered1"><a name="line167"></a>167     update_attribute(:password_reset_code, nil)
-</span><span class="uncovered0"><a name="line168"></a>168     @reset_password = true
-</span><span class="uncovered1"><a name="line169"></a>169   end
-</span><span class="inferred0"><a name="line170"></a>170 
-</span><span class="inferred1"><a name="line171"></a>171   # used in user_observer
-</span><span class="marked0"><a name="line172"></a>172   def recently_forgot_password?
-</span><span class="uncovered1"><a name="line173"></a>173     @forgotten_password
-</span><span class="uncovered0"><a name="line174"></a>174   end
-</span><span class="inferred1"><a name="line175"></a>175 
-</span><span class="marked0"><a name="line176"></a>176   def recently_reset_password?
-</span><span class="uncovered1"><a name="line177"></a>177     @reset_password
-</span><span class="uncovered0"><a name="line178"></a>178   end
-</span><span class="inferred1"><a name="line179"></a>179 
-</span><span class="marked0"><a name="line180"></a>180   def self.find_for_forget(email)
-</span><span class="uncovered1"><a name="line181"></a>181     find :first, :conditions =&gt; ['email = ? and activated_at IS NOT NULL', email]
-</span><span class="uncovered0"><a name="line182"></a>182   end
-</span><span class="inferred1"><a name="line183"></a>183 
-</span><span class="marked0"><a name="line184"></a>184   def has_role?(name)
-</span><span class="uncovered1"><a name="line185"></a>185     self.roles.find_by_name(name) ? true : false
-</span><span class="uncovered0"><a name="line186"></a>186   end
-</span><span class="inferred1"><a name="line187"></a>187 
-</span><span class="inferred0"><a name="line188"></a>188   # Layouts  
-</span><span class="marked1"><a name="line189"></a>189   def preference
-</span><span class="uncovered0"><a name="line190"></a>190     self.user_preference ||= UserPreference.new(:user =&gt; self)
-</span><span class="uncovered1"><a name="line191"></a>191   end
-</span><span class="inferred0"><a name="line192"></a>192 
-</span><span class="marked1"><a name="line193"></a>193   protected
-</span><span class="inferred0"><a name="line194"></a>194 
-</span><span class="inferred1"><a name="line195"></a>195   # before filter
-</span><span class="marked0"><a name="line196"></a>196   def encrypt_password
-</span><span class="uncovered1"><a name="line197"></a>197     return if password.blank?
-</span><span class="uncovered0"><a name="line198"></a>198     self.salt = Digest::SHA1.hexdigest(&quot;–#{Time.now.to_s}–#{login}–&quot;) if new_record?
-</span><span class="uncovered1"><a name="line199"></a>199     self.crypted_password = encrypt(password)
-</span><span class="uncovered0"><a name="line200"></a>200   end
-</span><span class="inferred1"><a name="line201"></a>201 
-</span><span class="marked0"><a name="line202"></a>202   def password_required?
-</span><span class="uncovered1"><a name="line203"></a>203     crypted_password.blank? || !password.blank?
-</span><span class="uncovered0"><a name="line204"></a>204   end
-</span><span class="inferred1"><a name="line205"></a>205 
-</span><span class="marked0"><a name="line206"></a>206   def make_activation_code
-</span><span class="uncovered1"><a name="line207"></a>207     self.activation_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
-</span><span class="uncovered0"><a name="line208"></a>208   end
-</span><span class="inferred1"><a name="line209"></a>209 
-</span><span class="marked0"><a name="line210"></a>210   def make_password_reset_code
-</span><span class="uncovered1"><a name="line211"></a>211     self.password_reset_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
-</span><span class="uncovered0"><a name="line212"></a>212   end
-</span><span class="inferred1"><a name="line213"></a>213   
-</span><span class="marked0"><a name="line214"></a>214   private
-</span><span class="inferred1"><a name="line215"></a>215 
-</span><span class="marked0"><a name="line216"></a>216   def activate!
-</span><span class="uncovered1"><a name="line217"></a>217     @activated = true
-</span><span class="uncovered0"><a name="line218"></a>218     self.update_attribute(:activated_at, Time.now.utc)
-</span><span class="uncovered1"><a name="line219"></a>219   end
-</span><span class="uncovered0"><a name="line220"></a>220 
-</span><span class="uncovered1"><a name="line221"></a>221 end
-</span><span class="inferred0"><a name="line222"></a>222 
-</span><span class="inferred1"><a name="line223"></a>223 
-</span><span class="inferred0"><a name="line224"></a>224 # == Schema Information
-</span><span class="inferred1"><a name="line225"></a>225 # Schema version: 20081015011538
-</span><span class="inferred0"><a name="line226"></a>226 #
-</span><span class="inferred1"><a name="line227"></a>227 # Table name: rubycampus_users
-</span><span class="inferred0"><a name="line228"></a>228 #
-</span><span class="inferred1"><a name="line229"></a>229 #  id                        :integer(4)      not null, primary key
-</span><span class="inferred0"><a name="line230"></a>230 #  login                     :string(40)
-</span><span class="inferred1"><a name="line231"></a>231 #  name                      :string(100)     default(&quot;&quot;)
-</span><span class="inferred0"><a name="line232"></a>232 #  cas_user                  :string(100)     default(&quot;&quot;)
-</span><span class="inferred1"><a name="line233"></a>233 #  email                     :string(100)
-</span><span class="inferred0"><a name="line234"></a>234 #  crypted_password          :string(40)
-</span><span class="inferred1"><a name="line235"></a>235 #  salt                      :string(40)
-</span><span class="inferred0"><a name="line236"></a>236 #  remember_token            :string(40)
-</span><span class="inferred1"><a name="line237"></a>237 #  remember_token_expires_at :datetime
-</span><span class="inferred0"><a name="line238"></a>238 #  activation_code           :string(40)
-</span><span class="inferred1"><a name="line239"></a>239 #  password_reset_code       :string(40)
-</span><span class="inferred0"><a name="line240"></a>240 #  enabled                   :boolean(1)      default(TRUE)
-</span><span class="inferred1"><a name="line241"></a>241 #  state                     :string(255)     default(&quot;passive&quot;)
-</span><span class="inferred0"><a name="line242"></a>242 #  is_admin                  :boolean(1)
-</span><span class="inferred1"><a name="line243"></a>243 #  is_reserved               :boolean(1)
-</span><span class="inferred0"><a name="line244"></a>244 #  time_zone                 :string(255)
-</span><span class="inferred1"><a name="line245"></a>245 #  language                  :string(5)       default(&quot;en&quot;), not null
-</span><span class="inferred0"><a name="line246"></a>246 #  updated_by                :integer(4)
-</span><span class="inferred1"><a name="line247"></a>247 #  activated_at              :datetime
-</span><span class="inferred0"><a name="line248"></a>248 #  deleted_at                :datetime
-</span><span class="inferred1"><a name="line249"></a>249 #  created_at                :datetime
-</span><span class="inferred0"><a name="line250"></a>250 #  updated_at                :datetime
-</span><span class="inferred1"><a name="line251"></a>251 #
-</span><span class="inferred0"><a name="line252"></a>252 
+<pre><span class="inferred0"><a name="line1"></a>  1 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
+</span><span class="inferred1"><a name="line2"></a>  2 # +------------------------------------------------------------------------------------+
+</span><span class="inferred0"><a name="line3"></a>  3 # | RubyCampus - Student &amp; Alumni Relationship Management Software                     |
+</span><span class="inferred1"><a name="line4"></a>  4 # +------------------------------------------------------------------------------------+
+</span><span class="inferred0"><a name="line5"></a>  5 # | Copyright © 2008-2009 Kevin R. Aleman. Fukuoka, Japan. All Rights Reserved.        |
+</span><span class="inferred1"><a name="line6"></a>  6 # +------------------------------------------------------------------------------------+
+</span><span class="inferred0"><a name="line7"></a>  7 # |                                                                                    |
+</span><span class="inferred1"><a name="line8"></a>  8 # | This program is free software; you can redistribute it and/or modify it under the  |
+</span><span class="inferred0"><a name="line9"></a>  9 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
+</span><span class="inferred1"><a name="line10"></a> 10 # | Software Foundation with the addition of the following permission added to Section |
+</span><span class="inferred0"><a name="line11"></a> 11 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
+</span><span class="inferred1"><a name="line12"></a> 12 # | COPYRIGHT IS OWNED BY KEVIN R ALEMAN, KEVIN R ALEMAN DISCLAIMS THE WARRANTY OF NON |
+</span><span class="inferred0"><a name="line13"></a> 13 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
+</span><span class="inferred1"><a name="line14"></a> 14 # |                                                                                    |
+</span><span class="inferred0"><a name="line15"></a> 15 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
+</span><span class="inferred1"><a name="line16"></a> 16 # | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
+</span><span class="inferred0"><a name="line17"></a> 17 # | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
+</span><span class="inferred1"><a name="line18"></a> 18 # |                                                                                    |
+</span><span class="inferred0"><a name="line19"></a> 19 # | You should have received a copy of the GNU Affero General Public License along     |
+</span><span class="inferred1"><a name="line20"></a> 20 # | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
+</span><span class="inferred0"><a name="line21"></a> 21 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
+</span><span class="inferred1"><a name="line22"></a> 22 # | USA.                                                                               |
+</span><span class="inferred0"><a name="line23"></a> 23 # |                                                                                    |
+</span><span class="inferred1"><a name="line24"></a> 24 # | You can contact the author Kevin R. Aleman by email at KALEMAN@RUBYCAMPUS.ORG. The |
+</span><span class="inferred0"><a name="line25"></a> 25 # |                                                                                    |
+</span><span class="inferred1"><a name="line26"></a> 26 # | The interactive user interfaces in modified source and object code versions of     |
+</span><span class="inferred0"><a name="line27"></a> 27 # | this program must display Appropriate Legal Notices, as required under Section 5   |
+</span><span class="inferred1"><a name="line28"></a> 28 # | of the GNU Affero General Public License version 3.                                |
+</span><span class="inferred0"><a name="line29"></a> 29 # |                                                                                    |
+</span><span class="inferred1"><a name="line30"></a> 30 # | In accordance with Section 7(b) of the GNU Affero General Public License version   |
+</span><span class="inferred0"><a name="line31"></a> 31 # | 3, these Appropriate Legal Notices must retain the display of the &quot;Powered by      |
+</span><span class="inferred1"><a name="line32"></a> 32 # | RubyCampus&quot; logo. If the display of the logo is not reasonably feasible for        |
+</span><span class="inferred0"><a name="line33"></a> 33 # | technical reasons, the Appropriate Legal Notices must display the words &quot;Powered   |
+</span><span class="inferred1"><a name="line34"></a> 34 # | by RubyCampus&quot;.                                                                    |
+</span><span class="inferred0"><a name="line35"></a> 35 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line36"></a> 36 #++
+</span><span class="inferred0"><a name="line37"></a> 37 
+</span><span class="marked1"><a name="line38"></a> 38 require 'digest/sha1'
+</span><span class="inferred0"><a name="line39"></a> 39 
+</span><span class="marked1"><a name="line40"></a> 40 class User &lt; ActiveRecord::Base
+</span><span class="inferred0"><a name="line41"></a> 41   # Excludes model from being included in PO template
+</span><span class="marked1"><a name="line42"></a> 42   require 'gettext/rails'
+</span><span class="marked0"><a name="line43"></a> 43   untranslate_all
+</span><span class="inferred1"><a name="line44"></a> 44 
+</span><span class="inferred0"><a name="line45"></a> 45   # Virtual attribute for the unencrypted password
+</span><span class="marked1"><a name="line46"></a> 46   attr_accessor :password
+</span><span class="inferred0"><a name="line47"></a> 47 
+</span><span class="marked1"><a name="line48"></a> 48   validates_presence_of     :login, :email, :name
+</span><span class="marked0"><a name="line49"></a> 49   validates_presence_of     :password,                   :if =&gt; :password_required?
+</span><span class="marked1"><a name="line50"></a> 50   validates_presence_of     :password_confirmation,      :if =&gt; :password_required?
+</span><span class="marked0"><a name="line51"></a> 51   validates_length_of       :password, :within =&gt; 4..40, :if =&gt; :password_required?
+</span><span class="marked1"><a name="line52"></a> 52   validates_confirmation_of :password,                   :if =&gt; :password_required?
+</span><span class="marked0"><a name="line53"></a> 53   validates_length_of       :login,    :within =&gt; 3..40
+</span><span class="marked1"><a name="line54"></a> 54   validates_length_of       :name,     :within =&gt; 3..40
+</span><span class="marked0"><a name="line55"></a> 55   validates_length_of       :email,    :within =&gt; 3..100
+</span><span class="marked1"><a name="line56"></a> 56   validates_uniqueness_of   :login, :email, :case_sensitive =&gt; false
+</span><span class="marked0"><a name="line57"></a> 57   validates_format_of       :email, :with =&gt; /(^([^@\s]+)@((?:[-_a-z0-9]+\.)+[a-z]{2,})$)|(^$)/i
+</span><span class="inferred1"><a name="line58"></a> 58 
+</span><span class="marked0"><a name="line59"></a> 59   has_many :permissions
+</span><span class="marked1"><a name="line60"></a> 60   has_many :roles, :through =&gt; :permissions
+</span><span class="marked0"><a name="line61"></a> 61   has_one :user_preference, :dependent =&gt; :destroy
+</span><span class="inferred1"><a name="line62"></a> 62   #has_one :preference, :dependent =&gt; :destroy, :class_name =&gt; 'UserPreference'
+</span><span class="inferred0"><a name="line63"></a> 63 
+</span><span class="inferred1"><a name="line64"></a> 64   # TODO allow auto_complete of assignable users
+</span><span class="inferred0"><a name="line65"></a> 65   # has_many :contacts, :class_name =&gt; &quot;contact&quot;, :foreign_key =&gt; &quot;assigned_to_user_id&quot;
+</span><span class="inferred1"><a name="line66"></a> 66 
+</span><span class="marked0"><a name="line67"></a> 67   before_save :encrypt_password
+</span><span class="marked1"><a name="line68"></a> 68   before_create :make_activation_code
+</span><span class="inferred0"><a name="line69"></a> 69 
+</span><span class="inferred1"><a name="line70"></a> 70   # prevents a user from submitting a crafted form that bypasses activation
+</span><span class="inferred0"><a name="line71"></a> 71   # anything else a RubyCampus user can change should be added here.
+</span><span class="marked1"><a name="line72"></a> 72   attr_accessible :login, :email, :password, :password_confirmation, :time_zone, :name, :language
+</span><span class="inferred0"><a name="line73"></a> 73 
+</span><span class="inferred1"><a name="line74"></a> 74   # Queries from Controller
+</span><span class="inferred0"><a name="line75"></a> 75   # Action Index
+</span><span class="marked1"><a name="line76"></a> 76   def self.search(search, page)
+</span><span class="inferred0"><a name="line77"></a> 77     paginate :page =&gt; page,
+</span><span class="inferred1"><a name="line78"></a> 78              :conditions =&gt; ['name like ?', &quot;%#{search}%&quot;],
+</span><span class="inferred0"><a name="line79"></a> 79              :order =&gt; 'name'
+</span><span class="inferred1"><a name="line80"></a> 80   end
+</span><span class="inferred0"><a name="line81"></a> 81 
+</span><span class="marked1"><a name="line82"></a> 82 class ActivationCodeNotFound &lt; StandardError; end
+</span><span class="marked0"><a name="line83"></a> 83 class AlreadyActivated &lt; StandardError
+</span><span class="marked1"><a name="line84"></a> 84   attr_reader :user, :message;
+</span><span class="marked0"><a name="line85"></a> 85   def initialize(user, message=nil)
+</span><span class="inferred1"><a name="line86"></a> 86     @message, @user = message, user
+</span><span class="inferred0"><a name="line87"></a> 87   end
+</span><span class="inferred1"><a name="line88"></a> 88 end
+</span><span class="inferred0"><a name="line89"></a> 89 
+</span><span class="inferred1"><a name="line90"></a> 90   # Finds the user with the corresponding activation code, activates their account and returns the user.
+</span><span class="inferred0"><a name="line91"></a> 91   #
+</span><span class="inferred1"><a name="line92"></a> 92   # Raises:
+</span><span class="inferred0"><a name="line93"></a> 93   #  +User::ActivationCodeNotFound+ if there is no user with the corresponding activation code
+</span><span class="inferred1"><a name="line94"></a> 94   #  +User::AlreadyActivated+ if the user with the corresponding activation code has already activated their account
+</span><span class="marked0"><a name="line95"></a> 95   def self.find_and_activate!(activation_code)
+</span><span class="uncovered1"><a name="line96"></a> 96     raise ArgumentError if activation_code.nil?
+</span><span class="uncovered0"><a name="line97"></a> 97     user = find_by_activation_code(activation_code)
+</span><span class="uncovered1"><a name="line98"></a> 98     raise ActivationCodeNotFound if !user
+</span><span class="uncovered0"><a name="line99"></a> 99     raise AlreadyActivated.new(user) if user.active?
+</span><span class="uncovered1"><a name="line100"></a>100     user.send(:activate!)
+</span><span class="uncovered0"><a name="line101"></a>101     user
+</span><span class="uncovered1"><a name="line102"></a>102   end
+</span><span class="inferred0"><a name="line103"></a>103 
+</span><span class="marked1"><a name="line104"></a>104   def active?
+</span><span class="uncovered0"><a name="line105"></a>105     # the presence of an activation date means they have activated
+</span><span class="uncovered1"><a name="line106"></a>106     !activated_at.nil?
+</span><span class="uncovered0"><a name="line107"></a>107   end
+</span><span class="inferred1"><a name="line108"></a>108 
+</span><span class="inferred0"><a name="line109"></a>109   # Returns true if the user has just been activated.
+</span><span class="marked1"><a name="line110"></a>110   def pending?
+</span><span class="uncovered0"><a name="line111"></a>111     @activated
+</span><span class="uncovered1"><a name="line112"></a>112   end
+</span><span class="inferred0"><a name="line113"></a>113 
+</span><span class="inferred1"><a name="line114"></a>114   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
+</span><span class="marked0"><a name="line115"></a>115   def self.authenticate(login, password)
+</span><span class="uncovered1"><a name="line116"></a>116     u = find :first, :conditions =&gt; ['login = ?', login] # need to get the salt
+</span><span class="uncovered0"><a name="line117"></a>117     u &amp;&amp; u.authenticated?(password) ? u : nil
+</span><span class="uncovered1"><a name="line118"></a>118   end
+</span><span class="inferred0"><a name="line119"></a>119 
+</span><span class="inferred1"><a name="line120"></a>120   # Encrypts some data with the salt.
+</span><span class="marked0"><a name="line121"></a>121   def self.encrypt(password, salt)
+</span><span class="uncovered1"><a name="line122"></a>122     Digest::SHA1.hexdigest(&quot;–#{salt}–#{password}–&quot;)
+</span><span class="uncovered0"><a name="line123"></a>123   end
+</span><span class="inferred1"><a name="line124"></a>124 
+</span><span class="inferred0"><a name="line125"></a>125   # Encrypts the password with the user salt
+</span><span class="marked1"><a name="line126"></a>126   def encrypt(password)
+</span><span class="uncovered0"><a name="line127"></a>127     self.class.encrypt(password, salt)
+</span><span class="uncovered1"><a name="line128"></a>128   end
+</span><span class="inferred0"><a name="line129"></a>129 
+</span><span class="marked1"><a name="line130"></a>130   def authenticated?(password)
+</span><span class="uncovered0"><a name="line131"></a>131     crypted_password == encrypt(password)
+</span><span class="uncovered1"><a name="line132"></a>132   end
+</span><span class="inferred0"><a name="line133"></a>133 
+</span><span class="marked1"><a name="line134"></a>134   def remember_token?
+</span><span class="uncovered0"><a name="line135"></a>135     remember_token_expires_at &amp;&amp; Time.now.utc &lt; remember_token_expires_at
+</span><span class="uncovered1"><a name="line136"></a>136   end
+</span><span class="inferred0"><a name="line137"></a>137 
+</span><span class="inferred1"><a name="line138"></a>138   # These create and unset the fields required for remembering users between browser closes
+</span><span class="marked0"><a name="line139"></a>139   def remember_me
+</span><span class="uncovered1"><a name="line140"></a>140     remember_me_for 2.weeks
+</span><span class="uncovered0"><a name="line141"></a>141   end
+</span><span class="inferred1"><a name="line142"></a>142 
+</span><span class="marked0"><a name="line143"></a>143   def remember_me_for(time)
+</span><span class="uncovered1"><a name="line144"></a>144     remember_me_until time.from_now.utc
+</span><span class="uncovered0"><a name="line145"></a>145   end
+</span><span class="inferred1"><a name="line146"></a>146 
+</span><span class="marked0"><a name="line147"></a>147   def remember_me_until(time)
+</span><span class="uncovered1"><a name="line148"></a>148     self.remember_token_expires_at = time
+</span><span class="uncovered0"><a name="line149"></a>149     self.remember_token            = encrypt(&quot;#{email}–#{remember_token_expires_at}&quot;)
+</span><span class="uncovered1"><a name="line150"></a>150     save(false)
+</span><span class="uncovered0"><a name="line151"></a>151   end
+</span><span class="inferred1"><a name="line152"></a>152 
+</span><span class="marked0"><a name="line153"></a>153   def forget_me
+</span><span class="uncovered1"><a name="line154"></a>154     self.remember_token_expires_at = nil
+</span><span class="uncovered0"><a name="line155"></a>155     self.remember_token            = nil
+</span><span class="uncovered1"><a name="line156"></a>156     save(false)
+</span><span class="uncovered0"><a name="line157"></a>157   end
+</span><span class="inferred1"><a name="line158"></a>158 
+</span><span class="marked0"><a name="line159"></a>159   def forgot_password
+</span><span class="uncovered1"><a name="line160"></a>160     @forgotten_password = true
+</span><span class="uncovered0"><a name="line161"></a>161     self.make_password_reset_code
+</span><span class="uncovered1"><a name="line162"></a>162   end
+</span><span class="inferred0"><a name="line163"></a>163 
+</span><span class="marked1"><a name="line164"></a>164   def reset_password
+</span><span class="uncovered0"><a name="line165"></a>165     # First update the password_reset_code before setting the
+</span><span class="uncovered1"><a name="line166"></a>166     # reset_password flag to avoid duplicate email notifications.
+</span><span class="uncovered0"><a name="line167"></a>167     update_attribute(:password_reset_code, nil)
+</span><span class="uncovered1"><a name="line168"></a>168     @reset_password = true
+</span><span class="uncovered0"><a name="line169"></a>169   end
+</span><span class="inferred1"><a name="line170"></a>170 
+</span><span class="inferred0"><a name="line171"></a>171   # used in user_observer
+</span><span class="marked1"><a name="line172"></a>172   def recently_forgot_password?
+</span><span class="uncovered0"><a name="line173"></a>173     @forgotten_password
+</span><span class="uncovered1"><a name="line174"></a>174   end
+</span><span class="inferred0"><a name="line175"></a>175 
+</span><span class="marked1"><a name="line176"></a>176   def recently_reset_password?
+</span><span class="uncovered0"><a name="line177"></a>177     @reset_password
+</span><span class="uncovered1"><a name="line178"></a>178   end
+</span><span class="inferred0"><a name="line179"></a>179 
+</span><span class="marked1"><a name="line180"></a>180   def self.find_for_forget(email)
+</span><span class="uncovered0"><a name="line181"></a>181     find :first, :conditions =&gt; ['email = ? and activated_at IS NOT NULL', email]
+</span><span class="uncovered1"><a name="line182"></a>182   end
+</span><span class="inferred0"><a name="line183"></a>183 
+</span><span class="marked1"><a name="line184"></a>184   def has_role?(name)
+</span><span class="uncovered0"><a name="line185"></a>185     self.roles.find_by_name(name) ? true : false
+</span><span class="uncovered1"><a name="line186"></a>186   end
+</span><span class="inferred0"><a name="line187"></a>187 
+</span><span class="inferred1"><a name="line188"></a>188   # Layouts  
+</span><span class="marked0"><a name="line189"></a>189   def preference
+</span><span class="uncovered1"><a name="line190"></a>190     self.user_preference ||= UserPreference.new(:user =&gt; self)
+</span><span class="uncovered0"><a name="line191"></a>191   end
+</span><span class="inferred1"><a name="line192"></a>192 
+</span><span class="marked0"><a name="line193"></a>193   protected
+</span><span class="inferred1"><a name="line194"></a>194 
+</span><span class="inferred0"><a name="line195"></a>195   # before filter
+</span><span class="marked1"><a name="line196"></a>196   def encrypt_password
+</span><span class="uncovered0"><a name="line197"></a>197     return if password.blank?
+</span><span class="uncovered1"><a name="line198"></a>198     self.salt = Digest::SHA1.hexdigest(&quot;–#{Time.now.to_s}–#{login}–&quot;) if new_record?
+</span><span class="uncovered0"><a name="line199"></a>199     self.crypted_password = encrypt(password)
+</span><span class="uncovered1"><a name="line200"></a>200   end
+</span><span class="inferred0"><a name="line201"></a>201 
+</span><span class="marked1"><a name="line202"></a>202   def password_required?
+</span><span class="uncovered0"><a name="line203"></a>203     crypted_password.blank? || !password.blank?
+</span><span class="uncovered1"><a name="line204"></a>204   end
+</span><span class="inferred0"><a name="line205"></a>205 
+</span><span class="marked1"><a name="line206"></a>206   def make_activation_code
+</span><span class="uncovered0"><a name="line207"></a>207     self.activation_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
+</span><span class="uncovered1"><a name="line208"></a>208   end
+</span><span class="inferred0"><a name="line209"></a>209 
+</span><span class="marked1"><a name="line210"></a>210   def make_password_reset_code
+</span><span class="uncovered0"><a name="line211"></a>211     self.password_reset_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
+</span><span class="uncovered1"><a name="line212"></a>212   end
+</span><span class="inferred0"><a name="line213"></a>213   
+</span><span class="marked1"><a name="line214"></a>214   private
+</span><span class="inferred0"><a name="line215"></a>215 
+</span><span class="marked1"><a name="line216"></a>216   def activate!
+</span><span class="uncovered0"><a name="line217"></a>217     @activated = true
+</span><span class="uncovered1"><a name="line218"></a>218     self.update_attribute(:activated_at, Time.now.utc)
+</span><span class="uncovered0"><a name="line219"></a>219   end
+</span><span class="uncovered1"><a name="line220"></a>220 
+</span><span class="uncovered0"><a name="line221"></a>221 end
+</span><span class="inferred1"><a name="line222"></a>222 
+</span><span class="inferred0"><a name="line223"></a>223 
+</span><span class="inferred1"><a name="line224"></a>224 # == Schema Information
+</span><span class="inferred0"><a name="line225"></a>225 # Schema version: 20081015011538
+</span><span class="inferred1"><a name="line226"></a>226 #
+</span><span class="inferred0"><a name="line227"></a>227 # Table name: rubycampus_users
+</span><span class="inferred1"><a name="line228"></a>228 #
+</span><span class="inferred0"><a name="line229"></a>229 #  id                        :integer(4)      not null, primary key
+</span><span class="inferred1"><a name="line230"></a>230 #  login                     :string(40)
+</span><span class="inferred0"><a name="line231"></a>231 #  name                      :string(100)     default(&quot;&quot;)
+</span><span class="inferred1"><a name="line232"></a>232 #  cas_user                  :string(100)     default(&quot;&quot;)
+</span><span class="inferred0"><a name="line233"></a>233 #  email                     :string(100)
+</span><span class="inferred1"><a name="line234"></a>234 #  crypted_password          :string(40)
+</span><span class="inferred0"><a name="line235"></a>235 #  salt                      :string(40)
+</span><span class="inferred1"><a name="line236"></a>236 #  remember_token            :string(40)
+</span><span class="inferred0"><a name="line237"></a>237 #  remember_token_expires_at :datetime
+</span><span class="inferred1"><a name="line238"></a>238 #  activation_code           :string(40)
+</span><span class="inferred0"><a name="line239"></a>239 #  password_reset_code       :string(40)
+</span><span class="inferred1"><a name="line240"></a>240 #  enabled                   :boolean(1)      default(TRUE)
+</span><span class="inferred0"><a name="line241"></a>241 #  state                     :string(255)     default(&quot;passive&quot;)
+</span><span class="inferred1"><a name="line242"></a>242 #  is_admin                  :boolean(1)
+</span><span class="inferred0"><a name="line243"></a>243 #  is_reserved               :boolean(1)
+</span><span class="inferred1"><a name="line244"></a>244 #  time_zone                 :string(255)
+</span><span class="inferred0"><a name="line245"></a>245 #  language                  :string(5)       default(&quot;en&quot;), not null
+</span><span class="inferred1"><a name="line246"></a>246 #  updated_by                :integer(4)
+</span><span class="inferred0"><a name="line247"></a>247 #  activated_at              :datetime
+</span><span class="inferred1"><a name="line248"></a>248 #  deleted_at                :datetime
+</span><span class="inferred0"><a name="line249"></a>249 #  created_at                :datetime
+</span><span class="inferred1"><a name="line250"></a>250 #  updated_at                :datetime
+</span><span class="inferred0"><a name="line251"></a>251 #
+</span><span class="inferred1"><a name="line252"></a>252 
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.3.</p>

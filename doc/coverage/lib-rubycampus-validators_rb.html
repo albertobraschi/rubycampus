@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3><a href=https://rubycampus.org><img src=../../public/images/rubycampus/logo.png></a></h3>
-    <p>RubyCampus C0 code coverage information generated on Mon Nov 10 00:10:21 +0900 2008.
+    <p>RubyCampus C0 code coverage information generated on Wed Nov 26 16:18:27 +0900 2008.
 
       </p>
     <hr/>
@@ -599,316 +599,316 @@ span.run100 {
       </tr>
     </tbody>
   </table>
-<pre><span class="inferred0"><a name="line1"></a>  1 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
-</span><span class="inferred1"><a name="line2"></a>  2 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line3"></a>  3 # | RubyCampus - Student &amp; Alumni Relationship Management Software                     |
-</span><span class="inferred1"><a name="line4"></a>  4 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line5"></a>  5 # | Copyright © 2008-2009 Kevin R. Aleman. Fukuoka, Japan. All Rights Reserved.        |
-</span><span class="inferred1"><a name="line6"></a>  6 # +------------------------------------------------------------------------------------+
-</span><span class="inferred0"><a name="line7"></a>  7 # |                                                                                    |
-</span><span class="inferred1"><a name="line8"></a>  8 # | This program is free software; you can redistribute it and/or modify it under the  |
-</span><span class="inferred0"><a name="line9"></a>  9 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
-</span><span class="inferred1"><a name="line10"></a> 10 # | Software Foundation with the addition of the following permission added to Section |
-</span><span class="inferred0"><a name="line11"></a> 11 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
-</span><span class="inferred1"><a name="line12"></a> 12 # | COPYRIGHT IS OWNED BY KEVIN R ALEMAN, KEVIN R ALEMAN DISCLAIMS THE WARRANTY OF NON |
-</span><span class="inferred0"><a name="line13"></a> 13 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
-</span><span class="inferred1"><a name="line14"></a> 14 # |                                                                                    |
-</span><span class="inferred0"><a name="line15"></a> 15 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
-</span><span class="inferred1"><a name="line16"></a> 16 # | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
-</span><span class="inferred0"><a name="line17"></a> 17 # | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
-</span><span class="inferred1"><a name="line18"></a> 18 # |                                                                                    |
-</span><span class="inferred0"><a name="line19"></a> 19 # | You should have received a copy of the GNU Affero General Public License along     |
-</span><span class="inferred1"><a name="line20"></a> 20 # | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
-</span><span class="inferred0"><a name="line21"></a> 21 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
-</span><span class="inferred1"><a name="line22"></a> 22 # | USA.                                                                               |
-</span><span class="inferred0"><a name="line23"></a> 23 # |                                                                                    |
-</span><span class="inferred1"><a name="line24"></a> 24 # | You can contact the author Kevin R. Aleman by email at KALEMAN@RUBYCAMPUS.ORG. The |
-</span><span class="inferred0"><a name="line25"></a> 25 # |                                                                                    |
-</span><span class="inferred1"><a name="line26"></a> 26 # | The interactive user interfaces in modified source and object code versions of     |
-</span><span class="inferred0"><a name="line27"></a> 27 # | this program must display Appropriate Legal Notices, as required under Section 5   |
-</span><span class="inferred1"><a name="line28"></a> 28 # | of the GNU Affero General Public License version 3.                                |
-</span><span class="inferred0"><a name="line29"></a> 29 # |                                                                                    |
-</span><span class="inferred1"><a name="line30"></a> 30 # | In accordance with Section 7(b) of the GNU Affero General Public License version   |
-</span><span class="inferred0"><a name="line31"></a> 31 # | 3, these Appropriate Legal Notices must retain the display of the &quot;Powered by      |
-</span><span class="inferred1"><a name="line32"></a> 32 # | RubyCampus&quot; logo. If the display of the logo is not reasonably feasible for        |
-</span><span class="inferred0"><a name="line33"></a> 33 # | technical reasons, the Appropriate Legal Notices must display the words &quot;Powered   |
-</span><span class="inferred1"><a name="line34"></a> 34 # | by RubyCampus&quot;.                                                                    |
-</span><span class="inferred0"><a name="line35"></a> 35 # +------------------------------------------------------------------------------------+
-</span><span class="inferred1"><a name="line36"></a> 36 #++
-</span><span class="inferred0"><a name="line37"></a> 37 
-</span><span class="inferred1"><a name="line38"></a> 38 # NOTE Use _rubycampus_ in methods prevent potential conflicts with future revisions of
-</span><span class="inferred0"><a name="line39"></a> 39 #      ActiveRecord::Validations::ClassMethods and to clearly distinguish among them.
-</span><span class="inferred1"><a name="line40"></a> 40 
-</span><span class="marked0"><a name="line41"></a> 41 module ActiveRecord
-</span><span class="marked1"><a name="line42"></a> 42   module Validations
-</span><span class="marked0"><a name="line43"></a> 43     module ClassMethods
-</span><span class="marked1"><a name="line44"></a> 44       include GetText::Rails
-</span><span class="marked0"><a name="line45"></a> 45       bindtextdomain(&quot;rubycampus&quot;)
-</span><span class="inferred1"><a name="line46"></a> 46 
-</span><span class="marked0"><a name="line47"></a> 47       oct200 = &quot;\303\200&quot;
-</span><span class="marked1"><a name="line48"></a> 48       oct226 = &quot;\303\226&quot;
-</span><span class="marked0"><a name="line49"></a> 49       oct231 = &quot;\303\231&quot;
-</span><span class="marked1"><a name="line50"></a> 50       oct266 = &quot;\303\266&quot;
-</span><span class="marked0"><a name="line51"></a> 51       oct271 = &quot;\303\271&quot;
-</span><span class="marked1"><a name="line52"></a> 52       oct277 = &quot;\303\277&quot;
-</span><span class="inferred0"><a name="line53"></a> 53 
-</span><span class="marked1"><a name="line54"></a> 54       utf_accents = &quot;#{oct200}-#{oct226}#{oct231}-#{oct266}#{oct271}-#{oct277}&quot;
-</span><span class="inferred0"><a name="line55"></a> 55 
-</span><span class="marked1"><a name="line56"></a> 56       @@is_rubycampus_not_from_options_msg = _(&quot;has a value other than the valid options below&quot;)
-</span><span class="inferred0"><a name="line57"></a> 57 
-</span><span class="marked1"><a name="line58"></a> 58       @@is_rubycampus_required_msg = _(&quot;cannot be empty&quot;)
-</span><span class="marked0"><a name="line59"></a> 59       @@is_rubycampus_required = /.+/
-</span><span class="inferred1"><a name="line60"></a> 60 
-</span><span class="marked0"><a name="line61"></a> 61       @@is_rubycampus_human_name_msg = _(&quot;accepts only letters, hyphens, spaces, apostrophes, and periods&quot;)
-</span><span class="marked1"><a name="line62"></a> 62       @@is_rubycampus_human_name = /^[a-zA-Z#{utf_accents}\.\'\-\ ]*?$/u
-</span><span class="inferred0"><a name="line63"></a> 63 
-</span><span class="marked1"><a name="line64"></a> 64       @@is_rubycampus_organization_name_msg = _(&quot;accepts only letters, 0-9, hyphens, spaces, apostrophes, commas, and periods&quot;)
-</span><span class="marked0"><a name="line65"></a> 65       @@is_rubycampus_organization_name = /^[a-zA-Z0-9#{utf_accents}\.\'\-\,\ ]*?$/u
-</span><span class="inferred1"><a name="line66"></a> 66 
-</span><span class="marked0"><a name="line67"></a> 67       @@is_rubycampus_street_address_msg = _(&quot;accepts only letters, 0-9, hyphens, spaces, apostrophes, commas, periods, and number signs&quot;)
-</span><span class="marked1"><a name="line68"></a> 68       @@is_rubycampus_street_address = /^[a-zA-Z0-9#{utf_accents}\.\'\-\,\#\ ]*?$/u
-</span><span class="inferred0"><a name="line69"></a> 69 
-</span><span class="marked1"><a name="line70"></a> 70       @@is_rubycampus_alpha_msg = _(&quot;accepts only letters&quot;)
-</span><span class="marked0"><a name="line71"></a> 71       @@is_rubycampus_alpha = /^[a-zA-Z#{utf_accents}]*?$/u
-</span><span class="inferred1"><a name="line72"></a> 72 
-</span><span class="marked0"><a name="line73"></a> 73       @@is_rubycampus_alpha_space_msg = _(&quot;accepts only letters and spaces&quot;)
-</span><span class="marked1"><a name="line74"></a> 74       @@is_rubycampus_alpha_space = /^[a-zA-Z#{utf_accents}\ ]*?$/u
-</span><span class="inferred0"><a name="line75"></a> 75 
-</span><span class="marked1"><a name="line76"></a> 76       @@is_rubycampus_alpha_hyphen_msg = _(&quot;accepts only letters and hyphens&quot;)
-</span><span class="marked0"><a name="line77"></a> 77       @@is_rubycampus_alpha_hyphen = /^[a-zA-Z#{utf_accents}\-]*?$/u
-</span><span class="inferred1"><a name="line78"></a> 78 
-</span><span class="marked0"><a name="line79"></a> 79       @@is_rubycampus_alpha_underscore_msg = _(&quot;accepts only letters and underscores&quot;)
-</span><span class="marked1"><a name="line80"></a> 80       @@is_rubycampus_alpha_underscore = /^[a-zA-Z#{utf_accents}\_]*?$/u
-</span><span class="inferred0"><a name="line81"></a> 81 
-</span><span class="marked1"><a name="line82"></a> 82       @@is_rubycampus_alpha_symbol_msg = _('accepts only letters and !@#$%^&amp;*')
-</span><span class="marked0"><a name="line83"></a> 83       @@is_rubycampus_alpha_symbol = /^[a-zA-Z#{utf_accents}\!\@\#\$\%\^\&amp;\*]*?$/u
-</span><span class="inferred1"><a name="line84"></a> 84 
-</span><span class="marked0"><a name="line85"></a> 85       @@is_rubycampus_alpha_separator_msg = _(&quot;accepts only letters, underscores, hyphens, and spaces&quot;)
-</span><span class="marked1"><a name="line86"></a> 86       @@is_rubycampus_alpha_separator = /^[a-zA-Z#{utf_accents}\_\-\ ]*?$/u
-</span><span class="inferred0"><a name="line87"></a> 87 
-</span><span class="marked1"><a name="line88"></a> 88       @@is_rubycampus_alpha_numeric_msg = _(&quot;accepts only letters and 0-9&quot;)
-</span><span class="marked0"><a name="line89"></a> 89       @@is_rubycampus_alpha_numeric = /^[a-zA-Z0-9#{utf_accents}]*?$/u
-</span><span class="inferred1"><a name="line90"></a> 90 
-</span><span class="marked0"><a name="line91"></a> 91       @@is_rubycampus_alpha_numeric_space_msg = _(&quot;accepts only letters, 0-9, and spaces&quot;)
-</span><span class="marked1"><a name="line92"></a> 92       @@is_rubycampus_alpha_numeric_space = /^[a-zA-Z0-9#{utf_accents}\ ]$/
-</span><span class="inferred0"><a name="line93"></a> 93 
-</span><span class="marked1"><a name="line94"></a> 94       @@is_rubycampus_alpha_numeric_underscore_msg = _(&quot;accepts only letters, 0-9, and underscores&quot;)
-</span><span class="marked0"><a name="line95"></a> 95       @@is_rubycampus_alpha_numeric_underscore = /^[a-zA-Z0-9#{utf_accents}\_]*?$/u
-</span><span class="inferred1"><a name="line96"></a> 96 
-</span><span class="marked0"><a name="line97"></a> 97       @@is_rubycampus_alpha_numeric_hyphen_msg = _(&quot;accepts only letters, 0-9, and hyphens&quot;)
-</span><span class="marked1"><a name="line98"></a> 98       @@is_rubycampus_alpha_numeric_hyphen = /^[a-zA-Z0-9#{utf_accents}\-]*?$/u
-</span><span class="inferred0"><a name="line99"></a> 99 
-</span><span class="marked1"><a name="line100"></a>100       @@is_rubycampus_alpha_numeric_symbol_msg = _('accepts only letters, 0-9, and !@#$%^&amp;*')
-</span><span class="marked0"><a name="line101"></a>101       @@is_rubycampus_alpha_numeric_symbol = /^[a-zA-Z0-9#{utf_accents}\!\@\#\$\%\^\&amp;\*]*?$/u
-</span><span class="inferred1"><a name="line102"></a>102 
-</span><span class="marked0"><a name="line103"></a>103       @@is_rubycampus_alpha_numeric_separator_msg = _(&quot;accepts only letters, 0-9, underscore, hyphen, and space&quot;)
-</span><span class="marked1"><a name="line104"></a>104       @@is_rubycampus_alpha_numeric_separator = /^[a-zA-Z0-9#{utf_accents}\_\-\ ]*?$/u
-</span><span class="inferred0"><a name="line105"></a>105 
-</span><span class="marked1"><a name="line106"></a>106       @@is_rubycampus_numeric_msg = _(&quot;accepts only numeric characters (0-9)&quot;)
-</span><span class="marked0"><a name="line107"></a>107       @@is_rubycampus_numeric = /^[0-9]*?$/
-</span><span class="inferred1"><a name="line108"></a>108 
-</span><span class="marked0"><a name="line109"></a>109       @@is_rubycampus_decimal_msg = _(&quot;accepts only numeric characters, period, and negative sign (no commas, requires at least .0)&quot;)
-</span><span class="marked1"><a name="line110"></a>110       @@is_rubycampus_decimal = /^-{0,1}\d*\.{0,1}\d+$/
-</span><span class="inferred0"><a name="line111"></a>111 
-</span><span class="marked1"><a name="line112"></a>112       @@is_rubycampus_positive_decimal_msg = _(&quot;accepts only numeric characters and period (no commas, requires at least .0)&quot;)
-</span><span class="marked0"><a name="line113"></a>113       @@is_rubycampus_positive_decimal = /^\d*\.{0,1}\d+$/
-</span><span class="inferred1"><a name="line114"></a>114 
-</span><span class="marked0"><a name="line115"></a>115       @@is_rubycampus_integer_msg = _(&quot;accepts only numeric characters, and negative sign (no commas)&quot;)
-</span><span class="marked1"><a name="line116"></a>116       @@is_rubycampus_integer = /^-{0,1}\d+$/
-</span><span class="inferred0"><a name="line117"></a>117 
-</span><span class="marked1"><a name="line118"></a>118       @@is_rubycampus_positive_integer_msg = _(&quot;accepts positive integer only (no commas)&quot;)
-</span><span class="marked0"><a name="line119"></a>119       @@is_rubycampus_positive_intger = /^\d+$/
-</span><span class="inferred1"><a name="line120"></a>120 
-</span><span class="marked0"><a name="line121"></a>121       @@is_rubycampus_email_address_msg = _(&quot;must contain an @ symbol, at least one period after the @, and one A-Z letter in each segment&quot;)
-</span><span class="marked1"><a name="line122"></a>122       @@is_rubycampus_email_address = /^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}$/i
-</span><span class="inferred0"><a name="line123"></a>123 
-</span><span class="marked1"><a name="line124"></a>124       def do_as_format_of(attr_names, configuration)
-</span><span class="marked0"><a name="line125"></a>125         configuration.update(attr_names.pop) if attr_names.last.is_a?(Hash)
-</span><span class="marked1"><a name="line126"></a>126         if configuration.has_key?(:label)
-</span><span class="uncovered0"><a name="line127"></a>127           msg_string = _(&quot;The field &lt;span class=\&quot;inputErrorFieldName\&quot;&gt;#{configuration[:label]}&lt;/span&gt; #{configuration[:message]}.&quot;)
-</span><span class="inferred1"><a name="line128"></a>128         else
-</span><span class="marked0"><a name="line129"></a>129           msg_string = _(&quot;This field #{configuration[:message]}&quot;)
-</span><span class="inferred1"><a name="line130"></a>130         end
-</span><span class="marked0"><a name="line131"></a>131         configuration.store(:message, msg_string)
-</span><span class="marked1"><a name="line132"></a>132         configuration.delete(:label)
-</span><span class="marked0"><a name="line133"></a>133         validates_format_of attr_names, configuration
-</span><span class="inferred1"><a name="line134"></a>134       end
-</span><span class="inferred0"><a name="line135"></a>135 
-</span><span class="marked1"><a name="line136"></a>136       def do_as_inclusion_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line137"></a>137         configuration.update(attr_names.pop) if attr_names.last.is_a?(Hash)
-</span><span class="uncovered1"><a name="line138"></a>138         if configuration.has_key?(:label)
-</span><span class="uncovered0"><a name="line139"></a>139           msg_string = _(&quot;The field &lt;span class=\&quot;inputErrorFieldName\&quot;&gt;#{configuration[:label]}&lt;/span&gt; #{configuration[:message]}.&quot;)
-</span><span class="uncovered1"><a name="line140"></a>140         else
-</span><span class="uncovered0"><a name="line141"></a>141           msg_string = _(&quot;This field #{configuration[:message]}&quot;)
-</span><span class="uncovered1"><a name="line142"></a>142         end
-</span><span class="uncovered0"><a name="line143"></a>143         configuration.store(:message, msg_string)
-</span><span class="uncovered1"><a name="line144"></a>144         configuration.delete(:label)
-</span><span class="uncovered0"><a name="line145"></a>145         validates_inclusion_of attr_names, configuration
-</span><span class="uncovered1"><a name="line146"></a>146       end
-</span><span class="inferred0"><a name="line147"></a>147 
-</span><span class="marked1"><a name="line148"></a>148       def validates_as_rubycampus_required(*attr_names)
-</span><span class="uncovered0"><a name="line149"></a>149         configuration = {
-</span><span class="uncovered1"><a name="line150"></a>150           :message   =&gt; @@is_rubycampus_required_msg,
-</span><span class="uncovered0"><a name="line151"></a>151           :with      =&gt; @@is_rubycampus_required }
-</span><span class="uncovered1"><a name="line152"></a>152         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line153"></a>153       end
-</span><span class="inferred1"><a name="line154"></a>154 
-</span><span class="marked0"><a name="line155"></a>155       def validates_as_rubycampus_human_name(*attr_names)
-</span><span class="marked1"><a name="line156"></a>156         configuration = {
-</span><span class="inferred0"><a name="line157"></a>157           :message   =&gt; @@is_rubycampus_human_name_msg,
-</span><span class="inferred1"><a name="line158"></a>158           :with      =&gt; @@is_rubycampus_human_name }
-</span><span class="marked0"><a name="line159"></a>159         do_as_format_of(attr_names, configuration)
-</span><span class="inferred1"><a name="line160"></a>160       end
-</span><span class="inferred0"><a name="line161"></a>161 
-</span><span class="marked1"><a name="line162"></a>162       def validates_as_rubycampus_organization_name(*attr_names)
-</span><span class="marked0"><a name="line163"></a>163         configuration = {
-</span><span class="inferred1"><a name="line164"></a>164           :message   =&gt; @@is_rubycampus_organization_name_msg,
-</span><span class="inferred0"><a name="line165"></a>165           :with      =&gt; @@is_rubycampus_organization_name }
-</span><span class="marked1"><a name="line166"></a>166         do_as_format_of(attr_names, configuration)
-</span><span class="inferred0"><a name="line167"></a>167       end
-</span><span class="inferred1"><a name="line168"></a>168 
-</span><span class="marked0"><a name="line169"></a>169       def validates_as_rubycampus_street_address(*attr_names)
-</span><span class="marked1"><a name="line170"></a>170         configuration = {
-</span><span class="inferred0"><a name="line171"></a>171           :message   =&gt; @@is_rubycampus_street_address_msg,
-</span><span class="inferred1"><a name="line172"></a>172           :with      =&gt; @@is_rubycampus_street_address }
-</span><span class="marked0"><a name="line173"></a>173         do_as_format_of(attr_names, configuration)
-</span><span class="inferred1"><a name="line174"></a>174       end
-</span><span class="inferred0"><a name="line175"></a>175 
-</span><span class="marked1"><a name="line176"></a>176       def validates_as_rubycampus_alpha(*attr_names)
-</span><span class="uncovered0"><a name="line177"></a>177         configuration = {
-</span><span class="uncovered1"><a name="line178"></a>178           :message   =&gt; @@is_rubycampus_alpha_msg,
-</span><span class="uncovered0"><a name="line179"></a>179           :with      =&gt; @@is_rubycampus_alpha }
-</span><span class="uncovered1"><a name="line180"></a>180         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line181"></a>181       end
-</span><span class="inferred1"><a name="line182"></a>182 
-</span><span class="marked0"><a name="line183"></a>183       def validates_as_rubycampus_alpha_space(*attr_names)
-</span><span class="uncovered1"><a name="line184"></a>184         configuration = {
-</span><span class="uncovered0"><a name="line185"></a>185           :message   =&gt; @@is_rubycampus_alpha_space_msg,
-</span><span class="uncovered1"><a name="line186"></a>186           :with      =&gt; @@is_rubycampus_alpha_space }
-</span><span class="uncovered0"><a name="line187"></a>187         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered1"><a name="line188"></a>188       end
-</span><span class="inferred0"><a name="line189"></a>189 
-</span><span class="marked1"><a name="line190"></a>190       def validates_as_rubycampus_alpha_hyphen(*attr_names)
-</span><span class="uncovered0"><a name="line191"></a>191         configuration = {
-</span><span class="uncovered1"><a name="line192"></a>192           :message   =&gt; @@is_rubycampus_alpha_hyphen_msg,
-</span><span class="uncovered0"><a name="line193"></a>193           :with      =&gt; @@is_rubycampus_alpha_hyphen }
-</span><span class="uncovered1"><a name="line194"></a>194         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line195"></a>195       end
-</span><span class="inferred1"><a name="line196"></a>196 
-</span><span class="marked0"><a name="line197"></a>197       def validates_as_rubycampus_alpha_underscore(*attr_names)
-</span><span class="uncovered1"><a name="line198"></a>198         configuration = {
-</span><span class="uncovered0"><a name="line199"></a>199           :message   =&gt; @@is_rubycampus_alpha_underscore_msg,
-</span><span class="uncovered1"><a name="line200"></a>200           :with      =&gt; @@is_rubycampus_alpha_underscore }
-</span><span class="uncovered0"><a name="line201"></a>201         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered1"><a name="line202"></a>202       end
-</span><span class="inferred0"><a name="line203"></a>203 
-</span><span class="marked1"><a name="line204"></a>204       def validates_as_rubycampus_alpha_symbol(*attr_names)
-</span><span class="uncovered0"><a name="line205"></a>205         configuration = {
-</span><span class="uncovered1"><a name="line206"></a>206           :message   =&gt; @@is_rubycampus_alpha_symbol_msg,
-</span><span class="uncovered0"><a name="line207"></a>207           :with      =&gt; @@is_rubycampus_alpha_symbol }
-</span><span class="uncovered1"><a name="line208"></a>208         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line209"></a>209       end
-</span><span class="inferred1"><a name="line210"></a>210 
-</span><span class="marked0"><a name="line211"></a>211       def validates_as_rubycampus_alpha_separator(*attr_names)
-</span><span class="uncovered1"><a name="line212"></a>212         configuration = {
-</span><span class="uncovered0"><a name="line213"></a>213           :message   =&gt; @@is_rubycampus_alpha_separator_msg,
-</span><span class="uncovered1"><a name="line214"></a>214           :with      =&gt; @@is_rubycampus_alpha_separator }
-</span><span class="uncovered0"><a name="line215"></a>215         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered1"><a name="line216"></a>216       end
-</span><span class="inferred0"><a name="line217"></a>217 
-</span><span class="marked1"><a name="line218"></a>218       def validates_as_rubycampus_alpha_numeric(*attr_names)
-</span><span class="uncovered0"><a name="line219"></a>219         configuration = {
-</span><span class="uncovered1"><a name="line220"></a>220           :message   =&gt; @@is_rubycampus_alpha_numeric_msg,
-</span><span class="uncovered0"><a name="line221"></a>221           :with      =&gt; @@is_rubycampus_alpha_numeric }
-</span><span class="uncovered1"><a name="line222"></a>222         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line223"></a>223       end
-</span><span class="inferred1"><a name="line224"></a>224 
-</span><span class="marked0"><a name="line225"></a>225       def validates_as_rubycampus_alpha_numeric_space(*attr_names)
-</span><span class="uncovered1"><a name="line226"></a>226         configuration = {
-</span><span class="uncovered0"><a name="line227"></a>227           :message   =&gt; @@is_rubycampus_alpha_numeric_space_msg,
-</span><span class="uncovered1"><a name="line228"></a>228           :with      =&gt; @@is_rubycampus_alpha_numeric_space }
-</span><span class="uncovered0"><a name="line229"></a>229         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered1"><a name="line230"></a>230       end
-</span><span class="inferred0"><a name="line231"></a>231 
-</span><span class="marked1"><a name="line232"></a>232       def validates_as_rubycampus_alpha_numeric_hyphen(*attr_names)
-</span><span class="uncovered0"><a name="line233"></a>233         configuration = {
-</span><span class="uncovered1"><a name="line234"></a>234           :message   =&gt; @@is_rubycampus_alpha_numeric_hyphen_msg,
-</span><span class="uncovered0"><a name="line235"></a>235           :with      =&gt; @@is_rubycampus_alpha_numeric_hyphen }
-</span><span class="uncovered1"><a name="line236"></a>236         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line237"></a>237       end
-</span><span class="inferred1"><a name="line238"></a>238 
-</span><span class="marked0"><a name="line239"></a>239       def validates_as_rubycampus_alpha_numeric_underscore(*attr_names)
-</span><span class="uncovered1"><a name="line240"></a>240         configuration = {
-</span><span class="uncovered0"><a name="line241"></a>241           :message   =&gt; @@is_rubycampus_alpha_numeric_underscore_msg,
-</span><span class="uncovered1"><a name="line242"></a>242           :with      =&gt; @@is_rubycampus_alpha_numeric_underscore }
-</span><span class="uncovered0"><a name="line243"></a>243         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered1"><a name="line244"></a>244       end
-</span><span class="inferred0"><a name="line245"></a>245 
-</span><span class="marked1"><a name="line246"></a>246       def validates_as_rubycampus_alpha_numeric_symbol(*attr_names)
-</span><span class="uncovered0"><a name="line247"></a>247         configuration = {
-</span><span class="uncovered1"><a name="line248"></a>248           :message   =&gt; @@is_rubycampus_alpha_numeric_symbol_msg,
-</span><span class="uncovered0"><a name="line249"></a>249           :with      =&gt; @@is_rubycampus_alpha_numeric_symbol }
-</span><span class="uncovered1"><a name="line250"></a>250         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line251"></a>251       end
-</span><span class="inferred1"><a name="line252"></a>252 
-</span><span class="marked0"><a name="line253"></a>253       def validates_as_rubycampus_alpha_numeric_separator(*attr_names)
-</span><span class="uncovered1"><a name="line254"></a>254         configuration = {
-</span><span class="uncovered0"><a name="line255"></a>255           :message   =&gt; @@is_rubycampus_alpha_numeric_separator_msg,
-</span><span class="uncovered1"><a name="line256"></a>256           :with      =&gt; @@is_rubycampus_alpha_numeric_separator }
-</span><span class="uncovered0"><a name="line257"></a>257         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered1"><a name="line258"></a>258       end
-</span><span class="inferred0"><a name="line259"></a>259 
-</span><span class="marked1"><a name="line260"></a>260       def validates_as_rubycampus_numeric(*attr_names)
-</span><span class="uncovered0"><a name="line261"></a>261         configuration = {
-</span><span class="uncovered1"><a name="line262"></a>262           :message   =&gt; @@is_rubycampus_numeric_msg,
-</span><span class="uncovered0"><a name="line263"></a>263           :with      =&gt; @@is_rubycampus_numeric }
-</span><span class="uncovered1"><a name="line264"></a>264         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line265"></a>265       end
-</span><span class="inferred1"><a name="line266"></a>266 
-</span><span class="marked0"><a name="line267"></a>267       def validates_as_rubycampus_decimal(*attr_names)
-</span><span class="uncovered1"><a name="line268"></a>268         configuration = {
-</span><span class="uncovered0"><a name="line269"></a>269           :message   =&gt; @@is_rubycampus_decimal_msg,
-</span><span class="uncovered1"><a name="line270"></a>270           :with      =&gt; @@is_rubycampus_decimal }
-</span><span class="uncovered0"><a name="line271"></a>271         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered1"><a name="line272"></a>272       end
-</span><span class="inferred0"><a name="line273"></a>273 
-</span><span class="marked1"><a name="line274"></a>274       def validates_as_rubycampus_positive_decimal(*attr_names)
-</span><span class="uncovered0"><a name="line275"></a>275         configuration = {
-</span><span class="uncovered1"><a name="line276"></a>276           :message   =&gt; @@is_rubycampus_positive_decimal_msg,
-</span><span class="uncovered0"><a name="line277"></a>277           :with      =&gt; @@is_rubycampus_positive_decimal }
-</span><span class="uncovered1"><a name="line278"></a>278         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line279"></a>279       end
-</span><span class="inferred1"><a name="line280"></a>280 
-</span><span class="marked0"><a name="line281"></a>281       def validates_as_rubycampus_integer(*attr_names)
-</span><span class="uncovered1"><a name="line282"></a>282         configuration = {
-</span><span class="uncovered0"><a name="line283"></a>283           :message   =&gt; @@is_rubycampus_integer_msg,
-</span><span class="uncovered1"><a name="line284"></a>284           :with      =&gt; @@is_rubycampus_integer }
-</span><span class="uncovered0"><a name="line285"></a>285         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered1"><a name="line286"></a>286       end
-</span><span class="inferred0"><a name="line287"></a>287 
-</span><span class="marked1"><a name="line288"></a>288       def validates_as_rubycampus_positive_integer(*attr_names)
-</span><span class="uncovered0"><a name="line289"></a>289         configuration = {
-</span><span class="uncovered1"><a name="line290"></a>290           :message   =&gt; @@is_rubycampus_positive_integer_msg,
-</span><span class="uncovered0"><a name="line291"></a>291           :with      =&gt; @@is_rubycampus_positive_integer }
-</span><span class="uncovered1"><a name="line292"></a>292         do_as_format_of(attr_names, configuration)
-</span><span class="uncovered0"><a name="line293"></a>293       end
-</span><span class="inferred1"><a name="line294"></a>294 
-</span><span class="marked0"><a name="line295"></a>295       def validates_as_rubycampus_email(*attr_names)
-</span><span class="marked1"><a name="line296"></a>296         configuration = {
-</span><span class="inferred0"><a name="line297"></a>297           :message   =&gt; @@is_rubycampus_email_address_msg,
-</span><span class="inferred1"><a name="line298"></a>298           :with      =&gt; @@is_rubycampus_email_address }
-</span><span class="marked0"><a name="line299"></a>299         do_as_format_of(attr_names, configuration)
-</span><span class="inferred1"><a name="line300"></a>300       end
-</span><span class="inferred0"><a name="line301"></a>301 
-</span><span class="marked1"><a name="line302"></a>302       def validates_as_rubycampus_value_list(*attr_names)
-</span><span class="uncovered0"><a name="line303"></a>303         configuration = {
-</span><span class="uncovered1"><a name="line304"></a>304           :message =&gt; @@is_rubycampus_not_from_options_msg }
-</span><span class="uncovered0"><a name="line305"></a>305         do_as_inclusion_of(attr_names, configuration)
-</span><span class="uncovered1"><a name="line306"></a>306       end
-</span><span class="uncovered0"><a name="line307"></a>307 
-</span><span class="uncovered1"><a name="line308"></a>308     end
-</span><span class="uncovered0"><a name="line309"></a>309   end
-</span><span class="uncovered1"><a name="line310"></a>310 end
+<pre><span class="inferred1"><a name="line1"></a>  1 #--                                                  /THIS FILE IS A PART OF RUBYCAMPUS/
+</span><span class="inferred0"><a name="line2"></a>  2 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line3"></a>  3 # | RubyCampus - Student &amp; Alumni Relationship Management Software                     |
+</span><span class="inferred0"><a name="line4"></a>  4 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line5"></a>  5 # | Copyright © 2008-2009 Kevin R. Aleman. Fukuoka, Japan. All Rights Reserved.        |
+</span><span class="inferred0"><a name="line6"></a>  6 # +------------------------------------------------------------------------------------+
+</span><span class="inferred1"><a name="line7"></a>  7 # |                                                                                    |
+</span><span class="inferred0"><a name="line8"></a>  8 # | This program is free software; you can redistribute it and/or modify it under the  |
+</span><span class="inferred1"><a name="line9"></a>  9 # | terms of the GNU Affero General Public License version 3 as published by the Free  |
+</span><span class="inferred0"><a name="line10"></a> 10 # | Software Foundation with the addition of the following permission added to Section |
+</span><span class="inferred1"><a name="line11"></a> 11 # | 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK IN WHICH THE     |
+</span><span class="inferred0"><a name="line12"></a> 12 # | COPYRIGHT IS OWNED BY KEVIN R ALEMAN, KEVIN R ALEMAN DISCLAIMS THE WARRANTY OF NON |
+</span><span class="inferred1"><a name="line13"></a> 13 # | INFRINGEMENT OF THIRD PARTY RIGHTS.                                                |
+</span><span class="inferred0"><a name="line14"></a> 14 # |                                                                                    |
+</span><span class="inferred1"><a name="line15"></a> 15 # | This program is distributed in the hope that it will be useful, but WITHOUT ANY    |
+</span><span class="inferred0"><a name="line16"></a> 16 # | WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A    |
+</span><span class="inferred1"><a name="line17"></a> 17 # | PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.   |
+</span><span class="inferred0"><a name="line18"></a> 18 # |                                                                                    |
+</span><span class="inferred1"><a name="line19"></a> 19 # | You should have received a copy of the GNU Affero General Public License along     |
+</span><span class="inferred0"><a name="line20"></a> 20 # | with this program; if not, see http://www.gnu.org/licenses or write to the Free    |
+</span><span class="inferred1"><a name="line21"></a> 21 # | Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  |
+</span><span class="inferred0"><a name="line22"></a> 22 # | USA.                                                                               |
+</span><span class="inferred1"><a name="line23"></a> 23 # |                                                                                    |
+</span><span class="inferred0"><a name="line24"></a> 24 # | You can contact the author Kevin R. Aleman by email at KALEMAN@RUBYCAMPUS.ORG. The |
+</span><span class="inferred1"><a name="line25"></a> 25 # |                                                                                    |
+</span><span class="inferred0"><a name="line26"></a> 26 # | The interactive user interfaces in modified source and object code versions of     |
+</span><span class="inferred1"><a name="line27"></a> 27 # | this program must display Appropriate Legal Notices, as required under Section 5   |
+</span><span class="inferred0"><a name="line28"></a> 28 # | of the GNU Affero General Public License version 3.                                |
+</span><span class="inferred1"><a name="line29"></a> 29 # |                                                                                    |
+</span><span class="inferred0"><a name="line30"></a> 30 # | In accordance with Section 7(b) of the GNU Affero General Public License version   |
+</span><span class="inferred1"><a name="line31"></a> 31 # | 3, these Appropriate Legal Notices must retain the display of the &quot;Powered by      |
+</span><span class="inferred0"><a name="line32"></a> 32 # | RubyCampus&quot; logo. If the display of the logo is not reasonably feasible for        |
+</span><span class="inferred1"><a name="line33"></a> 33 # | technical reasons, the Appropriate Legal Notices must display the words &quot;Powered   |
+</span><span class="inferred0"><a name="line34"></a> 34 # | by RubyCampus&quot;.                                                                    |
+</span><span class="inferred1"><a name="line35"></a> 35 # +------------------------------------------------------------------------------------+
+</span><span class="inferred0"><a name="line36"></a> 36 #++
+</span><span class="inferred1"><a name="line37"></a> 37 
+</span><span class="inferred0"><a name="line38"></a> 38 # NOTE Use _rubycampus_ in methods prevent potential conflicts with future revisions of
+</span><span class="inferred1"><a name="line39"></a> 39 #      ActiveRecord::Validations::ClassMethods and to clearly distinguish among them.
+</span><span class="inferred0"><a name="line40"></a> 40 
+</span><span class="marked1"><a name="line41"></a> 41 module ActiveRecord
+</span><span class="marked0"><a name="line42"></a> 42   module Validations
+</span><span class="marked1"><a name="line43"></a> 43     module ClassMethods
+</span><span class="marked0"><a name="line44"></a> 44       include GetText::Rails
+</span><span class="marked1"><a name="line45"></a> 45       bindtextdomain(&quot;rubycampus&quot;)
+</span><span class="inferred0"><a name="line46"></a> 46 
+</span><span class="marked1"><a name="line47"></a> 47       oct200 = &quot;\303\200&quot;
+</span><span class="marked0"><a name="line48"></a> 48       oct226 = &quot;\303\226&quot;
+</span><span class="marked1"><a name="line49"></a> 49       oct231 = &quot;\303\231&quot;
+</span><span class="marked0"><a name="line50"></a> 50       oct266 = &quot;\303\266&quot;
+</span><span class="marked1"><a name="line51"></a> 51       oct271 = &quot;\303\271&quot;
+</span><span class="marked0"><a name="line52"></a> 52       oct277 = &quot;\303\277&quot;
+</span><span class="inferred1"><a name="line53"></a> 53 
+</span><span class="marked0"><a name="line54"></a> 54       utf_accents = &quot;#{oct200}-#{oct226}#{oct231}-#{oct266}#{oct271}-#{oct277}&quot;
+</span><span class="inferred1"><a name="line55"></a> 55 
+</span><span class="marked0"><a name="line56"></a> 56       @@is_rubycampus_not_from_options_msg = _(&quot;has a value other than the valid options below&quot;)
+</span><span class="inferred1"><a name="line57"></a> 57 
+</span><span class="marked0"><a name="line58"></a> 58       @@is_rubycampus_required_msg = _(&quot;cannot be empty&quot;)
+</span><span class="marked1"><a name="line59"></a> 59       @@is_rubycampus_required = /.+/
+</span><span class="inferred0"><a name="line60"></a> 60 
+</span><span class="marked1"><a name="line61"></a> 61       @@is_rubycampus_human_name_msg = _(&quot;accepts only letters, hyphens, spaces, apostrophes, and periods&quot;)
+</span><span class="marked0"><a name="line62"></a> 62       @@is_rubycampus_human_name = /^[a-zA-Z#{utf_accents}\.\'\-\ ]*?$/u
+</span><span class="inferred1"><a name="line63"></a> 63 
+</span><span class="marked0"><a name="line64"></a> 64       @@is_rubycampus_organization_name_msg = _(&quot;accepts only letters, 0-9, hyphens, spaces, apostrophes, commas, and periods&quot;)
+</span><span class="marked1"><a name="line65"></a> 65       @@is_rubycampus_organization_name = /^[a-zA-Z0-9#{utf_accents}\.\'\-\,\ ]*?$/u
+</span><span class="inferred0"><a name="line66"></a> 66 
+</span><span class="marked1"><a name="line67"></a> 67       @@is_rubycampus_street_address_msg = _(&quot;accepts only letters, 0-9, hyphens, spaces, apostrophes, commas, periods, and number signs&quot;)
+</span><span class="marked0"><a name="line68"></a> 68       @@is_rubycampus_street_address = /^[a-zA-Z0-9#{utf_accents}\.\'\-\,\#\ ]*?$/u
+</span><span class="inferred1"><a name="line69"></a> 69 
+</span><span class="marked0"><a name="line70"></a> 70       @@is_rubycampus_alpha_msg = _(&quot;accepts only letters&quot;)
+</span><span class="marked1"><a name="line71"></a> 71       @@is_rubycampus_alpha = /^[a-zA-Z#{utf_accents}]*?$/u
+</span><span class="inferred0"><a name="line72"></a> 72 
+</span><span class="marked1"><a name="line73"></a> 73       @@is_rubycampus_alpha_space_msg = _(&quot;accepts only letters and spaces&quot;)
+</span><span class="marked0"><a name="line74"></a> 74       @@is_rubycampus_alpha_space = /^[a-zA-Z#{utf_accents}\ ]*?$/u
+</span><span class="inferred1"><a name="line75"></a> 75 
+</span><span class="marked0"><a name="line76"></a> 76       @@is_rubycampus_alpha_hyphen_msg = _(&quot;accepts only letters and hyphens&quot;)
+</span><span class="marked1"><a name="line77"></a> 77       @@is_rubycampus_alpha_hyphen = /^[a-zA-Z#{utf_accents}\-]*?$/u
+</span><span class="inferred0"><a name="line78"></a> 78 
+</span><span class="marked1"><a name="line79"></a> 79       @@is_rubycampus_alpha_underscore_msg = _(&quot;accepts only letters and underscores&quot;)
+</span><span class="marked0"><a name="line80"></a> 80       @@is_rubycampus_alpha_underscore = /^[a-zA-Z#{utf_accents}\_]*?$/u
+</span><span class="inferred1"><a name="line81"></a> 81 
+</span><span class="marked0"><a name="line82"></a> 82       @@is_rubycampus_alpha_symbol_msg = _('accepts only letters and !@#$%^&amp;*')
+</span><span class="marked1"><a name="line83"></a> 83       @@is_rubycampus_alpha_symbol = /^[a-zA-Z#{utf_accents}\!\@\#\$\%\^\&amp;\*]*?$/u
+</span><span class="inferred0"><a name="line84"></a> 84 
+</span><span class="marked1"><a name="line85"></a> 85       @@is_rubycampus_alpha_separator_msg = _(&quot;accepts only letters, underscores, hyphens, and spaces&quot;)
+</span><span class="marked0"><a name="line86"></a> 86       @@is_rubycampus_alpha_separator = /^[a-zA-Z#{utf_accents}\_\-\ ]*?$/u
+</span><span class="inferred1"><a name="line87"></a> 87 
+</span><span class="marked0"><a name="line88"></a> 88       @@is_rubycampus_alpha_numeric_msg = _(&quot;accepts only letters and 0-9&quot;)
+</span><span class="marked1"><a name="line89"></a> 89       @@is_rubycampus_alpha_numeric = /^[a-zA-Z0-9#{utf_accents}]*?$/u
+</span><span class="inferred0"><a name="line90"></a> 90 
+</span><span class="marked1"><a name="line91"></a> 91       @@is_rubycampus_alpha_numeric_space_msg = _(&quot;accepts only letters, 0-9, and spaces&quot;)
+</span><span class="marked0"><a name="line92"></a> 92       @@is_rubycampus_alpha_numeric_space = /^[a-zA-Z0-9#{utf_accents}\ ]$/
+</span><span class="inferred1"><a name="line93"></a> 93 
+</span><span class="marked0"><a name="line94"></a> 94       @@is_rubycampus_alpha_numeric_underscore_msg = _(&quot;accepts only letters, 0-9, and underscores&quot;)
+</span><span class="marked1"><a name="line95"></a> 95       @@is_rubycampus_alpha_numeric_underscore = /^[a-zA-Z0-9#{utf_accents}\_]*?$/u
+</span><span class="inferred0"><a name="line96"></a> 96 
+</span><span class="marked1"><a name="line97"></a> 97       @@is_rubycampus_alpha_numeric_hyphen_msg = _(&quot;accepts only letters, 0-9, and hyphens&quot;)
+</span><span class="marked0"><a name="line98"></a> 98       @@is_rubycampus_alpha_numeric_hyphen = /^[a-zA-Z0-9#{utf_accents}\-]*?$/u
+</span><span class="inferred1"><a name="line99"></a> 99 
+</span><span class="marked0"><a name="line100"></a>100       @@is_rubycampus_alpha_numeric_symbol_msg = _('accepts only letters, 0-9, and !@#$%^&amp;*')
+</span><span class="marked1"><a name="line101"></a>101       @@is_rubycampus_alpha_numeric_symbol = /^[a-zA-Z0-9#{utf_accents}\!\@\#\$\%\^\&amp;\*]*?$/u
+</span><span class="inferred0"><a name="line102"></a>102 
+</span><span class="marked1"><a name="line103"></a>103       @@is_rubycampus_alpha_numeric_separator_msg = _(&quot;accepts only letters, 0-9, underscore, hyphen, and space&quot;)
+</span><span class="marked0"><a name="line104"></a>104       @@is_rubycampus_alpha_numeric_separator = /^[a-zA-Z0-9#{utf_accents}\_\-\ ]*?$/u
+</span><span class="inferred1"><a name="line105"></a>105 
+</span><span class="marked0"><a name="line106"></a>106       @@is_rubycampus_numeric_msg = _(&quot;accepts only numeric characters (0-9)&quot;)
+</span><span class="marked1"><a name="line107"></a>107       @@is_rubycampus_numeric = /^[0-9]*?$/
+</span><span class="inferred0"><a name="line108"></a>108 
+</span><span class="marked1"><a name="line109"></a>109       @@is_rubycampus_decimal_msg = _(&quot;accepts only numeric characters, period, and negative sign (no commas, requires at least .0)&quot;)
+</span><span class="marked0"><a name="line110"></a>110       @@is_rubycampus_decimal = /^-{0,1}\d*\.{0,1}\d+$/
+</span><span class="inferred1"><a name="line111"></a>111 
+</span><span class="marked0"><a name="line112"></a>112       @@is_rubycampus_positive_decimal_msg = _(&quot;accepts only numeric characters and period (no commas, requires at least .0)&quot;)
+</span><span class="marked1"><a name="line113"></a>113       @@is_rubycampus_positive_decimal = /^\d*\.{0,1}\d+$/
+</span><span class="inferred0"><a name="line114"></a>114 
+</span><span class="marked1"><a name="line115"></a>115       @@is_rubycampus_integer_msg = _(&quot;accepts only numeric characters, and negative sign (no commas)&quot;)
+</span><span class="marked0"><a name="line116"></a>116       @@is_rubycampus_integer = /^-{0,1}\d+$/
+</span><span class="inferred1"><a name="line117"></a>117 
+</span><span class="marked0"><a name="line118"></a>118       @@is_rubycampus_positive_integer_msg = _(&quot;accepts positive integer only (no commas)&quot;)
+</span><span class="marked1"><a name="line119"></a>119       @@is_rubycampus_positive_intger = /^\d+$/
+</span><span class="inferred0"><a name="line120"></a>120 
+</span><span class="marked1"><a name="line121"></a>121       @@is_rubycampus_email_address_msg = _(&quot;must contain an @ symbol, at least one period after the @, and one A-Z letter in each segment&quot;)
+</span><span class="marked0"><a name="line122"></a>122       @@is_rubycampus_email_address = /^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}$/i
+</span><span class="inferred1"><a name="line123"></a>123 
+</span><span class="marked0"><a name="line124"></a>124       def do_as_format_of(attr_names, configuration)
+</span><span class="marked1"><a name="line125"></a>125         configuration.update(attr_names.pop) if attr_names.last.is_a?(Hash)
+</span><span class="marked0"><a name="line126"></a>126         if configuration.has_key?(:label)
+</span><span class="uncovered1"><a name="line127"></a>127           msg_string = _(&quot;The field &lt;span class=\&quot;inputErrorFieldName\&quot;&gt;#{configuration[:label]}&lt;/span&gt; #{configuration[:message]}.&quot;)
+</span><span class="inferred0"><a name="line128"></a>128         else
+</span><span class="marked1"><a name="line129"></a>129           msg_string = _(&quot;This field #{configuration[:message]}&quot;)
+</span><span class="inferred0"><a name="line130"></a>130         end
+</span><span class="marked1"><a name="line131"></a>131         configuration.store(:message, msg_string)
+</span><span class="marked0"><a name="line132"></a>132         configuration.delete(:label)
+</span><span class="marked1"><a name="line133"></a>133         validates_format_of attr_names, configuration
+</span><span class="inferred0"><a name="line134"></a>134       end
+</span><span class="inferred1"><a name="line135"></a>135 
+</span><span class="marked0"><a name="line136"></a>136       def do_as_inclusion_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line137"></a>137         configuration.update(attr_names.pop) if attr_names.last.is_a?(Hash)
+</span><span class="uncovered0"><a name="line138"></a>138         if configuration.has_key?(:label)
+</span><span class="uncovered1"><a name="line139"></a>139           msg_string = _(&quot;The field &lt;span class=\&quot;inputErrorFieldName\&quot;&gt;#{configuration[:label]}&lt;/span&gt; #{configuration[:message]}.&quot;)
+</span><span class="uncovered0"><a name="line140"></a>140         else
+</span><span class="uncovered1"><a name="line141"></a>141           msg_string = _(&quot;This field #{configuration[:message]}&quot;)
+</span><span class="uncovered0"><a name="line142"></a>142         end
+</span><span class="uncovered1"><a name="line143"></a>143         configuration.store(:message, msg_string)
+</span><span class="uncovered0"><a name="line144"></a>144         configuration.delete(:label)
+</span><span class="uncovered1"><a name="line145"></a>145         validates_inclusion_of attr_names, configuration
+</span><span class="uncovered0"><a name="line146"></a>146       end
+</span><span class="inferred1"><a name="line147"></a>147 
+</span><span class="marked0"><a name="line148"></a>148       def validates_as_rubycampus_required(*attr_names)
+</span><span class="uncovered1"><a name="line149"></a>149         configuration = {
+</span><span class="uncovered0"><a name="line150"></a>150           :message   =&gt; @@is_rubycampus_required_msg,
+</span><span class="uncovered1"><a name="line151"></a>151           :with      =&gt; @@is_rubycampus_required }
+</span><span class="uncovered0"><a name="line152"></a>152         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line153"></a>153       end
+</span><span class="inferred0"><a name="line154"></a>154 
+</span><span class="marked1"><a name="line155"></a>155       def validates_as_rubycampus_human_name(*attr_names)
+</span><span class="marked0"><a name="line156"></a>156         configuration = {
+</span><span class="inferred1"><a name="line157"></a>157           :message   =&gt; @@is_rubycampus_human_name_msg,
+</span><span class="inferred0"><a name="line158"></a>158           :with      =&gt; @@is_rubycampus_human_name }
+</span><span class="marked1"><a name="line159"></a>159         do_as_format_of(attr_names, configuration)
+</span><span class="inferred0"><a name="line160"></a>160       end
+</span><span class="inferred1"><a name="line161"></a>161 
+</span><span class="marked0"><a name="line162"></a>162       def validates_as_rubycampus_organization_name(*attr_names)
+</span><span class="marked1"><a name="line163"></a>163         configuration = {
+</span><span class="inferred0"><a name="line164"></a>164           :message   =&gt; @@is_rubycampus_organization_name_msg,
+</span><span class="inferred1"><a name="line165"></a>165           :with      =&gt; @@is_rubycampus_organization_name }
+</span><span class="marked0"><a name="line166"></a>166         do_as_format_of(attr_names, configuration)
+</span><span class="inferred1"><a name="line167"></a>167       end
+</span><span class="inferred0"><a name="line168"></a>168 
+</span><span class="marked1"><a name="line169"></a>169       def validates_as_rubycampus_street_address(*attr_names)
+</span><span class="marked0"><a name="line170"></a>170         configuration = {
+</span><span class="inferred1"><a name="line171"></a>171           :message   =&gt; @@is_rubycampus_street_address_msg,
+</span><span class="inferred0"><a name="line172"></a>172           :with      =&gt; @@is_rubycampus_street_address }
+</span><span class="marked1"><a name="line173"></a>173         do_as_format_of(attr_names, configuration)
+</span><span class="inferred0"><a name="line174"></a>174       end
+</span><span class="inferred1"><a name="line175"></a>175 
+</span><span class="marked0"><a name="line176"></a>176       def validates_as_rubycampus_alpha(*attr_names)
+</span><span class="uncovered1"><a name="line177"></a>177         configuration = {
+</span><span class="uncovered0"><a name="line178"></a>178           :message   =&gt; @@is_rubycampus_alpha_msg,
+</span><span class="uncovered1"><a name="line179"></a>179           :with      =&gt; @@is_rubycampus_alpha }
+</span><span class="uncovered0"><a name="line180"></a>180         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line181"></a>181       end
+</span><span class="inferred0"><a name="line182"></a>182 
+</span><span class="marked1"><a name="line183"></a>183       def validates_as_rubycampus_alpha_space(*attr_names)
+</span><span class="uncovered0"><a name="line184"></a>184         configuration = {
+</span><span class="uncovered1"><a name="line185"></a>185           :message   =&gt; @@is_rubycampus_alpha_space_msg,
+</span><span class="uncovered0"><a name="line186"></a>186           :with      =&gt; @@is_rubycampus_alpha_space }
+</span><span class="uncovered1"><a name="line187"></a>187         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered0"><a name="line188"></a>188       end
+</span><span class="inferred1"><a name="line189"></a>189 
+</span><span class="marked0"><a name="line190"></a>190       def validates_as_rubycampus_alpha_hyphen(*attr_names)
+</span><span class="uncovered1"><a name="line191"></a>191         configuration = {
+</span><span class="uncovered0"><a name="line192"></a>192           :message   =&gt; @@is_rubycampus_alpha_hyphen_msg,
+</span><span class="uncovered1"><a name="line193"></a>193           :with      =&gt; @@is_rubycampus_alpha_hyphen }
+</span><span class="uncovered0"><a name="line194"></a>194         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line195"></a>195       end
+</span><span class="inferred0"><a name="line196"></a>196 
+</span><span class="marked1"><a name="line197"></a>197       def validates_as_rubycampus_alpha_underscore(*attr_names)
+</span><span class="uncovered0"><a name="line198"></a>198         configuration = {
+</span><span class="uncovered1"><a name="line199"></a>199           :message   =&gt; @@is_rubycampus_alpha_underscore_msg,
+</span><span class="uncovered0"><a name="line200"></a>200           :with      =&gt; @@is_rubycampus_alpha_underscore }
+</span><span class="uncovered1"><a name="line201"></a>201         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered0"><a name="line202"></a>202       end
+</span><span class="inferred1"><a name="line203"></a>203 
+</span><span class="marked0"><a name="line204"></a>204       def validates_as_rubycampus_alpha_symbol(*attr_names)
+</span><span class="uncovered1"><a name="line205"></a>205         configuration = {
+</span><span class="uncovered0"><a name="line206"></a>206           :message   =&gt; @@is_rubycampus_alpha_symbol_msg,
+</span><span class="uncovered1"><a name="line207"></a>207           :with      =&gt; @@is_rubycampus_alpha_symbol }
+</span><span class="uncovered0"><a name="line208"></a>208         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line209"></a>209       end
+</span><span class="inferred0"><a name="line210"></a>210 
+</span><span class="marked1"><a name="line211"></a>211       def validates_as_rubycampus_alpha_separator(*attr_names)
+</span><span class="uncovered0"><a name="line212"></a>212         configuration = {
+</span><span class="uncovered1"><a name="line213"></a>213           :message   =&gt; @@is_rubycampus_alpha_separator_msg,
+</span><span class="uncovered0"><a name="line214"></a>214           :with      =&gt; @@is_rubycampus_alpha_separator }
+</span><span class="uncovered1"><a name="line215"></a>215         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered0"><a name="line216"></a>216       end
+</span><span class="inferred1"><a name="line217"></a>217 
+</span><span class="marked0"><a name="line218"></a>218       def validates_as_rubycampus_alpha_numeric(*attr_names)
+</span><span class="uncovered1"><a name="line219"></a>219         configuration = {
+</span><span class="uncovered0"><a name="line220"></a>220           :message   =&gt; @@is_rubycampus_alpha_numeric_msg,
+</span><span class="uncovered1"><a name="line221"></a>221           :with      =&gt; @@is_rubycampus_alpha_numeric }
+</span><span class="uncovered0"><a name="line222"></a>222         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line223"></a>223       end
+</span><span class="inferred0"><a name="line224"></a>224 
+</span><span class="marked1"><a name="line225"></a>225       def validates_as_rubycampus_alpha_numeric_space(*attr_names)
+</span><span class="uncovered0"><a name="line226"></a>226         configuration = {
+</span><span class="uncovered1"><a name="line227"></a>227           :message   =&gt; @@is_rubycampus_alpha_numeric_space_msg,
+</span><span class="uncovered0"><a name="line228"></a>228           :with      =&gt; @@is_rubycampus_alpha_numeric_space }
+</span><span class="uncovered1"><a name="line229"></a>229         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered0"><a name="line230"></a>230       end
+</span><span class="inferred1"><a name="line231"></a>231 
+</span><span class="marked0"><a name="line232"></a>232       def validates_as_rubycampus_alpha_numeric_hyphen(*attr_names)
+</span><span class="uncovered1"><a name="line233"></a>233         configuration = {
+</span><span class="uncovered0"><a name="line234"></a>234           :message   =&gt; @@is_rubycampus_alpha_numeric_hyphen_msg,
+</span><span class="uncovered1"><a name="line235"></a>235           :with      =&gt; @@is_rubycampus_alpha_numeric_hyphen }
+</span><span class="uncovered0"><a name="line236"></a>236         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line237"></a>237       end
+</span><span class="inferred0"><a name="line238"></a>238 
+</span><span class="marked1"><a name="line239"></a>239       def validates_as_rubycampus_alpha_numeric_underscore(*attr_names)
+</span><span class="uncovered0"><a name="line240"></a>240         configuration = {
+</span><span class="uncovered1"><a name="line241"></a>241           :message   =&gt; @@is_rubycampus_alpha_numeric_underscore_msg,
+</span><span class="uncovered0"><a name="line242"></a>242           :with      =&gt; @@is_rubycampus_alpha_numeric_underscore }
+</span><span class="uncovered1"><a name="line243"></a>243         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered0"><a name="line244"></a>244       end
+</span><span class="inferred1"><a name="line245"></a>245 
+</span><span class="marked0"><a name="line246"></a>246       def validates_as_rubycampus_alpha_numeric_symbol(*attr_names)
+</span><span class="uncovered1"><a name="line247"></a>247         configuration = {
+</span><span class="uncovered0"><a name="line248"></a>248           :message   =&gt; @@is_rubycampus_alpha_numeric_symbol_msg,
+</span><span class="uncovered1"><a name="line249"></a>249           :with      =&gt; @@is_rubycampus_alpha_numeric_symbol }
+</span><span class="uncovered0"><a name="line250"></a>250         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line251"></a>251       end
+</span><span class="inferred0"><a name="line252"></a>252 
+</span><span class="marked1"><a name="line253"></a>253       def validates_as_rubycampus_alpha_numeric_separator(*attr_names)
+</span><span class="uncovered0"><a name="line254"></a>254         configuration = {
+</span><span class="uncovered1"><a name="line255"></a>255           :message   =&gt; @@is_rubycampus_alpha_numeric_separator_msg,
+</span><span class="uncovered0"><a name="line256"></a>256           :with      =&gt; @@is_rubycampus_alpha_numeric_separator }
+</span><span class="uncovered1"><a name="line257"></a>257         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered0"><a name="line258"></a>258       end
+</span><span class="inferred1"><a name="line259"></a>259 
+</span><span class="marked0"><a name="line260"></a>260       def validates_as_rubycampus_numeric(*attr_names)
+</span><span class="uncovered1"><a name="line261"></a>261         configuration = {
+</span><span class="uncovered0"><a name="line262"></a>262           :message   =&gt; @@is_rubycampus_numeric_msg,
+</span><span class="uncovered1"><a name="line263"></a>263           :with      =&gt; @@is_rubycampus_numeric }
+</span><span class="uncovered0"><a name="line264"></a>264         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line265"></a>265       end
+</span><span class="inferred0"><a name="line266"></a>266 
+</span><span class="marked1"><a name="line267"></a>267       def validates_as_rubycampus_decimal(*attr_names)
+</span><span class="uncovered0"><a name="line268"></a>268         configuration = {
+</span><span class="uncovered1"><a name="line269"></a>269           :message   =&gt; @@is_rubycampus_decimal_msg,
+</span><span class="uncovered0"><a name="line270"></a>270           :with      =&gt; @@is_rubycampus_decimal }
+</span><span class="uncovered1"><a name="line271"></a>271         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered0"><a name="line272"></a>272       end
+</span><span class="inferred1"><a name="line273"></a>273 
+</span><span class="marked0"><a name="line274"></a>274       def validates_as_rubycampus_positive_decimal(*attr_names)
+</span><span class="uncovered1"><a name="line275"></a>275         configuration = {
+</span><span class="uncovered0"><a name="line276"></a>276           :message   =&gt; @@is_rubycampus_positive_decimal_msg,
+</span><span class="uncovered1"><a name="line277"></a>277           :with      =&gt; @@is_rubycampus_positive_decimal }
+</span><span class="uncovered0"><a name="line278"></a>278         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line279"></a>279       end
+</span><span class="inferred0"><a name="line280"></a>280 
+</span><span class="marked1"><a name="line281"></a>281       def validates_as_rubycampus_integer(*attr_names)
+</span><span class="uncovered0"><a name="line282"></a>282         configuration = {
+</span><span class="uncovered1"><a name="line283"></a>283           :message   =&gt; @@is_rubycampus_integer_msg,
+</span><span class="uncovered0"><a name="line284"></a>284           :with      =&gt; @@is_rubycampus_integer }
+</span><span class="uncovered1"><a name="line285"></a>285         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered0"><a name="line286"></a>286       end
+</span><span class="inferred1"><a name="line287"></a>287 
+</span><span class="marked0"><a name="line288"></a>288       def validates_as_rubycampus_positive_integer(*attr_names)
+</span><span class="uncovered1"><a name="line289"></a>289         configuration = {
+</span><span class="uncovered0"><a name="line290"></a>290           :message   =&gt; @@is_rubycampus_positive_integer_msg,
+</span><span class="uncovered1"><a name="line291"></a>291           :with      =&gt; @@is_rubycampus_positive_integer }
+</span><span class="uncovered0"><a name="line292"></a>292         do_as_format_of(attr_names, configuration)
+</span><span class="uncovered1"><a name="line293"></a>293       end
+</span><span class="inferred0"><a name="line294"></a>294 
+</span><span class="marked1"><a name="line295"></a>295       def validates_as_rubycampus_email(*attr_names)
+</span><span class="marked0"><a name="line296"></a>296         configuration = {
+</span><span class="inferred1"><a name="line297"></a>297           :message   =&gt; @@is_rubycampus_email_address_msg,
+</span><span class="inferred0"><a name="line298"></a>298           :with      =&gt; @@is_rubycampus_email_address }
+</span><span class="marked1"><a name="line299"></a>299         do_as_format_of(attr_names, configuration)
+</span><span class="inferred0"><a name="line300"></a>300       end
+</span><span class="inferred1"><a name="line301"></a>301 
+</span><span class="marked0"><a name="line302"></a>302       def validates_as_rubycampus_value_list(*attr_names)
+</span><span class="uncovered1"><a name="line303"></a>303         configuration = {
+</span><span class="uncovered0"><a name="line304"></a>304           :message =&gt; @@is_rubycampus_not_from_options_msg }
+</span><span class="uncovered1"><a name="line305"></a>305         do_as_inclusion_of(attr_names, configuration)
+</span><span class="uncovered0"><a name="line306"></a>306       end
+</span><span class="uncovered1"><a name="line307"></a>307 
+</span><span class="uncovered0"><a name="line308"></a>308     end
+</span><span class="uncovered1"><a name="line309"></a>309   end
+</span><span class="uncovered0"><a name="line310"></a>310 end
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.3.</p>
