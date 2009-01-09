@@ -1,7 +1,6 @@
 require 'facebooker/model'
 require 'facebooker/models/affiliation'
 require 'facebooker/models/work_info'
-require 'active_support'
 module Facebooker
   # 
   # Holds attributes and behavior for a Facebook User
@@ -9,9 +8,10 @@ module Facebooker
     include Model
     class Status
       include Model
-      attr_accessor :message, :time
+      attr_accessor :message, :time, :status_id
     end
-    FIELDS = [:status, :political, :pic_small, :name, :quotes, :is_app_user, :tv, :profile_update_time, :meeting_sex, :hs_info, :timezone, :relationship_status, :hometown_location, :about_me, :wall_count, :significant_other_id, :pic_big, :music, :uid, :work_history, :sex, :religion, :notes_count, :activities, :pic_square, :movies, :has_added_app, :education_history, :birthday, :first_name, :meeting_for, :last_name, :interests, :current_location, :pic, :books, :affiliations]
+    FIELDS = [:status, :political, :pic_small, :name, :quotes, :is_app_user, :tv, :profile_update_time, :meeting_sex, :hs_info, :timezone, :relationship_status, :hometown_location, :about_me, :wall_count, :significant_other_id, :pic_big, :music, :uid, :work_history, :sex, :religion, :notes_count, :activities, :pic_square, :movies, :has_added_app, :education_history, :birthday, :first_name, :meeting_for, :last_name, :interests, :current_location, :pic, :books, :affiliations, :locale, :profile_url, :proxied_email]
+    STANDARD_FIELDS = [:uid, :first_name, :last_name, :name, :timezone, :birthday, :sex, :affiliations, :locale, :profile_url]
     attr_accessor :id, :session
     populating_attr_accessor *FIELDS
     attr_reader :affiliations
@@ -42,13 +42,18 @@ module Facebooker
     # Returns a user's events, params correspond to API call parameters (except UID):
     # http://wiki.developers.facebook.com/index.php/Events.get
     # E.g:
-    #  @user.events(:start_time => Time.now.to_i, :end_time => 1.month.from_now.to_i)
+    #  @user.events(:start_time => Time.now, :end_time => 1.month.from_now)
     #  # => Returns events betwen now and a month from now
     def events(params={})
-      @events ||= @session.post('facebook.events.get', {:uid => self.id}.merge(params)).map do |event|
+      @events ||= {}
+      [:start_time,:end_time].compact.each do |key|
+        params[key] = params[key].to_i
+      end
+#      puts @events[params.to_s].nil?
+      @events[params.to_s] ||= @session.post('facebook.events.get', {:uid => self.id}.merge(params)).map do |event|
         Event.from_hash(event)
       end
-    end
+    end    
     
     # 
     # Set the list of friends, given an array of User objects.  If the list has been retrieved previously, will not set
@@ -81,7 +86,9 @@ module Facebooker
       
      	#use __blank instead of nil so that this is cached
      	cache_key = flid||"__blank"
-     	@friends_hash[cache_key] ||= @session.post('facebook.friends.get', (flid.nil? ? {} : {:flid => flid})).map do |uid|
+     	options = {:uid=>@id}
+     	options[:flid] = flid unless flid.nil?
+     	@friends_hash[cache_key] ||= @session.post('facebook.friends.get', options,false).map do |uid|
           User.new(uid, @session)
       end
       @friends_hash[cache_key]
@@ -218,23 +225,34 @@ module Facebooker
     end
     
     ##
-    # Set the status of the user
-    #
-    # DOES NOT prepend "is" to the message
-    #
-    # requires extended permission. 
+    # This DOES NOT set the status of a user on Facebook
+    # Use the set_status method instead
     def status=(message)
       case message
-      when String
-        session.post('facebook.users.setStatus',:status=>message,:status_includes_verb=>1) do |ret|
-          ret
-        end
-      when Status
+      when String,Status
         @status = message
       when Hash
         @status = Status.from_hash(message)
       end
     end
+    
+    ##
+    # Set the status for a user
+    # DOES NOT prepend "is" to the message
+    #
+    # requires extended permission. 
+    def set_status(message)
+      self.status=message
+      session.post('facebook.users.setStatus',:status=>message,:status_includes_verb=>1) do |ret|
+        ret
+      end
+    end
+    
+    ##
+    # Checks to see if the user has enabled the given extended permission
+    def has_permission?(ext_perm) # ext_perm = email, offline_access, status_update, photo_upload, create_listing, create_event, rsvp_event, sms
+      session.post('facebook.users.hasAppPermission',:ext_perm=>ext_perm) == "1"
+    end    
     
     ##
     # Convenience method to send email to the current user
@@ -280,7 +298,6 @@ module Facebooker
       users=users.map do |h|
         returning h.dup do |d|
           if email=d.delete(:email)
-            user_map
             hash = hash_email(email)
             user_map[hash]=h
             d[:email_hash]=hash
@@ -291,7 +308,7 @@ module Facebooker
         ret.each do |hash|
           user_map.delete(hash)
         end
-        unless user_map.blank?
+        unless user_map.empty?
           e=Facebooker::Session::UserRegistrationFailed.new
           e.failed_users = user_map.values
           raise e
@@ -319,13 +336,25 @@ module Facebooker
       @id
     end
     
+    def self.user_fields(fields = [])
+      valid_fields(fields)
+    end
+    
+    def self.standard_fields(fields = [])
+      valid_fields(fields,STANDARD_FIELDS)
+    end
+    
     private
     def publish(feed_story_or_action)
       session.post(Facebooker::Feed::METHODS[feed_story_or_action.class.name.split(/::/).last], feed_story_or_action.to_params) == "1" ? true : false
     end
     
-    def collect(fields)
-      FIELDS.reject{|field_name| !fields.empty? && !fields.include?(field_name)}.join(',')
+    def self.valid_fields(fields, allowable=FIELDS)
+      allowable.reject{|field_name| !fields.empty? && !fields.include?(field_name)}.join(',')
+    end
+    
+    def collect(fields, allowable=FIELDS)
+      allowable.reject{|field_name| !fields.empty? && !fields.include?(field_name)}.join(',')
     end
     
     def profile_pic_album_id

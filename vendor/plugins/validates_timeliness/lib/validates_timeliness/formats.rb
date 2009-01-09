@@ -123,7 +123,7 @@ module ValidatesTimeliness
       { 'ss'   => [ /s{2,}/, '(\d{2})',   :sec ] },
       { 's'    => [ /s{1}/,  '(\d{1,2})', :sec ] },
       { 'u'    => [ /u{1,}/, '(\d{1,6})', :usec ] },
-      { 'ampm' => [ /ampm/,  '((?:a|p)\.?m\.?)', :meridian ] },
+      { 'ampm' => [ /ampm/,  '((?:[aApP])\.?[mM]\.?)', :meridian ] },
       { 'zo'   => [ /zo/,    '(?:[+-]\d{2}:?\d{2})'] },
       { 'tz'   => [ /tz/,    '(?:[A-Z]{1,4})' ] }, 
       { '_'    => [ /_/,     '\s?' ] }
@@ -189,7 +189,7 @@ module ValidatesTimeliness
       # Adds new formats. Must specify format type and can specify a :before
       # option to nominate which format the new formats should be inserted in 
       # front on to take higher precedence. 
-      # Error is raise if format already exists or if :before format is not found.
+      # Error is raised if format already exists or if :before format is not found.
       def add_formats(type, *add_formats)
         formats = self.send("#{type}_formats")
         options = {}
@@ -237,8 +237,7 @@ module ValidatesTimeliness
 
         return Regexp.new(regexp), format_proc(order)
       rescue
-        puts "The following format regular expression failed to compile: #{regexp}\n from format #{string_format}."
-        raise
+        raise "The following format regular expression failed to compile: #{regexp}\n from format #{string_format}."
       end
       
       # Generates a proc which when executed maps the regexp capture groups to a 

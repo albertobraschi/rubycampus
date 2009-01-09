@@ -3,9 +3,11 @@ module ValidatesTimeliness
     module Time 
 
       def to_dummy_time
-        self.class.mktime(2000, 1, 1, hour, min, sec) 
+        self.class.send(ValidatesTimeliness.default_timezone, 2000, 1, 1, hour, min, sec) 
       end
 
     end
   end
 end
+
+Time.send(:include, ValidatesTimeliness::CoreExtensions::Time)

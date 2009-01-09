@@ -8,6 +8,7 @@ class SessionTest < Test::Unit::TestCase
     ENV['FACEBOOK_SECRET_KEY'] = '7654321'   
     Facebooker.current_adapter = nil 
     @session = Facebooker::Session.create('whatever', 'doesnotmatterintest')   
+    Facebooker.use_curl=false
   end
 
   def teardown
@@ -17,7 +18,7 @@ class SessionTest < Test::Unit::TestCase
   
   def test_install_url_escapes_optional_next_parameter
     session = Facebooker::CanvasSession.create(ENV['FACEBOOK_API_KEY'], ENV['FACEBOOK_SECRET_KEY'])
-    assert_equal("http://www.new.facebook.com/install.php?api_key=1234567&v=1.0&next=next_url%3Fa%3D1%26b%3D2", session.install_url(:next => "next_url?a=1&b=2"))
+    assert_equal("http://www.facebook.com/install.php?api_key=1234567&v=1.0&next=next_url%3Fa%3D1%26b%3D2", session.install_url(:next => "next_url?a=1&b=2"))
   end
   
   def test_can_get_api_and_secret_key_from_environment
@@ -186,7 +187,11 @@ class SessionTest < Test::Unit::TestCase
     assert_equal 17876842716, @session.register_template_bundle("{*actor*} did something")
   end
   
-  
+  def test_can_register_template_bundle_with_action_links
+    expect_http_posts_with_responses(example_register_template_bundle_return_xml)
+    @session = Facebooker::Session.create(ENV['FACEBOOK_API_KEY'], ENV['FACEBOOK_SECRET_KEY'])
+    assert_equal 17876842716, @session.register_template_bundle("{*actor*} did something",nil,nil,[{:text=>"text",:href=>"href"}])
+  end
   def test_can_publish_user_action
     expect_http_posts_with_responses(publish_user_action_return_xml)
     @session = Facebooker::Session.create(ENV['FACEBOOK_API_KEY'], ENV['FACEBOOK_SECRET_KEY'])
@@ -238,6 +243,12 @@ class SessionTest < Test::Unit::TestCase
     Facebooker::BatchRun.current_batch=4
     assert_equal 4,Facebooker::BatchRun.current_batch
   end
+  
+  def test_can_get_stanard_info
+    expect_http_posts_with_responses(standard_info_xml)
+    result = @session.users_standard([4])
+    assert_equal "Mike Mangino",result.first.name
+  end
 
   def test_can_query_for_pages
     expect_http_posts_with_responses(example_pages_xml)
@@ -255,9 +266,14 @@ class SessionTest < Test::Unit::TestCase
     assert_equal "4846711747", page.page_id
     assert_equal "Kronos Quartet", page.name
     assert_equal "http://www.kronosquartet.org", page.website
+    
     # TODO we really need a way to differentiate between hash/list and text attributes
-    assert_equal({}, page.company_overview)
-
+    # assert_equal({}, page.company_overview)
+    
+    # sakkaoui : as a fix to the parser, I replace empty text node by "" instead of {}
+    # we have child.attributes['list'] == 'true' that let us know that we have a hash/list.
+    assert_equal("", page.company_overview)
+    
     genre = page.genre
     assert_equal false, genre.dance
     assert_equal true, genre.party
@@ -544,6 +560,44 @@ class SessionTest < Test::Unit::TestCase
     XML
   end
   
+  def standard_info_xml
+    <<-XML
+    <?xml version="1.0" encoding="UTF-8"?>
+    <?xml version="1.0" encoding="UTF-8"?>
+
+    <users_getStandardInfo_response xmlns="http://api.facebook.com/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd" list="true">
+      <standard_user_info>
+        <uid>12451752</uid>
+        <name>Mike Mangino</name>
+      </standard_user_info>
+    </users_getStandardInfo_response>
+    XML
+  end
+end
+
+class PostMethodTest < Test::Unit::TestCase
+  
+  def setup
+    Facebooker.use_curl = true
+    Facebooker::Parser.stubs(:parse)
+    @uri = URI.parse("http://api.facebook.com/api")
+    @service = Facebooker::Service.new("a","b","c")
+    @service.stubs("url").returns(@uri)
+  end
+  
+  def teardown
+    Facebooker.use_curl = false
+  end
+  
+  def test_use_curl_makes_post_with_curl
+    @service.expects(:post_form_with_curl).with(@uri,{:method=>"a"})
+    @service.post(:method=>"a")
+  end
+  
+  def test_use_curl_makes_post_file_use_curl_with_multipart
+    @service.expects(:post_form_with_curl).with(@uri,{:method=>"a"},true)
+    @service.post_file(:method=>"a")    
+  end
 end
 
 class CanvasSessionTest < Test::Unit::TestCase
@@ -554,6 +608,6 @@ class CanvasSessionTest < Test::Unit::TestCase
    
   def test_login_url_will_display_callback_url_in_canvas
     session = Facebooker::CanvasSession.create(ENV['FACEBOOK_API_KEY'], ENV['FACEBOOK_SECRET_KEY'])
-    assert_equal("http://www.new.facebook.com/login.php?api_key=1234567&v=1.0&canvas=true", session.login_url)
+    assert_equal("http://www.facebook.com/login.php?api_key=1234567&v=1.0&canvas=true", session.login_url)
   end
 end

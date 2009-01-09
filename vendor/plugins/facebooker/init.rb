@@ -16,6 +16,7 @@ require 'facebooker/rails/facebook_asset_path'
 require 'facebooker/rails/facebook_request_fix'
 require 'facebooker/rails/routing'
 require 'facebooker/rails/facebook_pretty_errors' rescue nil
+require 'facebooker/rails/facebook_url_helper'
 module ::ActionController
   class Base
     def self.inherited_with_facebooker(subclass)
@@ -38,6 +39,22 @@ class ActionController::Routing::Route
     defaults
   end
   alias_method_chain :recognition_conditions, :facebooker
+end
+
+# When making get requests, Facebook sends fb_sig parameters both in the query string
+# and also in the post body. We want to ignore the query string ones because they are one
+# request out of date
+# We only do thise when there are POST parameters so that IFrame linkage still works
+class ActionController::AbstractRequest
+  def query_parameters_with_facebooker
+    if request_parameters.blank?
+      query_parameters_without_facebooker
+    else
+      (query_parameters_without_facebooker||{}).reject {|key,value| key.to_s =~ /^fb_sig/}
+    end
+  end
+  
+  alias_method_chain :query_parameters, :facebooker
 end
 
 # We turn off route optimization to make named routes use our code for figuring out if they should go to the session

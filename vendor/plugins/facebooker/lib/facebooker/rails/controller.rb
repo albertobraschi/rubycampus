@@ -9,6 +9,7 @@ module Facebooker
         controller.before_filter :set_adapter
         controller.before_filter :set_fbml_format
         controller.helper_attr :facebook_session_parameters
+        controller.helper_method :request_comes_from_facebook?
       end
 
     
@@ -22,8 +23,7 @@ module Facebooker
       
       
       def set_facebook_session
-        
-        returning session_set = session_already_secured? ||  secure_with_facebook_params! ||secure_with_token!  do
+        returning session_set = session_already_secured? ||  secure_with_facebook_params! || secure_with_cookies! || secure_with_token!  do
           if session_set
             capture_facebook_friends_if_available! 
             Session.current = facebook_session
@@ -35,6 +35,14 @@ module Facebooker
         @facebook_params ||= verified_facebook_params
       end      
       
+      def redirect_to(*args)
+        if request_is_for_a_facebook_canvas? and !request_is_facebook_tab?
+          render :text => fbml_redirect_tag(*args)
+        else
+          super
+        end
+      end
+            
       private
       
       def session_already_secured?
@@ -45,7 +53,7 @@ module Facebooker
         # if we're inside the facebook session and there is no session key,
         # that means the user revoked our access
         # we don't want to keep using the old expired key from the cookie. 
-        request_is_for_a_facebook_canvas? and params[:fb_sig_session_key].blank?
+        request_comes_from_facebook? and params[:fb_sig_session_key].blank?
       end
       
       def clear_facebook_session_information
@@ -63,7 +71,38 @@ module Facebooker
           !session[:facebook_session].blank? &&  (params[:fb_sig_session_key].blank? || session[:facebook_session].session_key == facebook_params[:session_key])
         end
       end
-            
+      
+      def clear_fb_cookies!
+        domain_cookie_tag = "base_domain_#{Facebooker.api_key}"
+        cookie_domain = ".#{cookies[domain_cookie_tag]}" if cookies[domain_cookie_tag]
+        fb_cookie_names.each {|name| cookies.delete(name, :domain=>cookie_domain)}
+        cookies.delete Facebooker.api_key
+      end
+
+      def fb_cookie_prefix
+        Facebooker.api_key+"_"
+      end
+
+      def fb_cookie_names
+        fb_cookie_names = cookies.keys.select{|k| k.starts_with?(fb_cookie_prefix)}
+      end
+
+      def secure_with_cookies!
+          parsed = {}
+          
+          fb_cookie_names.each { |key| parsed[key[fb_cookie_prefix.size,key.size]] = cookies[key] }
+ 
+          #returning gracefully if the cookies aren't set or have expired
+          return unless parsed['session_key'] && parsed['user'] && parsed['expires'] && parsed['ss'] 
+          return unless Time.at(parsed['expires'].to_f) > Time.now
+          
+          #if we have the unexpired cookies, we'll throw an exception if the sig doesn't verify
+          verify_signature(parsed,cookies[Facebooker.api_key])
+          
+          @facebook_session = new_facebook_session
+          @facebook_session.secure_with!(parsed['session_key'],parsed['user'],parsed['expires'],parsed['ss'])
+      end
+    
       def secure_with_token!
         if params['auth_token']
           @facebook_session = new_facebook_session
@@ -74,7 +113,7 @@ module Facebooker
       end
       
       def secure_with_facebook_params!
-        return unless request_is_for_a_facebook_canvas?
+        return unless request_comes_from_facebook?
         
         if ['user', 'session_key'].all? {|element| facebook_params[element]}
           @facebook_session = new_facebook_session
@@ -100,7 +139,7 @@ module Facebooker
       end
       
       def capture_facebook_friends_if_available!
-        return unless request_is_for_a_facebook_canvas?
+        return unless request_comes_from_facebook?
         if friends = facebook_params['friends']
           facebook_session.user.friends = friends.map do |friend_uid|
             User.new(friend_uid, facebook_session)
@@ -133,7 +172,7 @@ module Facebooker
         raw_string = facebook_sig_params.map{ |*args| args.join('=') }.sort.join
         actual_sig = Digest::MD5.hexdigest([raw_string, Facebooker::Session.secret_key].join)
         raise Facebooker::Session::IncorrectSignature if actual_sig != expected_signature
-        raise Facebooker::Session::SignatureTooOld if Time.at(facebook_sig_params['time'].to_f) < earliest_valid_session
+        raise Facebooker::Session::SignatureTooOld if facebook_sig_params['time'] && Time.at(facebook_sig_params['time'].to_f) < earliest_valid_session
         true
       end
       
@@ -149,16 +188,16 @@ module Facebooker
         )
       end
       
-      def redirect_to(*args)
-        if request_is_for_a_facebook_canvas? and !request_is_facebook_tab?
-          render :text => fbml_redirect_tag(*args)
-        else
-          super
-        end
-      end
-      
       def fbml_redirect_tag(url)
         "<fb:redirect url=\"#{url_for(url)}\" />"
+      end
+      
+      def request_comes_from_facebook?
+        request_is_for_a_facebook_canvas? || request_is_facebook_ajax? || request_is_fb_ping?
+      end
+
+      def request_is_fb_ping?
+        !params['fb_sig'].blank?
       end
       
       def request_is_for_a_facebook_canvas?
@@ -216,7 +255,7 @@ module Facebooker
       end
       
       def set_fbml_format
-        params[:format]="fbml" if request_is_for_a_facebook_canvas? or request_is_facebook_ajax?
+        params[:format]="fbml" if request_comes_from_facebook?
       end
       def set_adapter
         Facebooker.load_adapter(params) if(params[:fb_sig_api_key])

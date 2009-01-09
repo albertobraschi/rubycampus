@@ -210,6 +210,18 @@ module Facebooker
       end
     end
 
+    def users_standard(user_ids, fields=[])
+      post("facebook.users.getStandardInfo",:uids=>user_ids.join(","),:fields=>User.user_fields(fields)) do |users|
+        users.map { |u| User.new(u)}
+      end
+    end
+
+    def users(user_ids, fields=[])
+      post("facebook.users.getInfo",:uids=>user_ids.join(","),:fields=>User.standard_fields(fields)) do |users|
+        users.map { |u| User.new(u)}
+      end
+    end
+
     def pages(options = {})
       raise ArgumentError, 'fields option is mandatory' unless options.has_key?(:fields)
       @pages ||= {}
@@ -247,10 +259,10 @@ module Facebooker
       uids1 = []
       uids2 = []
       array_of_pairs_of_users.each do |pair|
-        uids1 = pair.first
-        uids2 = pair.last
+        uids1 << pair.first
+        uids2 << pair.last
       end
-      post('facebook.friends.areFriends', :uids1 => uids1, :uids2 => uids2)
+      post('facebook.friends.areFriends', :uids1 => uids1.join(','), :uids2 => uids2.join(','))
     end
     
     def get_photos(pids = nil, subj_id = nil,  aid = nil)
@@ -304,13 +316,15 @@ module Facebooker
     ##
     # Register a template bundle with Facebook.
     # returns the template id to use to send using this template
-    def register_template_bundle(one_line_story_templates,short_story_templates=nil,full_story_template=nil)
-
+    def register_template_bundle(one_line_story_templates,short_story_templates=nil,full_story_template=nil, action_links=nil)
       if !one_line_story_templates.is_a?(Array)
         one_line_story_templates = [one_line_story_templates]
       end
       parameters = {:one_line_story_templates=>one_line_story_templates.to_json}
-
+      
+      if !action_links.blank?
+        parameters[:action_links] = action_links.to_json
+      end
       
       if !short_story_templates.blank?
         short_story_templates = [short_story_templates] unless short_story_templates.is_a?(Array)

@@ -8,6 +8,7 @@ module Facebooker
     #
     module Helpers
       
+      include Facebooker::Rails::Helpers::FbConnect
       
       # Create an fb:dialog
       # id must be a unique name e.g. "my_dialog"
@@ -111,7 +112,7 @@ module Facebooker
       # <em> Note: </em> I don't think the block is used here.
       def fb_multi_friend_selector(message,options={},&block)
         options = options.dup
-        tag("fb:multi-friend-selector",stringify_vals(options.merge(:showborder=>false,:actiontext=>message,:max=>20)))
+        tag("fb:multi-friend-selector",stringify_vals({:showborder=>false,:actiontext=>message,:max=>20}.merge(options)))
       end
 
       # Render a condensed <fb:multi-friend-selector> with the passed in welcome message 
@@ -196,7 +197,7 @@ module Facebooker
         options.transform_keys!(FB_NAME_OPTION_KEYS_TO_TRANSFORM)
         options.assert_valid_keys(FB_NAME_VALID_OPTION_KEYS)
         options.merge!(:uid => cast_to_facebook_id(user))
-        tag("fb:name", stringify_vals(options))
+        content_tag("fb:name",nil, stringify_vals(options))
       end
 
       FB_NAME_OPTION_KEYS_TO_TRANSFORM = {:first_name_only => :firstnameonly, 
@@ -217,7 +218,7 @@ module Facebooker
         options.transform_keys!(FB_PRONOUN_OPTION_KEYS_TO_TRANSFORM)
         options.assert_valid_keys(FB_PRONOUN_VALID_OPTION_KEYS)
         options.merge!(:uid => cast_to_facebook_id(user))
-        tag("fb:pronoun", stringify_vals(options))
+        content_tag("fb:pronoun",nil, stringify_vals(options))
       end
       
       FB_PRONOUN_OPTION_KEYS_TO_TRANSFORM = {:use_you => :useyou, :use_they => :usethey}
@@ -259,7 +260,7 @@ module Facebooker
         options = options.dup
         validate_fb_profile_pic_size(options)
         options.merge!(:uid => cast_to_facebook_id(user))
-        tag("fb:profile-pic", stringify_vals(options))
+        content_tag("fb:profile-pic", nil,stringify_vals(options))
       end
       
       # Render an fb:photo tag.
@@ -271,7 +272,7 @@ module Facebooker
         options.merge!(:pid => cast_to_photo_id(photo))
         validate_fb_photo_size(options)
         validate_fb_photo_align_value(options)
-        tag("fb:photo", stringify_vals(options))
+        content_tag("fb:photo",nil, stringify_vals(options))
       end
 
       FB_PHOTO_VALID_OPTION_KEYS = [:uid, :size, :align]
@@ -283,7 +284,7 @@ module Facebooker
       VALID_FB_SHARED_PHOTO_SIZES = [:thumb, :small, :normal, :square]
       VALID_FB_PHOTO_SIZES = VALID_FB_SHARED_PHOTO_SIZES      
       VALID_FB_PROFILE_PIC_SIZES = VALID_FB_SHARED_PHOTO_SIZES
-      VALID_PERMISSIONS=[:email, :offline_access, :status_update, :photo_upload, :create_listing]
+      VALID_PERMISSIONS=[:email, :offline_access, :status_update, :photo_upload, :create_listing, :create_event, :rsvp_event, :sms]
       
       # Render an fb:tabs tag containing some number of fb:tab_item tags.
       # Example:
@@ -467,10 +468,11 @@ module Facebooker
       # 			  Hey you haven't agreed to our terms.  <%= link_to("Please accept our terms of service.", :action => "terms_of_service") %>
       # 			<% end %>
       #<% end %>       
-      def fb_if_is_app_user(user,options={},&proc)
+      def fb_if_is_app_user(user=nil,options={},&proc)
         content = capture(&proc) 
         options = options.dup
-        concat(content_tag("fb:if-is-app-user",content,stringify_vals(options.merge(:uid=>cast_to_facebook_id(user)))),proc.binding)
+        options.merge!(:uid=>cast_to_facebook_id(user)) if user
+        concat(content_tag("fb:if-is-app-user",content,stringify_vals(options)),proc.binding)
       end
 
       # Render if-user-has-added-app tag
@@ -541,6 +543,32 @@ module Facebooker
         args={:perms=>permission}
         args[:next_fbjs]=callback unless callback.nil?
         content_tag("fb:prompt-permission",message,args)
+      end
+      
+      def fb_eventlink(eid)
+        content_tag "fb:eventlink",nil,:eid=>eid
+      end
+      
+      def fb_grouplink(gid)
+        content_tag "fb:grouplink",nil,:gid=>gid
+      end
+      
+      def fb_user_status(user,linked=true)
+        content_tag "fb:user-status",nil,stringify_vals(:uid=>cast_to_facebook_id(user), :linked=>linked)
+      end
+      
+      def fb_share_button(url)
+        content_tag "fb:share-button",nil,:class=>"url",:href=>url
+      end
+      
+      def fb_serverfbml(options={},&proc)
+        inner = capture(&proc)
+        concat(content_tag("fb:serverfbml",inner,options),&proc.binding)
+      end
+
+      def fb_container(options={},&proc)
+        inner = capture(&proc)
+        concat(content_tag("fb:container",inner,options),&proc.binding)
       end
       
       protected

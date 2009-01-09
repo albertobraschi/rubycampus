@@ -58,7 +58,8 @@ module Facebooker
     
     def self.hashinate(response_element)
       response_element.children.reject{|c| c.kind_of? REXML::Text}.inject({}) do |hash, child|
-        hash[child.name] = if child.children.size == 1 && child.children.first.kind_of?(REXML::Text)
+        # If the node hasn't any child, and is not a list, we want empty strings, not empty hashes.
+        hash[child.name] = if (child.children.size == 1 && child.children.first.kind_of?(REXML::Text)) || (child.children.size == 0 && child.attributes['list'] != 'true')
           anonymous_field_from(child, hash) || child.text_value
         else
           if child.attributes['list'] == 'true'
@@ -90,9 +91,9 @@ module Facebooker
     end
   end
   
-  class RegisterUsers
+  class RegisterUsers < Parser
     def self.process(data)
-      Facebooker.json_decode(data)
+      array_of_text_values(element("connect_registerUsers_response", data), "connect_registerUsers_response_elt")
     end
   end
 
@@ -117,6 +118,12 @@ module Facebooker
   class UserInfo < Parser#:nodoc:
     def self.process(data)
       array_of_hashes(element('users_getInfo_response', data), 'user')
+    end
+  end
+  
+  class UserStandardInfo < Parser#:nodoc:
+    def self.process(data)
+      array_of_hashes(element('users_getStandardInfo_response', data), 'standard_user_info')
     end
   end
   
@@ -394,8 +401,8 @@ module Facebooker
         memo
       end
     end
-    
-    private
+
+  private
     def self.are_friends?(raw_value)
       if raw_value == '1'
         true
@@ -412,7 +419,25 @@ module Facebooker
       element('users_setStatus_response',data).text_value == '1'
     end
   end
+  
+  class GetPreference < Parser#:nodoc:
+    def self.process(data)
+      element('data_getUserPreference_response', data).text_value
+    end
+  end
+  
+  class SetPreference < Parser#:nodoc:
+    def self.process(data)
+      element('data_setUserPreference_response', data).text_value
+    end
+  end
     
+  class UserHasPermission < Parser
+    def self.process(data)
+      element('users_hasAppPermission_response', data).text_value
+    end
+  end  
+
   class Errors < Parser#:nodoc:
     EXCEPTIONS = {
       1 	=> Facebooker::Session::UnknownError,
@@ -470,8 +495,10 @@ module Facebooker
       'facebook.auth.getSession' => GetSession,
       'facebook.connect.registerUsers' => RegisterUsers,
       'facebook.users.getInfo' => UserInfo,
+      'facebook.users.getStandardInfo' => UserStandardInfo,
       'facebook.users.setStatus' => SetStatus,
       'facebook.users.getLoggedInUser' => GetLoggedInUser,
+      'facebook.users.hasAppPermission' => UserHasPermission,
       'facebook.pages.isAdmin' => PagesIsAdmin,
       'facebook.pages.getInfo' => PagesGetInfo,
       'facebook.friends.get' => GetFriends,
@@ -512,7 +539,9 @@ module Facebooker
       'facebook.groups.get' => GroupsGet,
       'facebook.events.getMembers' => EventMembersGet,
       'facebook.groups.getMembers' => GroupGetMembers,
-      'facebook.notifications.sendEmail' => NotificationsSendEmail
+      'facebook.notifications.sendEmail' => NotificationsSendEmail,
+      'facebook.data.getUserPreference' => GetPreference,
+      'facebook.data.setUserPreference' => SetPreference
     }
   end
 end
