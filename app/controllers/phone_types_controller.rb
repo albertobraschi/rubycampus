@@ -99,7 +99,7 @@ class PhoneTypesController < ApplicationController
 
     respond_to do |format|
       if @phone_type.save
-        flash[:notice] = _("%s was successfully created.") % _("Phone Type")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Phone Type", :default => "Phone Type"))
         if params[:create_and_new_button]
           format.html { redirect_to new_phone_type_url }
         else
@@ -120,7 +120,7 @@ class PhoneTypesController < ApplicationController
 
     respond_to do |format|
       if @phone_type.update_attributes(params[:phone_type])
-        flash[:notice] = _("%s was successfully updated.") % _("Phone Type") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Phone Type", :default => "Phone Type"))
         format.html { redirect_to phone_types_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class PhoneTypesController < ApplicationController
   def enable #:nodoc:
     @phone_type = PhoneType.find(params[:id])
     if @phone_type.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Phone Type") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Phone Type", :default => "Phone Type"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("phone type") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("phone type", :default => "phone type"))
     end
     redirect_to phone_types_url
   end
@@ -161,9 +161,9 @@ class PhoneTypesController < ApplicationController
   def disable #:nodoc:
     @phone_type = PhoneType.find(params[:id])
     if @phone_type.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Phone Type") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Phone Type", :default => "Phone Type"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("phone type") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("phone type", :default => "phone type"))
     end
     redirect_to phone_types_url
   end

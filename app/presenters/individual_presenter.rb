@@ -35,9 +35,8 @@
 # +------------------------------------------------------------------------------------+
 #++
 class IndividualPresenter < ActivePresenter::Base 
-  include GetText::Rails
-  bindtextdomain("rubycampus")
-#:stopdoc:  
+
+#:stopdoc:
   @@custom_error_messages_d = {}
   
   # gettext interface (class method)
@@ -52,7 +51,7 @@ class IndividualPresenter < ActivePresenter::Base
   
   # gettext interface (instance method)
   def gettext(str)
-    _(str)
+    I18n.t(str)
   end
   
   # provide human names for attributes (ActiveRecord::Errors interface)

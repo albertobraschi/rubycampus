@@ -99,7 +99,7 @@ class EducationLevelsController < ApplicationController
 
     respond_to do |format|
       if @education_level.save
-        flash[:notice] = _("%s was successfully created.") % _("Education Level")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Education Level", :default => "Education Level"))
         if params[:create_and_new_button]
           format.html { redirect_to new_education_level_url }
         else
@@ -120,7 +120,7 @@ class EducationLevelsController < ApplicationController
 
     respond_to do |format|
       if @education_level.update_attributes(params[:education_level])
-        flash[:notice] = _("%s was successfully updated.") % _("Education Level") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Education Level", :default => "Education Level"))
         format.html { redirect_to education_levels_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class EducationLevelsController < ApplicationController
   def enable #:nodoc:
     @education_level = EducationLevel.find(params[:id])
     if @education_level.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Education Level") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Education Level", :default => "Education Level"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("education level") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("education level", :default => "education level"))
     end
     redirect_to education_levels_url
   end
@@ -161,9 +161,9 @@ class EducationLevelsController < ApplicationController
   def disable #:nodoc:
     @education_level = EducationLevel.find(params[:id])
     if @education_level.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Education Level") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Education Level", :default => "Education Level"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("education level") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("education level", :default => "education level"))
     end
     redirect_to education_levels_url
   end

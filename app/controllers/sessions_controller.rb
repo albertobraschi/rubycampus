@@ -56,7 +56,7 @@ class SessionsController < ApplicationController
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token
     reset_session
-    flash[:notice] = _("You have been logged out.")
+    flash[:notice] = I18n.t("You have been logged out.", :default => "You have been logged out.")
     redirect_to login_path
   end
 
@@ -65,11 +65,11 @@ class SessionsController < ApplicationController
   def password_authentication(login, password)
     user = User.authenticate(login, password)
     if user == nil
-    failed_login(_("Your username or password is incorrect."))
+    failed_login(I18n.t("Your username or password is incorrect.", :default => "Your username or password is incorrect."))
     elsif user.activated_at.blank?
-    failed_login(_("Your account is not active, please check your email for the activation code."))
+    failed_login(I18n.t("Your account is not active, please check your email for the activation code.", :default => "Your account is not active, please check your email for the activation code."))
     elsif user.enabled == false
-    failed_login(_("Your account has been disabled."))
+    failed_login(I18n.t("Your account has been disabled.", :default => "Your account has been disabled."))
     else
     self.current_user = user
     successful_login
@@ -88,7 +88,7 @@ class SessionsController < ApplicationController
     self.current_user.remember_me
     cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
     end
-    flash[:notice] = _("Logged in successfully")
+    flash[:notice] = I18n.t("Logged in successfully", :default => "Logged in successfully")
     return_to = session[:return_to]
     if return_to.nil?
     redirect_to :controller => 'dashboard'

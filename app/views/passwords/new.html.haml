@@ -1,4 +1,4 @@
-- title(_("Forgot Password"),"login") 
+- title(I18n.t("Forgot Password", :default => "Forgot Password"),"login") 
 .span-12.push-6
   .login_box
     .hako
@@ -6,11 +6,11 @@
         %h1= yield(:title) 
         %label{ :for => "email", :class => "w100 inputselect mandatory" }
           %span.wrapper
-            %span.title= _("Email Address")
+            %span.title= I18n.t("Email Address", :default => "Email Address")
           = text_field_tag :email, nil, {:class => "field"}
         .clear
         .clear
         .buttons
           %button{:type => "submit", :class => ""}
-            = _('Reset Password')
-        = link_to _('Back to Login'), login_path
+            = I18n.t("Reset Password", :default => "Reset Password")
+        = link_to I18n.t("Back to Login", :default => "Back to Login"), login_path

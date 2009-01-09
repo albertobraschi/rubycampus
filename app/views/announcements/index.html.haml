@@ -1,14 +1,14 @@
-- title((_(current_controller_gettext_human_name_pluralized)))
+- title((I18n.t(current_controller_gettext_human_name_pluralized, :default => current_controller_gettext_human_name_pluralized)))
 .standard_box
   .hako
     = render :partial => "common/actions/for_form_index"
     %h2= yield(:title)
-    %h3= context_help(_("Use announcements to broadcast application-wide messages that will appear on the top of every authenticated users browser. Users may choose to hide the message after they have read it. You can use live search to locate announcements and can sort by clicking on column labels. %{learn_more}"))
+    %h3= context_help(I18n.t("Use announcements to broadcast application-wide messages that will appear on the top of every authenticated users browser. Users may choose to hide the message after they have read it. You can use live search to locate announcements and can sort by clicking on column labels.", :default => "Use announcements to broadcast application-wide messages that will appear on the top of every authenticated users browser. Users may choose to hide the message after they have read it. You can use live search to locate announcements and can sort by clicking on column labels."))
     %p
       %form{ :name => "rubycampus", :action => "", :class => "hakozaki", :autocomplete => :off }
         %label{ :for => "announcement_message", :class => "w35 inputselect"}
           %span.wrapper
-            %span.title= _("Find an %s:") % current_controller_gettext_human_name
+            %span.title= I18n.t("Find an {{value}}:", :default => "Find an {{value}}:", :value => current_controller_gettext_human_name)
             = text_field_tag("query", params['query'], :class => "field")
         .clear
     = observe_field 'query', :frequency => 2, :update => 'table', :before => "Element.show('spinner')", :success => "Element.hide('spinner')", :url => { :action => 'index' }, :with => 'query'

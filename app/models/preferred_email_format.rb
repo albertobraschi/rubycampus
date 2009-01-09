@@ -36,14 +36,11 @@
 #++
 
 class PreferredEmailFormat < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Both')
-  N_('HTML')
-  N_('Text')
+  I18n.t('Both', :default => 'Both')
+  I18n.t('HTML', :default => 'HTML')
+  I18n.t('Text', :default => 'Text')
 
   has_many :contacts
 

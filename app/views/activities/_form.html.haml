@@ -15,32 +15,32 @@
 %label{:for => "activity_location", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Location")
+      = I18n.t("Location", :default => "Location")
     = form.text_field :location, :class => "field"
 .clear
 
 %label{:for => "activity_subject", :class => "w100 inputselect mandatory"}
   %span.wrapper
     %span.title
-      = _("Subject")
+      = I18n.t("Subject", :default => "Subject")
     = form.text_field :subject, :class => "field"
 .clear
 %label{:for => "activity_details", :class => "w100 inputselect"}
   %span.wrapper
     %span.title
-      = _("Details")
+      = I18n.t("Details", :default => "Details")
     = form.text_area :details, :class => "field"
 .clear
 
 %label{:for => "activity_starts_at", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Starts At")
+      = I18n.t("Starts At", :default => "Starts At")
     = form.calendar_date_select :starts_at, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
 %label{:for => "activity_ends_at", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Ends At")
+      = I18n.t("Ends At", :default => "Ends At")
     = form.calendar_date_select :ends_at, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
 .clear
 = render :partial => "common/jackets/for_revisable", :locals => {:model => @activity}

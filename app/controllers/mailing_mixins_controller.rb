@@ -103,7 +103,7 @@ class MailingMixinsController < ApplicationController
 
     respond_to do |format|
       if @mailing_mixin.save
-        flash[:notice] = _("%s was successfully created.") % _("Mailing Mixin")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Mailing Mixin", :default => "Mailing Mixin"))
         if params[:create_and_new_button]
           format.html { redirect_to new_mailing_mixin_url }
         else
@@ -124,7 +124,7 @@ class MailingMixinsController < ApplicationController
 
     respond_to do |format|
       if @mailing_mixin.update_attributes(params[:mailing_mixin])
-        flash[:notice] = _("%s was successfully updated.") % _("Mailing Mixin") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Mailing Mixin", :default => "Mailing Mixin"))
         format.html { redirect_to mailing_mixins_url }
         # format.xml  { head :ok }
       else
@@ -154,9 +154,9 @@ class MailingMixinsController < ApplicationController
   def enable #:nodoc:
     @mailing_mixin = MailingMixin.find(params[:id])
     if @mailing_mixin.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Mailing Mixin") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Mailing Mixin", :default => "Mailing Mixin"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("mailing mixin") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("mailing mixin", :default => "mailing mixin"))
     end
     redirect_to mailing_mixins_url
   end
@@ -165,9 +165,9 @@ class MailingMixinsController < ApplicationController
   def disable #:nodoc:
     @mailing_mixin = MailingMixin.find(params[:id])
     if @mailing_mixin.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Mailing Mixin") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Mailing Mixin", :default => "Mailing Mixin"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("mailing mixin") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("mailing mixin", :default => "mailing mixin"))
     end
     redirect_to mailing_mixins_url
   end

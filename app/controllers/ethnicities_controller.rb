@@ -99,7 +99,7 @@ class EthnicitiesController < ApplicationController
 
     respond_to do |format|
       if @ethnicity.save
-        flash[:notice] = _("%s was successfully created.") % _("Ethnicity")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Ethnicity", :default => "Ethnicity"))
         if params[:create_and_new_button]
           format.html { redirect_to new_ethnicity_url }
         else
@@ -120,7 +120,7 @@ class EthnicitiesController < ApplicationController
 
     respond_to do |format|
       if @ethnicity.update_attributes(params[:ethnicity])
-        flash[:notice] = _("%s was successfully updated.") % _("Ethnicity") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Ethnicity", :default => "Ethnicity"))
         format.html { redirect_to ethnicities_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class EthnicitiesController < ApplicationController
   def enable #:nodoc:
     @ethnicity = Ethnicity.find(params[:id])
     if @ethnicity.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Ethnicity") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Ethnicity", :default => "Ethnicity"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("ethnicity") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("ethnicity", :default => "ethnicity"))
     end
     redirect_to ethnicities_url
   end
@@ -161,9 +161,9 @@ class EthnicitiesController < ApplicationController
   def disable #:nodoc:
     @ethnicity = Ethnicity.find(params[:id])
     if @ethnicity.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Ethnicity") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Ethnicity", :default => "Ethnicity"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("ethnicity") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("ethnicity", :default => "ethnicity"))
     end
     redirect_to ethnicities_url
   end

@@ -36,15 +36,12 @@
 #++
 
 class NameSuffix < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Jr')
-  N_('Sr')
-  N_('II')
-  N_('III')
+  I18n.t('Jr', :default => 'Jr')
+  I18n.t('Sr', :default => 'Sr')
+  I18n.t('II', :default => 'II')
+  I18n.t('III', :default => 'III')
   
   acts_as_revisable do
     revision_class_name "NameSuffixRevision"

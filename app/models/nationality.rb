@@ -36,9 +36,6 @@
 #++
 
 class Nationality < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
       # the status of belonging to a particular nation, whether 
       # by birth or naturalization: the nationality of an immigrant 

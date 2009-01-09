@@ -1,17 +1,17 @@
 %label{:for => "marital_status_name", :class => "w25 inputselect mandatory"}
   %span.wrapper
     %span.title
-      = _("Name") 
+      = I18n.t("Name", :default => "Name") 
     = form.text_field :name, :class => "field"
 %label{:for => "marital_status_is_default", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Is default") 
+      = I18n.t("Is default", :default => "Is default") 
     = form.check_box :is_default, :class => "field"
 %label{:for => "marital_status_is_enabled", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Is enabled") 
+      = I18n.t("Is enabled", :default => "Is enabled") 
     = form.check_box :is_enabled, :class => "field"
 .clear
 = render :partial => "common/jackets/for_revisable", :locals => {:model => @marital_status}

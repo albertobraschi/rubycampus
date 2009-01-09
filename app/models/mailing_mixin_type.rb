@@ -36,23 +36,20 @@
 #++
 
 class MailingMixinType < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # begin gettext constants
-  N_('Header')
-  N_('Footer')
-  N_('Welcome Message')
-  N_('Opt Out Message')
-  N_('Opt In Message')
-  N_('Unsubscribe Message')
-  N_('Resubscribe Message')
-  N_('Reply Auto Responder')
-  N_('New User Notification')
-  N_('Activation')
-  N_('Forgot Password')
-  N_('Reset Password')
+  I18n.t('Header', :default => 'Header')
+  I18n.t('Footer', :default => 'Footer')
+  I18n.t('Welcome Message', :default => 'Welcome Message')
+  I18n.t('Opt Out Message', :default => 'Opt Out Message')
+  I18n.t('Opt In Message', :default => 'Opt In Message')
+  I18n.t('Unsubscribe Message', :default => 'Unsubscribe Message')
+  I18n.t('Resubscribe Message', :default => 'Resubscribe Message')
+  I18n.t('Reply Auto Responder', :default => 'Reply Auto Responder')
+  I18n.t('New User Notification', :default => 'New User Notification')
+  I18n.t('Activation', :default => 'Activation')
+  I18n.t('Forgot Password', :default => 'Forgot Password')
+  I18n.t('Reset Password', :default => 'Reset Password')
   # begin gettext constants
   caches_constants
   

@@ -3,25 +3,25 @@
     - form_tag url_for(:action => "update"), :class => "hakozaki" do
       .buttons
         %button{:type => "submit", :class => "positive"}
-          = _("Change Password")
-        = link_to _('Back'), edit_user_path(current_user)
-      %h2= _("Change Password")
+          = I18n.t("Change Password", :default => "Change Password")
+        = link_to I18n.t("Back", :default => "Back"), edit_user_path(current_user)
+      %h2= I18n.t("Change Password", :default => "Change Password")
       %hr/
       %label{ :for => "old_password", :class => "w45 inputselect mandatory" }
         %span.wrapper
-          %span.title= _("Old Password")
+          %span.title= I18n.t("Old Password", :default => "Old Password")
           = password_field_tag 'old_password', @old_password, :class => "field"
       .clear
       
       %label{ :for => "password", :class => "w45 inputselect mandatory" }
         %span.wrapper
           %span.title
-            = _("New Password")
-            %span.example= _("Between 4 and 40 characters")
+            = I18n.t("New Password", :default => "New Password")
+            %span.example= I18n.t("Between 4 and 40 characters", :default => "Between 4 and 40 characters")
           = password_field_tag 'password', {}, :class => "field"
       %label{ :for => "password_confirmation", :class => "w45 inputselect mandatory" }
         %span.wrapper
-          %span.title= _("Confirm new password")
+          %span.title= I18n.t("Confirm new password", :default => "Confirm new password")
           = password_field_tag 'password_confirmation', {}, :class => "field"   
       .clear                             
                        

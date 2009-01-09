@@ -1,9 +1,9 @@
-- title((_(current_controller_gettext_human_name_pluralized)))
+- title((I18n.t(current_controller_gettext_human_name_pluralized, :default => current_controller_gettext_human_name_pluralized)))
 .standard_box
   .hako
-    %h2= _("Roles for %{login}") % {:login => @user.login.capitalize}
-    %h3= context_help(_("Use roles to enable access to specific RubyCampus features. %{learn_more}"))
-    %h3= _("Roles Assigned")
+    %h2= I18n.t("Roles for {{login}}", :default => "Roles for {{login}}", :login => @user.login.capitalize)
+    %h3= context_help(I18n.t("Use roles to enable access to specific RubyCampus features.", :default => "Use roles to enable access to specific RubyCampus features."))
+    %h3= I18n.t("Roles Assigned", :default => "Roles Assigned")
     %ul= render :partial => 'role', :collection => @user.roles
-    %h3= _("Roles Available")
+    %h3= I18n.t("Roles Available", :default => "Roles Available")
     %ul= render :partial => 'role', :collection => (@all_roles - @user.roles)

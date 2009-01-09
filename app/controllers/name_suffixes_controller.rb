@@ -99,7 +99,7 @@ class NameSuffixesController < ApplicationController
 
     respond_to do |format|
       if @name_suffix.save
-        flash[:notice] = _("%s was successfully created.") % _("Name Suffix")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Name Suffix"))
         if params[:create_and_new_button]
           format.html { redirect_to new_name_suffix_url }
         else
@@ -120,7 +120,7 @@ class NameSuffixesController < ApplicationController
 
     respond_to do |format|
       if @name_suffix.update_attributes(params[:name_suffix])
-        flash[:notice] = _("%s was successfully updated.") % _("Name Suffix") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Name Suffix"))
         format.html { redirect_to name_suffixes_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class NameSuffixesController < ApplicationController
   def enable #:nodoc:
     @name_suffix = NameSuffix.find(params[:id])
     if @name_suffix.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Name Suffix") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Name Suffix"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("name suffix") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("name suffix"))
     end
     redirect_to name_suffixes_url
   end
@@ -161,9 +161,9 @@ class NameSuffixesController < ApplicationController
   def disable #:nodoc:
     @name_suffix = NameSuffix.find(params[:id])
     if @name_suffix.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Name Suffix") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Name Suffix"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("name suffix") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("name suffix"))
     end
     redirect_to name_suffixes_url
   end

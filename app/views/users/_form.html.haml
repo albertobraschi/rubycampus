@@ -1,33 +1,33 @@
 %label{:for => "user_email", :class => "w50 inputselect mandatory"}
   %span.wrapper
-    %span.title= _("Email Address")
+    %span.title= I18n.t("Email Address", :default => "Email Address")
     = form.text_field :email, :class => "field"
 %label{:for => "contact_time_zone", :class => "w50 inputselect"}
   %span.wrapper
-    %span.title= _("Time Zone")
-    = form.time_zone_select :time_zone, TimeZone.us_zones, {:class => "field"}   
+    %span.title= I18n.t("Time Zone", :default => "Time Zone")
+    = form.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, {:class => "field"}   
 .clear
 
 %label{:for => "name", :class => "w50 inputselect mandatory"}
   %span.wrapper
-    %span.title= _("Display Name")
+    %span.title= I18n.t("Display Name", :default => "Display Name")
     = form.text_field :name, :class => "field"
 %label{:for => "language", :class => "w50 inputselect"}
   %span.wrapper
-    %span.title= _("Display Language")          
-    = form.select :language, language_options_for_select, :class => "field"
+    %span.title= I18n.t("Display Language", :default => "Display Language")          
+    = select_tag :language, options_for_select(LANGUAGES, I18n.locale), :class => "field"
 .clear
 - if @current_action == 'new' || @current_action == 'create'
   %label{:for => "user_login", :class => "w100 inputselect mandatory"}
     %span.wrapper
-      %span.title= _("Login")
+      %span.title= I18n.t("Login", :default => "Login")
       = form.text_field :login, :class => "field"
   %label{:for => "user_password", :class => "w50 inputselect mandatory"}
     %span.wrapper
-      %span.title= _("Password")
+      %span.title= I18n.t("Password", :default => "Password")
       = form.password_field :password, :class => "field"
   %label{:for => "user_password_confirmation", :class => "w50 inputselect mandatory"}
     %span.wrapper
-      %span.title= _("Password Confirmation")
+      %span.title= I18n.t("Password Confirmation", :default => "Password Confirmation")
       = form.password_field :password_confirmation, :class => "field"  
   .clear     

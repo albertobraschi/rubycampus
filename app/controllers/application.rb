@@ -36,8 +36,6 @@
 #++
 
 class ApplicationController < ActionController::Base
-  before_init_gettext :set_user_locale
-  init_gettext RUBYCAMPUS
   helper :all
   layout 'application', :except => [ :extract, :lookup ]
   include AuthenticatedSystem
@@ -49,7 +47,8 @@ class ApplicationController < ActionController::Base
   #
 
   # Sets time zone for current user if logged in
-  before_filter :set_user_time_zone
+  before_filter :set_time_zone
+  before_filter :set_locale
 
   protect_from_forgery  :secret => '60a83ab641fb4d1dbed20dffdb77395f'
   filter_parameter_logging :password, :government_identification_number
@@ -58,22 +57,30 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_user_time_zone
-    Time.zone = current_user.time_zone if logged_in?
-  end
-
   def instantiate_controller_and_action_names
     @current_action = action_name
     @current_controller = controller_name
   end
-  
-  def set_user_locale
-    session[:lang] = current_user.language if logged_in?
-    if (session[:lang].nil? or session[:lang].empty?)
-      set_locale "en"
-    else
-      set_locale current_user.language
+
+  protected
+
+  def set_time_zone
+    Time.zone = current_user.time_zone if logged_in?
+  end
+
+  def set_locale
+    session[:locale] = params[:locale] if params[:locale]
+    I18n.locale = session[:locale] || I18n.default_locale
+    locale_path = "#{LOCALES_DIRECTORY}#{I18n.locale}.yml"
+    unless I18n.load_path.include? locale_path
+      I18n.load_path << locale_path
+      I18n.backend.send(:init_translations)
     end
+  rescue Exception => err
+    logger.error err
+    flash.now[:notice] = "#{I18n.locale} translation not available"
+    I18n.load_path -= [locale_path]
+    I18n.locale = session[:locale] = I18n.default_locale
   end
 
 end

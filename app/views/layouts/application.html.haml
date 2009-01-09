@@ -14,20 +14,20 @@
     = calendar_date_select_includes Setting.domain_gui_calender_theme
   %body{ :class => body_tag_classes.join(' ') }
     = render :partial => "layouts/announcement"
-    %div{:class => "container%s" % (' showgrid' if SHOWGRID == true)}
+    %div{:class => "container{{value}}" % (' showgrid' if SHOWGRID == true)}
       .span-11{:style => "text-align:left;"}
         = link_to image_tag("rubycampus/logo.png"), home_path
       .span-13.last
         %h4{:style => "text-align:right;"}
           - if logged_in?
-            = _("Welcome %{current_user}") % {:current_user => content_tag(:strong,(link_to h(current_user.login.titlecase), user_path(current_user)))}
+            = I18n.t("Welcome {{current_user}}", :default => "Welcome {{current_user}}", :current_user => content_tag(:strong,(link_to h(current_user.login.titlecase), user_path(current_user))))
             |
-            = link_to _("Dashboard"), :controller => 'dashboard'
-            = link_to _("Administer"), administers_path if current_user_is_super_user_role
-            = link_to _('Logout'), logout_path
+            = link_to I18n.t("Dashboard", :default => "Dashboard"), :controller => 'dashboard'
+            = link_to I18n.t("Administer", :default => "Administer"), administers_path if current_user_is_super_user_role
+            = link_to I18n.t("Logout", :default => "Logout"), logout_path
             = link_to_help
-          = "#{link_to _('Login'), login_path} | " unless logged_in?  
-          = link_to _("About"), about_path
+          = "#{link_to I18n.t("Login", :default => "Login"), login_path} | " unless logged_in?  
+          = link_to I18n.t("About", :default => "About"), about_path
         = render :partial => "layouts/search" if logged_in?
       %hr/
       = render :partial => "layouts/flash_message"
@@ -42,4 +42,4 @@
       .span-24#footer{:style => "text-align: center;"}
         = Rubycampus::Info::impressum
   #spinner{ :style => "display:none;" }
-    %span= _("RubyCampus Working...")
+    %span= I18n.t("RubyCampus Working...", :default => "RubyCampus Working...")

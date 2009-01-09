@@ -1,4 +1,4 @@
-- title(_("Reset Password"),"login") 
+- title(I18n.t("Reset Password"),"login") 
 .span-12.push-6
   .login_box
     .hako
@@ -6,14 +6,14 @@
         %h1= yield(:title)
         %label{ :for => "password", :class => "w100 inputselect mandatory" }
           %span.wrapper
-            %span.title= _("Password")
+            %span.title= I18n.t("Password", :default => "Password")
           = password_field_tag :password, nil, {:class => "field"}
         %label{ :for => "password_confirmation", :class => "w100 inputselect mandatory" }
           %span.wrapper
-            %span.title= _("Password Confirmation")
+            %span.title= I18n.t("Password Confirmation", :default => "Password Confirmation")
           = password_field_tag :password_confirmation, nil, {:class => "field"}
         .clear
         .clear
         .buttons
           %button{:type => "submit", :class => ""}
-            = _('Reset Password')
+            = I18n.t("Reset Password", :default => "Reset Password")

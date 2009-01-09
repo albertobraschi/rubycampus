@@ -38,13 +38,13 @@
 class DashboardController < ApplicationController
   before_filter :login_required
 
-  WIDGETS = { 'activity' => _("Activity"),
-              'document' => _("Document"),
-              'graph_contacts' => _("Contacts by Type"),
-              'graph_individuals_by_ethnicity' => _("Individuals by Ethnicity"),
-              'graph_individuals_by_marital_status' => _("Individuals by Marital Status"),
-              'graph_stages' => _("Individuals by Enrollment Stage"),
-              'my_contacts' => _("My Contacts")
+  WIDGETS = { 'activity' => I18n.t("Activity", :default => "Activity"),
+              'document' => I18n.t("Document", :default => "Document"),
+              'graph_contacts' => I18n.t("Contacts by Type", :default => "Contacts by Type"),
+              'graph_individuals_by_ethnicity' => I18n.t("Individuals by Ethnicity", :default => "Individuals by Ethnicity"),
+              'graph_individuals_by_marital_status' => I18n.t("Individuals by Marital Status", :default => "Individuals by Marital Status"),
+              'graph_stages' => I18n.t("Individuals by Enrollment Stage", :default => "Individuals by Enrollment Stage"),
+              'my_contacts' => I18n.t("My Contacts", :default => "My Contacts")
             }.freeze
   DEFAULT_LAYOUT = { 'top' => [''],
                      'left' => ['graph_contacts', 'graph_individuals_by_ethnicity'],
@@ -112,7 +112,7 @@ class DashboardController < ApplicationController
     session[:page_layout] = @widgets
     %w(top left right).each {|f| session[:page_layout][f] ||= [] }
     @widget_options = []
-    WIDGETS.each {|k, v| @widget_options << [_(v), k]}
+    WIDGETS.each {|k, v| @widget_options << [I18n.t(v, :default => v), k]}
   end
 
   def add_widget
@@ -160,7 +160,7 @@ class DashboardController < ApplicationController
                 :background_image => 'lib/rubycampus/assets/rubycampus_chart_background.png'
                }
     @g.font = File.expand_path('lib/fonts/VerilySerifMono.otf', RAILS_ROOT)
-    @g.title = _(title)
+    @g.title = I18n.t(title, :default => title)
   end
 
 end

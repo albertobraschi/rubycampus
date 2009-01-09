@@ -99,7 +99,7 @@ class ActivityTypesController < ApplicationController
 
     respond_to do |format|
       if @activity_type.save
-        flash[:notice] = _("%s was successfully created.") % _("Activity Type")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Activity Type", :default => "Activity Type"))
         if params[:create_and_new_button]
           format.html { redirect_to new_activity_type_url }
         else
@@ -120,7 +120,7 @@ class ActivityTypesController < ApplicationController
 
     respond_to do |format|
       if @activity_type.update_attributes(params[:activity_type])
-        flash[:notice] = _("%s was successfully updated.") % _("Activity Type") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Activity Type", :default => "Activity Type"))
         format.html { redirect_to activity_types_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class ActivityTypesController < ApplicationController
   def enable #:nodoc:
     @activity_type = ActivityType.find(params[:id])
     if @activity_type.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Activity Type") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Activity Type", :default => "Activity Type"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("activity type") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("activity type", :default => "activity type"))
     end
     redirect_to activity_types_url
   end
@@ -161,9 +161,9 @@ class ActivityTypesController < ApplicationController
   def disable #:nodoc:
     @activity_type = ActivityType.find(params[:id])
     if @activity_type.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Activity Type") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Activity Type", :default => "Activity Type"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("activity type") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("activity type", :default => "activity type"))
     end
     redirect_to activity_types_url
   end

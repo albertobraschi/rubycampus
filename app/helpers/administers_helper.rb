@@ -41,7 +41,7 @@ module AdministersHelper
   # Renders settings input and labels
   #
   # Accepts: label_for_setting :setting => :site_name,      <-- Required 
-  #                                        :example => _("The example"), 
+  #                                        :example => I18n.t("The example", :default => "The example"), 
   #                                        :width => "w100", 
   #                                        :input_type => :radiocheck,
   #                                        :mandatory => true,
@@ -58,24 +58,24 @@ module AdministersHelper
     when :inputselect || nil
     (content_tag(:label, 
                  (
-                 content_tag(:span,(content_tag(:span,_(label.humanize.titleize),:class => "title")) + (
-                 content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) + (
+                 content_tag(:span,(content_tag(:span,label.humanize.titleize,:class => "title")) + (
+                 content_tag(:span, ' ' + example, :class => "example") unless example == nil) + (
                  text_field_tag "settings[#{setting}]", Setting.send(setting), :class => "field"), 
                  :class => "wrapper")), :for => "setting_#{setting}", :class => "#{width} #{input_type} #{mandatory}"))
     when :inputselect_password
     (content_tag(:label, 
                 (
-                content_tag(:span,(content_tag(:span,_(label.humanize.titleize),:class => "title")) + (
-                content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) + (
+                content_tag(:span,(content_tag(:span,label.humanize.titleize,:class => "title")) + (
+                content_tag(:span, ' ' + example, :class => "example") unless example == nil) + (
                 password_field_tag "settings[#{setting}]", Setting.send(setting), :class => "field"), 
                 :class => "wrapper")), :for => "setting_#{setting}", :class => "#{width} #{input_type} #{mandatory}"))             
     when :radiocheck
       (content_tag(:label, 
                    (
-                   content_tag(:span,(content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) + "<br/>" +(
+                   content_tag(:span,(content_tag(:span, ' ' + example, :class => "example") unless example == nil) + "<br/>" +(
                    check_box_tag "settings[#{setting}]", 1, Setting.send(setting+"?") , :class => "select") + (
                    hidden_field_tag "settings[#{setting}]", 0) + (
-                   content_tag(:span,_(label.humanize.titleize),:class => "title")), :class => "wrapper")), 
+                   content_tag(:span,label.humanize.titleize,:class => "title")), :class => "wrapper")), 
                    :for => "setting_#{setting}", :class => "#{width} #{input_type} #{mandatory}"))    
     else
       "Input Type doesn't exist"
@@ -84,12 +84,12 @@ module AdministersHelper
   end
   
   def administer_setting_tabs
-    tabs = [{:name => 'general', :partial => 'administers/settings/general', :label => _("General")},
-            {:name => 'domain', :partial => 'administers/settings/domain', :label => _("Domain")},
-            {:name => 'mail', :partial => 'administers/settings/mail', :label => _("Mail")},
-            {:name => 'integration', :partial => 'administers/settings/integration', :label => _("Integration")},
-            {:name => 'authentication', :partial => 'administers/settings/authentication', :label => _("Authentication")},
-            {:name => 'mapping_providers', :partial => 'administers/settings/mapping_providers', :label => _("Mapping Providers")}
+    tabs = [{:name => 'general', :partial => 'administers/settings/general', :label => I18n.t("General", :default => "General")},
+            {:name => 'domain', :partial => 'administers/settings/domain', :label => I18n.t("Domain", :default => "Domain")},
+            {:name => 'mail', :partial => 'administers/settings/mail', :label => I18n.t("Mail", :default => "Mail")},
+            {:name => 'integration', :partial => 'administers/settings/integration', :label => I18n.t("Integration", :default => "Integration")},
+            {:name => 'authentication', :partial => 'administers/settings/authentication', :label => I18n.t("Authentication", :default => "Authentication")},
+            {:name => 'mapping_providers', :partial => 'administers/settings/mapping_providers', :label => I18n.t("Mapping Providers", :default => "Mapping Providers")}
             ]
   end
 

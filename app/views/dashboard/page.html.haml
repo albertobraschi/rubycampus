@@ -1,8 +1,8 @@
 .contextual
-  %span.icons.user_edit= link_to _('Update Profile'), edit_user_path(current_user)
-  %span.icons.plugin_edit= link_to _("Personalize Dashboard"), :action => 'page_layout'
+  %span.icons.user_edit= link_to I18n.t("Update Profile", :default => "Update Profile"), edit_user_path(current_user)
+  %span.icons.plugin_edit= link_to I18n.t("Personalize Dashboard", :default => "Personalize Dashboard"), :action => 'page_layout'
 %h2
-  = _("Dashboard")
+  = I18n.t("Dashboard", :default => "Dashboard")
 #list-top
   - @widgets['top'].each do |widget|
     - next unless DashboardController::WIDGETS.keys.include? widget

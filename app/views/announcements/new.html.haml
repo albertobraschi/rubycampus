@@ -1,4 +1,4 @@
-- title((_("New %s") % current_controller_gettext_human_name))
+- title((I18n.t("New {{value}}", :default => "New {{value}}", :value => current_controller_gettext_human_name)))
 = error_messages_for :announcement 
 .standard_box
   .hako

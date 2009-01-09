@@ -1,2 +1,2 @@
 .buttons
-  = link_to _("New %s") % current_controller_human_name, self.send("new_"+controller.controller_name.singularize+"_path"), :class => "positive"
+  = link_to I18n.t("New {{value}}", :default => "New {{value}}", :value => current_controller_human_name), self.send("new_"+controller.controller_name.singularize+"_path"), :class => "positive"

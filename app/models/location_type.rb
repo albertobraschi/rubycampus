@@ -36,16 +36,13 @@
 #++
 
 class LocationType < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Home')
-  N_('Work')
-  N_('Main')
-  N_('Other')
-  N_('Billing')
+  I18n.t('Home', :default => 'Home')
+  I18n.t('Work', :default => 'Work')
+  I18n.t('Main', :default => 'Main')
+  I18n.t('Other', :default => 'Other')
+  I18n.t('Billing', :default => 'Billing')
 
   has_many :contacts
 

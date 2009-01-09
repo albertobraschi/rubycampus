@@ -36,16 +36,13 @@
 #++
 
 class Status < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Scheduled')
-  N_('Completed')
-  N_('Cancelled')
-  N_('Left Message')
-  N_('Unreachable')
+  I18n.t('Scheduled', :default => 'Scheduled')
+  I18n.t('Completed', :default => 'Completed')
+  I18n.t('Cancelled', :default => 'Cancelled')
+  I18n.t('Left Message', :default => 'Left Message')
+  I18n.t('Unreachable', :default => 'Unreachable')
 
   has_many :contacts
   

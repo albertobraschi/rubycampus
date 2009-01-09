@@ -1,5 +1,5 @@
 %label{:for => "mailing_mixin_type_name", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Name") 
+    %span.title= I18n.t("Name", :default => "Name") 
     = form.text_field :name, :class => "field"
 .clear

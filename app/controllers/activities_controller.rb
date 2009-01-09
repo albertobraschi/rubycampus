@@ -94,7 +94,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
-        flash[:notice] = _("%s was successfully created.") % _("Activity")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Activity", :default => "Activity"))
         if params[:create_and_new_button]
           format.html { redirect_to new_activity_url }
         else
@@ -115,7 +115,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.update_attributes(params[:activity])
-        flash[:notice] = _("%s was successfully updated.") % _("Activity") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Activity", :default => "Activity"))
         format.html { redirect_to activities_url }
         # format.xml  { head :ok }
       else

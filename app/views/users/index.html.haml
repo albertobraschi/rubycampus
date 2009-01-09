@@ -1,14 +1,14 @@
-- title((_(current_controller_gettext_human_name_pluralized)))
+- title((I18n.t(current_controller_gettext_human_name_pluralized, :default => current_controller_gettext_human_name_pluralized)))
 .standard_box
   .hako
     = render :partial => "common/actions/for_form_index"
     %h2= yield(:title)
-    %h3= context_help(_("Use users to administrate who can access RubyCampus and designate what areas they have access too. You can use live search to locate users and can sort by clicking on column labels. %{learn_more}"))
+    %h3= context_help(I18n.t("Use users to administrate who can access RubyCampus and designate what areas they have access too. You can use live search to locate users and can sort by clicking on column labels.", :default => "Use users to administrate who can access RubyCampus and designate what areas they have access too. You can use live search to locate users and can sort by clicking on column labels."))
     %p
       %form{ :name => "rubycampus", :action => "", :class => "hakozaki", :autocomplete => :off }
         %label{ :for => "users_login", :class => "w35 inputselect"}
           %span.wrapper
-            %span.title= _("Find by %s login:") % current_controller_gettext_human_name.downcase
+            %span.title= I18n.t("Find by {{value}} login:", :default => "Find by {{value}} login:", :value => current_controller_gettext_human_name.downcase)
             = text_field_tag("query", params['query'], :class => "field")
         .clear
     = observe_field 'query', :frequency => 2, :update => 'table', :before => "Element.show('spinner')", :success => "Element.hide('spinner')", :url => { :action => 'index' }, :with => 'query'

@@ -1,52 +1,52 @@
-%h2= _("Mailing Address")
+%h2= I18n.t("Mailing Address", :default => "Mailing Address")
 %label{:for => "address_location_type_id", :class => "w25 inputselect"}
   %span.wrapper
-    = label_with_lookup :controller => :location_type, :label => _("Location") 
+    = label_with_lookup :controller => :location_type, :label => I18n.t("Location", :default => "Location") 
     = form.select(:address_location_type_id, LocationType::NAMES_KEYS, :class => "field")  
 %label{:for => "address_is_primary", :class => "w25 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :address_is_primary, :class => "select"
-    %span.title= _("Is Primary")
+    %span.title= I18n.t("Is Primary", :default => "Is Primary")
 %label{:for => "address_is_billing", :class => "w25 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :address_is_billing, :class => "select"
-    %span.title= _("Is Billing") 
+    %span.title= I18n.t("Is Billing", :default => "Is Billing") 
 .clear
 
 %label{:for => "address_country_id", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Country")
+    %span.title= I18n.t("Country", :default => "Country")
     = text_field_with_auto_complete :presenter, :address_country_name, { :class => "field" }, { :url => formatted_lookup_countries_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }     
-    %em= _("Type in the first few letters of the country for list.") 
+    %em= I18n.t("Type in the first few letters of the country for list.", :default => "Type in the first few letters of the country for list.") 
 %label{:for => "address_region_id", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Region")
+    %span.title= I18n.t("Region", :default => "Region")
     = text_field_with_auto_complete :presenter, :address_region_name, { :class => "field" }, { :url => formatted_lookup_regions_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }     
-    %em= _("State, Province or Prefecture")
+    %em= I18n.t("State, Province or Prefecture", :default => "State, Province or Prefecture")
 %label{:for => "address_locality", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Locality")
+    %span.title= I18n.t("Locality", :default => "Locality")
     = form.text_field :address_locality, :class => "field"
-    %em= _("City or Locality")
+    %em= I18n.t("City or Locality", :default => "City or Locality")
 %label{:for => "address_postal_code", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Postal code")
+    %span.title= I18n.t("Postal code", :default => "Postal code")
     = form.text_field :address_postal_code, :class => "field"
-    %em= _("Zip or Postal Code")   
+    %em= I18n.t("Zip or Postal Code", :default => "Zip or Postal Code")   
 .clear
 
 %label{:for => "address_line_1", :class => "w50 inputselect"}
   %span.wrapper
-    %span.title= _("Line 1")
+    %span.title= I18n.t("Line 1", :default => "Line 1")
     = form.text_field :address_line_1, :class => "field"
-    %em= _("Street number, street name, apartment/unit/suite - OR P.O. box")    
+    %em= I18n.t("Street number, street name, apartment/unit/suite - OR P.O. box", :default => "Street number, street name, apartment/unit/suite - OR P.O. box")    
 %label{:for => "address_line_2", :class => "w50 inputselect"}
   %span.wrapper
-    %span.title= _("Line 2")
+    %span.title= I18n.t("Line 2", :default => "Line 2")
     = form.text_field :address_line_2, :class => "field" 
-    %em= _("Supplemental address information such as c/o, department name, building name, etc.") 
+    %em= I18n.t("Supplemental address information such as c/o, department name, building name, etc.", :default => "Supplemental address information such as c/o, department name, building name, etc.") 
 .clear
 
 %hr/ 

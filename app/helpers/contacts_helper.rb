@@ -38,15 +38,15 @@
 module ContactsHelper
 
   def button_to_show(contact)
-    link_to(_("Show"), self.send((contact.contact_type.name.downcase+"_path"), contact), :class => "positive")
+    link_to(I18n.t("Show", :default => "Show"), self.send((contact.contact_type.name.downcase+"_path"), contact), :class => "positive")
   end                          
   
   def button_to_destroy(contact)
-    link_to(_("Destroy"), self.send((contact.contact_type.name.downcase+"_path"), contact), :class => "negative", :confirm => (_("Really destroy %s record?") % contact.contact_type.name.downcase), :method => :delete )
+    link_to(I18n.t("Destroy", :default => "Destroy"), self.send((contact.contact_type.name.downcase+"_path"), contact), :class => "negative", :confirm => (I18n.t("Really destroy {{value}} record?", :default => "Really destroy {{value}} record?", :value => contact.contact_type.name.downcase)), :method => :delete )
   end
   
   def button_to_edit(contact)
-    link_to(_("Edit"), self.send(("edit_"+contact.contact_type.name.downcase+"_path"), contact), :class => "positive")
+    link_to(I18n.t("Edit", :default => "Edit"), self.send(("edit_"+contact.contact_type.name.downcase+"_path"), contact), :class => "positive")
   end
   
 end

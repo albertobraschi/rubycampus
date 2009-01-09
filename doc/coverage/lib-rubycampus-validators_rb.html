@@ -642,7 +642,7 @@ span.run100 {
 </span><span class="marked1"><a name="line41"></a> 41 module ActiveRecord
 </span><span class="marked0"><a name="line42"></a> 42   module Validations
 </span><span class="marked1"><a name="line43"></a> 43     module ClassMethods
-</span><span class="marked0"><a name="line44"></a> 44       include GetText::Rails
+</span><span class="marked0"><a name="line44"></a> 44       
 </span><span class="marked1"><a name="line45"></a> 45       bindtextdomain(&quot;rubycampus&quot;)
 </span><span class="inferred0"><a name="line46"></a> 46 
 </span><span class="marked1"><a name="line47"></a> 47       oct200 = &quot;\303\200&quot;
@@ -680,7 +680,7 @@ span.run100 {
 </span><span class="marked1"><a name="line79"></a> 79       @@is_rubycampus_alpha_underscore_msg = _(&quot;accepts only letters and underscores&quot;)
 </span><span class="marked0"><a name="line80"></a> 80       @@is_rubycampus_alpha_underscore = /^[a-zA-Z#{utf_accents}\_]*?$/u
 </span><span class="inferred1"><a name="line81"></a> 81 
-</span><span class="marked0"><a name="line82"></a> 82       @@is_rubycampus_alpha_symbol_msg = _('accepts only letters and !@#$%^&amp;*')
+</span><span class="marked0"><a name="line82"></a> 82       @@is_rubycampus_alpha_symbol_msg = I18n.t('accepts only letters and !@#$%^&amp;*')
 </span><span class="marked1"><a name="line83"></a> 83       @@is_rubycampus_alpha_symbol = /^[a-zA-Z#{utf_accents}\!\@\#\$\%\^\&amp;\*]*?$/u
 </span><span class="inferred0"><a name="line84"></a> 84 
 </span><span class="marked1"><a name="line85"></a> 85       @@is_rubycampus_alpha_separator_msg = _(&quot;accepts only letters, underscores, hyphens, and spaces&quot;)
@@ -698,7 +698,7 @@ span.run100 {
 </span><span class="marked1"><a name="line97"></a> 97       @@is_rubycampus_alpha_numeric_hyphen_msg = _(&quot;accepts only letters, 0-9, and hyphens&quot;)
 </span><span class="marked0"><a name="line98"></a> 98       @@is_rubycampus_alpha_numeric_hyphen = /^[a-zA-Z0-9#{utf_accents}\-]*?$/u
 </span><span class="inferred1"><a name="line99"></a> 99 
-</span><span class="marked0"><a name="line100"></a>100       @@is_rubycampus_alpha_numeric_symbol_msg = _('accepts only letters, 0-9, and !@#$%^&amp;*')
+</span><span class="marked0"><a name="line100"></a>100       @@is_rubycampus_alpha_numeric_symbol_msg = I18n.t('accepts only letters, 0-9, and !@#$%^&amp;*')
 </span><span class="marked1"><a name="line101"></a>101       @@is_rubycampus_alpha_numeric_symbol = /^[a-zA-Z0-9#{utf_accents}\!\@\#\$\%\^\&amp;\*]*?$/u
 </span><span class="inferred0"><a name="line102"></a>102 
 </span><span class="marked1"><a name="line103"></a>103       @@is_rubycampus_alpha_numeric_separator_msg = _(&quot;accepts only letters, 0-9, underscore, hyphen, and space&quot;)

@@ -103,7 +103,7 @@ class IndividualsController < ApplicationController
     end
 
     if @presenter.save
-      flash[:notice] = _("%s was successfully created.") % _("Individual")
+      flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Individual", :default => "Individual"))
       if params[:create_and_new_button]
         redirect_to new_individual_url
       else
@@ -131,7 +131,7 @@ class IndividualsController < ApplicationController
     end
 
     if @presenter.update_attributes(params[:presenter])
-      flash[:notice] = _("%s was successfully updated.") % _("Individual")
+      flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Individual", :default => "Individual"))
       redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL.id )
     else
       render :action => "edit"
@@ -145,7 +145,7 @@ class IndividualsController < ApplicationController
     @presenter.destroy
 
     respond_to do |format|
-      flash[:notice] = _("%s was successfully destroyed.") % _("Individual")
+      flash[:notice] = I18n.t("{{value}} was successfully destroyed.", :default => "{{value}} was successfully destroyed.", :value => I18n.t("Individual", :default => "Individual"))
       format.html { redirect_to contacts_url(:contact_type => ContactType::INDIVIDUAL.id )  }
       format.xml  { head :ok }
     end

@@ -103,7 +103,7 @@ class ProgramsController < ApplicationController
 
     respond_to do |format|
       if @program.save
-        flash[:notice] = _("%s was successfully created.") % _("Program")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Program", :default => "Program"))
         if params[:create_and_new_button]
           format.html { redirect_to new_program_url }
         else
@@ -124,7 +124,7 @@ class ProgramsController < ApplicationController
 
     respond_to do |format|
       if @program.update_attributes(params[:program])
-        flash[:notice] = _("%s was successfully updated.") % _("Program") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Program", :default => "Program"))
         format.html { redirect_to programs_url }
         # format.xml  { head :ok }
       else
@@ -154,9 +154,9 @@ class ProgramsController < ApplicationController
   def enable #:nodoc:
     @program = Program.find(params[:id])
     if @program.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Program") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Program", :default => "Program"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("program") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("program", :default => "program"))
     end
     redirect_to programs_url
   end
@@ -165,9 +165,9 @@ class ProgramsController < ApplicationController
   def disable #:nodoc:
     @program = Program.find(params[:id])
     if @program.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Program") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Program", :default => "Program"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("program") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("program", :default => "program"))
     end
     redirect_to programs_url
   end

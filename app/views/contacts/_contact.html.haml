@@ -25,6 +25,6 @@
         %span.icons.email= mail_to email.address
         %br/
   %td{:style => "vertical-align:top;"}
-    = h (_("%s ago") % distance_of_time_in_words(Time.now, (contact.updated_at))) rescue nil
+    = h (I18n.t("{{value}} ago", :default => "{{value}} ago", :value => distance_of_time_in_words(Time.now, (contact.updated_at)))) rescue nil
   %td{:style => "vertical-align:top;"}
     = render :partial => "contacts/actions/for_row_index", :locals => {:contact => contact}

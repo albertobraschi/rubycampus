@@ -36,37 +36,21 @@
 #++
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.1.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-
   # RubyCampus is packaged with all required gems and you should be able
   # to run the software with the gems provided.
-  #
-  # To install gems that RubyCampus depends on independantly:
-  # Example: sudo rake gems:install
-                                         # Gem versions indicated are the
-                                         # recommended version for each gem
-                                         # and should not be substituted with
-                                         # any other version in production
-                                         # environments.
-  config.gem 'gettext',                  :version => '1.93.0',
-                                         :lib => 'gettext/rails'
-  config.gem 'haml',                     :version => '2.0.4',
-                                         :lib => 'haml'
-  config.gem 'mislav-will_paginate',     :version => '2.3.4',
-                                         :lib => 'will_paginate',
-                                         :source => 'http://gems.github.com'
-  config.gem 'graticule',                :version => '0.2.8'
-  config.gem 'ezcrypto',                 :version => '0.7'
-  config.gem 'prawn',                    :version => '0.2.2'
-  config.gem 'json',                     :version => '1.1.3'
-  config.gem 'fatjam-acts_as_revisable', :version => '0.9.7',
-                                         :lib => 'acts_as_revisable',
-                                         :source => 'http://gems.github.com'
+  config.gem 'haml', :version => '2.0.6', :lib => 'haml'
+  config.gem 'mislav-will_paginate', :version => '2.3.6', :lib => 'will_paginate', :source => 'http://gems.github.com'
+  config.gem 'graticule', :version => '0.2.8'
+  config.gem 'ezcrypto', :version => '0.7'
+  config.gem 'prawn', :version => '0.3.0'
+  config.gem 'json', :version => '1.1.3'
+  config.gem 'fatjam-acts_as_revisable', :version => '0.9.7', :lib => 'acts_as_revisable', :source => 'http://gems.github.com'
 
   # Central Authentication Service (CAS)
   config.gem 'rubycas-client',           :version => '2.0.1'
@@ -77,7 +61,7 @@ Rails::Initializer.run do |config|
   # Make Time.zone default to the specified zone, and make Active Record store time values
   # in the database in UTC, and return them converted to the specified local zone.
   # Run "rake -D time" for a list of tasks for finding time zone names. Uncomment to use default local time.
-  config.time_zone = 'Tokyo' # Japan Standard Time
+  config.time_zone = 'UTC'
 
   # Your secret key for verifying cookie session data integrity.
   # If you change this key, all old sessions will become invalid!

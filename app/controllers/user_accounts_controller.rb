@@ -44,16 +44,16 @@ class UserAccountsController < ApplicationController
     # Uncomment and change paths to have user logged in after activation - not recommended
     #self.current_user = User.find_and_activate!(params[:id])
     User.find_and_activate!(params[:id])
-    flash[:notice] = _("Your account has been activated! You can now login.")
+    flash[:notice] = I18n.t("Your account has been activated! You can now login.", :default => "Your account has been activated! You can now login.")
     redirect_to login_path
     rescue User::ArgumentError
-    flash[:notice] = _('Activation code not found. Please try creating a new account.')
+    flash[:notice] = I18n.t("Activation code not found. Please try creating a new account.", :default => "Activation code not found. Please try creating a new account.")
     redirect_to new_user_path
     rescue User::ActivationCodeNotFound
-    flash[:notice] = _('Activation code not found. Please try creating a new account.')
+    flash[:notice] = I18n.t("Activation code not found. Please try creating a new account.", :default => "Activation code not found. Please try creating a new account.")
     redirect_to new_user_path
     rescue User::AlreadyActivated
-    flash[:notice] = _('Your account has already been activated. You can log in below.')
+    flash[:notice] = I18n.t("Your account has already been activated. You can log in below.", :default => "Your account has already been activated. You can log in below.")
     redirect_to login_path      
   end
 
@@ -68,19 +68,19 @@ class UserAccountsController < ApplicationController
     current_user.password_confirmation = params[:password_confirmation]
     current_user.password = params[:password]
     if current_user.save
-    flash[:notice] = _("Password successfully updated.")
+    flash[:notice] = I18n.t("Password successfully updated.", :default => "Password successfully updated.")
     redirect_to user_path(current_user) 
     else
-    flash[:error] = _("An error occurred, your password was not changed.")
+    flash[:error] = I18n.t("An error occurred, your password was not changed.", :default => "An error occurred, your password was not changed.")
     render :action => 'edit'
     end
     else
-    flash[:error] = _("New password does not match the password confirmation.")
+    flash[:error] = I18n.t("New password does not match the password confirmation.", :default => "New password does not match the password confirmation.")
     @old_password = params[:old_password]
     render :action => 'edit'
     end
     else
-    flash[:error] = _("Your old password is incorrect.")
+    flash[:error] = I18n.t("Your old password is incorrect.", :default => "Your old password is incorrect.")
     render :action => 'edit'                           
     end     
   end

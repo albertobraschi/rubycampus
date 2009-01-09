@@ -36,16 +36,13 @@
 #++
 
 class ActivityType < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Email')
-  N_('Interview')
-  N_('Meeting')
-  N_('Phone Call')
-  N_('Text Message (SMS)')
+  I18n.t('Email', :default => 'Email')
+  I18n.t('Interview', :default => 'Interview')
+  I18n.t('Meeting', :default => 'Meeting')
+  I18n.t('Phone Call', :default => 'Phone Call')
+  I18n.t('Text Message (SMS)', :default => 'Text Message (SMS)')
 
   has_many :contacts
   

@@ -1,22 +1,22 @@
 - form_tag({:action => 'edit'}, :class => "hakozaki", :autocomplete => :off ) do
-  %h2= _("%s Settings") % _("Basic")
-  = label_for_setting :setting => :site_name, :mandatory => true, :example => _("The name of the organization or entity which owns this RubyCampus installation")      
-  = label_for_setting :setting => :site_description, :mandatory => true, :example => _("Optional description of this site.") 
+  %h2= I18n.t("{{value}} Settings", :default => "{{value}} Settings", :value => I18n.t("Basic", :default => "Basic"))
+  = label_for_setting :setting => :site_name, :mandatory => true, :example => I18n.t("The name of the organization or entity which owns this RubyCampus installation", :default => "The name of the organization or entity which owns this RubyCampus installation")      
+  = label_for_setting :setting => :site_description, :mandatory => true, :example => I18n.t("Optional description of this site.", :default => "Optional description of this site.") 
   = label_for_setting :setting => :site_title_default, :mandatory => true
   = label_for_setting :setting => :site_title_login,  :mandatory => true
   .clear
   %label{:for => "setting_site_protocol", :class => "w10 inputselect"}
     %span.wrapper
       %span.title
-        = _("Site Protocol")
+        = I18n.t("Site Protocol", :default => "Site Protocol")
         %br/
-        %span.example= _("http or https")
+        %span.example= I18n.t("http or https", :default => "http or https")
       = select_tag 'settings[site_protocol]', options_for_select(['http://', 'https://'], Setting.site_protocol)
   = label_for_setting :setting => :site_domain, :width => "w50", :mandatory => true, :example => "demo.rubycampus.org"
   .clear  
   %hr/
   
-  %h2= _("%s Settings") % _("System Mail")
+  %h2= I18n.t("{{value}} Settings", :default => "{{value}} Settings", :value => I18n.t("System Mail", :default => "System Mail"))
   = label_for_setting :setting => :site_from_name, :width => "w50", :mandatory => true, :example => "The RubyCampus Organization"
   = label_for_setting :setting => :site_from_email_address, :width => "w50",  :mandatory => true, :example => "project@rubycampus.org"
   .clear
@@ -25,12 +25,12 @@
   .clear
   %hr/
   
-  %h2= _("RubyCampus Domain Contact Mailing Address")
-  %loud= context_help(_("RubyCampus mailings must include the sending organization's address. This is done by putting the {domain.address} token in either the body or footer of the mailing. The token is replaced by the address entered below when the mailing is sent. %{learn_more}")) 
-  = label_for_setting :setting => :site_street_address_line_1, :mandatory => true, :example => _("Street number, street name, apartment/unit/suite")
+  %h2= I18n.t("RubyCampus Domain Contact Mailing Address", :default => "RubyCampus Domain Contact Mailing Address")
+  %loud= context_help(I18n.t("RubyCampus mailings must include the sending organization's address. This is done by putting the {domain.address} token in either the body or footer of the mailing. The token is replaced by the address entered below when the mailing is sent.", :default => "RubyCampus mailings must include the sending organization's address. This is done by putting the {domain.address} token in either the body or footer of the mailing. The token is replaced by the address entered below when the mailing is sent.")) 
+  = label_for_setting :setting => :site_street_address_line_1, :mandatory => true, :example => I18n.t("Street number, street name, apartment/unit/suite", :default => "Street number, street name, apartment/unit/suite")
   .clear
-  = label_for_setting :setting => :site_street_address_line_2, :width => "w50", :mandatory => true, :example => _("Supplemental address info, e.g. c/o, department name, building name, campus, etc.")
-  = label_for_setting :setting => :site_street_address_line_3, :width => "w50", :mandatory => true, :example => _("Supplemental address info, e.g. c/o, department name, building name, campus, etc.")
+  = label_for_setting :setting => :site_street_address_line_2, :width => "w50", :mandatory => true, :example => I18n.t("Supplemental address info, e.g. c/o, department name, building name, campus, etc.", :default => "Supplemental address info, e.g. c/o, department name, building name, campus, etc.")
+  = label_for_setting :setting => :site_street_address_line_3, :width => "w50", :mandatory => true, :example => I18n.t("Supplemental address info, e.g. c/o, department name, building name, campus, etc.", :default => "Supplemental address info, e.g. c/o, department name, building name, campus, etc.")
   .clear
   = label_for_setting :setting => :site_country, :mandatory => true, :width => "w25"
   = label_for_setting :setting => :site_state_or_province, :mandatory => true, :width => "w25"
@@ -39,13 +39,13 @@
   .clear
   %hr/
   
-  %h2= _("Additional RubyCampus Domain Contact Information")  
+  %h2= I18n.t("Additional RubyCampus Domain Contact Information", :default => "Additional RubyCampus Domain Contact Information")  
   = label_for_setting :setting => :site_preferred_email_address, :width => "w50"
   = label_for_setting :setting => :site_preferred_phone, :width => "w50"
   .clear
   %hr/
   
-  %loud=_("You may optionally send RubyCampus the Domain Address & Contact Information for this site. Doing so helps us keep internal metrics on deployments. This information is not shared or sold, you will not be added to any mailing list.")
+  %loud=I18n.t("You may optionally send RubyCampus the Domain Address & Contact Information for this site. Doing so helps us keep internal metrics on deployments. This information is not shared or sold, you will not be added to any mailing list.", :default => "You may optionally send RubyCampus the Domain Address & Contact Information for this site. Doing so helps us keep internal metrics on deployments. This information is not shared or sold, you will not be added to any mailing list.")
   = label_for_setting :setting => :share_site_information_with_rubycampus, :input_type => :radiocheck, :width => "w50"
   = label_for_setting :setting => :automatically_check_for_rubycampus_version_updates, :input_type => :radiocheck, :width => "w50"
   .clear

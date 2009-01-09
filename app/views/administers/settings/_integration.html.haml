@@ -1,6 +1,6 @@
 - form_tag({:action => 'edit'}, :class => "hakozaki", :autocomplete => :off ) do
-  %h2= _("%s Settings") % _("Facebook")
-  = context_help(_("RubyCampus has the ability to utilize the Facebook API to gather social information. %{learn_more}"))
+  %h2= I18n.t("{{value}} Settings", :default => "{{value}} Settings", :value => I18n.t("Facebook", :default => "Facebook"))
+  = context_help(I18n.t("RubyCampus has the ability to utilize the Facebook API to gather social information.", :default => "RubyCampus has the ability to utilize the Facebook API to gather social information."))
   = label_for_setting :setting => :facebook_enabled, :input_type => :radiocheck, :width => "w25"
   = label_for_setting :setting => :facebook_api_key, :width => "w75"
   .clear  
@@ -8,15 +8,15 @@
   = label_for_setting :setting => :facebook_callback_url, :width => "w50"
   .clear
   %hr/   
-  %h2= _("%s Settings") % _("Moodle e-Learning Platform")
-  = context_help(_("RubyCampus can import Moodle users as contacts and keep their details current. %{learn_more}"))
+  %h2= I18n.t("{{value}} Settings", :default => "{{value}} Settings", :value => I18n.t("Moodle e-Learning Platform", :default => "Moodle e-Learning Platform"))
+  = context_help(I18n.t("RubyCampus can import Moodle users as contacts and keep their details current.", :default => "RubyCampus can import Moodle users as contacts and keep their details current."))
   = label_for_setting :setting => :moodle_enabled, :input_type => :radiocheck, :width => "w20"
   = label_for_setting :setting => :moodle_table_prefix, :width => "w25"
   = label_for_setting :setting => :moodle_contact_table, :width => "w40"
   %label{:for => "setting_moodle_version", :class => "w15 inputselect"}
     %span.wrapper
       %span.title
-        = _("%s Version") % _("Moodle")
+        = I18n.t("{{value}} Version", :default => "{{value}} Version", :value => I18n.t("Moodle", :default => "Moodle"))
         %br/
       = select_tag 'settings[moodle_version]', options_for_select(['1.9.2','1.9.2+'], Setting.moodle_version)
   .clear
@@ -25,21 +25,21 @@
   = label_for_setting :setting => :moodle_database_socket, :width => "w30"
   .clear 
   %hr/
-  %h2= _("%s Settings") % _("Sakai CLE")
-  = context_help(_("RubyCampus can import Sakai users as contacts and keep their details current. %{learn_more}"))
+  %h2= I18n.t("{{value}} Settings", :default => "{{value}} Settings", :value => I18n.t("Sakai CLE", :default => "Sakai CLE"))
+  = context_help(I18n.t("RubyCampus can import Sakai users as contacts and keep their details current.", :default => "RubyCampus can import Sakai users as contacts and keep their details current."))
   = label_for_setting :setting => :sakai_enabled, :input_type => :radiocheck, :width => "w20"
   = label_for_setting :setting => :sakai_table_prefix, :width => "w20"
   = label_for_setting :setting => :sakai_contact_table, :width => "w30"
   %label{:for => "setting_sakai_version", :class => "w15 inputselect"}
     %span.wrapper
       %span.title
-        = _("%s Version") % _("Sakai")
+        = I18n.t("{{value}} Version", :default => "{{value}} Version", :value => I18n.t("Sakai", :default => "Sakai"))
         %br/
       = select_tag 'settings[sakai_version]', options_for_select(['2.5.3'], Setting.sakai_version)
   %label{:for => "setting_sakai_database_adapter", :class => "w15 inputselect"}
     %span.wrapper
       %span.title
-        = _("Database")
+        = I18n.t("Database", :default => "Database")
         %br/
       = select_tag 'settings[sakai_database_adapter]', options_for_select(['MySQL 5.0'], Setting.sakai_database_adapter) 
   .clear

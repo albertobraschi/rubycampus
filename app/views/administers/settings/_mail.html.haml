@@ -1,5 +1,5 @@
 - form_tag({:action => 'edit', :tab => 'notifications'}, :class => "hakozaki", :autocomplete => :off ) do   
-  %loud= context_help(_("If you are sending emails to contacts using RubyCampus then you need provide settings for your SMTP server. If you're unsure of the correct values, check with your system administrator, ISP or hosting provider. %{learn_more}")) 
+  %loud= context_help(I18n.t("If you are sending emails to contacts using RubyCampus then you need provide settings for your SMTP server. If you're unsure of the correct values, check with your system administrator, ISP or hosting provider.", :default => "If you are sending emails to contacts using RubyCampus then you need provide settings for your SMTP server. If you're unsure of the correct values, check with your system administrator, ISP or hosting provider.")) 
   = label_for_setting :setting => :email_server_enabled, :input_type => :radiocheck, :width => "w25"
   = label_for_setting :setting => :email_server_smtp_address
   = label_for_setting :setting => :email_server_smtp_port

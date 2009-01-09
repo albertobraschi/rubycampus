@@ -1,13 +1,13 @@
 %label{:for => "announcement_message", :class => "w100 inputselect mandatory"}
   %span.wrapper
-    %span.title= _("Message")
+    %span.title= I18n.t("Message", :default => "Message")
     = form.text_area :message, {:class => "field"} 
 %label{:for => "announcement_starts_at", :class => "w25 inputselect mandatory"}
   %span.wrapper
-    %span.title= _("Starts At") 
+    %span.title= I18n.t("Starts At", :default => "Starts At") 
     = form.calendar_date_select :starts_at, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
 %label{:for => "announcement_ends_at", :class => "w25 inputselect mandatory"}
   %span.wrapper
-    %span.title= _("Ends At") 
+    %span.title= I18n.t("Ends At", :default => "Ends At") 
     = form.calendar_date_select :ends_at, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
 .clear                                                           

@@ -36,9 +36,6 @@
 #++
 
 class MessageTemplate < ActiveRecord::Base 
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # begin Validations
     validates_presence_of :name

@@ -95,7 +95,7 @@ class MessageTemplatesController < ApplicationController
 
     respond_to do |format|
       if @message_template.save
-        flash[:notice] = _("%s was successfully created.") % _("Message Template")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Message Template", :default => "Message Template"))
         if params[:create_and_new_button]
           format.html { redirect_to new_message_template_url }
         else
@@ -116,7 +116,7 @@ class MessageTemplatesController < ApplicationController
 
     respond_to do |format|
       if @message_template.update_attributes(params[:message_template])
-        flash[:notice] = _("%s was successfully updated.") % _("Message Template") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Message Template", :default => "Message Template"))
         format.html { redirect_to message_templates_url }
         # format.xml  { head :ok }
       else
@@ -146,9 +146,9 @@ class MessageTemplatesController < ApplicationController
   def enable #:nodoc:
     @message_template = MessageTemplate.find(params[:id])
     if @message_template.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Message Template") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Message Template", :default => "Message Template"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("message template") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("message template"))
     end
     redirect_to message_templates_url
   end
@@ -157,9 +157,9 @@ class MessageTemplatesController < ApplicationController
   def disable #:nodoc:
     @message_template = MessageTemplate.find(params[:id])
     if @message_template.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Message Template") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Message Template", :default => "Message Template"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("message template") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("message template"))
     end
     redirect_to message_templates_url
   end

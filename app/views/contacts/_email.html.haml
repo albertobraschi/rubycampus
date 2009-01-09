@@ -1,44 +1,44 @@
-%h2= _("Email Address")
+%h2= I18n.t("Email Address", :default => "Email Address")
 %label{:for => "email_location_type_id", :class => "w10 inputselect"}
   %span.wrapper
-    = label_with_lookup :controller => :location_type, :label => _("Location")
+    = label_with_lookup :controller => :location_type, :label => I18n.t("Location", :default => "Location")
     = form.select(:email_location_type_id, LocationType::NAMES_KEYS, :class => "field") 
 %label{:for => "email_address", :class => "w50 inputselect"}
   %span.wrapper
     %span.title
-      = _("Email Address")
-      %span{:class => "example"}= _("project@rubycampus.org")
+      = I18n.t("Email Address", :default => "Email Address")
+      %span{:class => "example"}= "project@rubycampus.org"
     = form.text_field :email_address, :class => "field"
 %label{:for => "email_is_primary", :class => "w15 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :email_is_primary, :class => "select"
-    %span.title= _("Is Primary") 
+    %span.title= I18n.t("Is Primary", :default => "Is Primary") 
 %label{:for => "email_is_billing", :class => "w15 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :email_is_billing, :class => "select"
-    %span.title= _("Is Billing")    
+    %span.title= I18n.t("Is Billing", :default => "Is Billing")    
 .clear
 
 %label{:for => "email_hold_date", :class => "w30 inputselect"}
   %span.wrapper
-    %span.title= _("Hold Date")
+    %span.title= I18n.t("Hold Date", :default => "Hold Date")
     = form.calendar_date_select :email_hold_date, :readonly => true, :class => "field" 
 %label{:for => "email_reset_date", :class => "w30 inputselect"}
   %span.wrapper
-    %span.title= _("Reset Date")
+    %span.title= I18n.t("Reset Date", :default => "Reset Date")
     = form.calendar_date_select :email_reset_date, :readonly => true, :class => "field"
 %label{:for => "email_is_on_hold", :class => "w15 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :email_is_on_hold, :class => "select"
-    %span.title= _("Is On Hold")
+    %span.title= I18n.t("Is On Hold", :default => "Is On Hold")
 %label{:for => "email_is_bulk_mail", :class => "w15 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :email_is_bulk_mail, :class => "select"
-    %span.title= _("Is Bulk Mail")   
+    %span.title= I18n.t("Is Bulk Mail", :default => "Is Bulk Mail")   
 .clear
 
 %hr/

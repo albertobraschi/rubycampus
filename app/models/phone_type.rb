@@ -36,15 +36,12 @@
 #++
 
 class PhoneType < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Phone')
-  N_('Mobile')
-  N_('Fax')
-  N_('Pager')
+  I18n.t('Phone', :default => 'Phone')
+  I18n.t('Mobile', :default => 'Mobile')
+  I18n.t('Fax', :default => 'Fax')
+  I18n.t('Pager', :default => 'Pager')
 
   has_many :contacts
   

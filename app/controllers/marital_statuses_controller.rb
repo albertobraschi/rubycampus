@@ -99,7 +99,7 @@ class MaritalStatusesController < ApplicationController
 
     respond_to do |format|
       if @marital_status.save
-        flash[:notice] = _("%s was successfully created.") % _("Marital Status")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Marital Status", :default => "Marital Status"))
         if params[:create_and_new_button]
           format.html { redirect_to new_marital_status_url }
         else
@@ -120,7 +120,7 @@ class MaritalStatusesController < ApplicationController
 
     respond_to do |format|
       if @marital_status.update_attributes(params[:marital_status])
-        flash[:notice] = _("%s was successfully updated.") % _("Marital Status") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Marital Status", :default => "Marital Status"))
         format.html { redirect_to marital_statuses_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class MaritalStatusesController < ApplicationController
   def enable #:nodoc:
     @marital_status = MaritalStatus.find(params[:id])
     if @marital_status.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Marital Status") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Marital Status", :default => "Marital Status"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("marital status") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("marital status"))
     end
     redirect_to marital_statuses_url
   end
@@ -161,9 +161,9 @@ class MaritalStatusesController < ApplicationController
   def disable #:nodoc:
     @marital_status = MaritalStatus.find(params[:id])
     if @marital_status.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Marital Status") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Marital Status", :default => "Marital Status"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("marital status") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("marital status"))
     end
     redirect_to marital_statuses_url
   end

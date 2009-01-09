@@ -99,7 +99,7 @@ class OrganizationsController < ApplicationController
     end
 
     if @presenter.save
-      flash[:notice] = _("%s was successfully created.") % _("Organization")
+      flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Organization", :default => "Organization"))
       if params[:create_and_new_button]
         redirect_to new_organization_url
       else
@@ -127,7 +127,7 @@ class OrganizationsController < ApplicationController
     end
 
     if @presenter.update_attributes(params[:presenter])
-      flash[:notice] = _("%s was successfully updated.") % _("Organization")
+      flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Organization", :default => "Organization"))
       redirect_to contacts_url(:contact_type => ContactType::ORGANIZATION.id)
     else
       render :action => "edit"
@@ -141,7 +141,7 @@ class OrganizationsController < ApplicationController
     @presenter.destroy
 
     respond_to do |format|
-      flash[:notice] = _("%s was successfully destroyed.") % _("Organization")
+      flash[:notice] = I18n.t("{{value}} was successfully destroyed.", :default => "{{value}} was successfully destroyed.", :value => I18n.t("Organization", :default => "Organization"))
       format.html { redirect_to contacts_url(:contact_type => ContactType::ORGANIZATION.id) }
       format.xml  { head :ok }
     end

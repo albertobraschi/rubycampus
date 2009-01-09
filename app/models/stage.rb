@@ -36,17 +36,14 @@
 #++
 
 class Stage < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Prospect')
-  N_('Inquiry')
-  N_('Applicant')
-  N_('Confirmed')
-  N_('Enrolled')
-  N_('Canceled')
+  I18n.t('Prospect', :default => 'Prospect')
+  I18n.t('Inquiry', :default => 'Inquiry')
+  I18n.t('Applicant', :default => 'Applicant')
+  I18n.t('Confirmed', :default => 'Confirmed')
+  I18n.t('Enrolled', :default => 'Enrolled')
+  I18n.t('Canceled', :default => 'Canceled')
 
   has_many :contacts
   

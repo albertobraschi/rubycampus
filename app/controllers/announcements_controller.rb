@@ -95,7 +95,7 @@ class AnnouncementsController < ApplicationController
 
     respond_to do |format|
       if @announcement.save
-        flash[:notice] = _("%s was successfully created.") % _("Announcement")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Announcement", :default => "Announcement"))
         format.html { redirect_to announcements_path }
         format.xml  { render :xml => @announcement, :status => :created, :location => @announcement }
       else
@@ -112,7 +112,7 @@ class AnnouncementsController < ApplicationController
 
     respond_to do |format|
       if @announcement.update_attributes(params[:announcement])
-        flash[:notice] = _("%s was successfully updated.") % _("Announcement")
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Announcement", :default => "Announcement"))
         format.html { redirect_to(announcement_path(@announcement)) }
         format.xml  { head :ok }
       else

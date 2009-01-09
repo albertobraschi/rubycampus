@@ -1,20 +1,20 @@
 - if @total == 0
-  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+  .no_data{:style=>"text-align:center;"}= I18n.t("No {{value}} Found", :default => "No {{value}} Found", :value => current_controller_gettext_human_name_pluralized)
 - else
   %table
     %tr
       %th{ :class => (sort_th_class_helper 'name') }
-        = sort_link_helper _("Name"), 'name'  
+        = sort_link_helper I18n.t("Name", :default => "Name"), 'name'  
       %th{ :class => (sort_th_class_helper "mailing_mixin_type_id") }
-        = sort_link_helper _("Type"), "mailing_mixin_type_id"  
+        = sort_link_helper I18n.t("Type", :default => "Type"), "mailing_mixin_type_id"  
       %th{ :class => (sort_th_class_helper "subject") }
-        = sort_link_helper _("Subject"), "subject"    
+        = sort_link_helper I18n.t("Subject", :default => "Subject"), "subject"    
       %th{ :class => (sort_th_class_helper "text") }
-        = sort_link_helper _("Text"), "text"  
+        = sort_link_helper I18n.t("Text", :default => "Text"), "text"  
       %th{ :class => (sort_th_class_helper 'is_default') }
-        = sort_link_helper _("Default"), "is_default"  
+        = sort_link_helper I18n.t("Default", :default => "Default"), "is_default"  
       %th{ :class => (sort_th_class_helper 'is_enabled') }
-        = sort_link_helper _("Enabled"), "is_enabled"  
+        = sort_link_helper I18n.t("Enabled", :default => "Enabled"), "is_enabled"  
       %th 
     - @mailing_mixins.each do |mailing_mixin|
       %tr{:class => cycle('even','odd'), :style => "#{'color: #f80a12;' unless mailing_mixin.is_enabled}"}
@@ -22,8 +22,8 @@
         %td=h mailing_mixin.mailing_mixin_type.name 
         %td=h mailing_mixin.subject 
         %td=h mailing_mixin.text 
-        %td=h mailing_mixin.is_default ? _('Yes') : _('No') 
-        %td=h mailing_mixin.is_enabled ? _('Yes') : _('No')      
+        %td=h mailing_mixin.is_default ? I18n.t("Yes", :default => "Yes") : I18n.t("No", :default => "No") 
+        %td=h mailing_mixin.is_enabled ? I18n.t("Yes", :default => "Yes") : I18n.t("No", :default => "No")      
         %td= render :partial => "common/actions/for_row_index_toggle_and_edit", :locals => { :local => mailing_mixin }
   - if @mailing_mixins_pages.page_count > 1
     %div.pagination

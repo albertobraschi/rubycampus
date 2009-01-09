@@ -36,13 +36,10 @@
 #++
 
 class Gender < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Male')
-  N_('Female')
+  I18n.t('Male', :default => 'Male')
+  I18n.t('Female', :default => 'Female')
 
   has_many :contacts
 

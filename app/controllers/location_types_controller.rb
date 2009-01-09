@@ -103,7 +103,7 @@ class LocationTypesController < ApplicationController
 
     respond_to do |format|
       if @location_type.save
-        flash[:notice] = _("%s was successfully created.") % _("Location Type")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Location Type", :default => "Location Type"))
         if params[:create_and_new_button]
           format.html { redirect_to new_location_type_url }
         else
@@ -124,7 +124,7 @@ class LocationTypesController < ApplicationController
 
     respond_to do |format|
       if @location_type.update_attributes(params[:location_type])
-        flash[:notice] = _("%s was successfully updated.") % _("Location Type") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Location Type", :default => "Location Type"))
         format.html { redirect_to location_types_url }
         # format.xml  { head :ok }
       else
@@ -154,9 +154,9 @@ class LocationTypesController < ApplicationController
   def enable #:nodoc:
     @location_type = LocationType.find(params[:id])
     if @location_type.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Location Type") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Location Type", :default => "Location Type"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("location type") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("location type"))
     end
     redirect_to location_types_url
   end
@@ -165,9 +165,9 @@ class LocationTypesController < ApplicationController
   def disable #:nodoc:
     @location_type = LocationType.find(params[:id])
     if @location_type.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Location Type") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Location Type", :default => "Location Type"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("location type") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("location type"))
     end
     redirect_to location_types_url
   end

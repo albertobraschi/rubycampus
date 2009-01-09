@@ -98,7 +98,7 @@ class AcademicLevelsController < ApplicationController
 
     respond_to do |format|
       if @academic_level.save
-        flash[:notice] = _("%s was successfully created.") % _("Academic Level")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => @current_controller.humanize)
         if params[:create_and_new_button]
           format.html { redirect_to new_academic_level_url }
         else
@@ -119,7 +119,7 @@ class AcademicLevelsController < ApplicationController
 
     respond_to do |format|
       if @academic_level.update_attributes(params[:academic_level])
-        flash[:notice] = _("%s was successfully updated.") % _("Academic Level")
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => @current_controller.humanize)
         format.html { redirect_to academic_levels_url }
         # format.xml  { head :ok }
       else
@@ -149,9 +149,9 @@ class AcademicLevelsController < ApplicationController
   def enable #:nodoc:
     @academic_level = AcademicLevel.find(params[:id])
     if @academic_level.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Academic Level") }
+    flash[:notice] = I18n.t("{{value}} enabled.", :default => "{{value}} enabled.", :value => @current_controller.humanize)
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("academic level") }
+    flash[:error] = I18n.t("There was a problem enabling this {{value}}.", :default => "There was a problem enabling this {{value}}.", :value => @current_controller.humanize.downcase)
     end
     redirect_to academic_levels_url
   end
@@ -160,9 +160,9 @@ class AcademicLevelsController < ApplicationController
   def disable #:nodoc:
     @academic_level = AcademicLevel.find(params[:id])
     if @academic_level.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Academic Level") }
+    flash[:notice] = I18n.t("{{value}} disabled.", :default => "{{value}} disabled.", :value => @current_controller.humanize)
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("academic level") }
+    flash[:error] = I18n.t("There was a problem disabling this {{value}}.", :default => "There was a problem disabling this {{value}}.", :value => @current_controller.humanize.downcase)
     end
     redirect_to academic_levels_url
   end

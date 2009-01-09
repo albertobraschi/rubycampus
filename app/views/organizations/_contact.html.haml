@@ -1,15 +1,15 @@
-%h2= _("Contact Information")
+%h2= I18n.t("Contact Information", :default => "Contact Information")
 %label{:for => "contact_organization_name", :class => "w35 inputselect mandatory"}
   %span.wrapper
-    %span.title= _("Organization Name")
+    %span.title= I18n.t("Organization Name", :default => "Organization Name")
     = form.text_field :contact_organization_name, :class => "field"  
 %label{:for => "contact_legal_name", :class => "w35 inputselect"}
   %span.wrapper
-    %span.title= _("Legal Name")
+    %span.title= I18n.t("Legal Name", :default => "Legal Name")
     = form.text_field :contact_legal_name, :class => "field"
 %label{:for => "contact_nick_name", :class => "w30 inputselect"}
   %span.wrapper
-    %span.title= _("Nick Name")
+    %span.title= I18n.t("Nick Name", :default => "Nick Name")
     = form.text_field :contact_nick_name, :class => "field"  
 .clear 
 
@@ -19,21 +19,21 @@
     = text_field_with_auto_complete :presenter, :contact_source_name, { :class => "field" }, { :url => formatted_lookup_sources_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_legal_identifier", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Legal Identifier")
+    %span.title= I18n.t("Legal Identifier", :default => "Legal Identifier")
     = form.text_field :contact_legal_identifier, :class => "field"
 %label{:for => "contact_sic_code", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("SIC Code")
+    %span.title= I18n.t("SIC Code", :default => "SIC Code")
     = form.text_field :contact_sic_code, :class => "field"
 %label{:for => "contact_external_identifier", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("External Identifier")
+    %span.title= I18n.t("External Identifier", :default => "External Identifier")
     = form.text_field :contact_external_identifier, :class => "field"    
 .clear
 
 %label{:for => "contact_homepage_url", :class => "w50 inputselect"}
   %span.wrapper
-    %span.title= _("Homepage URL")
+    %span.title= I18n.t("Homepage URL", :default => "Homepage URL")
     = form.text_field :contact_homepage_url, :class => "field"    
 .clear
 

@@ -1,6 +1,6 @@
 %li
   = role.name
   - if @user.has_role?(role.name)
-    = link_to _('remove role'), user_role_path(:id => role.id, :user_id => @user.id), :method => :delete
+    = link_to I18n.t("remove role", :default => "remove role"), user_role_path(:id => role.id, :user_id => @user.id), :method => :delete
   - else
-    = link_to _('assign role'), user_role_path(:id => role.id, :user_id => @user.id), :method => :put
+    = link_to I18n.t("assign role", :default => "assign role"), user_role_path(:id => role.id, :user_id => @user.id), :method => :put

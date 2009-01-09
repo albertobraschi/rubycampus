@@ -2,37 +2,37 @@
   %label{:for => "message_template_name", :class => "w100 inputselect mandatory"}
     %span.wrapper
       %span.title
-        = _("Name")
-      %span.example= _("Used in message template selection lists") 
+        = I18n.t("Name", :default => "Name")
+      %span.example= I18n.t("Used in message template selection lists", :default => "Used in message template selection lists") 
       = form.text_field :name, :class => "field"
   .clear
 
   %label{:for => "message_template_subject", :class => "w100 inputselect mandatory"}
     %span.wrapper
       %span.title
-        = _("Subject")
-      %span.example= _("Token aware subject for email message") 
+        = I18n.t("Subject", :default => "Subject")
+      %span.example= I18n.t("Token aware subject for email message", :default => "Token aware subject for email message") 
       = form.text_field :subject, :class => "field"
   .clear
   
   %label{:for => "message_template_text", :class => "w100 inputselect mandatory"}
     %span.wrapper
       %span.title
-        = _("Text") 
-      %span.example= _("Token aware, plain text or textile supported. Generates HTML and Text message when using textile")
+        = I18n.t("Text", :default => "Text") 
+      %span.example= I18n.t("Token aware, plain text or textile supported. Generates HTML and Text message when using textile", :default => "Token aware, plain text or textile supported. Generates HTML and Text message when using textile")
       = form.text_area :text, :class => "field"
   .clear
   
   %label{:for => "message_template_html", :class => "w100 inputselect"}
     %span.wrapper
       %span.title
-        = _("HTML") 
-      %span.example= _("Token aware, supports HTML formatted version of this message, don't complete this if you use textile")
+        = I18n.t("HTML", :default => "HTML") 
+      %span.example= I18n.t("Token aware, supports HTML formatted version of this message, don't complete this if you use textile", :default => "Token aware, supports HTML formatted version of this message, don't complete this if you use textile")
       = form.text_area :html, :class => "field"
   .clear  
 
 .span-5.last
   .box
-    %h3{:style => "text-align: center;"}= _("Merge Tokens")
+    %h3{:style => "text-align: center;"}= I18n.t("Merge Tokens", :default => "Merge Tokens")
     = list_mergable_tokens
 = render :partial => "common/jackets/for_revisable", :locals => {:model => @message_template}

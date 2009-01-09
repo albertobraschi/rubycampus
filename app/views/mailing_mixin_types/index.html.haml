@@ -1,14 +1,14 @@
-- title((_(current_controller_gettext_human_name_pluralized)))
+- title((I18n.t(current_controller_gettext_human_name_pluralized, :default => current_controller_gettext_human_name_pluralized)))
 .standard_box
   .hako
     =# render :partial => "common/actions/for_form_index"
     %h2= yield(:title)
-    %h3= context_help(_("Mailing mixin types help the RubyCampus mailer understand how to process mailing mixin messages. Under normal circumstances you would not need to add or remove types. You can use live search to locate mailing mixin types and can sort by clicking on column labels. %{learn_more}"))
+    %h3= context_help(I18n.t("Mailing mixin types help the RubyCampus mailer understand how to process mailing mixin messages. Under normal circumstances you would not need to add or remove types. You can use live search to locate mailing mixin types and can sort by clicking on column labels.", :default => "Mailing mixin types help the RubyCampus mailer understand how to process mailing mixin messages. Under normal circumstances you would not need to add or remove types. You can use live search to locate mailing mixin types and can sort by clicking on column labels."))
     %p
       %form{ :name => "rubycampus", :action => "", :class => "hakozaki", :autocomplete => :off }
         %label{ :for => "mailing_mixin_type_name", :class => "w35 inputselect"}
           %span.wrapper
-            %span.title= _("Filter on %s name:") % current_controller_gettext_human_name
+            %span.title= I18n.t("Filter on {{value}} name:", :default => "Filter on {{value}} name:", :value => current_controller_gettext_human_name)
             = text_field_tag("query", params['query'], :class => "field") 
         .clear  
     = observe_field 'query', :frequency => 2, :update => 'table', :before => "Element.show('spinner')", :success => "Element.hide('spinner')", :url => { :action => 'index' }, :with => 'query'   

@@ -1,4 +1,4 @@
 .buttons
-  = link_to _("Cancel"), contacts_path(:contact_type => current_controller_contact_type), :class => "negative"
+  = link_to I18n.t("Cancel", :default => "Cancel"), contacts_path(:contact_type => current_controller_contact_type), :class => "negative"
   %button{:type => "submit", :class => "positive"}
-    = _("Update")
+    = I18n.t("Update", :default => "Update")

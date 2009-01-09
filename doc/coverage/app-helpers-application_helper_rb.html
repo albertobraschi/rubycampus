@@ -769,7 +769,7 @@ span.run100 {
 </span><span class="uncovered0"><a name="line169"></a>169     language_select = []
 </span><span class="uncovered1"><a name="line170"></a>170     languages = YAML::load_file(&quot;#{RAILS_ROOT}/lib/rubycampus/system/languages.yml&quot;)
 </span><span class="uncovered0"><a name="line171"></a>171     available_locales.each do |v|
-</span><span class="uncovered1"><a name="line172"></a>172       n = languages[v] || _('Unknown Language')
+</span><span class="uncovered1"><a name="line172"></a>172       n = languages[v] || I18n.t('Unknown Language')
 </span><span class="uncovered0"><a name="line173"></a>173       language_select &lt;&lt; [ n , v ]
 </span><span class="uncovered1"><a name="line174"></a>174     end
 </span><span class="uncovered0"><a name="line175"></a>175     language_select

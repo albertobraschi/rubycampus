@@ -4,9 +4,9 @@
     - form_for :user, :url => user_path(@user), :html => { :method => :put, :class => "hakozaki", :autocomplete => :off } do |form|
       .buttons
         %button{:type => "submit", :class => "positive"}
-          = _("Save")
-        = link_to _('Change Password'), change_password_path
-        = link_to _('Show Profile'), user_path(@user)
-      %h2= _("Edit Your Account")
+          = I18n.t("Save", :default => "Save")
+        = link_to I18n.t("Change Password", :default => "Change Password"), change_password_path
+        = link_to I18n.t("Show Profile", :default => "Show Profile"), user_path(@user)
+      %h2= I18n.t("Edit Your Account", :default => "Edit Your Account")
       %hr/      
       = render :partial => "form", :locals => {:form => form}

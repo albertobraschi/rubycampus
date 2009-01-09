@@ -38,7 +38,7 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
-      t.string     :login, :limit => 40 
+      t.string     :login, :limit => 40
       t.string     :name, :limit => 100, :default => '', :null => true
       t.string     :cas_user, :limit => 100, :default => '', :null => true
       t.string     :email, :limit => 100
@@ -48,10 +48,10 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime   :remember_token_expires_at
       t.string     :activation_code, :limit => 40
       t.string     :password_reset_code, :limit => 40
-      t.boolean    :enabled, :default => true   
+      t.boolean    :enabled, :default => true
       t.string     :state, :null => :no, :default => 'passive'
       t.boolean    :is_admin, :default => false
-      t.boolean    :is_reserved, :default => false     
+      t.boolean    :is_reserved, :default => false
       t.string     :time_zone
       t.string     :language, :limit => 5,  :default => 'en', :null => false
       t.integer    :updated_by

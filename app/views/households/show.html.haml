@@ -1,4 +1,4 @@
-- title((_("Viewing %s") % current_controller_human_name))
+- title((I18n.t("Viewing {{value}}", :default => "Viewing {{value}}", :value => current_controller_human_name)))
 - @household = @presenter
 .household_box
   .hako

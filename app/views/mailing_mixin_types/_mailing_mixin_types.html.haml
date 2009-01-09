@@ -1,10 +1,10 @@
 - if @total == 0
-  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+  .no_data{:style=>"text-align:center;"}= I18n.t("No {{value}} Found", :default => "No {{value}} Found", :value => current_controller_gettext_human_name_pluralized)
 - else
   %table
     %tr
       %th{ :class => (sort_th_class_helper 'name') }
-        = sort_link_helper _("Name"), 'name'  
+        = sort_link_helper I18n.t("Name", :default => "Name"), 'name'  
       %th 
     - @mailing_mixin_types.each do |mailing_mixin_type|
       %tr{:class => cycle('even','odd')}

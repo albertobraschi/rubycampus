@@ -99,7 +99,7 @@ class SourcesController < ApplicationController
 
     respond_to do |format|
       if @source.save
-        flash[:notice] = _("%s was successfully created.") % _("Source")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Source", :default => "Source"))
         if params[:create_and_new_button]
           format.html { redirect_to new_source_url }
         else
@@ -120,7 +120,7 @@ class SourcesController < ApplicationController
 
     respond_to do |format|
       if @source.update_attributes(params[:source])
-        flash[:notice] = _("%s was successfully updated.") % _("Source") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Source", :default => "Source"))
         format.html { redirect_to sources_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class SourcesController < ApplicationController
   def enable #:nodoc:
     @source = Source.find(params[:id])
     if @source.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Source") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Source", :default => "Source"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("source") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("source", :default => "source"))
     end
     redirect_to sources_url
   end
@@ -161,9 +161,9 @@ class SourcesController < ApplicationController
   def disable #:nodoc:
     @source = Source.find(params[:id])
     if @source.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Source") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Source", :default => "Source"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("source") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("source", :default => "source"))
     end
     redirect_to sources_url
   end

@@ -1,29 +1,29 @@
-%h2= _("Instant Messengering Account")
+%h2= I18n.t("Instant Messengering Account", :default => "Instant Messengering Account")
 %label{:for => "messenger_location_type_id", :class => "w10 inputselect"}
   %span.wrapper
-    = label_with_lookup :controller => :location_type, :label => _("Location")
+    = label_with_lookup :controller => :location_type, :label => I18n.t("Location", :default => "Location")
     = form.select(:messenger_location_type_id, LocationType::NAMES_KEYS, :class => "field") 
 %label{:for => "messaging_provider_id", :class => "w15 inputselect"}
   %span.wrapper
     %span.title
-      = label_with_lookup :controller => :messaging_provider, :label => _("Provider"), :example => _("AIM") 
+      = label_with_lookup :controller => :messaging_provider, :label => I18n.t("Provider", :default => "Provider"), :example => I18n.t("AIM", :default => "AIM") 
     = text_field_with_auto_complete :presenter, :messenger_messaging_provider_name, { :class => "field" }, { :url => formatted_lookup_messaging_providers_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }      
 %label{:for => "messenger_name", :class => "w35 inputselect"}
   %span.wrapper
     %span.title
-      = _("Messenger Name")
+      = I18n.t("Messenger Name", :default => "Messenger Name")
       %span{:class => "example"}= "kevinA"
     = form.text_field :messenger_name, :class => "field"   
 %label{:for => "messenger_is_primary", :class => "w15 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :messenger_is_primary, :class => "select"
-    %span.title= _("Is Primary")
+    %span.title= I18n.t("Is Primary", :default => "Is Primary")
 %label{:for => "messenger_is_billing", :class => "w15 radiocheck"}
   %span.wrapper 
     %br/
     = form.check_box :messenger_is_billing, :class => "select"
-    %span.title= _("Is Billing")         
+    %span.title= I18n.t("Is Billing", :default => "Is Billing")         
 .clear
 
 %hr/

@@ -8,7 +8,7 @@ require File.dirname(__FILE__) + '/lib/tasks/cia'
 require File.dirname(__FILE__) + '/lib/support/gateway_support'
 
 
-PKG_VERSION = "1.3.2"
+PKG_VERSION = "1.4.1"
 PKG_NAME = "activemerchant"
 PKG_FILE_NAME = "#{PKG_NAME}-#{PKG_VERSION}"
 
@@ -80,8 +80,8 @@ spec = Gem::Specification.new do |s|
 
   s.files = PKG_FILES
 
+  s.rubyforge_project = "activemerchant"
   s.require_path = 'lib'
-  s.autorequire  = 'active_merchant'
   s.author = "Tobias Luetke"
   s.email = "tobi@leetsoft.com"
   s.homepage = "http://activemerchant.org/"
@@ -115,6 +115,7 @@ task :publish => [ :package ] do
   packages = %w( gem tgz zip ).collect{ |ext| "pkg/#{PKG_NAME}-#{PKG_VERSION}.#{ext}" }
   
   rubyforge = RubyForge.new
+  rubyforge.configure
   rubyforge.login
   rubyforge.add_release(PKG_NAME, PKG_NAME, "REL #{PKG_VERSION}", *packages)
 end

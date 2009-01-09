@@ -1,10 +1,10 @@
 %hr/
 - if Group.count(:conditions => ["is_enabled = ?", true]) > 0
-  %h2= _("Groups")
+  %h2= I18n.t("Groups", :default => "Groups")
   - for group in Group.find(:all, :conditions => ["is_enabled = ?", true])
     %label{:for => "contact_group", :class => "w15 radiocheck"}
       %span.wrapper
         %br/
         = check_box_tag "contact_groups[group_ids][]", group.id, @presenter.contact_groups.include?(group), :class => "select"
-        %span.title= _(group.name) 
+        %span.title= group.name 
     .clear     

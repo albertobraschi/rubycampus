@@ -1,5 +1,5 @@
 .buttons
-  = link_to _("Back"), self.send(controller.controller_name+"_path"), :class => ""
-  = link_to(_("Destroy"), self.send((controller.controller_name.singularize+ "_path")), :class => "negative", :confirm => (_("Really destroy %s?") % controller.controller_name.titleize), :method => :delete ) 
-  = link_to(_("Edit"), self.send(("edit_"+controller.controller_name.singularize+ "_path")), :class => "positive")
-  =# link_to _("PDF"), { :action => :extract, :id => params[:id], :format => :pdf }, :class => "positive"           
+  = link_to(I18n.t("Back", :default => "Back"), self.send(controller.controller_name+"_path"), :class => "")
+  = link_to(I18n.t("Destroy", :default => "Destroy"), self.send((controller.controller_name.singularize+ "_path")), :class => "negative", :confirm => (I18n.t("Really destroy {{value}}?", :default => "Really destroy {{value}}?", :value => controller.controller_name.titleize)), :method => :delete ) 
+  = link_to(I18n.t("Edit", :default => "Edit"), self.send(("edit_"+controller.controller_name.singularize+ "_path")), :class => "positive")
+  =# link_to I18n.t("PDF"), { :action => :extract, :id => params[:id], :format => :pdf }, :class => "positive"           

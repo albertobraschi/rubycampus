@@ -1,41 +1,41 @@
-- title(_("Add Contacts to %{group}") % { :group => @group.name.titleize })
+- title(I18n.t("Add Contacts to {{group}}", :default => "Add Contacts to {{group}}", :group => @group.name.titleize))
 .standard_box
   .hako
     %h2= yield(:title)
-    %h3.quiet= _("Use the search form to find contacts to add to the %{group} group. Mark the checkbox of contacts you want to add then click on the 'Add Contacts' button.") % { :group => @group.name.titleize }
+    %h3.quiet= I18n.t("Use the search form to find contacts to add to the {{group}} group. Mark the checkbox of contacts you want to add then click on the 'Add Contacts' button.", :default => "Use the search form to find contacts to add to the {{group}} group. Mark the checkbox of contacts you want to add then click on the 'Add Contacts' button.", :group => @group.name.titleize)
     - form_tag search_groups_path, :method => :get, :class => "hakozaki", :autocomplete => :off  do
       = hidden_field_tag(:id, params[:id] || @group)
       .buttons
         %button{:type => "submit", :class => "positive"}
-          = _("Search")
+          = I18n.t("Search", :default => "Search")
       %label{:for => "group_contact_type", :class => "w30 inputselect"}
         %span.wrapper
           %span.title
-          = _("Find")
-          %span.example= _("contact types")
+          = I18n.t("Find", :default => "Find")
+          %span.example= I18n.t("contact types", :default => "contact types")
           = select_tag("contact_type", options_for_select(ContactType.find(:all).collect {|p| [ p.name, p.id ] }), :class => "field")
       = # TODO Implement group selection
-      = # _("in")
+      = # I18n.t("in", :default => "in")
       = # select_tag("group", options_for_select(Group.find(:all).collect {|p| [ p.name, p.id ] }))
       %label{:for => "group_contact_name", :class => "w50 inputselect mandatory"}
         %span.wrapper
           %span.title
-            = _("and/or contact name")
-            %span.example= _("partial or full name")
+            = I18n.t("and/or contact name", :default => "and/or contact name")
+            %span.example= I18n.t("partial or full name", :default => "partial or full name")
           = text_field_tag(:search, nil, :class => "field")
       .clear
   - form_tag add_groups_path, :html => { :method => :put, :class => "hakozaki", :autocomplete => :off } do
     %table
       %tr
-        %th.small= _("Name")
-        = content_tag(:th, _("Entry Term"), :class => "small" ) unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id
-        = content_tag(:th, _("Program"), :class => "small" ) unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id
-        %th.small= _("Contact")
-        %th.small= _("Last Updated")
+        %th.small= I18n.t("Name", :default => "Name")
+        = content_tag(:th, I18n.t("Entry Term", :default => "Entry Term"), :class => "small" ) unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id
+        = content_tag(:th, I18n.t("Program", :default => "Program"), :class => "small" ) unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id
+        %th.small= I18n.t("Contact", :default => "Contact")
+        %th.small= I18n.t("Last Updated", :default => "Last Updated")
         %th
       = render :partial => 'contacts/contact', :collection => @contacts
     = hidden_field_tag(:id, params[:id] || @group)
     .buttons
       %button{:type => "submit", :class => "positive"}
-        = _("Add Contacts")
+        = I18n.t("Add Contacts", :default => "Add Contacts")
     %div.pagination= will_paginate @contacts

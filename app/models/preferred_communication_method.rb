@@ -36,16 +36,13 @@
 #++
 
 class PreferredCommunicationMethod < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Email')
-  N_('Phone')
-  N_('Postal Mail')
-  N_('SMS')
-  N_('Fax')
+  I18n.t('Email', :default => 'Email')
+  I18n.t('Phone', :default => 'Phone')
+  I18n.t('Postal Mail', :default => 'Postal Mail')
+  I18n.t('SMS', :default => 'SMS')
+  I18n.t('Fax', :default => 'Fax')
 
   has_many :contacts
 

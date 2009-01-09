@@ -41,8 +41,6 @@
 module ActiveRecord
   module Validations
     module ClassMethods
-      include GetText::Rails
-      bindtextdomain("rubycampus")
 
       oct200 = "\303\200"
       oct226 = "\303\226"
@@ -53,80 +51,80 @@ module ActiveRecord
 
       utf_accents = "#{oct200}-#{oct226}#{oct231}-#{oct266}#{oct271}-#{oct277}"
 
-      @@is_rubycampus_not_from_options_msg = _("has a value other than the valid options below")
+      @@is_rubycampus_not_from_options_msg = I18n.t("has a value other than the valid options below", :default => "has a value other than the valid options below")
 
-      @@is_rubycampus_required_msg = _("cannot be empty")
+      @@is_rubycampus_required_msg = I18n.t("cannot be empty", :default => "cannot be empty")
       @@is_rubycampus_required = /.+/
 
-      @@is_rubycampus_human_name_msg = _("accepts only letters, hyphens, spaces, apostrophes, and periods")
+      @@is_rubycampus_human_name_msg = I18n.t("accepts only letters, hyphens, spaces, apostrophes, and periods", :default => "accepts only letters, hyphens, spaces, apostrophes, and periods")
       @@is_rubycampus_human_name = /^[a-zA-Z#{utf_accents}\.\'\-\ ]*?$/u
 
-      @@is_rubycampus_organization_name_msg = _("accepts only letters, 0-9, hyphens, spaces, apostrophes, commas, and periods")
+      @@is_rubycampus_organization_name_msg = I18n.t("accepts only letters, 0-9, hyphens, spaces, apostrophes, commas, and periods", :default => "accepts only letters, 0-9, hyphens, spaces, apostrophes, commas, and periods")
       @@is_rubycampus_organization_name = /^[a-zA-Z0-9#{utf_accents}\.\'\-\,\ ]*?$/u
 
-      @@is_rubycampus_street_address_msg = _("accepts only letters, 0-9, hyphens, spaces, apostrophes, commas, periods, and number signs")
+      @@is_rubycampus_street_address_msg = I18n.t("accepts only letters, 0-9, hyphens, spaces, apostrophes, commas, periods, and number signs", :default => "accepts only letters, 0-9, hyphens, spaces, apostrophes, commas, periods, and number signs")
       @@is_rubycampus_street_address = /^[a-zA-Z0-9#{utf_accents}\.\'\-\,\#\ ]*?$/u
 
-      @@is_rubycampus_alpha_msg = _("accepts only letters")
+      @@is_rubycampus_alpha_msg = I18n.t("accepts only letters", :default => "accepts only letters")
       @@is_rubycampus_alpha = /^[a-zA-Z#{utf_accents}]*?$/u
 
-      @@is_rubycampus_alpha_space_msg = _("accepts only letters and spaces")
+      @@is_rubycampus_alpha_space_msg = I18n.t("accepts only letters and spaces", :default => "accepts only letters and spaces")
       @@is_rubycampus_alpha_space = /^[a-zA-Z#{utf_accents}\ ]*?$/u
 
-      @@is_rubycampus_alpha_hyphen_msg = _("accepts only letters and hyphens")
+      @@is_rubycampus_alpha_hyphen_msg = I18n.t("accepts only letters and hyphens", :default => "accepts only letters and hyphens")
       @@is_rubycampus_alpha_hyphen = /^[a-zA-Z#{utf_accents}\-]*?$/u
 
-      @@is_rubycampus_alpha_underscore_msg = _("accepts only letters and underscores")
+      @@is_rubycampus_alpha_underscore_msg = I18n.t("accepts only letters and underscores", :default => "accepts only letters and underscores")
       @@is_rubycampus_alpha_underscore = /^[a-zA-Z#{utf_accents}\_]*?$/u
 
-      @@is_rubycampus_alpha_symbol_msg = _('accepts only letters and !@#$%^&*')
+      @@is_rubycampus_alpha_symbol_msg = I18n.t('accepts only letters and !@#$%^&*', :default => 'accepts only letters and !@#$%^&*')
       @@is_rubycampus_alpha_symbol = /^[a-zA-Z#{utf_accents}\!\@\#\$\%\^\&\*]*?$/u
 
-      @@is_rubycampus_alpha_separator_msg = _("accepts only letters, underscores, hyphens, and spaces")
+      @@is_rubycampus_alpha_separator_msg = I18n.t("accepts only letters, underscores, hyphens, and spaces", :default => "accepts only letters, underscores, hyphens, and spaces")
       @@is_rubycampus_alpha_separator = /^[a-zA-Z#{utf_accents}\_\-\ ]*?$/u
 
-      @@is_rubycampus_alpha_numeric_msg = _("accepts only letters and 0-9")
+      @@is_rubycampus_alpha_numeric_msg = I18n.t("accepts only letters and 0-9", :default => "accepts only letters and 0-9")
       @@is_rubycampus_alpha_numeric = /^[a-zA-Z0-9#{utf_accents}]*?$/u
 
-      @@is_rubycampus_alpha_numeric_space_msg = _("accepts only letters, 0-9, and spaces")
+      @@is_rubycampus_alpha_numeric_space_msg = I18n.t("accepts only letters, 0-9, and spaces", :default => "accepts only letters, 0-9, and spaces")
       @@is_rubycampus_alpha_numeric_space = /^[a-zA-Z0-9#{utf_accents}\ ]$/
 
-      @@is_rubycampus_alpha_numeric_underscore_msg = _("accepts only letters, 0-9, and underscores")
+      @@is_rubycampus_alpha_numeric_underscore_msg = I18n.t("accepts only letters, 0-9, and underscores", :default => "accepts only letters, 0-9, and underscores")
       @@is_rubycampus_alpha_numeric_underscore = /^[a-zA-Z0-9#{utf_accents}\_]*?$/u
 
-      @@is_rubycampus_alpha_numeric_hyphen_msg = _("accepts only letters, 0-9, and hyphens")
+      @@is_rubycampus_alpha_numeric_hyphen_msg = I18n.t("accepts only letters, 0-9, and hyphens", :default => "accepts only letters, 0-9, and hyphens")
       @@is_rubycampus_alpha_numeric_hyphen = /^[a-zA-Z0-9#{utf_accents}\-]*?$/u
 
-      @@is_rubycampus_alpha_numeric_symbol_msg = _('accepts only letters, 0-9, and !@#$%^&*')
+      @@is_rubycampus_alpha_numeric_symbol_msg = I18n.t('accepts only letters, 0-9, and !@#$%^&*', :default => 'accepts only letters, 0-9, and !@#$%^&*')
       @@is_rubycampus_alpha_numeric_symbol = /^[a-zA-Z0-9#{utf_accents}\!\@\#\$\%\^\&\*]*?$/u
 
-      @@is_rubycampus_alpha_numeric_separator_msg = _("accepts only letters, 0-9, underscore, hyphen, and space")
+      @@is_rubycampus_alpha_numeric_separator_msg = I18n.t("accepts only letters, 0-9, underscore, hyphen, and space", :default => "accepts only letters, 0-9, underscore, hyphen, and space")
       @@is_rubycampus_alpha_numeric_separator = /^[a-zA-Z0-9#{utf_accents}\_\-\ ]*?$/u
 
-      @@is_rubycampus_numeric_msg = _("accepts only numeric characters (0-9)")
+      @@is_rubycampus_numeric_msg = I18n.t("accepts only numeric characters (0-9)", :default => "accepts only numeric characters (0-9)")
       @@is_rubycampus_numeric = /^[0-9]*?$/
 
-      @@is_rubycampus_decimal_msg = _("accepts only numeric characters, period, and negative sign (no commas, requires at least .0)")
+      @@is_rubycampus_decimal_msg = I18n.t("accepts only numeric characters, period, and negative sign (no commas, requires at least .0)", :default => "accepts only numeric characters, period, and negative sign (no commas, requires at least .0)")
       @@is_rubycampus_decimal = /^-{0,1}\d*\.{0,1}\d+$/
 
-      @@is_rubycampus_positive_decimal_msg = _("accepts only numeric characters and period (no commas, requires at least .0)")
+      @@is_rubycampus_positive_decimal_msg = I18n.t("accepts only numeric characters and period (no commas, requires at least .0)", :default => "accepts only numeric characters and period (no commas, requires at least .0)")
       @@is_rubycampus_positive_decimal = /^\d*\.{0,1}\d+$/
 
-      @@is_rubycampus_integer_msg = _("accepts only numeric characters, and negative sign (no commas)")
+      @@is_rubycampus_integer_msg = I18n.t("accepts only numeric characters, and negative sign (no commas)", :default => "accepts only numeric characters, and negative sign (no commas)")
       @@is_rubycampus_integer = /^-{0,1}\d+$/
 
-      @@is_rubycampus_positive_integer_msg = _("accepts positive integer only (no commas)")
+      @@is_rubycampus_positive_integer_msg = I18n.t("accepts positive integer only (no commas)", :default => "accepts positive integer only (no commas)")
       @@is_rubycampus_positive_intger = /^\d+$/
 
-      @@is_rubycampus_email_address_msg = _("must contain an @ symbol, at least one period after the @, and one A-Z letter in each segment")
+      @@is_rubycampus_email_address_msg = I18n.t("must contain an @ symbol, at least one period after the @, and one A-Z letter in each segment", :default => "must contain an @ symbol, at least one period after the @, and one A-Z letter in each segment")
       @@is_rubycampus_email_address = /^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}$/i
 
       def do_as_format_of(attr_names, configuration)
         configuration.update(attr_names.pop) if attr_names.last.is_a?(Hash)
         if configuration.has_key?(:label)
-          msg_string = _("The field <span class=\"inputErrorFieldName\">#{configuration[:label]}</span> #{configuration[:message]}.")
+          msg_string = I18n.t("The field <span class=\"inputErrorFieldName\">{{configuration_label}}</span> {{configuration_message}}.", :default => "The field <span class=\"inputErrorFieldName\">{{configuration_label}}</span> {{configuration_message}}.", :configuration_label => configuration[:label], :configuration_message => configuration[:message])
         else
-          msg_string = _("This field #{configuration[:message]}")
+          msg_string = I18n.t("This field {{configuration_message}}", :default => "This field {{configuration_message}}", :configuration_message => configuration[:message])
         end
         configuration.store(:message, msg_string)
         configuration.delete(:label)
@@ -136,9 +134,9 @@ module ActiveRecord
       def do_as_inclusion_of(attr_names, configuration)
         configuration.update(attr_names.pop) if attr_names.last.is_a?(Hash)
         if configuration.has_key?(:label)
-          msg_string = _("The field <span class=\"inputErrorFieldName\">#{configuration[:label]}</span> #{configuration[:message]}.")
+          msg_string = I18n.t("The field <span class=\"inputErrorFieldName\">{{configuration_label}}</span> {{configuration_message}}.", :default => "The field <span class=\"inputErrorFieldName\">{{configuration_label}}</span> {{configuration_message}}.", :configuration_label => configuration[:label], :configuration_message => configuration[:message])
         else
-          msg_string = _("This field #{configuration[:message]}")
+          msg_string = I18n.t("This field {{configuration_message}}", :default => "This field {{configuration_message}}", :configuration_message => configuration[:message])
         end
         configuration.store(:message, msg_string)
         configuration.delete(:label)

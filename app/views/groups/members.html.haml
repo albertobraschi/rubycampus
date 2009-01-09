@@ -1,20 +1,20 @@
-- title(_("%{group} Members") % { :group => @group.name.titleize }) 
+- title(I18n.t("{{group}} Members", :default => "{{group}} Members", :group => @group.name.titleize )) 
 .standard_box
   .hako
     %h2= yield(:title)
-    %h3.quiet= _("The following contacts are members of the of the %{group} group. There are currently %{total_or_no} contacts assigned to %{group}. You may add new members or remove existing ones.") % { :group => @group.name.downcase, :total_or_no => (@contacts_total > 1 ? @contacts_total : _("no")) }
-    %span.icons.add= link_to(_("Add Members to %{group}") % { :group => @group.name.titleize }, search_groups_path(:id => params[:id], :contact_type => ContactType::INDIVIDUAL.id))
+    %h3.quiet= I18n.t("The following contacts are members of the of the {{group}} group. There are currently {{total_or_no}} contacts assigned to {{group}}. You may add new members or remove existing ones.", :default => "The following contacts are members of the of the {{group}} group. There are currently {{total_or_no}} contacts assigned to {{group}}. You may add new members or remove existing ones.", :group => @group.name.downcase, :total_or_no => (@contacts_total > 1 ? @contacts_total : I18n.t("no", :default => "no")))
+    %span.icons.add= link_to(I18n.t("Add Members to {{group}}", :default => "Add Members to {{group}}", :group => @group.name.titleize), search_groups_path(:id => params[:id], :contact_type => ContactType::INDIVIDUAL.id))
     %hr/
   - if @contacts_total == 0
-    .no_data{:style=>"text-align:center;"}= _("No %{collection} Found") % { :collection => _("Members") }
+    .no_data{:style=>"text-align:center;"}= I18n.t("No {{collection}} Found", :default => "No {{collection}} Found", :collection => I18n.t("Members", :default => "Members"))
   - else
     %table
       %tr
-        %th.small= _("Name")
-        = content_tag(:th, _("Entry Term"), :class => "small" ) unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id  
-        = content_tag(:th, _("Program"), :class => "small" ) unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id
-        %th.small= _("Contact")
-        %th.small= _("Last Updated") 
+        %th.small= I18n.t("Name", :default => "Name")
+        = content_tag(:th, I18n.t("Entry Term", :default => "Entry Term"), :class => "small" ) unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id  
+        = content_tag(:th, I18n.t("Program", :default => "Program"), :class => "small" ) unless params[:contact_type].to_i != ContactType::INDIVIDUAL.id
+        %th.small= I18n.t("Contact", :default => "Contact")
+        %th.small= I18n.t("Last Updated", :default => "Last Updated") 
         %th    
       = render :partial => 'contacts/contact', :collection => @contacts
     %div.pagination= will_paginate @contacts  

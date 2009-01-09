@@ -1,4 +1,4 @@
-- title((_("Editing %s") % current_controller_gettext_human_name))
+- title((I18n.t("Editing {{value}}", :default => "Editing {{value}}", :value => current_controller_gettext_human_name)))
 = error_messages_for :gender  
 .standard_box
   .hako

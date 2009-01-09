@@ -1,16 +1,16 @@
 - if @total == 0
-  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+  .no_data{:style=>"text-align:center;"}= I18n.t("No {{value}} Found", :default => "No {{value}} Found", :value => current_controller_gettext_human_name_pluralized)
 - else
   %table
     %tr
       %th{ :class => (sort_th_class_helper "activity_type_id") }
-        = sort_link_helper _("Activity Type"), "activity_type_id"
+        = sort_link_helper I18n.t("Activity Type", :default => "Activity Type"), "activity_type_id"
       %th{ :class => (sort_th_class_helper "subject") }
-        = sort_link_helper _("Subject"), "subject"
+        = sort_link_helper I18n.t("Subject", :default => "Subject"), "subject"
       %th{ :class => (sort_th_class_helper "contact_id") }
-        = sort_link_helper _("Contact"), "contact_id"
+        = sort_link_helper I18n.t("Contact", :default => "Contact"), "contact_id"
       %th{ :class => (sort_th_class_helper "updated_at") }
-        = sort_link_helper _("Last Updated"), "updated_at"
+        = sort_link_helper I18n.t("Last Updated", :default => "Last Updated"), "updated_at"
       %th
     - @activities.each do |activity|
       %tr{:class => cycle('even','odd')}
@@ -18,7 +18,7 @@
         %td=h activity.subject
         %td=h "#{activity.contact.last_name}, #{activity.contact.first_name}"
         %td{:style => "vertical-align:top;"}
-          = h (_("%s ago") % distance_of_time_in_words(Time.now, (activity.updated_at))) rescue nil
+          = h (I18n.t("{{value}} ago", :default => "{{value}} ago", :value => distance_of_time_in_words(Time.now, (activity.updated_at)))) rescue nil
         %td= render :partial => "common/actions/for_row_index", :locals => { :local => activity }
   - if @activities_pages.page_count > 1
     %div.pagination

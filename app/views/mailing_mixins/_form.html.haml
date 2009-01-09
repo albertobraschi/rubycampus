@@ -1,12 +1,12 @@
 .span-14
   %label{:for => "mailing_mixin_name", :class => "w75 inputselect mandatory"}
     %span.title
-      = _("Name")
-    %span.example= _("Used in selection lists")
+      = I18n.t("Name", :default => "Name")
+    %span.example= I18n.t("Used in selection lists", :default => "Used in selection lists")
     = form.text_field :name, :class => "field"
   %label{:for => "mailing_mixin_mailing_mixin_type_id", :class => "w25 inputselect mandatory"}
     %span.wrapper
-      = label_with_lookup :controller => :mailing_mixin_type, :label => _("Mailing Mixin Type"), :example => '<br/>' + _("Used by mailer")
+      = label_with_lookup :controller => :mailing_mixin_type, :label => I18n.t("Mailing Mixin Type", :default => "Mailing Mixin Type"), :example => '<br/>' + I18n.t("Used by mailer", :default => "Used by mailer")
       =# text_field_with_auto_complete :mailing_mixin, :mailing_mixin_type_name, { :class => "field" }, { :url => formatted_lookup_mailing_mixin_types_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
       = @mailing_mixin.mailing_mixin_type.name 
   .clear
@@ -14,24 +14,24 @@
   %label{:for => "mailing_mixin_subject", :class => "w100 inputselect mandatory"}
     %span.wrapper
       %span.title
-        = _("Subject")
-      %span.example= _("Token aware subject for email message")
+        = I18n.t("Subject", :default => "Subject")
+      %span.example= I18n.t("Token aware subject for email message", :default => "Token aware subject for email message")
       = form.text_field :subject, :class => "field"
   .clear
 
   %label{:for => "mailing_mixin_text", :class => "w100 inputselect mandatory"}
     %span.wrapper
       %span.title
-        = _("Text")
-      %span.example= _("Token aware, plain text or textile supported. Generates HTML and Text message when using textile")
+        = I18n.t("Text", :default => "Text")
+      %span.example= I18n.t("Token aware, plain text or textile supported. Generates HTML and Text message when using textile", :default => "Token aware, plain text or textile supported. Generates HTML and Text message when using textile")
       = form.text_area :text, :class => "field"
   .clear
   
   %label{:for => "mailing_mixin_html", :class => "w100 inputselect mandatory"}
     %span.wrapper
       %span.title
-        = _("HTML")
-      %span.example= _("Token aware, supports HTML formatted version of this message, don't complete this if you use textile")
+        = I18n.t("HTML", :default => "HTML")
+      %span.example= I18n.t("Token aware, supports HTML formatted version of this message, don't complete this if you use textile", :default => "Token aware, supports HTML formatted version of this message, don't complete this if you use textile")
       = form.text_area :html, :class => "field"
   .clear
   -# We are not letting users manage this yet
@@ -39,16 +39,16 @@
   -#   %span.wrapper
   -#     %br/
   -#     = form.check_box :is_default, :class => "select"
-  -#     %span.title= _("Is Default")
+  -#     %span.title= I18n.t("Is Default", :default => "Is Default")
   -# %label{:for => "mailing_mixin_is_enabled", :class => "w25 radiocheck"}
   -#   %span.wrapper
   -#     %br/
   -#     = form.check_box :is_enabled, :class => "select"
-  -#     %span.title= _("Is Enabled")
+  -#     %span.title= I18n.t("Is Enabled", :default => "Is Enabled")
   -# .clear
 
 .span-5.last
   .box
-    %h3{:style => "text-align: center;"}= _("Merge Tokens")
+    %h3{:style => "text-align: center;"}= I18n.t("Merge Tokens", :default => "Merge Tokens")
     = list_mergable_tokens
 = render :partial => "common/jackets/for_revisable", :locals => {:model => @mailing_mixin}

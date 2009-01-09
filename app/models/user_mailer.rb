@@ -86,7 +86,7 @@ class UserMailer < ActionMailer::Base
   def setup_email(user)
     @recipients = "#{user.email}"
     @from = "#{Setting.site_from_email_address}"
-    @subject = _("%s email setup") % Setting.site_domain
+    @subject = I18n.t("{{value}} email setup", :default => "{{value}} email setup", :value => Setting.site_domain)
     @sent_on = Time.now
     @body[:user] = user
   end

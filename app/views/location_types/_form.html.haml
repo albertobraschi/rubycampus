@@ -1,28 +1,28 @@
 %label{:for => "location_type_name", :class => "w35 inputselect mandatory"}
   %span.wrapper
     %span.title
-      = _("Name") 
+      = I18n.t("Name", :default => "Name") 
     = form.text_field :name, :class => "field"
 %label{:for => "location_type_vcard_name", :class => "w35 inputselect"}
   %span.wrapper
     %span.title
-      = _("Vcard name") 
+      = I18n.t("Vcard Name", :default => "Vcard Name") 
     = form.text_field :vcard_name, :class => "field"
 %label{:for => "location_type_is_default", :class => "w15 inputselect"}
   %span.wrapper
     %span.title
-      = _("Is default") 
+      = I18n.t("Is default", :default => "Is default") 
     = form.check_box :is_default, :class => "field"
 %label{:for => "location_type_is_enabled", :class => "w15 inputselect"}
   %span.wrapper
     %span.title
-      = _("Is enabled") 
+      = I18n.t("Is enabled", :default => "Is enabled") 
     = form.check_box :is_enabled, :class => "field" 
 .clear
 
 %label{:for => "location_type_description", :class => "w50 inputselect"}
   %span.wrapper
     %span.title
-      = _("Description") 
+      = I18n.t("Description", :default => "Description") 
     = form.text_area :description, :class => "field"    
 .clear

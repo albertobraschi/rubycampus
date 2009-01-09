@@ -38,7 +38,7 @@
 module ActivitiesHelper
       
   def form_title
-    h _("%{activity_type} with %{contact_name}") % { :contact_name => @activity.contact_name, :activity_type => @activity.activity_type.name }  
+    h I18n.t("{{activity_type}} with {{contact_name}}", :default => "{{activity_type}} with {{contact_name}}", :contact_name => @activity.contact_name, :activity_type => @activity.activity_type.name)  
   end
 
 end

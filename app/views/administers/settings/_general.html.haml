@@ -1,29 +1,29 @@
 %fieldset
-  %legend= _("Site Administration")
-  .span-3= link_to _('Announcements'), announcements_path
-  .span-3.last= link_to _('Users'), users_path
+  %legend= I18n.t("Site Administration", :default => "Site Administration")
+  .span-3= link_to I18n.t("Announcements", :default => "Announcements"), announcements_path
+  .span-3.last= link_to I18n.t("Users", :default => "Users"), users_path
 %fieldset
-  %legend= _("Code Lists & Lookups")   
-  .span-3= link_to _("Academic Levels"), academic_levels_path 
-  .span-3= link_to _("Activity Types"), activity_types_path
-  .span-3= link_to _("Education Levels"), education_levels_path    
-  .span-3= link_to _("Entry Terms"), entry_terms_path 
-  .span-3= link_to _("Ethnicities"), ethnicities_path
-  .span-3.last= link_to _("Genders"), genders_path
-  .span-3= link_to _("Greetings"), greetings_path
-  .span-3= link_to _("Location Types"), location_types_path
-  .span-3= link_to _("Marital Statuses"), marital_statuses_path
-  .span-3= link_to _("Message Providers"), messaging_providers_path
-  .span-3= link_to _("Mobile Providers"), mobile_providers_path
-  .span-3.last= link_to _("Name Prefixes"), name_prefixes_path 
-  .span-3= link_to _("Name Suffixes"), name_suffixes_path 
-  .span-3= link_to _("Phone Types"), phone_types_path 
-  .span-3= link_to _("Programs"), programs_path
-  .span-3= link_to _("Sources"), sources_path 
-  .span-3= link_to _("Stages"), stages_path 
-  .span-3.last= link_to _("Statuses"), statuses_path    
+  %legend= I18n.t("Code Lists & Lookups", :default => "Code Lists & Lookups")   
+  .span-3= link_to I18n.t("Academic Levels", :default => "Academic Levels"), academic_levels_path 
+  .span-3= link_to I18n.t("Activity Types", :default => "Activity Types"), activity_types_path
+  .span-3= link_to I18n.t("Education Levels", :default => "Education Levels"), education_levels_path    
+  .span-3= link_to I18n.t("Entry Terms", :default => "Entry Terms"), entry_terms_path 
+  .span-3= link_to I18n.t("Ethnicities", :default => "Ethnicities"), ethnicities_path
+  .span-3.last= link_to I18n.t("Genders", :default => "Genders"), genders_path
+  .span-3= link_to I18n.t("Greetings", :default => "Greetings"), greetings_path
+  .span-3= link_to I18n.t("Location Types", :default => "Location Types"), location_types_path
+  .span-3= link_to I18n.t("Marital Statuses", :default => "Marital Statuses"), marital_statuses_path
+  .span-3= link_to I18n.t("Message Providers", :default => "Message Providers"), messaging_providers_path
+  .span-3= link_to I18n.t("Mobile Providers", :default => "Mobile Providers"), mobile_providers_path
+  .span-3.last= link_to I18n.t("Name Prefixes", :default => "Name Prefixes"), name_prefixes_path 
+  .span-3= link_to I18n.t("Name Suffixes", :default => "Name Suffixes"), name_suffixes_path 
+  .span-3= link_to I18n.t("Phone Types", :default => "Phone Types"), phone_types_path 
+  .span-3= link_to I18n.t("Programs", :default => "Programs"), programs_path
+  .span-3= link_to I18n.t("Sources", :default => "Sources"), sources_path 
+  .span-3= link_to I18n.t("Stages", :default => "Stages"), stages_path 
+  .span-3.last= link_to I18n.t("Statuses", :default => "Statuses"), statuses_path    
 %fieldset
-  %legend= _("Communication")
-  .span-3= link_to _("Message Templates"), message_templates_path
-  .span-3.last= link_to _('Mailing Mixins'), mailing_mixins_path
+  %legend= I18n.t("Communication", :default => "Communication")
+  .span-3= link_to I18n.t("Message Templates", :default => "Message Templates"), message_templates_path
+  .span-3.last= link_to I18n.t("Mailing Mixins", :default => "Mailing Mixins"), mailing_mixins_path
 %hr/

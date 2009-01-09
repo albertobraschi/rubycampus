@@ -1,60 +1,60 @@
-%h2= _("Name and Greeting")
+%h2= I18n.t("Name and Greeting", :default => "Name and Greeting")
 -# TODO allow auto_complete of assignable users  
 -#  %label{:for => "contact_assigned_to_user_id", :class => "w25 inputselect"}
 -#    %span.wrapper
--#      %span.title= _("Assigned to") 
+-#      %span.title= I18n.t("Assigned to") 
 -#      = text_field_with_auto_complete :presenter, :contact_assigned_to_user_name, { :class => "field" }, { :url => formatted_lookup_assigned_to_users_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_name_prefix_id", :class => "w10 inputselect"}
   %span.wrapper
-    = label_with_lookup :controller => :name_prefix, :label => _("Prefix")
+    = label_with_lookup :controller => :name_prefix, :label => I18n.t("Prefix", :default => "Prefix")
     = text_field_with_auto_complete :presenter, :contact_name_prefix_name, { :class => "field" }, { :url => formatted_lookup_name_prefixes_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_last_name", :class => "w30 inputselect mandatory"}
   %span.wrapper 
     %span.title
-      = _("Last Name")
+      = I18n.t("Last Name", :default => "Last Name")
     = form.text_field :contact_last_name, :class => "field"
 %label{:for => "contact_first_name", :class => "w30 inputselect mandatory"}
   %span.wrapper 
     %span.title
-      = _("First Name")
+      = I18n.t("First Name", :default => "First Name")
     = form.text_field :contact_first_name, :class => "field"
 %label{:for => "contact_middle_name", :class => "w20 inputselect"}
   %span.wrapper 
     %span.title
-      = _("Middle Name")
+      = I18n.t("Middle Name", :default => "Middle Name")
     = form.text_field :contact_middle_name, :class => "field"    
 %label{:for => "contact_name_suffix_id", :class => "w10 inputselect"}
   %span.wrapper 
-    = label_with_lookup :controller => :name_suffix, :label => _("Suffix"), :example => _("Jr") 
+    = label_with_lookup :controller => :name_suffix, :label => I18n.t("Suffix", :default => "Suffix"), :example => I18n.t("Jr", :default => "Jr") 
     = text_field_with_auto_complete :presenter, :contact_name_suffix_name, { :class => "field" }, { :url => formatted_lookup_name_suffixes_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }                 
 .clear
 
 %label{:for => "contact_source_id", :class => "w25 inputselect"}
   %span.wrapper 
-    = label_with_lookup :controller => :source, :example => _("Primary")
+    = label_with_lookup :controller => :source, :example => I18n.t("Primary", :default => "Primary")
     = text_field_with_auto_complete :presenter, :contact_source_name, { :class => "field" }, { :url => formatted_lookup_sources_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_nick_name", :class => "w25 inputselect"}
   %span.wrapper 
     %span.title
-      = _("Nick Name")
+      = I18n.t("Nick Name", :default => "Nick Name")
     = form.text_field :contact_nick_name, :class => "field"
 %label{:for => "contact_job_title", :class => "w25 inputselect"}
   %span.wrapper 
     %span.title
-      = _("Job Title")
+      = I18n.t("Job Title", :default => "Job Title")
     = form.text_field :contact_job_title, :class => "field"
     = # TODO add current_employer lookup via AJAX employer
 %label{:for => "contact_external_identifier", :class => "w25 inputselect"}
   %span.wrapper 
     %span.title
-      = _("External Identifier")
+      = I18n.t("External Identifier", :default => "External Identifier")
     = form.text_field :contact_external_identifier, :class => "field"  
 .clear
 
 %label{:for => "contact_homepage_path", :class => "w50 inputselect"}
   %span.wrapper 
     %span.title
-      = _("Homepage")
+      = I18n.t("Homepage", :default => "Homepage")
       %span{:class => "example"}= "https://rubycampus.org"
     = form.text_field :contact_homepage_url, :class => "field"  
 %label{:for => "contact_greeting_id", :class => "w50 inputselect"}
@@ -66,5 +66,5 @@
 %hr/ 
 -# TODO use other contacts address as current contacts address
 -#.span-16
--#  %label{:for => "contact_household_name"}= _("Household Name") 
+-#  %label{:for => "contact_household_name"}= I18n.t("Household Name", :default => "Household Name") 
 -#  = form.text_field :contact_household_name, :class => "field"       

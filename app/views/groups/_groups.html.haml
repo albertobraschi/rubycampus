@@ -1,30 +1,30 @@
 - if @total == 0
-  .no_data{:style=>"text-align:center;"}= _("No %{collection} Found") % { :collection => _("Groups") }
+  .no_data{:style=>"text-align:center;"}= I18n.t("No {{collection}} Found", :default => "No {{collection}} Found", :collection => I18n.t("Groups", :default => "Groups"))
 - else
   %table
     %tr
       %th{ :class => (sort_th_class_helper 'name') }
-        = sort_link_helper _("Name"), 'name'
+        = sort_link_helper I18n.t("Name", :default => "Name"), 'name'
       %th{ :class => (sort_th_class_helper "id") }
-        = sort_link_helper _("ID"), "id"
+        = sort_link_helper I18n.t("ID", :default => "ID"), "id"
       %th{ :class => (sort_th_class_helper "description") }
-        = sort_link_helper _("Description"), "description"
+        = sort_link_helper I18n.t("Description", :default => "Description"), "description"
       %th{ :class => (sort_th_class_helper 'is_enabled') }
-        = sort_link_helper _("Enabled"), "is_enabled"
+        = sort_link_helper I18n.t("Enabled", :default => "Enabled"), "is_enabled"
       %th{ :class => (sort_th_class_helper "group_type_id") }
-        = sort_link_helper _("Group Type"), "group_type_id" 
+        = sort_link_helper I18n.t("Group Type", :default => "Group Type"), "group_type_id" 
       %th{ :class => (sort_th_class_helper "updated_at") }
-        = sort_link_helper _("Last Updated"), "updated_at"
+        = sort_link_helper I18n.t("Last Updated", :default => "Last Updated"), "updated_at"
       %th
     - @groups.each do |group|
       %tr{:class => cycle('even','odd'), :style => "#{'color: #f80a12;' unless group.is_enabled}"}
         %td=h group.name
         %td=h group.id
         %td=h group.description
-        %td=h group.is_enabled ? _('Yes') : _('No')
+        %td=h group.is_enabled ? I18n.t("Yes", :default => "Yes") : I18n.t("No", :default => "No")
         %td=h group.group_type.name
         %td{:style => "vertical-align:top;"}
-          = h (_("%s ago") % distance_of_time_in_words(Time.now, (group.updated_at))) rescue nil
+          = h (I18n.t("{{value}} ago", :default => "{{value}} ago", :value => distance_of_time_in_words(Time.now, (group.updated_at)))) rescue nil
         %td= render :partial => "groups/actions/for_row_index", :locals => { :group => group }
   - if @groups_pages.page_count > 1
     %div.pagination

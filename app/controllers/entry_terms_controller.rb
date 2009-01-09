@@ -105,7 +105,7 @@ class EntryTermsController < ApplicationController
 
     respond_to do |format|
       if @entry_term.save
-        flash[:notice] = _("%s was successfully created.") % _("Entry Term")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Entry Term", :default => "Entry Term"))
         if params[:create_and_new_button]
           format.html { redirect_to new_entry_term_url }
         else
@@ -126,7 +126,7 @@ class EntryTermsController < ApplicationController
 
     respond_to do |format|
       if @entry_term.update_attributes(params[:entry_term])
-        flash[:notice] = _("%s was successfully updated.") % _("Entry Term") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Entry Term", :default => "Entry Term"))
         format.html { redirect_to entry_terms_url }
         # format.xml  { head :ok }
       else
@@ -156,9 +156,9 @@ class EntryTermsController < ApplicationController
   def enable #:nodoc:
     @entry_term = EntryTerm.find(params[:id])
     if @entry_term.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Entry Term") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Entry Term", :default => "Entry Term"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("entry term") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("entry term", :default => "entry term"))
     end
     redirect_to entry_terms_url
   end
@@ -167,9 +167,9 @@ class EntryTermsController < ApplicationController
   def disable #:nodoc:
     @entry_term = EntryTerm.find(params[:id])
     if @entry_term.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Entry Term") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Entry Term", :default => "Entry Term"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("entry term") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("entry term", :default => "entry term"))
     end
     redirect_to entry_terms_url
   end

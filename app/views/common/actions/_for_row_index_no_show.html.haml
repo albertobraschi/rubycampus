@@ -1,3 +1,3 @@
 .action_buttons[local]
-  = link_to(_("Edit"), self.send(("edit_"+controller.controller_name.singularize+"_path"), local), :class => "positive")
-  = link_to(_("Destroy"), self.send((controller.controller_name.singularize+"_path"), local), :class => "negative", :confirm => (_("Really destroy %s record?") % current_controller_human_name), :method => :delete )
+  = link_to(I18n.t("Edit", :default => "Edit"), self.send(("edit_"+controller.controller_name.singularize+"_path"), local), :class => "positive")
+  = link_to(I18n.t("Destroy", :default => "Destroy"), self.send((controller.controller_name.singularize+"_path"), local), :class => "negative", :confirm => (I18n.t("Really destroy {{value}} record?", :default => "Really destroy {{value}} record?", :value => current_controller_human_name)), :method => :delete )

@@ -1,26 +1,26 @@
 - if @total == 0
-  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+  .no_data{:style=>"text-align:center;"}= I18n.t("No {{value}} Found", :default => "No {{value}} Found", :value => current_controller_gettext_human_name_pluralized)
 - else
   %table
     %tr
       %th{ :class => (sort_th_class_helper 'name') }
-        = sort_link_helper _("Name"), 'name'
+        = sort_link_helper I18n.t("Name", :default => "Name"), 'name'
       %th{ :class => (sort_th_class_helper 'description') }
-        = sort_link_helper _("Description"), 'description'
+        = sort_link_helper I18n.t("Description", :default => "Description"), 'description'
       %th{ :class => (sort_th_class_helper 'is_default') }
-        = sort_link_helper _("Default"), 'is_default'
+        = sort_link_helper I18n.t("Default", :default => "Default"), 'is_default'
       %th{ :class => (sort_th_class_helper 'is_enabled') }
-        = sort_link_helper _("Enabled"), 'is_enabled'
+        = sort_link_helper I18n.t("Enabled", :default => "Enabled"), 'is_enabled'
       %th{ :class => (sort_th_class_helper 'is_reserved') }
-        = sort_link_helper _("Reserved"), 'is_reserved'
+        = sort_link_helper I18n.t("Reserved", :default => "Reserved"), 'is_reserved'
       %th
     - @greetings.each do |greeting|
       %tr{:class => cycle('even','odd'), :style => "#{'color: #f80a12;' unless greeting.is_enabled}"}
         %td=h greeting.name
         %td=h greeting.description
-        %td=h greeting.is_default ? _('Yes') : _('No')
-        %td=h greeting.is_enabled ? _('Yes') : _('No')
-        %td=h greeting.is_reserved ? _('Yes') : _('No')
+        %td=h greeting.is_default ? I18n.t("Yes", :default => "Yes") : I18n.t("No", :default => "No")
+        %td=h greeting.is_enabled ? I18n.t("Yes", :default => "Yes") : I18n.t("No", :default => "No")
+        %td=h greeting.is_reserved ? I18n.t("Yes", :default => "Yes") : I18n.t("No", :default => "No")
         %td= render :partial => "common/actions/for_row_index_toggle_lookup", :locals => { :local => greeting }
   - if @greetings_pages.page_count > 1
     %div.pagination

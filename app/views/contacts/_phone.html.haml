@@ -1,7 +1,7 @@
-%h2= _("Phone")
+%h2= I18n.t("Phone", :default => "Phone")
 %label{:for => "phone_location_type_id", :class => "w10 inputselect"}
   %span.wrapper
-    = label_with_lookup :controller => :location_type, :label => _("Location")
+    = label_with_lookup :controller => :location_type, :label => I18n.t("Location", :default => "Location")
     = form.select(:phone_location_type_id, LocationType::NAMES_KEYS, :class => "field")   
 %label{:for => "phone_phone_type", :class => "w10 inputselect"}
   %span.wrapper
@@ -13,18 +13,18 @@
     = text_field_with_auto_complete :presenter, :phone_mobile_provider_name, { :class => "field" }, { :url => formatted_lookup_mobile_providers_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }       
 %label{:for => "phone_phone", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Phone")
+    %span.title= I18n.t("Phone", :default => "Phone")
     = form.text_field :phone_phone, :class => "field"  
 %label{:for => "phone_is_primary", :class => "w15 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :phone_is_primary, :class => "select"
-    %span.title= _("Is Primary")
+    %span.title= I18n.t("Is Primary", :default => "Is Primary")
 %label{:for => "phone_is_billing", :class => "w15 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :phone_is_billing, :class => "select"
-    %span.title= _("Is Billing")
+    %span.title= I18n.t("Is Billing", :default => "Is Billing")
 .clear
 
 %hr/ 

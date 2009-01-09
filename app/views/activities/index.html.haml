@@ -1,14 +1,14 @@
-- title((_(current_controller_gettext_human_name_pluralized)))
+- title((I18n.t(current_controller_gettext_human_name_pluralized, :default => current_controller_gettext_human_name_pluralized)))
 .standard_box
   .hako
     = render :partial => "common/actions/for_form_index"
     %h2= yield(:title)
-    %h3= context_help(_("Use activities to manage interactions with contacts. You can use live search to locate activities and can sort by clicking on column labels. %{learn_more}"))
+    %h3= context_help(I18n.t("Use activities to manage interactions with contacts. You can use live search to locate activities and can sort by clicking on column labels.", :default => "Use activities to manage interactions with contacts. You can use live search to locate activities and can sort by clicking on column labels."))
     %p
       %form{ :name => "rubycampus", :action => "", :class => "hakozaki", :autocomplete => :off }
         %label{ :for => "activity_name", :class => "w35 inputselect"}
           %span.wrapper
-            %span.title= _("Find by %s subject:") % current_controller_gettext_human_name.downcase
+            %span.title= I18n.t("Find by {{value}} subject:", :default => "Find by {{value}} subject:", :value => current_controller_gettext_human_name.downcase)
             = text_field_tag("query", params['query'], :class => "field")
         .clear
     = observe_field 'query', :frequency => 2, :update => 'table', :before => "Element.show('spinner')", :success => "Element.hide('spinner')", :url => { :action => 'index' }, :with => 'query'

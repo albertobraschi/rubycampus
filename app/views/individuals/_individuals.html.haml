@@ -1,17 +1,17 @@
 - if @total == 0
-  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+  .no_data{:style=>"text-align:center;"}= I18n.t("No {{value}} Found", :default => "No {{value}} Found", :value => current_controller_gettext_human_name_pluralized)
 - else
   %table
     %tr
       %th{ :class => (sort_th_class_helper "last_name") }
-        = sort_link_helper _("Last Name"), "last_name"
+        = sort_link_helper I18n.t("Last Name", :default => "Last Name"), "last_name"
       %th{ :class => (sort_th_class_helper "first_name") }
-        = sort_link_helper _("First Name"), "first_name"
+        = sort_link_helper I18n.t("First Name", :default => "First Name"), "first_name"
       %th{ :class => (sort_th_class_helper "stage_id") }
-        = sort_link_helper _("Stage"), "stage_id"
-      %th= _("Address")
+        = sort_link_helper I18n.t("Stage", :default => "Stage"), "stage_id"
+      %th= I18n.t("Address", :default => "Address")
       %th{ :class => (sort_th_class_helper "updated_at") }
-        = sort_link_helper _("Last Updated"), "updated_at"
+        = sort_link_helper I18n.t("Last Updated", :default => "Last Updated"), "updated_at"
       %th
     - @contacts.each do |contact|
       %tr{:class => cycle('even','odd')}
@@ -34,7 +34,7 @@
               %span.icons.email= mail_to email.address
               %br
         %td{:style => "vertical-align:top;"}
-          = h (_("%s ago") % distance_of_time_in_words(Time.now, (contact.updated_at))) rescue nil
+          = h (I18n.t("{{value}} ago", :default => "{{value}} ago", :value => distance_of_time_in_words(Time.now, (contact.updated_at)))) rescue nil
         %td= render :partial => "common/actions/for_row_index", :locals => { :local => contact }
   - if @contacts_pages.page_count > 1
     %div.pagination

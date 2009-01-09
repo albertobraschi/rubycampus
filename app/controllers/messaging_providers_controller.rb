@@ -99,7 +99,7 @@ class MessagingProvidersController < ApplicationController
 
     respond_to do |format|
       if @messaging_provider.save
-        flash[:notice] = _("%s was successfully created.") % _("Messaging Provider")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Messaging Provider", :default => "Messaging Provider"))
         if params[:create_and_new_button]
           format.html { redirect_to new_messaging_provider_url }
         else
@@ -120,7 +120,7 @@ class MessagingProvidersController < ApplicationController
 
     respond_to do |format|
       if @messaging_provider.update_attributes(params[:messaging_provider])
-        flash[:notice] = _("%s was successfully updated.") % _("Messaging Provider") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Messaging Provider", :default => "Messaging Provider"))
         format.html { redirect_to messaging_providers_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class MessagingProvidersController < ApplicationController
   def enable #:nodoc:
     @messaging_provider = MessagingProvider.find(params[:id])
     if @messaging_provider.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Messaging Provider") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Messaging Provider", :default => "Messaging Provider"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("messaging provider") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("messaging provider", :default => "messaging provider"))
     end
     redirect_to messaging_providers_url
   end
@@ -161,9 +161,9 @@ class MessagingProvidersController < ApplicationController
   def disable #:nodoc:
     @messaging_provider = MessagingProvider.find(params[:id])
     if @messaging_provider.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Messaging Provider") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Messaging Provider", :default => "Messaging Provider"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("messaging provider") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("messaging provider", :default => "messaging provider"))
     end
     redirect_to messaging_providers_url
   end

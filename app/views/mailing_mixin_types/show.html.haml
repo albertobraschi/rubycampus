@@ -1,4 +1,4 @@
-- title((_("Viewing %s") % current_controller_gettext_human_name))
+- title((I18n.t("Viewing {{value}}", :default => "Viewing {{value}}", :value => current_controller_gettext_human_name)))
 .standard_box
   .hako
     - form_for @mailing_mixin_type, :url => mailing_mixin_type_path, :html => { :method => :put, :class => "hakozaki" } do |form|

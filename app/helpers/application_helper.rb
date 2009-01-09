@@ -90,7 +90,7 @@ module ApplicationHelper
       else
         wiki_page << "#{controller.controller_name.titleize.gsub(" ","_")}"
       end
-    link_to _(label), "#{wiki_page}", :popup => true
+    link_to I18n.t(label, :default => "Help"), "#{wiki_page}", :popup => true
   end
 
   #
@@ -98,19 +98,19 @@ module ApplicationHelper
   # to render the url to the corresponding RubyCampus wiki page.
   #
   def link_to_learn_more
-    { :learn_more => link_to_help(_("Learn more...")) }
+    { :learn_more => link_to_help(I18n.t("Learn more...", :default => "Learn more...")) }
   end
 
   #
   # Should be called only by context_help from helpers
   #
   def context_help(help_message)
-    content_tag :p, (_(help_message) % link_to_learn_more), :class => "quiet"
+    content_tag :p, (help_message), :class => "quiet"
   end
 
   # Links to RubyCampus issue tracker and fill basic issue information
   def link_to_tracker_issues_new
-    link_to _("New Issue"), RUBYCAMPUS_ORG_BASE_URL + "projects/#{RUBYCAMPUS}/issues/new", :popup => true
+    link_to I18n.t("New Issue", :default => "New Issue"), RUBYCAMPUS_ORG_BASE_URL + "projects/#{RUBYCAMPUS}/issues/new", :popup => true
   end
 
   # Get current controllers name
@@ -119,11 +119,11 @@ module ApplicationHelper
   end
 
   def current_controller_gettext_human_name
-    _(current_controller_human_name)
+    current_controller_human_name
   end
 
   def current_controller_gettext_human_name_pluralized
-    _(controller.controller_name.titleize)
+    controller.controller_name.titleize
   end
 
   # Returns a constant based on the controllers name singularlized
@@ -143,15 +143,15 @@ module ApplicationHelper
 
   # Renders links for views
   def link_to_extract
-    link_to _("PDF"), { :action => :extract, :id => params[:id], :format => :pdf }, :class => "positive"
+    link_to I18n.t("PDF", :default => "PDF"), { :action => :extract, :id => params[:id], :format => :pdf }, :class => "positive"
   end
 
   def link_to_edit
-    link_to(_("Edit"), self.send(("edit_"+controller.controller_name.singularize+ "_path")), :class => "positive")
+    link_to(I18n.t("Edit", :default => "Edit"), self.send(("edit_"+controller.controller_name.singularize+ "_path")), :class => "positive")
   end
 
   def link_to_destroy
-    link_to(_("Destroy"), self.send((controller.controller_name.singularize+ "_path")), :class => "negative", :confirm => (_("Really destroy %s?") % controller.controller_name.titleize), :method => :delete )
+    link_to(I18n.t("Destroy", :default => "Destroy"), self.send((controller.controller_name.singularize+ "_path")), :class => "negative", :confirm => (I18n.t("Really destroy {{value}}?", :default => "Really destroy {{value}}?", :value => controller.controller_name.titleize)), :method => :delete )
   end
 
   # Returns true if current contact_type evaluates true
@@ -161,18 +161,6 @@ module ApplicationHelper
 
   def current_announcements
     @current_announcements ||= Announcement.current_announcements(session[:announcement_hide_time])
-  end
-
-  # List available languages
-  def language_options_for_select(blank=true)
-    require 'yaml'
-    language_select = []
-    languages = YAML::load_file("#{RAILS_ROOT}/lib/rubycampus/system/languages.yml")
-    available_locales.each do |v|
-      n = languages[v] || _('Unknown Language')
-      language_select << [ n , v ]
-    end
-    language_select
   end
 
   # Renders hakozaki css class label requiring only the controller name
@@ -185,12 +173,12 @@ module ApplicationHelper
   #
   # Example:
   #
-  # -> label_with_lookup :controller => :name_prefix, :example => _("Fall 2009"), :label => _("Prefix")
+  # -> label_with_lookup :controller => :name_prefix, :example => I18n.t("Fall 2009"), :label => I18n.t("Prefix", :default => "Prefix")
   def label_with_lookup(opts={})
     controller = opts[:controller]
     example = opts[:example] || ''
     label = opts[:label] || opts[:controller]
-    content_tag(:span, (current_user_is_super_user_role && @current_action !='show' ? (link_to _(label.to_s.titleize), self.send(controller.to_s.underscore.pluralize+"_path")) : _(label.to_s.titleize)) + (content_tag(:span, ' ' + _(example), :class => "example") unless example == nil) , :class => "title")
+    content_tag(:span, (current_user_is_super_user_role && @current_action !='show' ? (link_to label.to_s.titleize, self.send(controller.to_s.underscore.pluralize+"_path")) : label.to_s.titleize) + (content_tag(:span, ' ' + example, :class => "example") unless example == nil) , :class => "title")
   end
 
   # Returns true if current_user is_admin and/or has_role of administrator
@@ -244,7 +232,7 @@ module ApplicationHelper
         :success => "Element.hide('spinner')"
     }
     html_options = {
-      :title => _("Sort by this field"),
+      :title => I18n.t("Sort by this field", :default => "Sort by this field"),
       :href => url_for(:action => 'index', :params => params.merge({:sort => key, :page => nil}))
     }
     link_to_remote(text, options, html_options)

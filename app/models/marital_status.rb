@@ -36,17 +36,14 @@
 #++
 
 class MaritalStatus < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Married')
-  N_('Single')
-  N_('Widow or Widower')
-  N_('Divorced')
-  N_('Never Married')
-  N_('Domestic Partner')
+  I18n.t('Married', :default => 'Married')
+  I18n.t('Single', :default => 'Single')
+  I18n.t('Widow or Widower', :default => 'Widow or Widower')
+  I18n.t('Divorced', :default => 'Divorced')
+  I18n.t('Never Married', :default => 'Never Married')
+  I18n.t('Domestic Partner', :default => 'Domestic Partner')
 
   has_many :contacts
   

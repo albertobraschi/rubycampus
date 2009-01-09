@@ -42,7 +42,7 @@ module ConstantCache
         const = instance.name.gsub(/\s+/, '_').upcase
         if const_defined?(const)
           raise RuntimeError, 
-               _("Constant #{self.to_s}::#{const} has already been defined")
+               I18n.t("Constant {{self_to_s}}::{{constant}} has already been defined", :default => "Constant {{self_to_s}}::{{constant}} has already been defined", :self_to_s => self.to_s, :constant => const)
         else
           const_set(const, instance)
         end

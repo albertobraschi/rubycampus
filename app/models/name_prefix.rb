@@ -36,15 +36,12 @@
 #++
 
 class NamePrefix < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
 
   # Language constants for use by Ruby-GetText
-  N_('Mr')
-  N_('Ms')
-  N_('Mrs')
-  N_('Dr')
+  I18n.t('Mr', :default => 'Mr')
+  I18n.t('Ms', :default => 'Ms')
+  I18n.t('Mrs', :default => 'Mrs')
+  I18n.t('Dr', :default => 'Dr')
 
   has_many :contacts
   

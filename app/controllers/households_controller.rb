@@ -92,7 +92,7 @@ class HouseholdsController < ApplicationController
     @presenter.contact_contact_type_id = ContactType::HOUSEHOLD.id
 
     if @presenter.save
-      flash[:notice] = _("%s was successfully created.") % _("Household")
+      flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Household", :default => "Household"))
       if params[:create_and_new_button]
         redirect_to new_household_url
       else
@@ -113,7 +113,7 @@ class HouseholdsController < ApplicationController
                                           :phone => Phone.find(params[:id]))
 
     if @presenter.update_attributes(params[:presenter])
-      flash[:notice] = _("%s was successfully updated.") % _("Household")
+      flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Household", :default => "Household"))
       redirect_to contacts_url(:contact_type => ContactType::HOUSEHOLD.id)
     else
       render :action => "edit"
@@ -127,7 +127,7 @@ class HouseholdsController < ApplicationController
     @presenter.destroy
 
     respond_to do |format|
-      flash[:notice] = _("%s was successfully destroyed.") % _("Household")
+      flash[:notice] = I18n.t("{{value}} was successfully destroyed.", :default => "{{value}} was successfully destroyed.", :value => I18n.t("Household", :default => "Household"))
       format.html { redirect_to contacts_url(:contact_type => ContactType::HOUSEHOLD.id) }
       format.xml  { head :ok }
     end

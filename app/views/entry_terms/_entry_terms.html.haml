@@ -1,24 +1,24 @@
 - if @total == 0
-  .no_data{:style=>"text-align:center;"}= _("No %s Found") % current_controller_gettext_human_name_pluralized
+  .no_data{:style=>"text-align:center;"}= I18n.t("No {{value}} Found", :default => "No {{value}} Found", :value => current_controller_gettext_human_name_pluralized)
 - else
   %table
     %tr
       %th{ :class => (sort_th_class_helper 'name') }
-        = sort_link_helper _("Name"), 'name'
+        = sort_link_helper I18n.t("Name", :default => "Name"), 'name'
       %th{ :class => (sort_th_class_helper 'description') }
-        = sort_link_helper _("Description"), 'description'
+        = sort_link_helper I18n.t("Description", :default => "Description"), 'description'
       %th{ :class => (sort_th_class_helper "code") }
-        = sort_link_helper _("Code"), "code"
+        = sort_link_helper I18n.t("Code", :default => "Code"), "code"
       %th{ :class => (sort_th_class_helper "start_date") }
-        = sort_link_helper _("Start Date"), "start_date"
+        = sort_link_helper I18n.t("Start Date", :default => "Start Date"), "start_date"
       %th{ :class => (sort_th_class_helper "end_date") }
-        = sort_link_helper _("End Date"), "end_date"                
+        = sort_link_helper I18n.t("End Date", :default => "End Date"), "end_date"                
       %th{ :class => (sort_th_class_helper 'is_default') }
-        = sort_link_helper _("Default"), 'is_default'
+        = sort_link_helper I18n.t("Default", :default => "Default"), 'is_default'
       %th{ :class => (sort_th_class_helper 'is_enabled') }
-        = sort_link_helper _("Enabled"), 'is_enabled'
+        = sort_link_helper I18n.t("Enabled", :default => "Enabled"), 'is_enabled'
       %th{ :class => (sort_th_class_helper 'is_reserved') }
-        = sort_link_helper _("Reserved"), 'is_reserved'
+        = sort_link_helper I18n.t("Reserved", :default => "Reserved"), 'is_reserved'
       %th
     - @entry_terms.each do |entry_term|
       %tr{:class => cycle('even','odd'), :style => "#{'color: #f80a12;' unless entry_term.is_enabled}"}
@@ -27,9 +27,9 @@
         %td=h entry_term.code
         %td=h entry_term.start_date
         %td=h entry_term.end_date                        
-        %td=h entry_term.is_default ? _('Yes') : _('No')
-        %td=h entry_term.is_enabled ? _('Yes') : _('No')
-        %td=h entry_term.is_reserved ? _('Yes') : _('No')
+        %td=h entry_term.is_default ? I18n.t("Yes", :default => "Yes") : I18n.t("No", :default => "No")
+        %td=h entry_term.is_enabled ? I18n.t("Yes", :default => "Yes") : I18n.t("No", :default => "No")
+        %td=h entry_term.is_reserved ? I18n.t("Yes", :default => "Yes") : I18n.t("No", :default => "No")
         %td= render :partial => "common/actions/for_row_index_toggle_lookup", :locals => { :local => entry_term }
   - if @entry_terms_pages.page_count > 1
     %div.pagination

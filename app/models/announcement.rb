@@ -36,17 +36,14 @@
 #++
 
 class Announcement < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
-  
+
   validates_presence_of :message
   validates_length_of :message, :in => 5..800
   
   validates_datetime :starts_at, :before => Proc.new { |announcement| announcement.ends_at }, 
-                       :before_message => _("Start date and time must be now or in the future.")
+                       :before_message => I18n.t("Start date and time must be now or in the future.", :default => "Start date and time must be now or in the future.")
   validates_datetime :ends_at, :after => Proc.new { |announcement| announcement.starts_at }, 
-                       :before_message => _("End date and time must come after the start date and time.")
+                       :before_message => I18n.t("End date and time must come after the start date and time.", :default => "End date and time must come after the start date and time.")
   
   # validates_presence_of :starts_at
   # validates_presence_of :ends_at    

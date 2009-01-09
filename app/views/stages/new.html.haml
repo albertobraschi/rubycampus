@@ -1,4 +1,4 @@
-- title((_("Creating %s") % current_controller_gettext_human_name))
+- title((I18n.t("Creating {{value}}", :default => "Creating {{value}}", :value => current_controller_gettext_human_name)))
 = error_messages_for :stage 
 .standard_box
   .hako

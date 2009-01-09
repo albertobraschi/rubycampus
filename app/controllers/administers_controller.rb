@@ -57,7 +57,7 @@ class AdministersController < ApplicationController
         value.delete_if {|v| v.blank? } if value.is_a?(Array)
         Setting[name] = value
       end
-      flash[:notice] = _("%s successfully saved.") % _("Settings")
+      flash[:notice] = I18n.t("{{value}} successfully saved.", :default => "{{value}} successfully saved.", :value => I18n.t("Settings", :default => "Settings"))
       redirect_to :action => :edit, :tab => params[:tab]
       return
     end

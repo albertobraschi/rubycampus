@@ -1,44 +1,44 @@
 %label{:for => "group_name", :class => "w75 inputselect mandatory"}
   %span.wrapper
-    %span.title= _("Name") 
+    %span.title= I18n.t("Name", :default => "Name") 
     = form.text_field :name, :class => "field"
 %label{:for => "group_group_type_id", :class => "w25 inputselect mandatory"}
   %span.wrapper
-    %span.title= _("Group Type")
+    %span.title= I18n.t("Group Type", :default => "Group Type")
     = form.select(:group_type_id, GroupType::NAMES_KEYS, :class => "field")
 .clear
 
 %label{:for => "group_description", :class => "w75 inputselect mandatory"}
   %span.wrapper
-    %span.title= _("Description") 
+    %span.title= I18n.t("Description", :default => "Description") 
     = form.text_field :description, :class => "field"
 .clear  
 / %label{:for => "group_domain_id", :class => "w25 inputselect"}
 /   %span.wrapper
-/     %span.title= _("Domain") 
+/     %span.title= I18n.t("Domain", :default => "Domain") 
 /     = form.text_field :domain_id, :class => "field"      
 / %label{:for => "group_title", :class => "w25 inputselect"}
 /   %span.wrapper
-/     %span.title= _("Title") 
+/     %span.title= I18n.t("Title", :default => "Title") 
 /     = form.text_field :title, :class => "field"  
 / %label{:for => "group_saved_search_id", :class => "w25 inputselect"}
 /   %span.wrapper
-/     %span.title= _("Saved search") 
+/     %span.title= I18n.t("Saved search", :default => "Saved search") 
 /     = form.text_field :saved_search_id, :class => "field"
 / %label{:for => "group_is_enabled", :class => "w25 inputselect"}
 /   %span.wrapper
-/     %span.title= _("Is enabled") 
+/     %span.title= I18n.t("Is enabled", :default => "Is enabled") 
 /     = form.check_box :is_enabled, :class => "field"
 / %label{:for => "group_where_clause", :class => "w25 inputselect"}
 /   %span.wrapper
-/     %span.title= _("Where clause") 
+/     %span.title= I18n.t("Where clause", :default => "Where clause") 
 /     = form.text_area :where_clause, :class => "field"
 / %label{:for => "group_select_tables", :class => "w25 inputselect"}
 /   %span.wrapper
-/     %span.title= _("Select tables") 
+/     %span.title= I18n.t("Select tables", :default => "Select tables") 
 /     = form.text_area :select_tables, :class => "field"
 / %label{:for => "group_where_tables", :class => "w25 inputselect"}
 /   %span.wrapper
-/     %span.title= _("Where tables") 
+/     %span.title= I18n.t("Where tables", :default => "Where tables") 
 /     = form.text_area :where_tables, :class => "field"               
 

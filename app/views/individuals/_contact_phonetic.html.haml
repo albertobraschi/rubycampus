@@ -1,14 +1,14 @@
 %label{:for => "contact_phonetic_last_name", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Phonetic Last Name")
+    %span.title= I18n.t("Phonetic Last Name", :default => "Phonetic Last Name")
     = form.text_field :contact_phonetic_last_name, :class => "form_text"
 %label{:for => "contact_phonetic_first_name", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Phonetic First Name")
+    %span.title= I18n.t("Phonetic First Name", :default => "Phonetic First Name")
     = form.text_field :contact_phonetic_first_name, :class => "form_text"
 %label{:for => "contact_phonetic_middle_name", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Phonetic Middle Name")
+    %span.title= I18n.t("Phonetic Middle Name", :default => "Phonetic Middle Name")
     = form.text_field :contact_phonetic_middle_name, :class => "form_text"
 .clear
      

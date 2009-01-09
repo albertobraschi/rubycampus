@@ -99,7 +99,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        flash[:notice] = _("%s was successfully created.") % _("Group")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Group", :default => "Group"))
         if params[:create_and_new_button]
           format.html { redirect_to new_group_url }
         else
@@ -120,7 +120,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.update_attributes(params[:group])
-        flash[:notice] = _("%s was successfully updated.") % _("Group")
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Group", :default => "Group"))
         format.html { redirect_to groups_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class GroupsController < ApplicationController
   def enable #:nodoc:
     @group = Group.find(params[:id])
     if @group.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Group") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Group", :default => "Group"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("group") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("group", :default => "group"))
     end
     redirect_to groups_url
   end
@@ -161,9 +161,9 @@ class GroupsController < ApplicationController
   def disable #:nodoc:
     @group = Group.find(params[:id])
     if @group.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Group") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Group", :default => "Group"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("group") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("group", :default => "group"))
     end
     redirect_to groups_url
   end
@@ -194,7 +194,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.update_attributes(:contact_ids => params[:contact_ids])
-        flash[:notice] = _("%s members successfully updated.") % _("Group")
+        flash[:notice] = I18n.t("{{value}} members successfully updated.", :default => "{{value}} members successfully updated.", :value => I18n.t("Group", :default => "Group"))
         format.html { redirect_to members_group_url(params[:id]) }
       else
         format.html { redirect_to groups_url }

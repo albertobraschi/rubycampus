@@ -1,31 +1,31 @@
-%h2= _("Constituent Information")  
+%h2= I18n.t("Constituent Information", :default => "Constituent Information")  
 %label{:for => "contact_government_identification_number", :class => "w50 inputselect"}
   %span.wrapper
-    %span.title= _("Official Identification")
+    %span.title= I18n.t("Official Identification", :default => "Official Identification")
     = form.text_field :contact_government_identification_number, :class => "field"
-    %em= _("SSN, Drivers License or other nationally recognized identification")
+    %em= I18n.t("SSN, Drivers License or other nationally recognized identification", :default => "SSN, Drivers License or other nationally recognized identification")
 -# TODO Show only if establishing contact as head of household
 -# %label{:for => "contact_head_of_household_id", :class => "w25 inputselect"}
 -#   %span.wrapper
--#     %span.title= _("Head of Household Contact")
+-#     %span.title= I18n.t("Head of Household Contact", :default => "Head of Household Contact")
 -#     -# TODO Use last_name and first_name as searchable attributes
 -#     = text_field_with_auto_complete :presenter, :contact_head_of_household_last_name, { :class => "field" }, { :url => formatted_lookup_head_of_households_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
--#     %em= _("Last name and then first name of the head of household.")     
+-#     %em= I18n.t("Last name and then first name of the head of household.", :default => "Last name and then first name of the head of household.")     
 %label{:for => "contact_mail_to_household_id", :class => "w50 inputselect"}
   %span.wrapper
-    %span.title= _("Mail to Household")
+    %span.title= I18n.t("Mail to Household", :default => "Mail to Household")
     = form.text_field :contact_mail_to_household_id, :class => "field"
-    %em= _("Type existing household name or contact name for list")    
+    %em= I18n.t("Type existing household name or contact name for list", :default => "Type existing household name or contact name for list")    
 .clear 
 
 -# %hr/ 
 -# %label{:for => "contact_image_path", :class => "w25 inputselect"}
 -#   %span.wrapper
--#     %span.title= _("Image url")
+-#     %span.title= I18n.t("Image url", :default => "Image url")
 -#     = form.text_field :contact_image_path, :class => "field"
 -# %label{:for => "contact_user_id", :class => "w25 inputselect"}
 -#   %span.wrapper
--#     %span.title= _("Contact User")
+-#     %span.title= I18n.t("Contact User", :default => "Contact User")
 -#     = form.text_field :contact_user_id, :class => "field"
 -# .clear
 

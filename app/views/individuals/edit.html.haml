@@ -1,4 +1,4 @@
-- title((_("Editing %s") % _("Individual")))
+- title((I18n.t("Editing {{value}}", :default => "Editing {{value}}", :value => I18n.t("Individual", :default => "Individual"))))
 = error_messages_for :presenter  
 .individual_box
   .hako

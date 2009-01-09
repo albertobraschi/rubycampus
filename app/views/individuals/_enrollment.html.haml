@@ -1,4 +1,4 @@
-%h2= _("Enrollment Information")
+%h2= I18n.t("Enrollment Information", :default => "Enrollment Information")
 %label{:for => "contact_stage_id", :class => "w15 inputselect mandatory"}
   %span.wrapper
     = label_with_lookup :controller => :stage
@@ -9,7 +9,7 @@
     = text_field_with_auto_complete :presenter, :contact_entry_term_name, { :class => "field" }, { :url => formatted_lookup_entry_terms_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_program_id", :class => "w25 inputselect"}
   %span.wrapper
-    = label_with_lookup :controller => :program, :example => _("course of study")
+    = label_with_lookup :controller => :program, :example => I18n.t("course of study", :default => "course of study")
     = text_field_with_auto_complete :presenter, :contact_program_name, { :class => "field" }, { :url => formatted_lookup_programs_path(:js), :method => :get, :skip_style => true, :with => "'search=' + element.value" }
 %label{:for => "contact_academic_level_id", :class => "w25 inputselect"}
   %span.wrapper

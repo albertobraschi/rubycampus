@@ -81,7 +81,7 @@ module UsersHelper
   #   # => <a href="/users/3" title="barmy" class="nickname">Your user page</a>
   #
   def link_to_user(user, options={})
-    raise _("Invalid user") unless user
+    raise I18n.t("Invalid user", :default => "Invalid user") unless user
     options.reverse_merge! :content_method => :login, :title_method => :login, :class => :nickname
     content_text      = options.delete(:content_text)
     content_text    ||= user.send(options.delete(:content_method))
@@ -120,7 +120,7 @@ module UsersHelper
     if current_user
       link_to_user current_user, options
     else
-      content_text = options.delete(:content_text) || _('not signed in')
+      content_text = options.delete(:content_text) || I18n.t("not signed in", :default => "not signed in")
       # kill ignored options from link_to_user
       [:content_method, :title_method].each{|opt| options.delete(opt)} 
       link_to_login_with_IP content_text, options

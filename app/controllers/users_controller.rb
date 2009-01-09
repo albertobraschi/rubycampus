@@ -79,10 +79,10 @@ class UsersController < ApplicationController
     # Uncomment to have the user automatically
     # logged in after creating an account - Not Recommended
     # self.current_user = @user
-    flash[:notice] = _("User has been created and an email has been sent to activate their account before logging in.")
+    flash[:notice] = I18n.t("User has been created and an email has been sent to activate their account before logging in.", :default => "User has been created and an email has been sent to activate their account before logging in.")
     redirect_to users_path
     rescue ActiveRecord::RecordInvalid
-    flash[:error] = _("There was a problem creating this account.")
+    flash[:error] = I18n.t("There was a problem creating this account.", :default => "There was a problem creating this account.")
     render :action => 'new'
   end
 
@@ -93,7 +93,7 @@ class UsersController < ApplicationController
   def update #:nodoc:
     @user = User.find(current_user)
     if @user.update_attributes(params[:user])
-    flash[:notice] = _("User updated")
+    flash[:notice] = I18n.t("User updated", :default => "User updated")
     redirect_to :action => 'show', :id => current_user
     else
     render :action => 'edit'
@@ -103,9 +103,9 @@ class UsersController < ApplicationController
   def destroy #:nodoc:
     @user = User.find(params[:id])
     if @user.update_attribute(:enabled, false)
-    flash[:notice] = _("User disabled")
+    flash[:notice] = I18n.t("User disabled", :default => "User disabled")
     else
-    flash[:error] = _("There was a problem disabling this user.")
+    flash[:error] = I18n.t("There was a problem disabling this user.", :default => "There was a problem disabling this user.")
     end
     redirect_to :action => 'index'
   end
@@ -113,9 +113,9 @@ class UsersController < ApplicationController
   def enable
     @user = User.find(params[:id])
     if @user.update_attribute(:enabled, true)
-    flash[:notice] = _("User enabled")
+    flash[:notice] = I18n.t("User enabled", :default => "User enabled")
     else
-    flash[:error] = _("There was a problem enabling this user.")
+    flash[:error] = I18n.t("There was a problem enabling this user.", :default => "There was a problem enabling this user.")
     end
     redirect_to :action => 'index'
   end
@@ -125,7 +125,7 @@ class UsersController < ApplicationController
     if @user and @user.activate
     self.current_user = @user
     redirect_back_or_default(:controller => '/user_account', :action => 'index')
-    flash[:notice] = _("Your account has been activated.")
+    flash[:notice] = I18n.t("Your account has been activated.", :default => "Your account has been activated.")
     end
     redirect_to :action => 'index' 
   end             

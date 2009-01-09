@@ -1,12 +1,12 @@
-- title((_(current_controller_gettext_human_name_pluralized)))     
+- title((I18n.t(current_controller_gettext_human_name_pluralized, :default => current_controller_gettext_human_name_pluralized)))     
 - selected_tab = params[:tab] ? params[:tab].to_s : administer_setting_tabs.first[:name]
 .standard_box
   .hako
     %h2= yield(:title)
-    %h3= context_help(_("Administer RubyCampus site-wide features and settings using the links on this page, Many features are also manageable directly on the forms they are related to. %{learn_more}"))
+    %h3= context_help(I18n.t("Administer RubyCampus site-wide features and settings using the links on this page, Many features are also manageable directly on the forms they are related to.", :default => "Administer RubyCampus site-wide features and settings using the links on this page, Many features are also manageable directly on the forms they are related to."))
     %ul#standard_tabs
       - administer_setting_tabs.each do |tab|
-        %li= link_to _(tab[:label]), { :tab => tab[:name] }, :id => "tab-#{tab[:name]}", :class => (tab[:name] != selected_tab ? nil : 'selected'), :onclick => "showTab('#{tab[:name]}'); this.blur(); return false;"
+        %li= link_to tab[:label], { :tab => tab[:name] }, :id => "tab-#{tab[:name]}", :class => (tab[:name] != selected_tab ? nil : 'selected'), :onclick => "showTab('#{tab[:name]}'); this.blur(); return false;"
     %hr/
     - administer_setting_tabs.each do |tab|
       = content_tag('div', render(:partial => tab[:partial]),  :id => "tab-content-#{tab[:name]}", :style => (tab[:name] != selected_tab ? 'display:none' : nil), :class => 'tab-content')    

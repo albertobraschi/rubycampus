@@ -1,37 +1,37 @@
 %label{:for => "entry_term_name", :class => "w25 inputselect mandatory"}
   %span.wrapper
     %span.title
-      = _("Name") 
+      = I18n.t("Name", :default => "Name") 
     = form.text_field :name, :class => "field"
 %label{:for => "entry_term_code", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Code") 
+      = I18n.t("Code", :default => "Code") 
     = form.text_field :code, :class => "field"
 %label{:for => "entry_term_start_date", :class => "w25 inputselect mandatory"}
   %span.wrapper
     %span.title
-      = _("Start date") 
+      = I18n.t("Start Date", :default => "Start Date") 
     = form.calendar_date_select :start_date, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
 %label{:for => "entry_term_end_date", :class => "w25 inputselect mandatory"}
   %span.wrapper
     %span.title
-      = _("End date") 
+      = I18n.t("End Date", :default => "End Date") 
     = form.calendar_date_select :end_date, :valid_date_check => "date >= (new Date()).stripTime()", :popup => :force, :class => "field"
 %label{:for => "entry_term_description", :class => "w50 inputselect"}
   %span.wrapper
     %span.title
-      = _("Description") 
+      = I18n.t("Description", :default => "Description") 
     = form.text_area :description, :class => "field"
 %label{:for => "entry_term_is_default", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Is default") 
+      = I18n.t("Is default", :default => "Is default") 
     = form.check_box :is_default, :class => "field"
 %label{:for => "entry_term_is_enabled", :class => "w25 inputselect"}
   %span.wrapper
     %span.title
-      = _("Is enabled") 
+      = I18n.t("Is enabled", :default => "Is enabled") 
     = form.check_box :is_enabled, :class => "field"
 .clear
 = render :partial => "common/jackets/for_revisable", :locals => {:model => @entry_term}                               

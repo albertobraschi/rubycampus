@@ -1,44 +1,44 @@
-%h2= _("Communication Preferences")
+%h2= I18n.t("Communication Preferences", :default => "Communication Preferences")
 %label{:for => "contact_do_not_email", :class => "w25 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :contact_do_not_email, :class => "select"
-    %span.title= _("Do Not Email")
+    %span.title= I18n.t("Do Not Email", :default => "Do Not Email")
 %label{:for => "contact_do_not_phone", :class => "w25 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :contact_do_not_phone, :class => "select"
-    %span.title= _("Do Not Phone")
+    %span.title= I18n.t("Do Not Phone", :default => "Do Not Phone")
 %label{:for => "contact_do_not_mail", :class => "w25 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :contact_do_not_mail, :class => "select"
-    %span.title= _("Do Not Mail")
+    %span.title= I18n.t("Do Not Mail", :default => "Do Not Mail")
 %label{:for => "contact_do_not_trade", :class => "w25 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :contact_do_not_trade, :class => "select"
-    %span.title= _("Do Not Trade")
+    %span.title= I18n.t("Do Not Trade", :default => "Do Not Trade")
 .clear
  
 %label{:for => "contact_preferred_communication_method_id", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Communication Method")
+    %span.title= I18n.t("Communication Method", :default => "Communication Method")
     = form.select(:contact_preferred_communication_method_id, PreferredCommunicationMethod::NAMES_KEYS, :class => "field")
     %br/
-    %em= _("Select the preferred method of communicating with this contact.")
+    %em= I18n.t("Select the preferred method of communicating with this contact.", :default => "Select the preferred method of communicating with this contact.")
 %label{:for => "contact_preferred_email_format_id", :class => "w25 inputselect"}
   %span.wrapper
-    %span.title= _("Email Format")
+    %span.title= I18n.t("Email Format", :default => "Email Format")
     = form.select(:contact_preferred_email_format_id, PreferredEmailFormat::NAMES_KEYS, :class => "field")
     %br/
-    %em= _("Select 'Both' to send HTML and Text formats.")
+    %em= I18n.t("Select 'Both' to send HTML and Text formats.", :default => "Select 'Both' to send HTML and Text formats.")
 %label{:for => "contact_is_opt_out", :class => "w25 radiocheck"}
   %span.wrapper
     %br/
     = form.check_box :contact_is_opt_out, :class => "select"
-    %span.title= _("Is Opt Out")
-    %em= _("Indicates contact has INTENTIONALLY opted out of email.") 
+    %span.title= I18n.t("Is Opt Out", :default => "Is Opt Out")
+    %em= I18n.t("Indicates contact has INTENTIONALLY opted out of email.", :default => "Indicates contact has INTENTIONALLY opted out of email.") 
 .clear
 
 %hr/ 

@@ -36,12 +36,9 @@
 #++
 
 class Role < ActiveRecord::Base
-  # Excludes model from being included in PO template
-  require 'gettext/rails'
-  untranslate_all
-        
+
   has_many :permissions
-  has_many :users, :through => :permissions    
+  has_many :users, :through => :permissions
   
 end
 

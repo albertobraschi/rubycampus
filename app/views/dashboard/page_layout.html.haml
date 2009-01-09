@@ -2,11 +2,11 @@
 .contextual
   - form_tag({:action => "add_widget"}, :id => "widget-form") do
     = select_tag 'widget', "<option></option>" + options_for_select(@widget_options), :id => "widget-select"
-    = link_to_remote _("Add"), {:url => { :action => "add_widget" }, :with => "Form.serialize('widget-form')", :update => "list-top", :position => :top, :complete => "afterAddBlock();" }, :class => 'icons add'
-    = link_to _("Save"), {:action => 'page_layout_save'}, :class => 'icons save'
-    = link_to _("Cancel"), {:action => 'page'}, :class => 'icons cancel'
+    = link_to_remote I18n.t("Add", :default => "Add"), {:url => { :action => "add_widget" }, :with => "Form.serialize('widget-form')", :update => "list-top", :position => :top, :complete => "afterAddBlock();" }, :class => 'icons add'
+    = link_to I18n.t("Save", :default => "Save"), {:action => 'page_layout_save'}, :class => 'icons save'
+    = link_to I18n.t("Cancel", :default => "Cancel"), {:action => 'page'}, :class => 'icons cancel'
 %h2
-  = _("Personalize Dashboard")
+  = I18n.t("Personalize Dashboard", :default => "Personalize Dashboard")
 = dashboard_panel_receiver(@widgets,@user,"top")
 = dashboard_panel_receiver(@widgets,@user,"left")
 = dashboard_panel_receiver(@widgets,@user,"right")

@@ -91,7 +91,7 @@ class MailingMixinTypesController < ApplicationController
   
     respond_to do |format|
       if @mailing_mixin_type.save
-        flash[:notice] = _("%s was successfully created.") % _("Mailing Mixin Type")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Mailing Mixin Type", :default => "Mailing Mixin Type"))
         if params[:create_and_new_button]
           format.html { redirect_to new_mailing_mixin_type_url }
         else
@@ -112,7 +112,7 @@ class MailingMixinTypesController < ApplicationController
   
     respond_to do |format|
       if @mailing_mixin_type.update_attributes(params[:mailing_mixin_type])
-        flash[:notice] = _("%s was successfully updated.") % _("Mailing Mixin Type") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Mailing Mixin Type", :default => "Mailing Mixin Type"))
         format.html { redirect_to mailing_mixin_types_url }
         # format.xml  { head :ok }
       else

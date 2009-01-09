@@ -720,7 +720,7 @@ span.run100 {
 </span><span class="uncovered0"><a name="line120"></a>120     if current_user
 </span><span class="uncovered1"><a name="line121"></a>121       link_to_user current_user, options
 </span><span class="uncovered0"><a name="line122"></a>122     else
-</span><span class="uncovered1"><a name="line123"></a>123       content_text = options.delete(:content_text) || _('not signed in')
+</span><span class="uncovered1"><a name="line123"></a>123       content_text = options.delete(:content_text) || I18n.t('not signed in')
 </span><span class="uncovered0"><a name="line124"></a>124       # kill ignored options from link_to_user
 </span><span class="uncovered1"><a name="line125"></a>125       [:content_method, :title_method].each{|opt| options.delete(opt)} 
 </span><span class="uncovered0"><a name="line126"></a>126       link_to_login_with_IP content_text, options

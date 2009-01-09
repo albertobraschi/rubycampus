@@ -1,29 +1,29 @@
 %label{:for => "program_name", :class => "w30 inputselect mandatory"}
   %span.wrapper
     %span.title
-      = _("Name") 
+      = I18n.t("Name", :default => "Name") 
     = form.text_field :name, :class => "field"
 %label{:for => "program_external_identifier", :class => "w30 inputselect"}
   %span.wrapper
     %span.title
-      = _("External identifier") 
+      = I18n.t("External identifier", :default => "External identifier") 
     = form.text_field :external_identifier, :class => "field"
 %label{:for => "program_is_default", :class => "w20 inputselect"}
   %span.wrapper
     %span.title
-      = _("Is default") 
+      = I18n.t("Is default", :default => "Is default") 
     = form.check_box :is_default, :class => "field"
 %label{:for => "program_is_enabled", :class => "w20 inputselect"}
   %span.wrapper
     %span.title
-      = _("Is enabled") 
+      = I18n.t("Is enabled", :default => "Is enabled") 
     = form.check_box :is_enabled, :class => "field"
 .clear   
 
 %label{:for => "program_description", :class => "w100 inputselect"}
   %span.wrapper
     %span.title
-      = _("Description") 
+      = I18n.t("Description", :default => "Description") 
     = form.text_area :description, :class => "field"
 .clear
 = render :partial => "common/jackets/for_revisable", :locals => {:model => @program}

@@ -99,7 +99,7 @@ class GendersController < ApplicationController
 
     respond_to do |format|
       if @gender.save
-        flash[:notice] = _("%s was successfully created.") % _("Gender")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Gender", :default => "Gender"))
         if params[:create_and_new_button]
           format.html { redirect_to new_gender_url }
         else
@@ -120,7 +120,7 @@ class GendersController < ApplicationController
 
     respond_to do |format|
       if @gender.update_attributes(params[:gender])
-        flash[:notice] = _("%s was successfully updated.") % _("Gender") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Gender", :default => "Gender"))
         format.html { redirect_to genders_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class GendersController < ApplicationController
   def enable #:nodoc:
     @gender = Gender.find(params[:id])
     if @gender.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Gender") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Gender", :default => "Gender"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("gender") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("gender", :default => "gender"))
     end
     redirect_to genders_url
   end
@@ -161,9 +161,9 @@ class GendersController < ApplicationController
   def disable #:nodoc:
     @gender = Gender.find(params[:id])
     if @gender.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Gender") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Gender", :default => "Gender"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("gender") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("gender", :default => "gender"))
     end
     redirect_to genders_url
   end

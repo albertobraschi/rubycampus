@@ -99,7 +99,7 @@ class MobileProvidersController < ApplicationController
 
     respond_to do |format|
       if @mobile_provider.save
-        flash[:notice] = _("%s was successfully created.") % _("Mobile Provider")
+        flash[:notice] = I18n.t("{{value}} was successfully created.", :default => "{{value}} was successfully created.", :value => I18n.t("Mobile Provider", :default => "Mobile Provider"))
         if params[:create_and_new_button]
           format.html { redirect_to new_mobile_provider_url }
         else
@@ -120,7 +120,7 @@ class MobileProvidersController < ApplicationController
 
     respond_to do |format|
       if @mobile_provider.update_attributes(params[:mobile_provider])
-        flash[:notice] = _("%s was successfully updated.") % _("Mobile Provider") 
+        flash[:notice] = I18n.t("{{value}} was successfully updated.", :default => "{{value}} was successfully updated.", :value => I18n.t("Mobile Provider", :default => "Mobile Provider"))
         format.html { redirect_to mobile_providers_url }
         # format.xml  { head :ok }
       else
@@ -150,9 +150,9 @@ class MobileProvidersController < ApplicationController
   def enable #:nodoc:
     @mobile_provider = MobileProvider.find(params[:id])
     if @mobile_provider.update_attribute(:is_enabled, true)
-    flash[:notice] = _("%{name} enabled.") % { :name => _("Mobile Provider") }
+    flash[:notice] = I18n.t("{{name}} enabled.", :default => "{{name}} enabled.", :name => I18n.t("Mobile Provider", :default => "Mobile Provider"))
     else
-    flash[:error] = _("There was a problem enabling this %{name}.") % { :name => _("mobile provider") }
+    flash[:error] = I18n.t("There was a problem enabling this {{name}}.", :default => "There was a problem enabling this {{name}}.", :name => I18n.t("mobile provider", :default => "mobile provider"))
     end
     redirect_to mobile_providers_url
   end
@@ -161,9 +161,9 @@ class MobileProvidersController < ApplicationController
   def disable #:nodoc:
     @mobile_provider = MobileProvider.find(params[:id])
     if @mobile_provider.update_attribute(:is_enabled, false)
-    flash[:notice] = _("%{name} disabled.") % { :name => _("Mobile Provider") }
+    flash[:notice] = I18n.t("{{name}} disabled.", :default => "{{name}} disabled.", :name => I18n.t("Mobile Provider", :default => "Mobile Provider"))
     else
-    flash[:error] = _("There was a problem disabling this %{name}.") % { :name => _("mobile provider") }
+    flash[:error] = I18n.t("There was a problem disabling this {{name}}.", :default => "There was a problem disabling this {{name}}.", :name => I18n.t("mobile provider", :default => "mobile provider"))
     end
     redirect_to mobile_providers_url
   end

@@ -48,10 +48,10 @@ class PasswordsController < ApplicationController
     if @user = User.find_for_forget(params[:email])
       @user.forgot_password
       @user.save
-      flash[:notice] = _("A password reset link has been sent to your email address.")
+      flash[:notice] = I18n.t("A password reset link has been sent to your email address.", :default => "A password reset link has been sent to your email address.")
       redirect_to login_path
       else
-      flash[:notice] = _("Could not find a user with that email address.")
+      flash[:notice] = I18n.t("Could not find a user with that email address.", :default => "Could not find a user with that email address.")
       render :action => 'new'  
     end
   end
@@ -68,8 +68,8 @@ class PasswordsController < ApplicationController
     @user = User.find_by_password_reset_code(params[:id]) if params[:id]
     raise if @user.nil?
     rescue
-    logger.error _("Invalid Reset Code entered.")
-    flash[:notice] = _("Sorry - That is an invalid password reset code. Please check your code and try again. (Perhaps your email client inserted a carriage return?)")
+    logger.error I18n.t("Invalid Reset Code entered.", :default => "Invalid Reset Code entered.")
+    flash[:notice] = I18n.t("Sorry - That is an invalid password reset code. Please check your code and try again. (Perhaps your email client inserted a carriage return?)", :default => "Sorry - That is an invalid password reset code. Please check your code and try again. (Perhaps your email client inserted a carriage return?)")
     #redirect_back_or_default('/')
     redirect_to new_user_path    
   end
@@ -82,7 +82,7 @@ class PasswordsController < ApplicationController
     return
     end
     if params[:password].blank?
-    flash[:notice] = _("Password field cannot be blank.")
+    flash[:notice] = I18n.t("Password field cannot be blank.", :default => "Password field cannot be blank.")
     render :action => 'edit', :id => params[:id]
     return
     end
@@ -99,16 +99,16 @@ class PasswordsController < ApplicationController
     @user.password_confirmation = params[:password_confirmation]
     @user.password = params[:password]
     @user.reset_password
-    flash[:notice] = @user.save ? _("Password reset.") : _("Password not reset.")
+    flash[:notice] = @user.save ? I18n.t("Password reset.", :default => "Password reset.") : I18n.t("Password not reset.", :default => "Password not reset.")
     else
-    flash[:notice] = _("Password mismatch.")
+    flash[:notice] = I18n.t("Password mismatch.", :default => "Password mismatch.")
     render :action => 'edit', :id => params[:id]
     return
     end
     redirect_to login_path
     rescue
-    logger.error _("Invalid Reset Code entered")
-    flash[:notice] = _("Sorry - That is an invalid password reset code. Please check your code and try again. (Perhaps your email client inserted a carriage return?)")
+    logger.error I18n.t("Invalid Reset Code entered", :default => "Invalid Reset Code entered")
+    flash[:notice] = I18n.t("Sorry - That is an invalid password reset code. Please check your code and try again. (Perhaps your email client inserted a carriage return?)", :default => "Sorry - That is an invalid password reset code. Please check your code and try again. (Perhaps your email client inserted a carriage return?)")
     redirect_to new_user_path
   end      
 
