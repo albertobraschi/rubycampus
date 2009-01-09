@@ -14,7 +14,7 @@
     = calendar_date_select_includes Setting.domain_gui_calender_theme
   %body{ :class => body_tag_classes.join(' ') }
     = render :partial => "layouts/announcement"
-    %div{:class => "container{{value}}" % (' showgrid' if SHOWGRID == true)}
+    %div{:class => "container %s" % (' showgrid' if SHOWGRID == true)}
       .span-11{:style => "text-align:left;"}
         = link_to image_tag("rubycampus/logo.png"), home_path
       .span-13.last
