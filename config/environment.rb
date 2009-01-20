@@ -48,7 +48,7 @@ Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate', :version => '2.3.6', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem 'graticule', :version => '0.2.8'
   config.gem 'ezcrypto', :version => '0.7'
-  config.gem 'prawn', :version => '0.3.0'
+  config.gem 'prawn', :version => '0.4.0'
   config.gem 'json', :version => '1.1.3'
   config.gem 'fatjam-acts_as_revisable', :version => '0.9.7', :lib => 'acts_as_revisable', :source => 'http://gems.github.com'
 
