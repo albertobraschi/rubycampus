@@ -42,9 +42,9 @@ RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  # RubyCampus is packaged with all required gems and you should be able
-  # to run the software with the gems provided.
+  # RubyCampus is binded to the following gems and versions
   config.gem 'haml', :version => '2.0.6', :lib => 'haml'
+  config.gem 'rspec-rails', :version => '1.1.12', :lib => 'spec/rails'
   config.gem 'mislav-will_paginate', :version => '2.3.6', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem 'graticule', :version => '0.2.8'
   config.gem 'ezcrypto', :version => '0.7'
