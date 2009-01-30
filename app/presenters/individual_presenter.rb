@@ -64,6 +64,4 @@ class IndividualPresenter < ActivePresenter::Base
            :email,
            :messenger,
            :phone
-           #:asset  # TODO Implement asset   
-                      
 end

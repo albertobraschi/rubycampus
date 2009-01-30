@@ -69,7 +69,6 @@ class Contact < ActiveRecord::Base
     has_many :emails,       :dependent => :destroy
     has_many :messengers,   :dependent => :destroy
     has_many :phones,       :dependent => :destroy
-    has_one  :asset,        :dependent => :destroy # Unimplemented  
     
     has_and_belongs_to_many :groups
   # end Associations
@@ -374,7 +373,6 @@ end
 #  is_foreign                        :boolean(1)
 #  is_deceased                       :boolean(1)
 #  last_modified_by_user_id          :integer(4)
-#  asset_id                          :integer(4)
 #  revisable_original_id             :integer(4)
 #  revisable_branched_from_id        :integer(4)
 #  revisable_number                  :integer(4)

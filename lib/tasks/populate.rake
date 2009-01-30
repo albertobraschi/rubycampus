@@ -129,7 +129,6 @@ namespace :db do
       contact.created_at               = 1.years.ago..Time.now
       contact.updated_at               = contact.created_at
       # contact.last_modified_by_user_id
-      # contact.asset_id
       contact.revisable_number = 1                 # Required to trick our revision control system into accepting record
       contact.revisable_is_current = 1             # Required to trick our revision control system into accepting record
       

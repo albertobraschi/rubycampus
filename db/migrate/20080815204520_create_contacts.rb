@@ -92,7 +92,6 @@ class CreateContacts < ActiveRecord::Migration
       t.boolean    :is_foreign
       t.boolean    :is_deceased
       t.integer    :last_modified_by_user_id
-      t.integer    :asset_id
       t.integer    :revisable_original_id
       t.integer    :revisable_branched_from_id
       t.integer    :revisable_number
