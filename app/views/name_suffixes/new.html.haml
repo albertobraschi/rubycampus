@@ -2,7 +2,7 @@
 = error_messages_for :name_suffix 
 .standard_box
   .hako
-    - form_for @name_suffix, :url => name_suffixes_path, :html => { :method => :post, :class => "hakozaki" } do |form|
+    - form_for @name_suffix, :url => name_suffixes_path, :html => { :method => :post, :class => "hakozaki", :autocomplete => :off } do |form|
       = render :partial => "common/actions/for_form_new"  
       %h1= yield(:title)
       %hr/

@@ -2,7 +2,7 @@
 = error_messages_for :mailing_mixin 
 .standard_box
   .hako
-    - form_for @mailing_mixin, :url => mailing_mixins_path, :html => { :method => :post, :class => "hakozaki" } do |form|
+    - form_for @mailing_mixin, :url => mailing_mixins_path, :html => { :method => :post, :class => "hakozaki", :autocomplete => :off } do |form|
       = render :partial => "common/actions/for_form_new"  
       %h1= yield(:title)
       %hr/

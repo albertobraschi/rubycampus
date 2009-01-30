@@ -2,7 +2,7 @@
 = error_messages_for :stage 
 .standard_box
   .hako
-    - form_for @stage, :url => stages_path, :html => { :method => :post, :class => "hakozaki" } do |form|
+    - form_for @stage, :url => stages_path, :html => { :method => :post, :class => "hakozaki", :autocomplete => :off } do |form|
       = render :partial => "common/actions/for_form_new"  
       %h1= yield(:title)
       %hr/

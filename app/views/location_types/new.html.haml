@@ -2,7 +2,7 @@
 = error_messages_for :location_type 
 .standard_box
   .hako
-    - form_for @location_type, :url => location_types_path, :html => { :method => :post, :class => "hakozaki" } do |form|
+    - form_for @location_type, :url => location_types_path, :html => { :method => :post, :class => "hakozaki", :autocomplete => :off } do |form|
       = render :partial => "common/actions/for_form_new"  
       %h1= yield(:title)
       %hr/
