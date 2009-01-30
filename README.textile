@@ -4,13 +4,13 @@ h1.  Student & Alumni Relationship Management Software
 
 h2. Overview
 
-"RubyCampus":https://rubycampus.org is a *relationship management system* for *admissions, strategic enrollment management* and *alumni development*. It has been designed for higher education to organize an institutions mission and its priorities; to assist it in student recruitment, increasing enrollment yields while refining communications and improving overall campus diversity and student retention rates. It can also be used in conjunction with one or more e-Learning platforms such as *Moodle* and *Sakai* with built-in synchronization features and tools. It is written in Ruby, "internationalized":https://rubycampus.org/wiki/rubycampus/Translations and is easy to install and use on *Linux, Windows, Mac OS X, SunOS* and *BSD*. Offering a free and fully transparent open source alternative to commercial software for student recruitment and alumni development.
+"RubyCampus":https://rubycampus.org is a student and alumni *relationship management system* for *admissions, enrollment management* and *alumni development*. It is designed to organize an educational institutions mission and its priorities; to assist it in student recruitment, increasing enrollment yields while refining communications and improving overall campus diversity and student retention. It can also be used in conjunction with one or more e-Learning platforms such as *Moodle* and *Sakai*. It is written in Ruby, "internationalized":https://rubycampus.org/wiki/rubycampus/Translations and is easy to install and use on *Linux, Windows, Mac OS X, SunOS* and *BSD*. Offering a free and fully transparent open source alternative to commercial software for student recruitment and alumni development.
 
 _A working demo of RubyCampus is accessible at "demo.rubycampus.org":https://demo.rubycampus.org ; you can view an "online presentation":https://rubycampus.org/wiki/rubycampus/Keynote and see "screenshots":https://rubycampus.org/wiki/rubycampus/Walk_Through of the project on its "official website":https://rubycampus.org ._
 
-bq. The purpose of this file is to enumerate the various versions of RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate your installation.
+bq. The purpose of this file is to enumerate RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate an installation.
 
-bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our official repository hosted at *git://rubycampus.org/rubycampus.git* or from a "trusted mirror":https://rubycampus.org/wiki/rubycampus/Trusted_Mirrors, we strongly recommend that you clone and use only source code from official sources. This will ensure your organization is receiving updates directly from the authors.
+bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our official repository hosted at *git://rubycampus.org/rubycampus.git* or from a "trusted mirror":https://rubycampus.org/wiki/rubycampus/Trusted_Mirrors, we strongly recommend that you clone and use only source from an official repository. This will ensure your organization is receiving updates directly from the authors.
 
 h2. Official Repository
 
@@ -20,7 +20,7 @@ h2. Official Repository
 
 h2. Minimal Requirements
 
-RubyCampus is developed with POSIX-oriented operating systems in mind such as Linux, Mac OS X, SunOS and BSD/OS. While it is possible to use Windows we recommend you use a POSIX-compliant operating system to help ensure continued compatibility in current and forthcoming iterations.   
+RubyCampus is developed with POSIX-oriented operating systems in mind such as Linux, Mac OS X, SunOS and BSD/OS. While it is possible to use Windows we recommend you use a POSIX-compliant operating system to help ensure compatibility with forthcoming iterations.
 
 h3. Recommended
 
@@ -33,16 +33,13 @@ h3. Required
 
 * Ruby 1.8.7
 * Gem 1.3.1
+* Rails 2.2.2
 * imagemagick & libmagick9-dev (You must compile this yourself)
 * rmagick gem
 
-h3. Gem Version Bindings
-
-* Rails 2.2.2
-
 h2. Quick Install Reference
 
-These instructions are meant for persons familiar with the *Ruby* programming language, *Rails* framework and *Git* distributed revision control. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide and our "forums":https://rubycampus.org/projects/rubycampus/boards. Before installing RubyCampus you must have a properly configured environment and already pre-compiled *imagemagick & libmagick9-dev* and installed the *rmagick* Ruby Gem. These libraries are used by RubyCampus to generate graphs, charts and other dynamic imagery.
+These instructions are intended for persons familiar with the *Ruby* programming language, *Rails* framework and *Git* distributed revision control. All others please refer to our "wiki":https://rubycampus.org/wiki/rubycampus for a more comprehensive installation guide. Before installing RubyCampus you must have a properly configured environment; successfully compiled *imagemagick & libmagick9-dev* and installed the *rmagick* Ruby Gem. These libraries are used by RubyCampus to generate graphs, charts and other dynamic imagery.
 
 * @ git clone git://rubycampus.org/rubycampus.git  @
 
@@ -60,7 +57,7 @@ You can also populate your RubyCampus installation with realistic simulated data
 * @ rake db:populate @
 ** *db:populate* You must install the required gems by using  -> @ sudo gem install populator faker echoe @ in POSIX-compliant environments.
 
-Our "issue tracker":https://rubycampus.org/projects/rubycampus/issues , "forums":https://rubycampus.org/projects/rubycampus/boards , "wiki":https://rubycampus.org/wiki/rubycampus and community resources are freely available at "rubycampus.org":https:/rubycampus.org/
+Our "issue tracker":https://rubycampus.org/projects/rubycampus/issues , "wiki":https://rubycampus.org/wiki/rubycampus and community resources are freely available at "rubycampus.org":https:/rubycampus.org/
 
 *Copyright © 2008-2009 Kevin R. Aleman. Fukuoka, Japan. All Rights Reserved.*
 
