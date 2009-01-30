@@ -4,22 +4,15 @@
     = link_to I18n.t("New Individual", :default => "New Individual"), new_individual_path, :class => "positive"
 
     = link_to I18n.t("Organizations", :default => "Organizations"), organizations_path
-    = link_to I18n.t("New Organization", :default => "New Organization"), new_organization_path, :class => "positive" 
+    = link_to I18n.t("New Organization", :default => "New Organization"), new_organization_path, :class => "positive"
 
     = link_to I18n.t("Households", :default => "Households"), households_path
     = link_to I18n.t("New Household", :default => "New Household"), new_household_path, :class => "positive"
-  %hr/                                              
+  %hr/
   .actions
     = link_to I18n.t("Activities", :default => "Activities"), activities_path
     = link_to I18n.t("New Activity", :default => "New Activity"), new_activity_path, :class => "positive"
   %hr/
   .actions
     = link_to I18n.t("Manage Groups", :default => "Manage Groups"), groups_path
-  %hr/   
-  - if !Setting.demo?
-    - nil      
-  - else
-    = content_tag(:div,"Some actions are intentionally removed from this demo either because they are considered unstable or as a security precaution.", :class => "notice")
-    = content_tag(:div,"Help us shape the future and let us know what features you'd like to see included.", :class => "notice")
-    .actions
-      = link_to "Submit Suggestion", "https://rubycampus.org/wiki/rubycampus/Suggestions", :class => "positive"    
+  %hr/
