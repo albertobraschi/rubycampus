@@ -12,7 +12,7 @@ module ActivePresenter
     # i.e.
     #
     #   class SignupPresenter < ActivePresenter::Base
-    #     presents User, Account
+    #     presents :user, :account
     #   end
     #
     #
@@ -59,7 +59,7 @@ module ActivePresenter
       
       self.attributes = args
     end
-    
+
     # Set the attributes of the presentable instances using the type_attribute form (i.e. user_login => 'james')
     #
     def attributes=(attrs)
@@ -139,6 +139,15 @@ module ActivePresenter
       save
     end
     
+    # We define #id and #new_record? to play nice with form_for(@presenter) in Rails
+    def id # :nodoc:
+      nil
+    end
+
+    def new_record?
+      true
+    end
+    
     protected
       def presented_instances
         presented.keys.map { |key| send(key) }
@@ -150,7 +159,7 @@ module ActivePresenter
       end
       
       def presentable_for(method_name)
-        presented.keys.detect do |type|
+        presented.keys.sort_by { |k| k.to_s.size }.reverse.detect do |type|
           method_name.to_s.starts_with?(attribute_prefix(type))
         end
       end

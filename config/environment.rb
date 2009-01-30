@@ -51,6 +51,7 @@ Rails::Initializer.run do |config|
   config.gem 'prawn', :version => '0.4.0'
   config.gem 'json', :version => '1.1.3'
   config.gem 'fatjam-acts_as_revisable', :version => '0.9.7', :lib => 'acts_as_revisable', :source => 'http://gems.github.com'
+  config.gem 'active_presenter', :version => '0.0.6'
 
   # Central Authentication Service (CAS)
   config.gem 'rubycas-client',           :version => '2.0.1'
