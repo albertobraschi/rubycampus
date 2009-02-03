@@ -36,13 +36,13 @@
 #++
 
 # Code is not reloaded between requests
-config.cache_classes = true
+config.cache_classes = false # References #117
 
 # Full error reports are disabled and caching is turned on
 config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
-         
+
 # RubyCampus production payment gateway mode
-config.after_initialize do 
-ActiveMerchant::Billing::Base.mode = :production 
+config.after_initialize do
+ActiveMerchant::Billing::Base.mode = :production
 end
