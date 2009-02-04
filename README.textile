@@ -4,13 +4,13 @@ h1.  Student & Alumni Relationship Management Software
 
 h2. Overview
 
-"RubyCampus":https://rubycampus.org is a student and alumni *relationship management system* for *admissions, enrollment management* and *alumni development*. It is designed to organize an educational institutions mission and its priorities; to assist it in student recruitment, increasing enrollment yields while refining communications and improving overall campus diversity and student retention. It can also be used in conjunction with one or more e-Learning platforms such as *Moodle* and *Sakai*. It is written in Ruby, "internationalized":https://rubycampus.org/wiki/rubycampus/Translations and is easy to install and use on *Linux, Windows, Mac OS X, SunOS* and *BSD*. Offering a free and fully transparent open source alternative to commercial software for student recruitment and alumni development.
+"RubyCampus":https://rubycampus.org is a student and alumni *relationship management system* for *admissions, enrollment management* and *alumni development*. It is designed to organize an educational institutions mission and its priorities; to assist it in recruiting students, increasing enrollments, retention and for improving campus diversity and communications. It can also be used in conjunction with one or more e-Learning platforms such as *Moodle* and *Sakai*. It is written in Ruby, internationalized and is easy to install and use on *Linux, Windows, Mac OS X, SunOS* and *BSD*. Offering a free and fully transparent open source alternative to commercial software for student recruitment and alumni development.
 
 _A working demo of RubyCampus is accessible at "demo.rubycampus.org":https://demo.rubycampus.org ; you can view an "online presentation":https://rubycampus.org/wiki/rubycampus/Keynote and see "screenshots":https://rubycampus.org/wiki/rubycampus/Walk_Through of the project on its "official website":https://rubycampus.org ._
 
-bq. The purpose of this file is to enumerate RubyCampus along with the appropriate versions of related dependencies needed to successfully deploy and operate an installation.
+bq. The purpose of this file is to enumerate the RubyCampus software together with the required gems and bindings necessary to successfully install, deploy and operate an installation.
 
-bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our official repository hosted at *git://rubycampus.org/rubycampus.git* or from a "trusted mirror":https://rubycampus.org/wiki/rubycampus/Trusted_Mirrors, we strongly recommend that you clone and use only source from an official repository. This will ensure your organization is receiving updates directly from the authors.
+bq. If you downloaded an archive of RubyCampus or obtained it from any *other* source than our official repository hosted at *git://rubycampus.org/rubycampus.git* or from a "trusted mirror":https://rubycampus.org/wiki/rubycampus/Trusted_Mirrors such as at "GitHub":http://github.com/rubycampus/rubycampus/tree/master , we strongly recommend that you clone and use only source from an official repository. This will ensure your organization is receiving updates directly from the authors.
 
 h2. Official Repository
 
@@ -45,17 +45,9 @@ These instructions are intended for persons familiar with the *Ruby* programming
 
 _Prior to running @rake@ tasks you must first complete the required configuration templates at @config/*.yml.template@ and duplicate them as @config/*.yml@ before proceeding_
 
+* @ export RAILS_ENV=production @
 * @ rake db:create @
 * @ rake db:migrate @
-
-h2. Populating Contacts (optional)
-
-h3. Generating Realistic Simulated Constituent Data
-
-You can also populate your RubyCampus installation with realistic simulated data for use in demoing, testing and development purposes by running:
-
-* @ rake db:populate @
-** *db:populate* You must install the required gems by using  -> @ sudo gem install populator faker echoe @ in POSIX-compliant environments.
 
 Our "issue tracker":https://rubycampus.org/projects/rubycampus/issues , "wiki":https://rubycampus.org/wiki/rubycampus and community resources are freely available at "rubycampus.org":https:/rubycampus.org/
 
