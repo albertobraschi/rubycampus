@@ -100,34 +100,6 @@ TOKENS = %w{{contact.academic_level}
             {contact.time_zone}
             {contact.updated_at}}
 
-# Extends String class
-class String
-  alias :_original_format :% # :nodoc:
-
-  def %(args)
-    if args.kind_of?(Hash)
-      ret = dup
-      args.each {|key, value|
-        ret.gsub!(/\%\{#{key}\}/, value.to_s)
-      }
-      ret
-    else
-      ret = gsub(/%\{/, '%%{')
-      begin
-  ret._original_format(args)
-      rescue ArgumentError => e
-        if $DEBUG
-       $stderr.puts "  The string:#{ret}"
-     $stderr.puts "  args:#{args.inspect}"
-           puts e.backtrace
-  else
-    raise ArgumentError, e.message
-  end
-      end
-    end
-  end
-end
-
 # Load RubyCampus SDK hook if present
 begin
   require "rubycampus/sdk"

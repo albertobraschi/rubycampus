@@ -36,3 +36,31 @@
 #++
 
 ActiveRecord::Base.extend Searchable
+
+# Extends String Class
+class String
+  alias :_original_format :% # :nodoc:
+
+  def %(args)
+    if args.kind_of?(Hash)
+      ret = dup
+      args.each {|key, value|
+        ret.gsub!(/\%\{#{key}\}/, value.to_s)
+      }
+      ret
+    else
+      ret = gsub(/%\{/, '%%{')
+      begin
+  ret._original_format(args)
+      rescue ArgumentError => e
+        if $DEBUG
+       $stderr.puts "  The string:#{ret}"
+     $stderr.puts "  args:#{args.inspect}"
+           puts e.backtrace
+  else
+    raise ArgumentError, e.message
+  end
+      end
+    end
+  end
+end
