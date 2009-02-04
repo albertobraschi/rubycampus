@@ -36,7 +36,7 @@
 #++
 
 # Code is not reloaded between requests
-config.cache_classes = false # References #117
+config.cache_classes = true # References #117
 
 # Full error reports are disabled and caching is turned on
 config.action_controller.consider_all_requests_local = false
