@@ -114,15 +114,6 @@ sakai_version:
   default: 2.5.3
 sakai_database_adapter:
   default: MySQL 5.0
-# Facebook API
-facebook_enabled:
-  default: 0
-facebook_api_key:
-  default:
-facebook_canvas_page_name:
-  default:
-facebook_callback_url:
-  default:
 # end Data Services
 domain_gui_calender_theme:
   default: default

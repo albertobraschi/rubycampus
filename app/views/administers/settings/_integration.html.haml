@@ -1,13 +1,4 @@
 - form_tag({:action => 'edit'}, :class => "hakozaki", :autocomplete => :off ) do
-  %h2= I18n.t("{{value}} Settings", :default => "{{value}} Settings", :value => I18n.t("Facebook", :default => "Facebook"))
-  = context_help(I18n.t("RubyCampus has the ability to utilize the Facebook API to gather social information.", :default => "RubyCampus has the ability to utilize the Facebook API to gather social information."))
-  = label_for_setting :setting => :facebook_enabled, :input_type => :radiocheck, :width => "w25"
-  = label_for_setting :setting => :facebook_api_key, :width => "w75"
-  .clear  
-  = label_for_setting :setting => :facebook_canvas_page_name, :width => "w50"
-  = label_for_setting :setting => :facebook_callback_url, :width => "w50"
-  .clear
-  %hr/   
   %h2= I18n.t("{{value}} Settings", :default => "{{value}} Settings", :value => I18n.t("Moodle e-Learning Platform", :default => "Moodle e-Learning Platform"))
   = context_help(I18n.t("RubyCampus can import Moodle users as contacts and keep their details current.", :default => "RubyCampus can import Moodle users as contacts and keep their details current."))
   = label_for_setting :setting => :moodle_enabled, :input_type => :radiocheck, :width => "w20"
@@ -23,7 +14,7 @@
   = label_for_setting :setting => :moodle_database_user, :width => "w35"
   = label_for_setting :setting => :moodle_database_password, :input_type => :inputselect_password, :width => "w35"
   = label_for_setting :setting => :moodle_database_socket, :width => "w30"
-  .clear 
+  .clear
   %hr/
   %h2= I18n.t("{{value}} Settings", :default => "{{value}} Settings", :value => I18n.t("Sakai CLE", :default => "Sakai CLE"))
   = context_help(I18n.t("RubyCampus can import Sakai users as contacts and keep their details current.", :default => "RubyCampus can import Sakai users as contacts and keep their details current."))
@@ -41,7 +32,7 @@
       %span.title
         = I18n.t("Database", :default => "Database")
         %br/
-      = select_tag 'settings[sakai_database_adapter]', options_for_select(['MySQL 5.0'], Setting.sakai_database_adapter) 
+      = select_tag 'settings[sakai_database_adapter]', options_for_select(['MySQL 5.0'], Setting.sakai_database_adapter)
   .clear
   = label_for_setting :setting => :sakai_database_user, :width => "w35"
   = label_for_setting :setting => :sakai_database_password, :input_type => :inputselect_password, :width => "w35"
